@@ -58,17 +58,39 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 		
 		
 		
-		/*	-------------------- TESTE IN - OUT - ADD --------------------	*/
+		/*	-------------------- TESTE IN - OUT - ADD --------------------	*
 		
 			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
-			memoria_instrucoes[1] = 32'b10000000000000000000000000000000; // IN -> REG 1
-			memoria_instrucoes[2] = 32'b10000100000000000000000000000000; // OUT -> D1
-			memoria_instrucoes[3] = 32'b10000000000000010000000000000000; // IN -> REG 2
-			memoria_instrucoes[4] = 32'b10000100000000010000000000000001; // OUT -> D2
-			memoria_instrucoes[5] = 32'b00010100000000010001100000000000; // ADD -> REG 3 = REG 1 + REG 2
-			memoria_instrucoes[6] = 32'b10000100000000110000000000000010; // OUT -> D3
+			memoria_instrucoes[1] = 32'b01010000000000010000000000001111; // REG 1 <- LI : 15
+			memoria_instrucoes[2] = 32'b10000100000000010000000000000000; // OUT -> D1
+
+			memoria_instrucoes[3] = 32'b01010000000000110000000000000001; // REG 3 <- LI : 1
+			memoria_instrucoes[4] = 32'b10000100000000110000000000000001; // OUT -> D2
 			
-			memoria_instrucoes[7] = 32'b11111000000000000000000000000000; // HALT
+			memoria_instrucoes[5] = 32'b01011000011000010000000000000001; // SW -> + POS 1
+			memoria_instrucoes[6] = 32'b01001100011001110000000000000001; // LW <- + POS 1
+			memoria_instrucoes[7] = 32'b10000100000001110000000000000010; // OUT -> D3
+			
+			memoria_instrucoes[8] = 32'b10000100000000000000000000000010; // OUT -> D3
+			memoria_instrucoes[9] = 32'b01010100011011110000000000000011; // LA <- + POS 1
+			memoria_instrucoes[10] = 32'b10000100000011110000000000000010; // OUT -> D3
+			
+			memoria_instrucoes[11] = 32'b11111100000000000000000000000000; // HALT */
+			
+			
+			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
+			memoria_instrucoes[1] = 32'b10000000000000010000000000000000; // REG 1 <- IN
+			memoria_instrucoes[2] = 32'b10000100000000010000000000000000; // OUT -> D1
+			
+			memoria_instrucoes[3] = 32'b10000000000000110000000000000000; // REG 3 <- IN
+			memoria_instrucoes[4] = 32'b10000100000000110000000000000001; // OUT -> D2
+			
+			memoria_instrucoes[5] = 32'b00000100001000110011100000000000; // ADD REG = REG 1 + REG 3
+			memoria_instrucoes[6] = 32'b10000100000001110000000000000010; // OUT -> D3
+			
+			memoria_instrucoes[7] = 32'b11111100000000000000000000000000; // HALT */
+
+			
 			
 		
 		/*

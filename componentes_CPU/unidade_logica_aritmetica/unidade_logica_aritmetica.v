@@ -31,7 +31,7 @@ module unidade_logica_aritmetica(aluOp, A, B, shift, resultado, maior, igual, me
 			
 			// -----Atribuicao----- //
 			4'b1010: resultado = A; // RD = RS (MOV)
-			4'b1011: resultado = B; // LOAD, STORE, IN, OUT
+			4'b1011: resultado = B; // LI, IN, OUT
 			
 			default: resultado = 32'b0;
 		endcase

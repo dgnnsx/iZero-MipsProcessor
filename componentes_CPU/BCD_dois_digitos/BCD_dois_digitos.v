@@ -17,8 +17,8 @@ module BCD_dois_digitos(numero, sinal, dezena, unidade);
 		if(numero[7] == 0) begin
 			sinal = 1'b0;
 			for(i = 7; i >=0; i = i-1) begin
-				if(dezena >= 5) dezena = dezena + 3;
-				if(unidade >= 5) unidade = unidade + 3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
 				dezena = dezena << 1;
 				dezena[0] = unidade[3];
 				unidade = unidade << 1;
@@ -29,8 +29,8 @@ module BCD_dois_digitos(numero, sinal, dezena, unidade);
 			aux = ~(numero) + 8'b00000001;
 			sinal = 1'b1;
 			for(i = 7; i >=0; i = i-1) begin
-				if(dezena >= 5) dezena = dezena + 3;
-				if(unidade >= 5) unidade = unidade + 3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
 				dezena = dezena << 1;
 				dezena[0] = unidade[3];
 				unidade = unidade << 1;

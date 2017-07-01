@@ -30,7 +30,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 	output reg flag_OUT; // Sinal para habilitar a saída de dados
 	
 	reg estado; // Estado atual
-	localparam [1:0] EXECUTANDO = 1'b0, INTERROMPIDO = 1'b1; // Estados
+	localparam EXECUTANDO = 1'b0, INTERROMPIDO = 1'b1; // Estados
 		
 	// ----------DECLARACAO DAS INSTRUCOES---------- //
 	// OPCODE das instrucoes ARITMETICAS
@@ -331,7 +331,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b10; // MEMORIA DE DADOS ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1011; // R = IMEDIATO
+					ula_controle = 4'b0000; // R = RS + IMEDIATO
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -354,6 +354,18 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 				end
 			end
 			LA: begin
+				if(estado == EXECUTANDO) begin
+					muxBR = 1'b0;
+					muxULA = 1'b1;
+					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
+					somador_PC = 2'b01; // PC + 1
+					ula_controle = 4'b0000; // R = RS + IMEDIATO
+					pc_escrita = 1'b1;
+					pc_reset = 1'b0;
+					reg_escrita = 1'b1;
+					md_escrita = 1'b0;
+					flag_OUT = 1'b0;
+				end
 			end
 			SW: begin // ENDERECO DO  STORE VEM POR IMEDIATO
 				if(estado == EXECUTANDO) begin
@@ -361,7 +373,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b0000; // R = RS + IMEDIATO
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;

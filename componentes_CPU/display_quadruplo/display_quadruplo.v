@@ -8,6 +8,7 @@ module display_quadruplo(sinal, milhar, centena, dezena, unidade, saida_sinal, s
 	output reg [6:0] saida_milhar, saida_centena, saida_dezena, saida_unidade;
 	
 	always @ (*) begin
+		saida_sinal = sinal;
 		case (milhar)
 			4'B0000: saida_milhar = 7'B0000001; //0
 			4'B0001: saida_milhar = 7'B1001111; //1

@@ -21,10 +21,10 @@ module BCD_quatro_digitos(numero, sinal, milhar, centena, dezena, unidade);
 		if(numero[31] == 0) begin
 			sinal = 1'b0;			
 			for(i = 15; i >= 0; i = i-1) begin
-				if(milhar >= 5) milhar = milhar + 3;
-				if(centena >= 5) centena = centena + 3;
-				if(dezena >= 5) dezena = dezena + 3;
-				if(unidade >= 5) unidade = unidade + 3;
+				if(milhar >= 5) milhar = milhar + 4'd3;
+				if(centena >= 5) centena = centena + 4'd3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
 				milhar = milhar << 1;
 				milhar[0] = centena[3];				
 				centena = centena << 1;
@@ -39,10 +39,10 @@ module BCD_quatro_digitos(numero, sinal, milhar, centena, dezena, unidade);
 			aux = ~(numero) + 16'b0000000000000001;
 			sinal = 1'b1;
 			for(i = 15; i >= 0; i = i-1) begin
-				if(milhar >= 5) milhar = milhar + 3;
-				if(centena >= 5) centena = centena + 3;
-				if(dezena >= 5) dezena = dezena + 3;
-				if(unidade >= 5) unidade = unidade + 3;
+				if(milhar >= 5) milhar = milhar + 4'd3;
+				if(centena >= 5) centena = centena + 4'd3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
 				milhar = milhar << 1;
 				milhar[0] = centena[3];		
 				centena = centena << 1;

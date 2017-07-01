@@ -8,6 +8,7 @@ module display_duplo(sinal, dezena, unidade, saida_sinal, saida_dezena, saida_un
 	output reg [6:0] saida_dezena, saida_unidade;
 	
 	always @ (*) begin
+		saida_sinal = sinal;
 		case (dezena)
 			4'B0000: saida_dezena = 7'B0000001; //0
 			4'B0001: saida_dezena = 7'B1001111; //1

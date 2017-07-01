@@ -13,7 +13,7 @@ module somador_pc(pc, desvio, salto, addOp, pcAtual);
 	always @ (*) begin
 		case(addOp)
 			2'b00: pcAtual = pc; // Pausa o PC
-			2'b01: pcAtual = pc + 1; // Incremento normal
+			2'b01: pcAtual = pc + 26'd1; // Incremento normal
 			2'b10: pcAtual = desvio; // Desvio (Branch)
 			2'b11: pcAtual = salto; // Salto (Jump)
 		endcase
