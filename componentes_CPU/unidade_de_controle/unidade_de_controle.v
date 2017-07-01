@@ -14,8 +14,8 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 	// ----------SINAIS DE CONTROLE---------- //	
 		
 	// Multiplexadores	
-	output reg muxBR; // Multiplexador do registrador destino no banco de registradores
 	output reg muxULA; // Multiplexador da entrada de dados da ULA
+	output reg [1:0] muxBR; // Multiplexador do registrador destino no banco de registradores
 	output reg [1:0] muxEscritaBR; // Multiplexador para selecionar quem escreve no banco de registradores
 	output reg [1:0] somador_PC; // Somador do PC
 	
@@ -66,7 +66,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes ARITMETICAS */
 			ADD: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -80,7 +80,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			ADDI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -94,7 +94,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			SUB: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -108,7 +108,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			SUBI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -122,7 +122,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			MUL: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -136,7 +136,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			MULI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -150,7 +150,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			DIV: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -164,7 +164,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			DIVI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -181,7 +181,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes LOGICAS */
 			AND: begin
 				if(estado == EXECUTANDO) begin					
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -195,7 +195,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			ANDI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -209,7 +209,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			OR: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -223,7 +223,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			ORI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -237,7 +237,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			XOR: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -251,7 +251,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			XORI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -265,7 +265,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			NOT: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -282,7 +282,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes de DESLOCAMENTO */
 			SL: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -296,7 +296,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			SR: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b1;
+					muxBR = 2'b01;
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -313,7 +313,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes de MOVIMENTACAO DE DADOS */
 			MOV: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -327,7 +327,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			LW: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b10; // MEMORIA DE DADOS ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -341,7 +341,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			LI: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -355,7 +355,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			LA: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'b0;
+					muxBR = 2'b00;
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
@@ -369,7 +369,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			SW: begin // ENDERECO DO  STORE VEM POR IMEDIATO
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1
@@ -390,7 +390,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -407,7 +407,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -424,7 +424,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -441,7 +441,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -458,7 +458,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -475,7 +475,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 						somador_PC = 2'b10; // DESVIO
 					else
 						somador_PC = 2'b01; // PC + 1
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					ula_controle = 4'b1011; // RD = IMEDIATO
@@ -491,7 +491,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes de DESVIO INCONDICIONAL */
 			J: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b11; // SALTO
@@ -504,8 +504,32 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 				end
 			end
 			JAL: begin
+				if(estado == EXECUTANDO) begin
+					muxBR = 2'b10;
+					muxULA = 1'bx; // DONT CARE
+					muxEscritaBR = 2'b00; // PC + 1 ESCREVE NO BR
+					somador_PC = 2'b11; // SALTO (JAL)
+					ula_controle = 4'bxxxx; // DONT CARE
+					pc_escrita = 1'b1;
+					pc_reset = 1'b0;
+					reg_escrita = 1'b1;
+					md_escrita = 1'b0;
+					flag_OUT = 1'b0;
+				end
 			end
 			JR: begin
+				if(estado == EXECUTANDO) begin
+					muxBR = 2'b00;
+					muxULA = 1'b0;
+					muxEscritaBR = 2'bxx; // DONT CARE
+					somador_PC = 2'b10; // SALTO COM BASE NO CONTEUDO DE UM REGISTRADOR (DESVIO)
+					ula_controle = 4'b1011; // RD = RT
+					pc_escrita = 1'b1;
+					pc_reset = 1'b0;
+					reg_escrita = 1'b0;
+					md_escrita = 1'b0;
+					flag_OUT = 1'b0;
+				end
 			end
 			/* Fim das instrucoes de DESVIO INCONDICIONAL */
 			
@@ -522,7 +546,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 				end else begin // ESTADO == INTERROMPIDO
 					if(flag_IN) begin // Flag tem que estar ativa antes da descida do clock
 						estado <= EXECUTANDO;
-						muxBR = 1'b0;
+						muxBR = 2'b00;
 						muxULA = 1'bx; // DONT CARE
 						muxEscritaBR = 2'b11;
 						somador_PC = 2'b01; // PC + 1
@@ -538,7 +562,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			OUT: begin
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1
@@ -555,7 +579,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes de CONTROLE do SISTEMA */
 			NOP: begin // APENAS INCREMENTA O PC
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1
@@ -602,7 +626,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			
 			default: begin // NOP (APENAS INCREMENTA O PC)
 				if(estado == EXECUTANDO) begin
-					muxBR = 1'bx; // DONT CARE
+					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1

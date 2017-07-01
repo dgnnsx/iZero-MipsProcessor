@@ -7,12 +7,14 @@ module multiplexador_br(RT, RD, ctrl_mux_br, regEscrito);
 	output reg [4:0] regEscrito; // Registrador que sera escrito
 	
 	// ----------Controle---------- //
-	input ctrl_mux_br; // Sinal de controle vindo da UC
+	input [1:0] ctrl_mux_br; // Sinal de controle vindo da UC
 	
 	always @ (*) begin	
 		case(ctrl_mux_br)
-			1'b0: regEscrito = RT; // Instrucao tipo I
-			1'b1: regEscrito = RD; // Instrucao tipo R
+			2'b00: regEscrito = RT; // Instrucao tipo I
+			2'b01: regEscrito = RD; // Instrucao tipo R
+			2'b10: regEscrito = 5'b11111; // $ra (JAL)
+			default: regEscrito = 5'b00000; // $rz
 		endcase
 	end
 endmodule

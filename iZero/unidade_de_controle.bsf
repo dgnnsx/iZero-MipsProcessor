@@ -83,9 +83,9 @@ agreement for further details.
 	(port
 		(pt 232 48)
 		(output)
-		(text "muxBR" (rect 0 0 31 12)(font "Arial" ))
-		(text "muxBR" (rect 180 43 211 55)(font "Arial" ))
-		(line (pt 232 48)(pt 216 48)(line_width 1))
+		(text "muxBR[1..0]" (rect 0 0 50 12)(font "Arial" ))
+		(text "muxBR[1..0]" (rect 161 43 211 55)(font "Arial" ))
+		(line (pt 232 48)(pt 216 48)(line_width 3))
 	)
 	(port
 		(pt 232 64)

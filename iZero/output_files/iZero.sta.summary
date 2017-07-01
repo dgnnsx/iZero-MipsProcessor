@@ -3,19 +3,19 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Slow 1200mV 85C Model Setup 'temporizador:inst37|contador[0]'
-Slack : -11.344
-TNS   : -2726.955
+Slack : -12.378
+TNS   : -3499.847
 
 Type  : Slow 1200mV 85C Model Setup 'clock'
-Slack : -1.956
-TNS   : -31.924
-
-Type  : Slow 1200mV 85C Model Hold 'clock'
-Slack : 0.029
-TNS   : 0.000
+Slack : -1.979
+TNS   : -32.726
 
 Type  : Slow 1200mV 85C Model Hold 'temporizador:inst37|contador[0]'
-Slack : 0.404
+Slack : 0.403
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'clock'
+Slack : 0.422
 TNS   : 0.000
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'clock'
@@ -24,22 +24,22 @@ TNS   : -36.410
 
 Type  : Slow 1200mV 85C Model Minimum Pulse Width 'temporizador:inst37|contador[0]'
 Slack : -1.285
-TNS   : -390.640
+TNS   : -465.170
 
 Type  : Slow 1200mV 0C Model Setup 'temporizador:inst37|contador[0]'
-Slack : -10.335
-TNS   : -2481.631
+Slack : -11.248
+TNS   : -3173.833
 
 Type  : Slow 1200mV 0C Model Setup 'clock'
-Slack : -1.622
-TNS   : -25.774
+Slack : -1.641
+TNS   : -26.505
 
 Type  : Slow 1200mV 0C Model Hold 'clock'
-Slack : -0.001
-TNS   : -0.001
+Slack : 0.343
+TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Hold 'temporizador:inst37|contador[0]'
-Slack : 0.355
+Slack : 0.354
 TNS   : 0.000
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'clock'
@@ -48,19 +48,19 @@ TNS   : -36.410
 
 Type  : Slow 1200mV 0C Model Minimum Pulse Width 'temporizador:inst37|contador[0]'
 Slack : -1.285
-TNS   : -390.640
+TNS   : -465.170
 
 Type  : Fast 1200mV 0C Model Setup 'temporizador:inst37|contador[0]'
-Slack : -5.197
-TNS   : -1230.242
+Slack : -5.527
+TNS   : -1549.240
 
 Type  : Fast 1200mV 0C Model Setup 'clock'
-Slack : -0.667
-TNS   : -8.242
+Slack : -0.719
+TNS   : -9.387
 
 Type  : Fast 1200mV 0C Model Hold 'clock'
-Slack : -0.068
-TNS   : -0.068
+Slack : 0.137
+TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Hold 'temporizador:inst37|contador[0]'
 Slack : 0.178
@@ -68,10 +68,10 @@ TNS   : 0.000
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -29.689
+TNS   : -29.923
 
 Type  : Fast 1200mV 0C Model Minimum Pulse Width 'temporizador:inst37|contador[0]'
 Slack : -1.000
-TNS   : -304.000
+TNS   : -362.000
 
 ------------------------------------------------------------

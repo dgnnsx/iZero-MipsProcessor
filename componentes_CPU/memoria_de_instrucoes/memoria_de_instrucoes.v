@@ -6,9 +6,14 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 	// ----------Portas de Saida---------- //
 	output [31:0] instrucao; // Proxima instrucao a ser executada
 	
-	reg [31:0] memoria_instrucoes[25:0]; // Memoria de instrucoes
+	integer i, clockInicial = 0;
 	
-	integer clockInicial = 0;
+	parameter MEM_SIZE = 30; // Tamanho da memoria
+	reg [31:0] memoria_instrucoes[MEM_SIZE-1:0]; // Memoria de instrucoes
+	
+	initial begin
+		for (i=0; i<MEM_SIZE; i=i+1) memoria_instrucoes[i] <= 32'd0;
+	end
 	
 	// Bloco para escrever na memoria apenas no inicio
 	always @ (posedge clock) begin
@@ -56,65 +61,49 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 		
 		*/
 		
+			/*memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
+			memoria_instrucoes[1] = 32'b010100_xxxxx_00001_0000000000001111; // REG 1 <- LI : 15
+			memoria_instrucoes[2] = 32'b011111_xxxxx_00001_xxxxxxxxxxxxxxxx; // JR
+			memoria_instrucoes[15] = 32'b100001_xxxxx000010000000000000010; // OUT -> D3
+			memoria_instrucoes[16] = 32'b111111_xxxxxxxxxxxxxxxxxxxxxxxxxx; // HALT */
+			
+			
+			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
+			memoria_instrucoes[1] = 32'b011110_00000000000000000000001111; // JAL
+			memoria_instrucoes[2] = 32'b010100_xxxxx_00001_0000000000001111; // REG 1 <- LI : 15
+			memoria_instrucoes[3] = 32'b100001_xxxxx000010000000000000001; // OUT -> D2
+			memoria_instrucoes[4] = 32'b111111_xxxxxxxxxxxxxxxxxxxxxxxxxx; // HALT
+			
+			memoria_instrucoes[15] = 32'b100001_xxxxx111110000000000000010; // OUT -> D3
+			memoria_instrucoes[16] = 32'b011111_xxxxx_11111_xxxxxxxxxxxxxxxx; // JR */
+
 		
 		
 		/*	-------------------- TESTE IN - OUT - ADD --------------------	*
-		
 			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
 			memoria_instrucoes[1] = 32'b01010000000000010000000000001111; // REG 1 <- LI : 15
 			memoria_instrucoes[2] = 32'b10000100000000010000000000000000; // OUT -> D1
-
 			memoria_instrucoes[3] = 32'b01010000000000110000000000000001; // REG 3 <- LI : 1
-			memoria_instrucoes[4] = 32'b10000100000000110000000000000001; // OUT -> D2
-			
+			memoria_instrucoes[4] = 32'b10000100000000110000000000000001; // OUT -> D2			
 			memoria_instrucoes[5] = 32'b01011000011000010000000000000001; // SW -> + POS 1
 			memoria_instrucoes[6] = 32'b01001100011001110000000000000001; // LW <- + POS 1
-			memoria_instrucoes[7] = 32'b10000100000001110000000000000010; // OUT -> D3
-			
+			memoria_instrucoes[7] = 32'b10000100000001110000000000000010; // OUT -> D3			
 			memoria_instrucoes[8] = 32'b10000100000000000000000000000010; // OUT -> D3
-			memoria_instrucoes[9] = 32'b01010100011011110000000000000011; // LA <- + POS 1
-			memoria_instrucoes[10] = 32'b10000100000011110000000000000010; // OUT -> D3
+			memoria_instrucoes[9] = 32'b01010100011011111111111111111101; // LA <- + POS 1
+			memoria_instrucoes[10] = 32'b10000100000011110000000000000010; // OUT -> D3			
+			memoria_instrucoes[11] = 32'b11111100000000000000000000000000; // HALT*/
 			
-			memoria_instrucoes[11] = 32'b11111100000000000000000000000000; // HALT */
 			
-			
+			/* ---------------------------- TESTE ADD / OUT -------------------- *
 			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
 			memoria_instrucoes[1] = 32'b10000000000000010000000000000000; // REG 1 <- IN
 			memoria_instrucoes[2] = 32'b10000100000000010000000000000000; // OUT -> D1
-			
 			memoria_instrucoes[3] = 32'b10000000000000110000000000000000; // REG 3 <- IN
 			memoria_instrucoes[4] = 32'b10000100000000110000000000000001; // OUT -> D2
-			
 			memoria_instrucoes[5] = 32'b00000100001000110011100000000000; // ADD REG = REG 1 + REG 3
 			memoria_instrucoes[6] = 32'b10000100000001110000000000000010; // OUT -> D3
+			memoria_instrucoes[7] = 32'b11111100000000000000000000000000; // HALT*/
 			
-			memoria_instrucoes[7] = 32'b11111100000000000000000000000000; // HALT */
-
-			
-			
-		
-		/*
-			-------------------- TESTE DOS BRANCHES --------------------			
-			*****BRANCH PRECISA DE UMA INSTRUÇAO ARITMETICA ANTES DE SUA EXECUÇAO*****
-			
-			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
-			memoria_instrucoes[1] = 32'b10001100000000000000000000000000; // IN -> REG 1
-			memoria_instrucoes[2] = 32'b10010000000000000000000000000000; // OUT -> D1
-			memoria_instrucoes[3] = 32'b10001100000000010000000000000000; // IN -> REG 2
-			memoria_instrucoes[4] = 32'b10010000000000010000000000000001; // OUT -> D2
-			
-			
-			memoria_instrucoes[5] = 32'b00111100000111110010011100001111; // MOVI -> REG 31 <= 9999
-			memoria_instrucoes[6] = 32'b00111100000111100010001010111000; // MOVI -> REG 30 <= 8888
-			
-			memoria_instrucoes[7] = 32'b00000100000000010001100000000000; // ADD -> REG 3 = REG 1 + REG 2
-			memoria_instrucoes[8] = 32'b10101100000000010000000000001111; // BHET
-			memoria_instrucoes[9] = 32'b10010000000111100000000000000010; // OUT -> D3 - 8888 - BRANCH NAO TOMADO
-			memoria_instrucoes[10] = 32'b10010100000000000000000000010000; // JUMP -> HALT			
-			
-			memoria_instrucoes[15] = 32'b10010000000111110000000000000010; // OUT -> D3 - 9999 - BRANCH TOMADO
-			memoria_instrucoes[16] = 32'b11111000000000000000000000000000; // HALT
-		*/			
 			clockInicial <= 1'b1;
 		end
 	end
