@@ -1,0 +1,19 @@
+module somador_pc(endereco, pc, addOp, pcAtual);
+	// ----------Portas de Entrada---------- //	
+	input [25:0] endereco; // Endereco de desvios (branches)
+	input [25:0] pc; // Endereco do contador de programa atual
+	input [1:0] addOP; // Decide como alterar o pc
+
+	// ----------Portas de Saida---------- //
+	output reg [25:0] pcAtual; // Endereco do contador de programa do proximo ciclo
+
+	always @ (endereco, pc, addOp) begin
+		case(addOp) begin
+			2'b00: pcAtual = 26'b0;
+			2'b01: pcAtual = pc + 1;
+			2'b10: pcAtual = pc + endereco;
+			2'b11: pcAtual = endereco;
+		endcase
+	end
+	
+endmodule

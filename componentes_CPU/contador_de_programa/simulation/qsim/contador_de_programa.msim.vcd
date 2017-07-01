@@ -1,0 +1,528 @@
+$comment
+	File created using the following command:
+		vcd file contador_de_programa.msim.vcd -direction
+$end
+$date
+	Wed May 11 10:34:27 2016
+$end
+$version
+	ModelSim Version 10.1d
+$end
+$timescale
+	1ps
+$end
+$scope module contador_de_programa_vlg_vec_tst $end
+$var reg 1 ! clock $end
+$var reg 26 " endereco [25:0] $end
+$var reg 1 # pcWrite $end
+$var reg 1 $ reset $end
+$var wire 1 % pcAtual [25] $end
+$var wire 1 & pcAtual [24] $end
+$var wire 1 ' pcAtual [23] $end
+$var wire 1 ( pcAtual [22] $end
+$var wire 1 ) pcAtual [21] $end
+$var wire 1 * pcAtual [20] $end
+$var wire 1 + pcAtual [19] $end
+$var wire 1 , pcAtual [18] $end
+$var wire 1 - pcAtual [17] $end
+$var wire 1 . pcAtual [16] $end
+$var wire 1 / pcAtual [15] $end
+$var wire 1 0 pcAtual [14] $end
+$var wire 1 1 pcAtual [13] $end
+$var wire 1 2 pcAtual [12] $end
+$var wire 1 3 pcAtual [11] $end
+$var wire 1 4 pcAtual [10] $end
+$var wire 1 5 pcAtual [9] $end
+$var wire 1 6 pcAtual [8] $end
+$var wire 1 7 pcAtual [7] $end
+$var wire 1 8 pcAtual [6] $end
+$var wire 1 9 pcAtual [5] $end
+$var wire 1 : pcAtual [4] $end
+$var wire 1 ; pcAtual [3] $end
+$var wire 1 < pcAtual [2] $end
+$var wire 1 = pcAtual [1] $end
+$var wire 1 > pcAtual [0] $end
+$var wire 1 ? sampler $end
+$scope module i1 $end
+$var wire 1 @ gnd $end
+$var wire 1 A vcc $end
+$var wire 1 B unknown $end
+$var tri1 1 C devclrn $end
+$var tri1 1 D devpor $end
+$var tri1 1 E devoe $end
+$var wire 1 F pcAtual[0]~output_o $end
+$var wire 1 G pcAtual[1]~output_o $end
+$var wire 1 H pcAtual[2]~output_o $end
+$var wire 1 I pcAtual[3]~output_o $end
+$var wire 1 J pcAtual[4]~output_o $end
+$var wire 1 K pcAtual[5]~output_o $end
+$var wire 1 L pcAtual[6]~output_o $end
+$var wire 1 M pcAtual[7]~output_o $end
+$var wire 1 N pcAtual[8]~output_o $end
+$var wire 1 O pcAtual[9]~output_o $end
+$var wire 1 P pcAtual[10]~output_o $end
+$var wire 1 Q pcAtual[11]~output_o $end
+$var wire 1 R pcAtual[12]~output_o $end
+$var wire 1 S pcAtual[13]~output_o $end
+$var wire 1 T pcAtual[14]~output_o $end
+$var wire 1 U pcAtual[15]~output_o $end
+$var wire 1 V pcAtual[16]~output_o $end
+$var wire 1 W pcAtual[17]~output_o $end
+$var wire 1 X pcAtual[18]~output_o $end
+$var wire 1 Y pcAtual[19]~output_o $end
+$var wire 1 Z pcAtual[20]~output_o $end
+$var wire 1 [ pcAtual[21]~output_o $end
+$var wire 1 \ pcAtual[22]~output_o $end
+$var wire 1 ] pcAtual[23]~output_o $end
+$var wire 1 ^ pcAtual[24]~output_o $end
+$var wire 1 _ pcAtual[25]~output_o $end
+$var wire 1 ` clock~input_o $end
+$var wire 1 a clock~inputclkctrl_outclk $end
+$var wire 1 b reset~input_o $end
+$var wire 1 c endereco[0]~input_o $end
+$var wire 1 d pcAtual~0_combout $end
+$var wire 1 e pcWrite~input_o $end
+$var wire 1 f pcAtual[0]~1_combout $end
+$var wire 1 g pcAtual[0]~reg0_q $end
+$var wire 1 h endereco[1]~input_o $end
+$var wire 1 i pcAtual~2_combout $end
+$var wire 1 j pcAtual[1]~reg0_q $end
+$var wire 1 k endereco[2]~input_o $end
+$var wire 1 l pcAtual~3_combout $end
+$var wire 1 m pcAtual[2]~reg0_q $end
+$var wire 1 n endereco[3]~input_o $end
+$var wire 1 o pcAtual~4_combout $end
+$var wire 1 p pcAtual[3]~reg0_q $end
+$var wire 1 q endereco[4]~input_o $end
+$var wire 1 r pcAtual~5_combout $end
+$var wire 1 s pcAtual[4]~reg0_q $end
+$var wire 1 t endereco[5]~input_o $end
+$var wire 1 u pcAtual~6_combout $end
+$var wire 1 v pcAtual[5]~reg0_q $end
+$var wire 1 w endereco[6]~input_o $end
+$var wire 1 x pcAtual~7_combout $end
+$var wire 1 y pcAtual[6]~reg0_q $end
+$var wire 1 z endereco[7]~input_o $end
+$var wire 1 { pcAtual~8_combout $end
+$var wire 1 | pcAtual[7]~reg0_q $end
+$var wire 1 } endereco[8]~input_o $end
+$var wire 1 ~ pcAtual~9_combout $end
+$var wire 1 !! pcAtual[8]~reg0_q $end
+$var wire 1 "! endereco[9]~input_o $end
+$var wire 1 #! pcAtual~10_combout $end
+$var wire 1 $! pcAtual[9]~reg0_q $end
+$var wire 1 %! endereco[10]~input_o $end
+$var wire 1 &! pcAtual~11_combout $end
+$var wire 1 '! pcAtual[10]~reg0_q $end
+$var wire 1 (! endereco[11]~input_o $end
+$var wire 1 )! pcAtual~12_combout $end
+$var wire 1 *! pcAtual[11]~reg0_q $end
+$var wire 1 +! endereco[12]~input_o $end
+$var wire 1 ,! pcAtual~13_combout $end
+$var wire 1 -! pcAtual[12]~reg0_q $end
+$var wire 1 .! endereco[13]~input_o $end
+$var wire 1 /! pcAtual~14_combout $end
+$var wire 1 0! pcAtual[13]~reg0_q $end
+$var wire 1 1! endereco[14]~input_o $end
+$var wire 1 2! pcAtual~15_combout $end
+$var wire 1 3! pcAtual[14]~reg0_q $end
+$var wire 1 4! endereco[15]~input_o $end
+$var wire 1 5! pcAtual~16_combout $end
+$var wire 1 6! pcAtual[15]~reg0_q $end
+$var wire 1 7! endereco[16]~input_o $end
+$var wire 1 8! pcAtual~17_combout $end
+$var wire 1 9! pcAtual[16]~reg0_q $end
+$var wire 1 :! endereco[17]~input_o $end
+$var wire 1 ;! pcAtual~18_combout $end
+$var wire 1 <! pcAtual[17]~reg0_q $end
+$var wire 1 =! endereco[18]~input_o $end
+$var wire 1 >! pcAtual~19_combout $end
+$var wire 1 ?! pcAtual[18]~reg0_q $end
+$var wire 1 @! endereco[19]~input_o $end
+$var wire 1 A! pcAtual~20_combout $end
+$var wire 1 B! pcAtual[19]~reg0_q $end
+$var wire 1 C! endereco[20]~input_o $end
+$var wire 1 D! pcAtual~21_combout $end
+$var wire 1 E! pcAtual[20]~reg0_q $end
+$var wire 1 F! endereco[21]~input_o $end
+$var wire 1 G! pcAtual~22_combout $end
+$var wire 1 H! pcAtual[21]~reg0_q $end
+$var wire 1 I! endereco[22]~input_o $end
+$var wire 1 J! pcAtual~23_combout $end
+$var wire 1 K! pcAtual[22]~reg0_q $end
+$var wire 1 L! endereco[23]~input_o $end
+$var wire 1 M! pcAtual~24_combout $end
+$var wire 1 N! pcAtual[23]~reg0_q $end
+$var wire 1 O! endereco[24]~input_o $end
+$var wire 1 P! pcAtual~25_combout $end
+$var wire 1 Q! pcAtual[24]~reg0_q $end
+$var wire 1 R! endereco[25]~input_o $end
+$var wire 1 S! pcAtual~26_combout $end
+$var wire 1 T! pcAtual[25]~reg0_q $end
+$upscope $end
+$upscope $end
+$enddefinitions $end
+#0
+$dumpvars
+0!
+b0 "
+0#
+0$
+0>
+0=
+0<
+0;
+0:
+09
+08
+07
+06
+05
+04
+03
+02
+01
+00
+0/
+0.
+0-
+0,
+0+
+0*
+0)
+0(
+0'
+0&
+0%
+x?
+0@
+1A
+xB
+1C
+1D
+1E
+0F
+0G
+0H
+0I
+0J
+0K
+0L
+0M
+0N
+0O
+0P
+0Q
+0R
+0S
+0T
+0U
+0V
+0W
+0X
+0Y
+0Z
+0[
+0\
+0]
+0^
+0_
+0`
+0a
+0b
+0c
+0d
+0e
+0f
+0g
+0h
+0i
+0j
+0k
+0l
+0m
+0n
+0o
+0p
+0q
+0r
+0s
+0t
+0u
+0v
+0w
+0x
+0y
+0z
+0{
+0|
+0}
+0~
+0!!
+0"!
+0#!
+0$!
+0%!
+0&!
+0'!
+0(!
+0)!
+0*!
+0+!
+0,!
+0-!
+0.!
+0/!
+00!
+01!
+02!
+03!
+04!
+05!
+06!
+07!
+08!
+09!
+0:!
+0;!
+0<!
+0=!
+0>!
+0?!
+0@!
+0A!
+0B!
+0C!
+0D!
+0E!
+0F!
+0G!
+0H!
+0I!
+0J!
+0K!
+0L!
+0M!
+0N!
+0O!
+0P!
+0Q!
+0R!
+0S!
+0T!
+$end
+#50000
+1!
+b1 "
+1`
+1c
+1a
+0?
+1d
+#100000
+1#
+b11 "
+0!
+b10 "
+1e
+0c
+1h
+0`
+0a
+1?
+1f
+0d
+1i
+#150000
+1!
+b11 "
+1`
+1c
+1a
+0?
+1d
+1j
+1G
+1=
+#200000
+b111 "
+0#
+b101 "
+0!
+b100 "
+0c
+0h
+1k
+0e
+0`
+0a
+1?
+0d
+0i
+1l
+0f
+#250000
+1!
+b101 "
+1`
+1c
+1a
+0?
+1d
+#300000
+1#
+b111 "
+0!
+b110 "
+1e
+0c
+1h
+0`
+0a
+1?
+1f
+0d
+1i
+#350000
+1!
+b111 "
+1`
+1c
+1a
+0?
+1d
+1m
+1H
+1<
+#400000
+b1111 "
+b1011 "
+0#
+b1001 "
+0!
+b1000 "
+0c
+0h
+0k
+1n
+0e
+0`
+0a
+1?
+0d
+0i
+0l
+1o
+0f
+#450000
+1!
+b1001 "
+1`
+1c
+1a
+0?
+1d
+#500000
+1$
+1#
+b1011 "
+0!
+b1010 "
+1b
+1e
+0c
+1h
+0`
+0a
+1?
+0o
+1f
+0d
+#550000
+1!
+b1011 "
+1`
+1c
+1a
+0?
+0m
+0j
+0H
+0G
+0<
+0=
+#600000
+b1111 "
+0#
+b1101 "
+0!
+b1100 "
+0c
+0h
+1k
+0e
+0`
+0a
+1?
+#650000
+1!
+b1101 "
+1`
+1c
+1a
+0?
+#700000
+b1111 "
+0!
+b1110 "
+0c
+1h
+0`
+0a
+1?
+#750000
+1!
+b1111 "
+1`
+1c
+1a
+0?
+#800000
+b11111 "
+b10111 "
+b10011 "
+b10001 "
+0!
+b10000 "
+0c
+0h
+0k
+0n
+1q
+0`
+0a
+1?
+#850000
+1!
+b10001 "
+1`
+1c
+1a
+0?
+#900000
+b10011 "
+0!
+b10010 "
+0c
+1h
+0`
+0a
+1?
+#950000
+1!
+b10011 "
+1`
+1c
+1a
+0?
+#1000000

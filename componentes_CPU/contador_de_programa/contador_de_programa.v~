@@ -1,0 +1,20 @@
+module contador_de_programa(endereco, clock, reset, pcWrite, pcAtual);
+	// ----------Portas de Entrada---------- //	
+	input [25:0] endereco; // Endereco a ser escrito no contador de programa
+
+	// ----------Portas de Saida---------- //
+	output reg [25:0] pcAtual; // Contador de programa atualizado
+
+	// ----------Controle---------- //
+	input clock; // Clock
+	input pcWrite; // Sinal de Escrita
+	input reset; // Sinal de Reset
+	
+	always @ (posedge clock) begin
+		if(reset)
+			pcAtual <= 26'b0;
+		else if(pcWrite)
+			pcAtual <= endereco;	
+	end
+	
+endmodule

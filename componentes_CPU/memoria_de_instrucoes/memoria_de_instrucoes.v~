@@ -1,0 +1,28 @@
+module memoria_de_instrucoes(pc, instrucao, clock);
+	// ----------Portas de Entrada---------- //
+	input [25:0] pc; // PC Atual
+	
+	// ----------Portas de Saida---------- //
+	output [31:0] instrucao; // Instrucao a ser selecionada
+	
+	// ----------Controle---------- //
+	input clock; // Clock
+	
+	reg [31:0] memoria_instrucoes[149:0]; // Memoria de instrucoes; Vetor de 150 posicoes de 32 bits
+	integer inicio = 0; // Inicia a memoria de instrucoes
+	
+	always @ (posedge clock) begin
+		if(inicio == 0) begin
+		
+			/* PROGRAMA */
+			
+			
+			inicio <= 1;
+		end
+	end
+	
+	assign instruction = memoria_instrucoes[pc];	
+endmodule
+
+
+

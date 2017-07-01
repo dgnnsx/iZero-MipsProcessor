@@ -1,0 +1,22 @@
+module memoria_de_dados(clock, memWrite, memRead, endereco);
+
+	// ----------Portas de Entrada---------- //
+	input [4:0] RS; // Registrador fonte
+	
+	// ----------Portas de Saida---------- //
+	output [31:0] leituraRS; // Conteudo de RS
+	
+
+	// ----------Controle---------- //
+	input clock; // Clock
+	input memWrite; // Sinal para Escrita
+	input memRead; // Sinal para Leitura
+
+
+
+
+
+
+
+
+endmodule

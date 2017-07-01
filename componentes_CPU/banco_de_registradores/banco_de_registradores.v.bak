@@ -1,0 +1,40 @@
+module banco_de_registradores(clock, regWrite, reset, RS, RT, RD, dadosEscrita, leituraRS, leituraRT);
+
+	// ----------Input Ports---------- //
+	input [4:0] RS; // Registrador Fonte
+	input [4:0] RT; // Registrador Alvo
+	input [4:0] RD; // Registrador Destino
+	input [31:0] dadosEscrita; // Dado Escrito no Registrador
+
+	// ----------Output Ports---------- //
+	output [31:0] leituraRS; // Conteudo de RS
+	output [31:0] leituraRT; // Conteudo de RT
+
+	// ----------Control---------- //
+	input clock; // Clock
+	input regWrite; // Sinal de Escrita
+	input reset; // Sinal de Reset
+
+	reg [31:0] regs[31:0];
+
+	always @ (posedge clock) begin
+		
+		if(regWrite) begin
+			regs[RD] =  dadosEscrita;
+		end
+		
+		if(reset) begin
+			regs[0] = 32'd0;	regs[1] = 32'd0;	regs[2] = 32'd0;	regs[3] = 32'd0;
+			regs[4] = 32'd0;	regs[5] = 32'd0;	regs[6] = 32'd0;	regs[7] = 32'd0;
+			regs[8] = 32'd0;	regs[9] = 32'd0;	regs[10] = 32'd0;	regs[11] = 32'd0;
+			regs[12] = 32'd0;	regs[13] = 32'd0;	regs[14] = 32'd0;	regs[15] = 32'd0;
+			regs[16] = 32'd0;	regs[17] = 32'd0;	regs[18] = 32'd0;	regs[19] = 32'd0;
+			regs[20] = 32'd0;	regs[21] = 32'd0;	regs[22] = 32'd0;	regs[23] = 32'd0;
+			regs[24] = 32'd0;	regs[25] = 32'd0;	regs[26] = 32'd0;	regs[27] = 32'd0;
+			regs[28] = 32'd0;	regs[29] = 32'd0;	regs[30] = 32'd0;	regs[31] = 32'd0;
+		end
+	end
+
+	assign leituraRS = regs[RS];
+	assign leituraRT = regs[RT];
+endmodule

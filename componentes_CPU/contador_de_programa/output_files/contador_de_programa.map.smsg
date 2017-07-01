@@ -1,0 +1,1 @@
+Warning (10268): Verilog HDL information at contador_de_programa.v(13): always construct contains both blocking and non-blocking assignments
