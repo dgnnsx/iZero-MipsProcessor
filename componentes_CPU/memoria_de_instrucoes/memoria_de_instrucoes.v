@@ -8,7 +8,7 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 	
 	integer i, clockInicial = 0;
 	
-	parameter MEM_SIZE = 30; // Tamanho da memoria
+	parameter MEM_SIZE = 24; // Tamanho da memoria
 	reg [31:0] memoria_instrucoes[MEM_SIZE-1:0]; // Memoria de instrucoes
 	
 	initial begin
@@ -19,69 +19,31 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 	always @ (posedge clock) begin
 		if(clockInicial == 0) begin
 			
-			memoria_instrucoes[0] = 32'b000010_00011_00011_0000000000000001; 	// addi
-			memoria_instrucoes[1] = 32'b010100_00000_10101_0000000000001010; 	// li
-			memoria_instrucoes[2] = 32'b010110_00011_10101_1111111111111111; 	// sw
-			memoria_instrucoes[3] = 32'b010011_00011_01011_1111111111111111; 	// lw
-			memoria_instrucoes[4] = 32'b010010_01011_00111_0000000000000000; 	// mov
-			memoria_instrucoes[5] = 32'b010100_00000_01000_0000000000000000; 	// li
-			memoria_instrucoes[6] = 32'b100001_00000_00111_0000000000000000; 	// out
-			memoria_instrucoes[7] = 32'b010100_00000_10110_0000000000010100; 	// li
-			memoria_instrucoes[8] = 32'b010110_00011_10110_0000000000000000; 	// sw
-			memoria_instrucoes[9] = 32'b010011_00011_01100_0000000000000000; 	// lw
-			memoria_instrucoes[10] = 32'b010010_01100_00111_0000000000000000; 	// mov
-			memoria_instrucoes[11] = 32'b010100_00000_01000_0000000000000001; 	// li
-			memoria_instrucoes[12] = 32'b100001_00000_00111_0000000000000001; 	// out
-			memoria_instrucoes[13] = 32'b010011_00011_01101_1111111111111111; 	// lw
-			memoria_instrucoes[14] = 32'b010011_00011_01110_0000000000000000; 	// lw
-			memoria_instrucoes[15] = 32'b000001_01101_01110_10111_00000000000; 	// add
-			memoria_instrucoes[16] = 32'b010010_10111_00111_0000000000000000; 	// mov
-			memoria_instrucoes[17] = 32'b010100_00000_01000_0000000000000010; 	// li
-			memoria_instrucoes[18] = 32'b100001_00000_00111_0000000000000010; 	// out
-			memoria_instrucoes[19] = 32'b111111_00000000000000000000000000; 	// halt
-		
-			
-			/*
-			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
-			memoria_instrucoes[1] = 32'b00111100000000000000000000000000; // MOVI -> REG 1 <= 1 (fib [0])
-			memoria_instrucoes[2] = 32'b00111100000000010000000000000001; // MOVI -> REG 2 <= 1 (fib [1])
-			memoria_instrucoes[3] = 32'b00111100000100010000000000000001; // MOVI -> REG 17 <= 1 (COUNTER)
-			
-			memoria_instrucoes[4] = 32'b10001100000000110000000000000000; // IN -> REG 3
-			memoria_instrucoes[5] = 32'b10010000000000110000000000000000; // OUT -> D1
-			
-			// VERIFICA SE O NUMERO INSERIDO EH ZERO
-			memoria_instrucoes[6] = 32'b00000100000000111111100000000000; // ADD -> REG 31 <= REG 1 [0] + REG 3 [IN]
-			memoria_instrucoes[7] = 32'b10100000000000110000000000010100; // BEQ (IN == 0 ?)
-			
-			memoria_instrucoes[20] = 32'b10010000000000000000000000000010; // OUT -> D3
-			memoria_instrucoes[21] = 32'b10010100000000000000000000011000; // JUMP -> HALT
-			
-			
-			// VERIFICA SE O NUMERO INSERIDO EH UM
-			memoria_instrucoes[8] = 32'b00000100001000111111100000000000; // ADDI -> REG 31 <= REG 2 [1] + REG 3 [IN]
-			memoria_instrucoes[9] = 32'b10011000001000110000000000010110; // BEQ (IN == 1 ?)
-			
-			memoria_instrucoes[22] = 32'b10010000000000010000000000000010; // OUT -> D3
-			memoria_instrucoes[23] = 32'b10010100000000000000000000011000; // JUMP -> HALT
-			
-			// CALCULA O FIBONACCI DO NUMERO INSERIDO
-			memoria_instrucoes[10] = 32'b00000100000000010111100000000000; // ADD -> REG FIBO <= REG 1 [0] + REG 2 [1]
-			
-			memoria_instrucoes[11] = 32'b00111000001000000000000000000000; // MOV -> R1 <= R2
-			memoria_instrucoes[12] = 32'b00111001111000010000000000000000; // MOV -> R2 <= REG FIBO
-			memoria_instrucoes[13] = 32'b00001010001100010000000000000001; // ADDI -> COUNTER++
-			
-			memoria_instrucoes[14] = 32'b10010000000011110000000000000010; // OUT -> D3
-			memoria_instrucoes[15] = 32'b00000100011100011111100000000000; // ADD -> REG 31 <= REG 3 [IN] + REG 17 [COUNTER]
-			memoria_instrucoes[16] = 32'b10011100011100010000000000001010; // BNE (IN != COUNTER)
-			
-			memoria_instrucoes[17] = 32'b10010000000000010000000000000010; // OUT -> D3
-			memoria_instrucoes[18] = 32'b10010100000000000000000000011000; // JUMP -> HALT
-			
-			memoria_instrucoes[24] = 32'b11111000000000000000000000000000; // HALT		
-		
-		*/
+			memoria_instrucoes[0] = 32'b011101_00000000000000000000000101; 	// Jump to Main
+			memoria_instrucoes[1] = 32'b000010_00011_00011_0000000000000010; 	// addi
+			memoria_instrucoes[2] = 32'b010100_00000_01000_0000000000000010; 	// li
+			memoria_instrucoes[3] = 32'b100001_00000_00111_0000000000000010; 	// out
+			memoria_instrucoes[4] = 32'b011111_00000_11111_0000000000000000; 	// jr
+			memoria_instrucoes[5] = 32'b000010_00011_00011_0000000000000001; 	// addi
+			memoria_instrucoes[6] = 32'b010100_00000_10101_0000000000001010; 	// li
+			memoria_instrucoes[7] = 32'b010110_00011_10101_1111111111111111; 	// sw
+			memoria_instrucoes[8] = 32'b010100_00000_10110_0000000000010110; 	// li
+			memoria_instrucoes[9] = 32'b010110_00011_10110_0000000000000000; 	// sw
+			memoria_instrucoes[10] = 32'b010011_00011_01011_1111111111111111; 	// lw
+			memoria_instrucoes[11] = 32'b010010_01011_00111_0000000000000000; 	// mov
+			memoria_instrucoes[12] = 32'b011110_00000000000000000000000001; 	// jal
+			memoria_instrucoes[13] = 32'b010010_00001_10111_0000000000000000; 	// mov
+			memoria_instrucoes[14] = 32'b000100_00011_00011_0000000000000010; 	// subi
+			memoria_instrucoes[15] = 32'b010011_00011_01100_0000000000000000; 	// lw
+			memoria_instrucoes[16] = 32'b010010_01100_00111_0000000000000000; 	// mov
+			memoria_instrucoes[17] = 32'b011110_00000000000000000000000001; 	// jal
+			memoria_instrucoes[18] = 32'b010010_00001_11000_0000000000000000; 	// mov
+			memoria_instrucoes[19] = 32'b000100_00011_00011_0000000000000010; 	// subi
+			memoria_instrucoes[20] = 32'b010100_00000_00111_0000000000001011; 	// li
+			memoria_instrucoes[21] = 32'b010100_00000_01000_0000000000000000; 	// li
+			memoria_instrucoes[22] = 32'b100001_00000_00111_0000000000000000; 	// out
+			memoria_instrucoes[23] = 32'b111111_00000000000000000000000000; 	// halt
+
 		
 			/*memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
 			memoria_instrucoes[1] = 32'b010100_xxxxx_00001_0000000000001111; // REG 1 <- LI : 15
