@@ -19,6 +19,28 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 	always @ (posedge clock) begin
 		if(clockInicial == 0) begin
 			
+			memoria_instrucoes[0] = 32'b000010_00011_00011_0000000000000001; 	// addi
+			memoria_instrucoes[1] = 32'b010100_00000_10101_0000000000001010; 	// li
+			memoria_instrucoes[2] = 32'b010110_00011_10101_1111111111111111; 	// sw
+			memoria_instrucoes[3] = 32'b010011_00011_01011_1111111111111111; 	// lw
+			memoria_instrucoes[4] = 32'b010010_01011_00111_0000000000000000; 	// mov
+			memoria_instrucoes[5] = 32'b010100_00000_01000_0000000000000000; 	// li
+			memoria_instrucoes[6] = 32'b100001_00000_00111_0000000000000000; 	// out
+			memoria_instrucoes[7] = 32'b010100_00000_10110_0000000000010100; 	// li
+			memoria_instrucoes[8] = 32'b010110_00011_10110_0000000000000000; 	// sw
+			memoria_instrucoes[9] = 32'b010011_00011_01100_0000000000000000; 	// lw
+			memoria_instrucoes[10] = 32'b010010_01100_00111_0000000000000000; 	// mov
+			memoria_instrucoes[11] = 32'b010100_00000_01000_0000000000000001; 	// li
+			memoria_instrucoes[12] = 32'b100001_00000_00111_0000000000000001; 	// out
+			memoria_instrucoes[13] = 32'b010011_00011_01101_1111111111111111; 	// lw
+			memoria_instrucoes[14] = 32'b010011_00011_01110_0000000000000000; 	// lw
+			memoria_instrucoes[15] = 32'b000001_01101_01110_10111_00000000000; 	// add
+			memoria_instrucoes[16] = 32'b010010_10111_00111_0000000000000000; 	// mov
+			memoria_instrucoes[17] = 32'b010100_00000_01000_0000000000000010; 	// li
+			memoria_instrucoes[18] = 32'b100001_00000_00111_0000000000000010; 	// out
+			memoria_instrucoes[19] = 32'b111111_00000000000000000000000000; 	// halt
+		
+			
 			/*
 			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
 			memoria_instrucoes[1] = 32'b00111100000000000000000000000000; // MOVI -> REG 1 <= 1 (fib [0])
@@ -65,7 +87,7 @@ module memoria_de_instrucoes(pc, clock, instrucao);
 			memoria_instrucoes[1] = 32'b010100_xxxxx_00001_0000000000001111; // REG 1 <- LI : 15
 			memoria_instrucoes[2] = 32'b011111_xxxxx_00001_xxxxxxxxxxxxxxxx; // JR
 			memoria_instrucoes[15] = 32'b100001_xxxxx000010000000000000010; // OUT -> D3
-			memoria_instrucoes[16] = 32'b111111_xxxxxxxxxxxxxxxxxxxxxxxxxx; // HALT */
+			memoria_instrucoes[16] = 32'b111111_xxxxxxxxxxxxxxxxxxxxxxxxxx; // HALT *
 			
 			
 			memoria_instrucoes[0] = 32'b00000000000000000000000000000000; // NOP
