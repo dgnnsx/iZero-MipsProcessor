@@ -1,15 +1,10 @@
-module unidade_de_controle(clock, reset, flag_IN, opcode, menor, maior, igual, flag_OUT, muxBR,
+module unidade_de_controle(clock, reset, flag_IN, opcode, flag_OUT, muxBR,
 muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrita, md_escrita);
 
 	input clock; // Clock	
 	input reset; // FLAG para sair do HALT [CHAVE]
 	input flag_IN; // FLAG PARA INTERRUPCAO (IN) [CHAVE]
 	input [5:0] opcode; // Codigo da instrucao
-		
-	// FLAGS da ULA para desvios condicionais
-	input menor; // Flag para desvios condicionais (BLT, BLET)
-	input maior; // Flag para desvios condicionais (BHT, BHET)
-	input igual; // Flag para desvios condicionais (BEQ, BNE)
 	
 	// ----------SINAIS DE CONTROLE---------- //	
 		
@@ -386,14 +381,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			/* Inicio das instrucoes de DESVIO CONDICIONAL */
 			BEQ: begin
 				if(estado == EXECUTANDO) begin
-					if(igual)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -403,14 +395,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			BNE: begin
 				if(estado == EXECUTANDO) begin
-					if(!igual)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -420,14 +409,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			BLT: begin
 				if(estado == EXECUTANDO) begin
-					if(menor)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -437,14 +423,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			BGT: begin
 				if(estado == EXECUTANDO) begin
-					if(maior)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -454,14 +437,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			BLET: begin
 				if(estado == EXECUTANDO) begin
-					if(menor | igual)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -471,14 +451,11 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 			end
 			BGET: begin
 				if(estado == EXECUTANDO) begin
-					if(maior | igual)
-						somador_PC = 2'b10; // DESVIO
-					else
-						somador_PC = 2'b01; // PC + 1
+					somador_PC = 2'b10; // DESVIO
 					muxBR = 2'bxx; // DONT CARE
-					muxULA = 1'b1;
+					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1011;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;

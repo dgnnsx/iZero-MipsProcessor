@@ -5,13 +5,13 @@ z0
 cModel Technology
 d/home-local/aluno/Downloads/iZero/iZero/simulation/qsim
 viZero
-Z0 !s110 1499010842
+Z0 !s110 1499315357
 !i10b 1
-!s100 M?aeMgc9_Cj:8:eJKHU=11
-I5@L[mZH`oR[cRBS0`2=cm1
+!s100 LB=ZUAXb]1Soc4VH7=Ol:3
+IdfZZO16@26cH3P_EL8dde3
 Z1 V`JN@9S9cnhjKRR_L]QIcM3
 Z2 d/home/diego/i_zero_final/iZero/iZero/simulation/qsim
-w1499010838
+w1499315356
 8iZero.vo
 FiZero.vo
 L0 32
@@ -19,7 +19,7 @@ Z3 OV;L;10.3d;59
 r1
 !s85 0
 31
-!s108 1499010842.041936
+!s108 1499315356.669211
 !s107 iZero.vo|
 !s90 -work|work|iZero.vo|
 !i113 1
@@ -29,20 +29,20 @@ viZero_vlg_check_tst
 R0
 !i10b 1
 !s100 g7U;Mhdm6b[GmH3ncBP7e1
-IAoN;Q?5C=6AmkE?O>FkI^0
+ID=DHlm[oUKIW_[J<M0G`R0
 R1
 R2
-Z5 w1499010835
-Z6 8Waveform1.vwf.vt
-Z7 FWaveform1.vwf.vt
+Z5 w1499315353
+Z6 8Waveform2.vwf.vt
+Z7 FWaveform2.vwf.vt
 L0 64
 R3
 r1
 !s85 0
 31
-Z8 !s108 1499010842.750133
-Z9 !s107 Waveform1.vwf.vt|
-Z10 !s90 -work|work|Waveform1.vwf.vt|
+Z8 !s108 1499315357.248524
+Z9 !s107 Waveform2.vwf.vt|
+Z10 !s90 -work|work|Waveform2.vwf.vt|
 !i113 1
 R4
 ni@zero_vlg_check_tst
@@ -50,7 +50,7 @@ viZero_vlg_sample_tst
 R0
 !i10b 1
 !s100 jha6KJ[e]bW;N0?<IHmO00
-IVbee=;IeWm1]h[JY@FJVg0
+I8@[E9Pg?1TP[j]`n]WBfI1
 R1
 R2
 R5
@@ -70,8 +70,8 @@ ni@zero_vlg_sample_tst
 viZero_vlg_vec_tst
 R0
 !i10b 1
-!s100 50h;3WoYC7F>Q=E=6TcVX0
-IO6mG8MG[`I9HP>^]_hYnz3
+!s100 <MQld^_M303gJgA^6KI3R3
+IdgT>Ck`GL_K2OT9bjYLnc1
 R1
 R2
 R5
