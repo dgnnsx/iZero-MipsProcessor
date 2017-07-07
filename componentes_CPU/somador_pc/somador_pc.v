@@ -1,8 +1,9 @@
-module somador_pc(pc, desvio, salto, addOp, opcode, menor, maior, igual, pcAtual);
+module somador_pc(pc, saltoJR, salto, desvio, addOp, opcode, menor, maior, igual, pcAtual);
 	// ----------Portas de Entrada---------- //
 	input [25:0] pc; // Endereco do contador de programa atual
-	input [15:0] desvio; // Endereco de desvios condicionais (branches)
+	input [25:0] saltoJR; // Endereco de desvio com base em registradors
 	input [25:0] salto; // Endereco de desvios incondicionais (jumps)
+	input [15:0] desvio; // Endereco de desvios condicionais (branches)
 	input [5:0] opcode; // Codigo da instrucao
 	
 	// FLAGS da ULA para desvios condicionais
@@ -31,10 +32,10 @@ module somador_pc(pc, desvio, salto, addOp, opcode, menor, maior, igual, pcAtual
 			2'b10: begin
 				case(opcode)
 					JAL: begin
-						pcAtual = desvio; // Desvio (Branch)
+						pcAtual = desvio + 26'd0; // JUMPAL
 					end
 					JR: begin
-						pcAtual = desvio; // Desvio (Branch)
+						pcAtual = saltoJR; // JUMPR
 					end					
 					BEQ: begin
 						if(igual)					pcAtual = pc + 26'd1; // Incremento normal
