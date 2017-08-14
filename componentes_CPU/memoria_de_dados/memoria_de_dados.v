@@ -10,7 +10,7 @@ module memoria_de_dados(clock, endereco, memWrite, dado_Escrito, dado_Lido);
 	input clock; // Clock
 	input memWrite; // Sinal para Escrita	
 	
-	reg[31:0] memoria_dados[30:0]; // Memoria de dados
+	reg[31:0] memoria_dados[50:0]; // Memoria de dados
 	
 	always @ (posedge clock) begin
 		if(memWrite) begin
