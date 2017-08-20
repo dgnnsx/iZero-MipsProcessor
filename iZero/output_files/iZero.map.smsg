@@ -1,4 +1,0 @@
-Warning (10268): Verilog HDL information at unidade_logica_aritmetica.v(15): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at unidade_de_controle.v(58): always construct contains both blocking and non-blocking assignments
-Info (10281): Verilog HDL Declaration information at unidade_de_controle.v(5): object "reset" differs only in case from object "RESET" in the same scope
-Warning (10268): Verilog HDL information at memoria_de_instrucoes.v(19): always construct contains both blocking and non-blocking assignments
