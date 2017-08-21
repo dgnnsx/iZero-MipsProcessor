@@ -30,27 +30,28 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 	// ----------DECLARACAO DAS INSTRUCOES---------- //
 	// OPCODE das instrucoes ARITMETICAS
 	localparam [5:0] 	ADD = 6'b000001, ADDI = 6'b000010, SUB = 6'b000011, SUBI = 6'b000100,
-							MUL = 6'b000101, MULI = 6'b000110, DIV = 6'b000111, DIVI = 6'b001000;
+							MUL = 6'b000101, MULI = 6'b000110, DIV = 6'b000111, DIVI = 6'b001000,
+							MOD = 6'b001001, MODI = 6'b001010;
 							
 	// OPCODE das instrucoes LOGICAS
-	localparam [5:0]	AND = 6'b001001, ANDI = 6'b001010, OR = 6'b001011, ORI = 6'b001100,
-							XOR = 6'b001101, XORI = 6'b001110, NOT = 6'b001111;
+	localparam [5:0]	AND = 6'b001011, ANDI = 6'b001100, OR = 6'b001101, ORI = 6'b001110,
+							XOR = 6'b001111, XORI = 6'b010000, NOT = 6'b010001;
 						
 	// OPCODE das instrucoes de DESLOCAMENTO
-	localparam [5:0]	SL = 6'b010000, SR = 6'b010001;
+	localparam [5:0]	SL = 6'b010010, SR = 6'b010011;
 	
 	// OPCODE das instrucoes de MOVIMENTACAO DE DADOS
-	localparam [5:0]	MOV = 6'b010010, LW = 6'b010011, LI = 6'b010100, LA = 6'b010101, SW = 6'b010110;
+	localparam [5:0]	MOV = 6'b010100, LW = 6'b010101, LI = 6'b010110, LA = 6'b010111, SW = 6'b011000;
 	
 	// OPCODE das instrucoes de DESVIO CONDICIONAL
-	localparam [5:0]	BEQ = 6'b010111, BNE = 6'b011000, BLT = 6'b011001,
-							BLET = 6'b011010, BGT = 6'b011011, BGET = 6'b011100;
+	localparam [5:0]	BEQ = 6'b011001, BNE = 6'b011010, BLT = 6'b011011,
+							BLET = 6'b011100, BGT = 6'b011101, BGET = 6'b011110;
 							
 	// OPCODE das instrucoes de DESVIO INCONDICIONAL
-	localparam [5:0]	J = 6'b011101, JAL = 6'b011110, JR = 6'b011111;
+	localparam [5:0]	J = 6'b011111, JAL = 6'b100000, JR = 6'b100001;
 	
 	// OPCODE das instrucoes de ENTRADA e SAIDA
-	localparam [5:0]	IN = 6'b100000, OUT = 6'b100001;
+	localparam [5:0]	IN = 6'b100010, OUT = 6'b100011;
 	
 	// OPCODE das instrucoes de CONTROLE do SISTEMA
 	localparam [5:0] NOP = 6'b000000, RESET = 6'b111110, HALT = 6'b111111;
@@ -171,6 +172,34 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					flag_OUT = 1'b0;
 				end
 			end
+			MOD: begin
+				if(estado == EXECUTANDO) begin
+					muxBR = 2'b01;
+					muxULA = 1'b0;
+					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
+					somador_PC = 2'b01; // PC + 1
+					ula_controle = 4'b0100; // MOD
+					pc_escrita = 1'b1;
+					pc_reset = 1'b0;
+					reg_escrita = 1'b1;
+					md_escrita = 1'b0;
+					flag_OUT = 1'b0;
+				end
+			end
+			MODI: begin
+				if(estado == EXECUTANDO) begin
+					muxBR = 2'b00;
+					muxULA = 1'b1;
+					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
+					somador_PC = 2'b01; // PC + 1
+					ula_controle = 4'b0100; // MOD
+					pc_escrita = 1'b1;
+					pc_reset = 1'b0;
+					reg_escrita = 1'b1;
+					md_escrita = 1'b0;
+					flag_OUT = 1'b0;
+				end
+			end
 			/* Fim das instrucoes ARITMETICAS */
 			
 			/* Inicio das instrucoes LOGICAS */
@@ -180,7 +209,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0100; // AND
+					ula_controle = 4'b0101; // AND
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -194,7 +223,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0100; // AND
+					ula_controle = 4'b0101; // AND
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -208,7 +237,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0101; // OR
+					ula_controle = 4'b0110; // OR
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -222,7 +251,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0101; // OR
+					ula_controle = 4'b0110; // OR
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -236,7 +265,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0110; // XOR
+					ula_controle = 4'b0111; // XOR
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -250,7 +279,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0110; // XOR
+					ula_controle = 4'b0111; // XOR
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -264,7 +293,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b0111; // NOT (RS)
+					ula_controle = 4'b1000; // NOT (RS)
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -281,7 +310,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1000; // SHIFT LEFT (RS)
+					ula_controle = 4'b1001; // SHIFT LEFT (RS)
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -295,7 +324,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'bx; // DONT CARE
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1001; // SHIFT RIGHT (RS)
+					ula_controle = 4'b1010; // SHIFT RIGHT (RS)
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -312,7 +341,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b0;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1010; // RD = RS (MOV)
+					ula_controle = 4'b1011; // RD = RS (MOV)
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -340,7 +369,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'b01; // ULA ESCREVE NO BR
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1011; // RD = IMEDIATO
+					ula_controle = 4'b1100; // RD = IMEDIATO
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b1;
@@ -385,7 +414,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -399,7 +428,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -413,7 +442,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -427,7 +456,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -441,7 +470,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -455,7 +484,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxBR = 2'bxx; // DONT CARE
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
-					ula_controle = 4'b1011;
+					ula_controle = 4'b1100;
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -500,7 +529,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b0;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b10; // SALTO COM BASE NO CONTEUDO DE UM REGISTRADOR (DESVIO)
-					ula_controle = 4'b1011; // RD = RT
+					ula_controle = 4'b1100; // RD = RT
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;
@@ -543,7 +572,7 @@ muxULA, muxEscritaBR, somador_PC, ula_controle, pc_escrita, pc_reset, reg_escrit
 					muxULA = 1'b1;
 					muxEscritaBR = 2'bxx; // DONT CARE
 					somador_PC = 2'b01; // PC + 1
-					ula_controle = 4'b1011; // IMEDIATO COM ENDERECO DA SAIDA
+					ula_controle = 4'b1100; // IMEDIATO COM ENDERECO DA SAIDA
 					pc_escrita = 1'b1;
 					pc_reset = 1'b0;
 					reg_escrita = 1'b0;

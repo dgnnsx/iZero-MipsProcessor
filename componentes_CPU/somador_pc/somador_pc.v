@@ -17,13 +17,13 @@ module somador_pc(pc, saltoJR, salto, desvio, addOp, opcode, menor, maior, igual
 	// ----------Controle---------- //
 	input [1:0] addOp; // Decide como alterar o pc
 	
-	// ----------DECLARACAO DAS INSTRUCOES---------- //	
+	// ----------DECLARACAO DAS INSTRUCOES---------- //
 	// OPCODE das instrucoes de DESVIO CONDICIONAL
-	localparam [5:0]	BEQ = 6'b010111, BNE = 6'b011000, BLT = 6'b011001,
-							BLET = 6'b011010, BGT = 6'b011011, BGET = 6'b011100;
+	localparam [5:0]	BEQ = 6'b011001, BNE = 6'b011010, BLT = 6'b011011,
+							BLET = 6'b011100, BGT = 6'b011101, BGET = 6'b011110;
 							
 	// OPCODE das instrucoes de DESVIO INCONDICIONAL
-	localparam [5:0]	JAL = 6'b011110, JR = 6'b011111;
+	localparam [5:0]	JAL = 6'b100000, JR = 6'b100001;
 	
 	always @ (*) begin
 		case(addOp)

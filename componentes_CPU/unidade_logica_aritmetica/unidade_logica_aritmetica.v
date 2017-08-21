@@ -18,20 +18,21 @@ module unidade_logica_aritmetica(aluOp, A, B, shift, resultado, maior, igual, me
 			4'b0001: resultado = A - B; // SUB
 			4'b0010: resultado = A * B; // MUL
 			4'b0011: resultado = A / B; // DIV
+			4'b0100: resultado = A % B; // MOD
 			
 			// -----Logicas----- //
-			4'b0100: resultado = A & B; // AND
-			4'b0101: resultado = A | B; // OR
-			4'b0110: resultado = A ^ B; // XOR
-			4'b0111: resultado = ~A; // NOT primeiro registrador
+			4'b0101: resultado = A & B; // AND
+			4'b0110: resultado = A | B; // OR
+			4'b0111: resultado = A ^ B; // XOR
+			4'b1000: resultado = ~A; // NOT primeiro registrador
 			
 			// -----Deslocamentos----- //
-			4'b1000: resultado = A << shift; // SHIFT LEFT x bits
-			4'b1001: resultado = A >> shift; // SHIFT RIGHT x bits
+			4'b1001: resultado = A << shift; // SHIFT LEFT x bits
+			4'b1010: resultado = A >> shift; // SHIFT RIGHT x bits
 			
 			// -----Atribuicao----- //
-			4'b1010: resultado = A; // RD = RS (MOV)
-			4'b1011: resultado = B; // LI, IN, OUT, JR
+			4'b1011: resultado = A; // RD = RS (MOV)
+			4'b1100: resultado = B; // LI, IN, OUT, JR
 			
 			default: resultado = 32'b0;
 		endcase
