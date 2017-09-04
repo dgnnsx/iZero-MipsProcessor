@@ -1,0 +1,41 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Setup 'temporizador:inst37|contador[18]'
+Slack : -173.313
+TNS   : -949013.194
+
+Type  : Setup 'unidade_de_controle:inst5|ula_controle[0]'
+Slack : -18.904
+TNS   : -18.904
+
+Type  : Setup 'clock'
+Slack : -1.753
+TNS   : -21.460
+
+Type  : Hold 'temporizador:inst37|contador[18]'
+Slack : -2.900
+TNS   : -2.900
+
+Type  : Hold 'clock'
+Slack : -2.837
+TNS   : -2.837
+
+Type  : Hold 'unidade_de_controle:inst5|ula_controle[0]'
+Slack : 4.306
+TNS   : 0.000
+
+Type  : Minimum Pulse Width 'clock'
+Slack : -3.000
+TNS   : -27.415
+
+Type  : Minimum Pulse Width 'temporizador:inst37|contador[18]'
+Slack : -1.285
+TNS   : -7585.355
+
+Type  : Minimum Pulse Width 'unidade_de_controle:inst5|ula_controle[0]'
+Slack : 0.386
+TNS   : 0.000
+
+------------------------------------------------------------

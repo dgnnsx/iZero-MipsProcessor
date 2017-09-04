@@ -124,7 +124,6 @@ set_location_assignment PIN_E25 -to D1_SINAL
 set_location_assignment PIN_E22 -to D2_SINAL
 set_location_assignment PIN_E21 -to D3_SINAL
 set_location_assignment PIN_Y23 -to IN_BUTTON
-set_location_assignment PIN_F17 -to MONITORAMENTO_OUT
 set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
 set_global_assignment -name ENABLE_NCE_PIN OFF
 set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF
@@ -145,7 +144,6 @@ set_location_assignment PIN_F18 -to leds_SLIDE_SWITCHES[4]
 set_location_assignment PIN_E18 -to leds_SLIDE_SWITCHES[5]
 set_location_assignment PIN_J19 -to leds_SLIDE_SWITCHES[6]
 set_location_assignment PIN_H19 -to leds_SLIDE_SWITCHES[7]
-set_location_assignment PIN_G16 -to led_RESET
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/temporizador.v
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/display_quadruplo/display_quadruplo.v
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/display_duplo/display_duplo.v

@@ -1,50 +1,53 @@
-module unidade_logica_aritmetica(aluOp, A, B, shift, resultado, maior, igual, menor);
-	// ----------Portas de Entrada---------- //
-	input [3:0] aluOp;	// Operacao que sera realizada
-	input [4:0] shift;	// Quantidade de bits que irao ser deslocados
-	input [31:0] A;		// Primeiro registrador
-	input [31:0] B;		// Segundo registrador	
+module unidade_logica_aritmetica(aluOp, A, B, resultado, flagBranch);
+	// Entradas
+	input [4:0] aluOp;								// Operacao que sera realizada
+	input [31:0] A;									// Primeiro registrador
+	input [31:0] B;									// Segundo registrador
 
-	// ----------Output Ports---------- //
-	output reg [31:0] resultado;	// Resultado da operacao
-	output reg maior;	// Flag de maior
-	output reg igual;	// Flag de igual
-	output reg menor;	// Flag de menor
-	
-	always @ (*) begin
-		case(aluOp[3:0])
-			// -----Aritmeticas----- //
-			4'b0000: resultado = A + B; // ADD
-			4'b0001: resultado = A - B; // SUB
-			4'b0010: resultado = A * B; // MUL
-			4'b0011: resultado = A / B; // DIV
-			4'b0100: resultado = A % B; // MOD
+	// Saidas
+	output reg [31:0] resultado;					// Resultado da operacao
+	output reg flagBranch;
+
+	// Logica sequencial
+	always @ (aluOp, A, B) begin
+		case(aluOp)
+			// Aritmeticas
+			0: resultado <= A + B;					// ADD
+			1: resultado <= A - B;					// SUB
+			2: resultado <= A * B;					// MUL
+			3: resultado <= A / B;					// DIV
+			4: resultado <= A % B;					// MOD
+
+			// Logicas
+			5: resultado <= A & B;					// AND
+			6: resultado <= A | B;					// OR
+			7: resultado <= A ^ B;					// XOR
+			8: resultado <= ~A;						// NOT primeiro registrador
+			9: resultado <= A && B;					// LOGICAL AND
+			10: resultado <= A || B;				// LOGICAL OR
 			
-			// -----Logicas----- //
-			4'b0101: resultado = A & B; // AND
-			4'b0110: resultado = A | B; // OR
-			4'b0111: resultado = A ^ B; // XOR
-			4'b1000: resultado = ~A; // NOT primeiro registrador
+			// Deslocamentos
+			11: resultado <= A << B;				// SHIFT LEFT
+			12: resultado <= A >> B;				// SHIFT RIGHT
+
+			// Atribuicao
+			13: resultado <= A;						// RD = RS (MOV)
+			14: resultado <= B;						// LI, IN, OUT, JR
+
+			// Relacionais
+			15: resultado <= A == B ? 1 : 0;		// EQ
+			16: resultado <= A != B ? 1 : 0;		// NE
+			17: resultado <= A < B ? 1 : 0;		// LT
+			18: resultado <= A <= B ? 1 : 0;		// LET
+			19: resultado <= A > B ? 1 : 0;		// GT
+			20: resultado <= A >= B ? 1 : 0;		// GET
 			
-			// -----Deslocamentos----- //
-			4'b1001: resultado = A << shift; // SHIFT LEFT x bits
-			4'b1010: resultado = A >> shift; // SHIFT RIGHT x bits
-			
-			// -----Atribuicao----- //
-			4'b1011: resultado = A; // RD = RS (MOV)
-			4'b1100: resultado = B; // LI, IN, OUT, JR
-			
+			// Jump if False
+			21: begin
+				flagBranch <= A == 1 ? 1'b1 : 1'b0;
+				resultado <= B;
+			end
 			default: resultado = 32'b0;
 		endcase
-		
-		if(A == B)			igual <= 1'b1;
-		else			igual <= 1'b0;
-			
-		if(A > B)			maior <= 1'b1;
-		else			maior <= 1'b0;
-			
-		if(A < B)			menor <= 1'b1;
-		else			menor <= 1'b0;
-		
 	end
 endmodule

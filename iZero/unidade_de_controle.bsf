@@ -83,15 +83,15 @@ agreement for further details.
 	(port
 		(pt 232 96)
 		(output)
-		(text "somador_PC[1..0]" (rect 0 0 73 12)(font "Arial" ))
-		(text "somador_PC[1..0]" (rect 138 91 211 103)(font "Arial" ))
+		(text "somador_PC[2..0]" (rect 0 0 74 12)(font "Arial" ))
+		(text "somador_PC[2..0]" (rect 137 91 211 103)(font "Arial" ))
 		(line (pt 232 96)(pt 216 96)(line_width 3))
 	)
 	(port
 		(pt 232 112)
 		(output)
-		(text "ula_controle[3..0]" (rect 0 0 67 12)(font "Arial" ))
-		(text "ula_controle[3..0]" (rect 144 107 211 119)(font "Arial" ))
+		(text "ula_controle[4..0]" (rect 0 0 68 12)(font "Arial" ))
+		(text "ula_controle[4..0]" (rect 143 107 211 119)(font "Arial" ))
 		(line (pt 232 112)(pt 216 112)(line_width 3))
 	)
 	(port

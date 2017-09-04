@@ -1,4 +1,4 @@
-module banco_de_registradores(clock, regWrite, reset, RS, RT,
+module banco_de_registradores(clock, regWrite, RS, RT,
 RD, dadosEscrita, leituraRS, leituraRT);
 	// ----------Portas de Entrada---------- //
 	input [4:0] RS; // Registrador fonte
@@ -13,20 +13,16 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	// ----------Controle---------- //
 	input clock;
 	input regWrite; // Sinal de Escrita
-	input reset; // Sinal para limpar o banco de registradores
-	integer i; // Contador
-	
 
 	reg [31:0] regs[31:0];
+	
+	initial begin
+		regs[0] <= 32'd0;
+	end
 	
 	always @ (posedge clock) begin
 		if(regWrite)
 			regs[RD] =  dadosEscrita;
-		if(reset) begin
-			for(i = 0; i < 32; i = i + 1) begin
-				regs[i] = 32'b0;
-			end
-		end
 	end
 
 	assign leituraRS = regs[RS];
