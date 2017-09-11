@@ -1,16 +1,16 @@
 # do iZero.do
 # ** Warning: (vlib-34) Library already exists at "work".
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 01:29:16 on Jul 06,2017
+# Start time: 11:10:39 on Sep 11,2017
 # vlog -work work iZero.vo 
 # -- Compiling module iZero
 # 
 # Top level modules:
 # 	iZero
-# End time: 01:29:17 on Jul 06,2017, Elapsed time: 0:00:01
+# End time: 11:10:39 on Sep 11,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # Model Technology ModelSim ALTERA vlog 10.3d Compiler 2014.10 Oct  7 2014
-# Start time: 01:29:17 on Jul 06,2017
+# Start time: 11:10:39 on Sep 11,2017
 # vlog -work work Waveform2.vwf.vt 
 # -- Compiling module iZero_vlg_sample_tst
 # -- Compiling module iZero_vlg_check_tst
@@ -18,31 +18,24 @@
 # 
 # Top level modules:
 # 	iZero_vlg_vec_tst
-# End time: 01:29:17 on Jul 06,2017, Elapsed time: 0:00:00
+# End time: 11:10:39 on Sep 11,2017, Elapsed time: 0:00:00
 # Errors: 0, Warnings: 0
 # vsim -c -do "iZero.do" 
-# Start time: 01:29:17 on Jul 06,2017
+# Start time: 11:10:39 on Sep 11,2017
 # Loading work.iZero_vlg_vec_tst
 # Loading work.iZero
 # Loading cycloneive_ver.cycloneive_io_obuf
 # Loading cycloneive_ver.cycloneive_io_ibuf
-# Loading cycloneive_ver.cycloneive_lcell_comb
-# Loading altera_ver.dffeas
 # Loading cycloneive_ver.cycloneive_clkctrl
 # Loading cycloneive_ver.cycloneive_mux41
 # Loading cycloneive_ver.cycloneive_ena_reg
-# Loading cycloneive_ver.cycloneive_mac_mult
-# Loading cycloneive_ver.cycloneive_mac_data_reg
-# Loading cycloneive_ver.cycloneive_mac_sign_reg
-# Loading cycloneive_ver.cycloneive_mac_mult_internal
-# Loading cycloneive_ver.cycloneive_mac_out
+# Loading cycloneive_ver.cycloneive_lcell_comb
+# Loading altera_ver.dffeas
 # Loading work.iZero_vlg_sample_tst
 # Loading work.iZero_vlg_check_tst
 # Loading altera_ver.PRIM_GDFF_LOW
-# ** Warning: Design size of 17880 statements exceeds ModelSim Altera Starter recommended capacity.
-# Expect performance to be adversely affected.
 # Simulation passed !
-# ** Note: $finish    : Waveform2.vwf.vt(1514)
+# ** Note: $finish    : Waveform2.vwf.vt(3185)
 #    Time: 1 us  Iteration: 0  Instance: /iZero_vlg_vec_tst/tb_out
-# End time: 01:29:18 on Jul 06,2017, Elapsed time: 0:00:01
-# Errors: 0, Warnings: 1
+# End time: 11:10:39 on Sep 11,2017, Elapsed time: 0:00:00
+# Errors: 0, Warnings: 0

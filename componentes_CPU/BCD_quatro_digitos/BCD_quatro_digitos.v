@@ -14,6 +14,7 @@ module BCD_quatro_digitos(numero, sinal, milhar, centena, dezena, unidade);
 	
 	// Algoritmo de conversao binario para 4BCD
 	always @ (numero) begin
+		aux = 32'b0;
 		milhar = 4'b0000;
 		centena = 4'b0000;
 		dezena = 4'b0000;

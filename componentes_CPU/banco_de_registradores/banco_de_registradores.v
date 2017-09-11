@@ -17,7 +17,7 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	reg [31:0] regs[31:0];
 	
 	initial begin
-		regs[0] <= 32'd0;
+		regs[0] <= 32'd14;
 	end
 	
 	always @ (posedge clock) begin

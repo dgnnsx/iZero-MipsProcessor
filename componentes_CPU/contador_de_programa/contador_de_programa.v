@@ -1,4 +1,4 @@
-module contador_de_programa(endereco, clock, pc_escrita, pc_reset, pcAtual);
+module contador_de_programa(endereco, clock, pc_reset, pcAtual);
 	// ----------Portas de Entrada---------- //	
 	input [25:0] endereco; // Endereco a ser escrito no contador de programa
 
@@ -7,13 +7,12 @@ module contador_de_programa(endereco, clock, pc_escrita, pc_reset, pcAtual);
 
 	// ----------Controle---------- //
 	input clock; // Clock
-	input pc_escrita; // Sinal de Escrita
 	input pc_reset; // Sinal de Reset
 		
 	always @ (posedge clock) begin
 		if(pc_reset)
 			pcAtual <= 26'b0;
-		else if(pc_escrita)
+		else
 			pcAtual <= endereco;
 	end
 endmodule

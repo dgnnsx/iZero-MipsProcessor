@@ -12,6 +12,7 @@ module BCD_dois_digitos(numero, sinal, dezena, unidade);
 	
 	// Algoritmo de conversao binario para 2BCD
 	always @ (numero) begin
+		aux = 32'b0;
 		dezena = 4'b0000;
 		unidade = 4'b0000;
 		if(numero[7] == 0) begin

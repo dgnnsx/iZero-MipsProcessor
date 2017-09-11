@@ -1,18 +1,14 @@
-module multiplexador_ula(BR, ext, ctrl_mux_ula, operandoULA);
-	// ----------Portas de Entrada---------- //
-	input [31:0] BR; // Dado vindo do banco de registradores
-	input [31:0] ext; // Dado vindo do extensor de bits
+module multiplexador_ula(A, B, S, Y);
+	// Entradas
+	input [31:0] A; // Dado vindo do banco de registradores
+	input [31:0] B; // Dado vindo do extensor de bits
 	
-	// ----------Portas de Saida---------- //
-	output reg [31:0] operandoULA; // Operando selecionado
+	// Controle
+	input S; // Sinal de controle vindo da UC
 	
-	// ----------Controle---------- //
-	input ctrl_mux_ula; // Sinal de controle vindo da UC
-
-	always @ (*) begin
-		case(ctrl_mux_ula)
-			1'b0: operandoULA = BR; // Operando da ULA vem do banco de registradores
-			1'b1: operandoULA = ext; // Operando da ULA vem do extensor de bits
-		endcase
-	end
+	// Saida
+	output [31:0] Y; // Operando selecionado
+	
+	// if (S == 1'b1) Y = A; else Y = B;
+	assign Y = S ? A : B;
 endmodule
