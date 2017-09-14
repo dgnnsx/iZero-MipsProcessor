@@ -1,7 +1,6 @@
 module memoria_de_dados(clock, endereco, memWrite, dado_Escrito, dado_Lido);
 	// ----------Portas de Entrada---------- //
-	input [31:0] dado_Escrito; // Valor a ser escrito na memoria
-	input [25:0] endereco; // Endereco
+	input [31:0] dado_Escrito, endereco; // Valor a ser escrito na memoria e endereco
 	
 	// ----------Portas de Saida---------- //
 	output [31:0] dado_Lido; // Valor a ser lido da memoria

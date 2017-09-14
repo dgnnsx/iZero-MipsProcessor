@@ -34,18 +34,18 @@ module unidade_logica_aritmetica(aluOp, A, B, resultado, isFalse);
 
 			// Atribuicao
 			5'b01110: select = A;						// RD = RS (MOV), ?JR
-			5'b01111: select = B;						// LI, OUT
+			5'b01111: select = B;						// LI, OUT, JF
 
-			5'b10000: select = A == B ? 1'b1 : 1'b0;
-			5'b10001: select = A != B ? 1'b1 : 1'b0;
-			5'b10010: select = A < B  ? 1'b1 : 1'b0;
-			5'b10011: select = A <= B ? 1'b1 : 1'b0;
-			5'b10100: select = A > B  ? 1'b1 : 1'b0;
-			5'b10101: select = A >= B ? 1'b1 : 1'b0;
-			default: select = 32'b0;
+			5'b10000: select = A == B ? 32'd1 : 32'd2;
+			5'b10001: select = A != B ? 32'd1 : 32'd2;
+			5'b10010: select = A < B  ? 32'd1 : 32'd2;
+			5'b10011: select = A <= B ? 32'd1 : 32'd2;
+			5'b10100: select = A > B  ? 32'd1 : 32'd2;
+			5'b10101: select = A >= B ? 32'd1 : 32'd2;
+			default: select = 32'd0;
 		endcase
 	endfunction
 	
-	assign isFalse = A == 1'b0;
+	assign isFalse = A == 32'd2 ? 1'b1 : 1'b0;
 	assign resultado = select(A, B, aluOp);
 endmodule

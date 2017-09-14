@@ -15,11 +15,11 @@ module multiplexador_escrita_br(entrada_dados, memoria_dados, ULA, PC, ctrl_mux_
 		input [31:0] a0, a1, a2, a3;
 		input [1:0] s;
 		case(s)
-			2'b00: select = a0;
-			2'b01: select = a1;
-			2'b10: select = a2;
-			2'b11: select = a3;
+			2'b00: select = a0; // ULA
+			2'b01: select = a1; // MEM_DADOS
+			2'b10: select = a2; // INPUT
+			2'b11: select = a3; // JAL
 		endcase
 	endfunction
-	assign dadoEscrito = select(PC + 32'd1, ULA, memoria_dados, entrada_dados, ctrl_mux_escrita_br);
+	assign dadoEscrito = select(ULA, memoria_dados, entrada_dados, PC + 32'd1, ctrl_mux_escrita_br);
 endmodule
