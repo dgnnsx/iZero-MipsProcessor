@@ -104,7 +104,7 @@ module unidade_de_controle(reset, in, isFalse, op, func,
 	assign interrupt		= i_halt & ~reset	| i_in & ~in;
 	assign pcSource[0]	= i_j		| i_jal	| i_jf & isFalse;
 	assign pcSource[1]	= i_j		| i_jr	| i_jal;
-	assign regWrtSelect[0] = i_lw | i_la	| i_jal;
+	assign regWrtSelect[0] = i_lw | i_jal;
 	assign regWrtSelect[1] = i_in | i_jal;
 	assign aluOp[0]		= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 								  i_subi | i_divi	| i_slli	| i_ori	| i_lori	|

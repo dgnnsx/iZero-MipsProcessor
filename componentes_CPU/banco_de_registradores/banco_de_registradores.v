@@ -1,4 +1,4 @@
-module banco_de_registradores(clock, regWrite, RS, RT,
+module banco_de_registradores(clock, regWrite, reset, RS, RT,
 RD, dadosEscrita, leituraRS, leituraRT);
 	// ----------Portas de Entrada---------- //
 	input [4:0] RS; // Registrador fonte
@@ -13,12 +13,20 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	// ----------Controle---------- //
 	input clock;
 	input regWrite; // Sinal de Escrita
+	input reset;
 
 	reg [31:0] regs[31:0];
+	localparam [4:0] STACK = 5'b11110, RZERO = 5'b00000;
+	
+	initial begin
+		regs[RZERO] = 32'd0;
+	end
 	
 	always @ (posedge clock) begin
-		if(regWrite)
-			regs[RD] =  dadosEscrita;
+		if(reset)
+			regs[STACK] <= regs[RZERO];
+		else if(regWrite)
+			regs[RD] <=  dadosEscrita;
 	end
 
 	assign leituraRS = regs[RS];

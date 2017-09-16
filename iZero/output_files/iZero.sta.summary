@@ -2,27 +2,27 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'temporizador:inst14|contador[15]'
-Slack : -174.542
-TNS   : -963479.697
+Type  : Setup 'temporizador:inst4|contador[15]'
+Slack : -177.110
+TNS   : -983393.126
 
 Type  : Setup 'clock'
-Slack : -1.698
-TNS   : -18.615
+Slack : -1.606
+TNS   : -16.331
 
 Type  : Hold 'clock'
-Slack : -2.598
-TNS   : -2.598
+Slack : -2.840
+TNS   : -2.840
 
-Type  : Hold 'temporizador:inst14|contador[15]'
-Slack : 1.374
+Type  : Hold 'temporizador:inst4|contador[15]'
+Slack : 0.452
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clock'
 Slack : -3.000
 TNS   : -23.560
 
-Type  : Minimum Pulse Width 'temporizador:inst14|contador[15]'
+Type  : Minimum Pulse Width 'temporizador:inst4|contador[15]'
 Slack : -1.285
 TNS   : -7559.655
 
