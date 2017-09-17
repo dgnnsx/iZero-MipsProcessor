@@ -1,12 +1,12 @@
-Fitter Status : Successful - Sat Sep 16 01:57:01 2017
+Fitter Status : Successful - Sun Sep 17 17:36:39 2017
 Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Web Edition
 Revision Name : iZero
 Top-level Entity Name : iZero
 Family : Cyclone IV E
 Device : EP4CE115F29C7
 Timing Models : Final
-Total logic elements : 11,165 / 114,480 ( 10 % )
-    Total combinational functions : 8,792 / 114,480 ( 8 % )
+Total logic elements : 11,079 / 114,480 ( 10 % )
+    Total combinational functions : 8,706 / 114,480 ( 8 % )
     Dedicated logic registers : 5,899 / 114,480 ( 5 % )
 Total registers : 5899
 Total pins : 78 / 529 ( 15 % )
