@@ -3,27 +3,55 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'temporizador:inst4|contador[15]'
-Slack : -171.355
-TNS   : -936712.132
+Slack : -173.768
+TNS   : -949378.744
+
+Type  : Setup 'lcdlab3:inst17|LCD_Display:u1|CLK_400HZ'
+Slack : -13.125
+TNS   : -120.987
 
 Type  : Setup 'clock'
-Slack : -1.695
-TNS   : -18.562
+Slack : -3.369
+TNS   : -130.975
 
 Type  : Hold 'clock'
-Slack : -2.600
-TNS   : -2.600
+Slack : -2.871
+TNS   : -5.711
+
+Type  : Hold 'lcdlab3:inst17|LCD_Display:u1|CLK_400HZ'
+Slack : 0.403
+TNS   : 0.000
 
 Type  : Hold 'temporizador:inst4|contador[15]'
 Slack : 0.451
 TNS   : 0.000
 
+Type  : Recovery 'lcdlab3:inst17|LCD_Display:u1|CLK_400HZ'
+Slack : -2.833
+TNS   : -36.829
+
+Type  : Recovery 'clock'
+Slack : -2.737
+TNS   : -57.466
+
+Type  : Removal 'clock'
+Slack : 3.146
+TNS   : 0.000
+
+Type  : Removal 'lcdlab3:inst17|LCD_Display:u1|CLK_400HZ'
+Slack : 3.162
+TNS   : 0.000
+
 Type  : Minimum Pulse Width 'clock'
 Slack : -3.000
-TNS   : -23.560
+TNS   : -77.530
 
 Type  : Minimum Pulse Width 'temporizador:inst4|contador[15]'
 Slack : -1.285
 TNS   : -7559.655
+
+Type  : Minimum Pulse Width 'lcdlab3:inst17|LCD_Display:u1|CLK_400HZ'
+Slack : -1.285
+TNS   : -48.830
 
 ------------------------------------------------------------
