@@ -255,18 +255,10 @@ always @(posedge CLK_400HZ or negedge iRST_N)
 	endcase
 endmodule
 
-module LCD_display_string(isHalt, isInsert, index,out);
+module LCD_display_string(isHalt, isInsert, index, out);
 	input isHalt, isInsert;
 	input [4:0] index;
 	output reg [7:0] out;
-	// ASCII hex values for LCD Display
-	// Enter Live Hex Data Values from hardware here
-	// LCD DISPLAYS THE FOLLOWING:
-	//----------------------------|
-	//| Count=XX                  |
-	//| ???                       |
-	//----------------------------|
-	
 	always 
 		case (index)
 			// Linha 1
