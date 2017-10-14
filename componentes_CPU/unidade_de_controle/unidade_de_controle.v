@@ -81,7 +81,7 @@ module unidade_de_controle(reset, in, isFalse, op, func,
 	wire i_halt					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
 	
 	// Atribui controles do datapath
-	assign pcReset				= reset;
+	assign pcReset				= ~reset;
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
 									i_and  | i_or   | i_xor  | i_not	|
@@ -103,7 +103,7 @@ module unidade_de_controle(reset, in, isFalse, op, func,
 									i_mov  | i_lw   | i_li   | i_la   | i_in;
 	assign isJal				= i_jal;
 	assign outWrite			= i_out;
-	assign interrupt			= i_halt & ~reset	| i_in & ~in;
+	assign interrupt			= i_halt & reset	| i_in & ~in;
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;

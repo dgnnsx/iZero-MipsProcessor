@@ -2,8 +2,8 @@
 D2_SINAL <= display_duplo:inst34.saida_sinal
 clock => temporizador:inst4.clock
 clock => lcdlab3:inst17.CLOCK_50
-reset => unidade_de_controle:inst15.reset
-IN_BUTTON => entrada_de_dados:inst27.IN
+reset => debouncer:inst12.PB
+IN_BUTTON => debouncer:inst14.PB
 SLIDE_SWITCHES[0] => entrada_de_dados:inst27.chaves[0]
 SLIDE_SWITCHES[0] => leds_SLIDE_SWITCHES[0].DATAIN
 SLIDE_SWITCHES[1] => entrada_de_dados:inst27.chaves[1]
@@ -728,8 +728,8 @@ reduzclock <= contador[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|unidade_de_controle:inst15
-reset => pcReset.DATAIN
 reset => interrupt.IN1
+reset => pcReset.DATAIN
 in => interrupt.IN1
 isFalse => pcSource.IN1
 op[0] => WideNor0.IN0
@@ -851,6 +851,30 @@ aluOp[3] <= aluOp.DB_MAX_OUTPUT_PORT_TYPE
 aluOp[4] <= aluOp.DB_MAX_OUTPUT_PORT_TYPE
 
 
+|iZero|debouncer:inst12
+clk => PB_state~reg0.CLK
+clk => PB_cnt[0].CLK
+clk => PB_cnt[1].CLK
+clk => PB_cnt[2].CLK
+clk => PB_cnt[3].CLK
+clk => PB_cnt[4].CLK
+clk => PB_cnt[5].CLK
+clk => PB_cnt[6].CLK
+clk => PB_cnt[7].CLK
+clk => PB_cnt[8].CLK
+clk => PB_cnt[9].CLK
+clk => PB_cnt[10].CLK
+clk => PB_cnt[11].CLK
+clk => PB_cnt[12].CLK
+clk => PB_cnt[13].CLK
+clk => PB_cnt[14].CLK
+clk => PB_cnt[15].CLK
+clk => PB_sync_1.CLK
+clk => PB_sync_0.CLK
+PB => PB_sync_0.DATAIN
+PB_state <= PB_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
+
+
 |iZero|entrada_de_dados:inst27
 chaves[0] => dado.DATAB
 chaves[1] => dado.DATAB
@@ -950,6 +974,30 @@ dado[29] <= dado.DB_MAX_OUTPUT_PORT_TYPE
 dado[30] <= dado.DB_MAX_OUTPUT_PORT_TYPE
 dado[31] <= dado.DB_MAX_OUTPUT_PORT_TYPE
 flag_IN <= IN.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|iZero|debouncer:inst14
+clk => PB_state~reg0.CLK
+clk => PB_cnt[0].CLK
+clk => PB_cnt[1].CLK
+clk => PB_cnt[2].CLK
+clk => PB_cnt[3].CLK
+clk => PB_cnt[4].CLK
+clk => PB_cnt[5].CLK
+clk => PB_cnt[6].CLK
+clk => PB_cnt[7].CLK
+clk => PB_cnt[8].CLK
+clk => PB_cnt[9].CLK
+clk => PB_cnt[10].CLK
+clk => PB_cnt[11].CLK
+clk => PB_cnt[12].CLK
+clk => PB_cnt[13].CLK
+clk => PB_cnt[14].CLK
+clk => PB_cnt[15].CLK
+clk => PB_sync_1.CLK
+clk => PB_sync_0.CLK
+PB => PB_sync_0.DATAIN
+PB_state <= PB_state~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|unidade_logica_aritmetica:inst6

@@ -8,7 +8,7 @@ module entrada_de_dados(chaves, IN, dado, flag_IN);
 	output reg flag_IN; // Flag para a Unidade de Controle
 	
 	always @ (*) begin
-		if(IN) begin
+		if(~IN) begin
 			if(chaves[7] == 0) begin
 				dado = chaves + 32'b0;
 				flag_IN = 1'b1;
