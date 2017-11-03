@@ -18,13 +18,9 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	reg [31:0] regs[31:0];
 	localparam [4:0] STACK = 5'b11110, RZERO = 5'b00000;
 	
-	initial begin
-		regs[RZERO] = 32'd0;
-	end
-	
 	always @ (posedge clock) begin
 		if(reset)
-			regs[STACK] <= regs[RZERO];
+			regs[STACK] <= 32'd0;
 		else if(regWrite)
 			regs[RD] <=  dadosEscrita;
 	end
