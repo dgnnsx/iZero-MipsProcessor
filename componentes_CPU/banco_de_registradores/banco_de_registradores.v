@@ -16,13 +16,14 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	input reset;
 
 	reg [31:0] regs[31:0];
-	localparam [4:0] STACK = 5'b11110, RZERO = 5'b00000;
+	localparam [4:0] STACK = 5'b11110;
 	
-	always @ (posedge clock) begin
-		if(reset)
+	always @ (posedge clock or posedge reset) begin
+		if(reset) begin
 			regs[STACK] <= 32'd0;
-		else if(regWrite)
-			regs[RD] <=  dadosEscrita;
+		end else begin
+			regs[RD] <= regWrite ? dadosEscrita : regs[RD];
+		end
 	end
 
 	assign leituraRS = regs[RS];

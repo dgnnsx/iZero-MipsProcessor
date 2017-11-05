@@ -9,7 +9,7 @@ module contador_de_programa(endereco, clock, pc_reset, pcAtual);
 	input clock; // Clock
 	input pc_reset; // Sinal de Reset
 		
-	always @ (posedge clock) begin
+	always @ (posedge clock or posedge pc_reset) begin
 		if(pc_reset)
 			pcAtual <= 26'b0;
 		else
