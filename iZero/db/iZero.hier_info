@@ -20,7 +20,6 @@ SLIDE_SWITCHES[6] => entrada_de_dados:inst27.chaves[6]
 SLIDE_SWITCHES[6] => leds_SLIDE_SWITCHES[6].DATAIN
 SLIDE_SWITCHES[7] => entrada_de_dados:inst27.chaves[7]
 SLIDE_SWITCHES[7] => leds_SLIDE_SWITCHES[7].DATAIN
-teste => multiplexador_bios:inst.isMem
 D1_SINAL <= display_duplo:inst33.saida_sinal
 D3_SINAL <= display_quadruplo:inst35.saida_sinal
 LCD_ON <= lcdlab3:inst17.LCD_ON
@@ -5846,6 +5845,43 @@ instrucao[28] <= instrucao.DB_MAX_OUTPUT_PORT_TYPE
 instrucao[29] <= instrucao.DB_MAX_OUTPUT_PORT_TYPE
 instrucao[30] <= instrucao.DB_MAX_OUTPUT_PORT_TYPE
 instrucao[31] <= instrucao.DB_MAX_OUTPUT_PORT_TYPE
+
+
+|iZero|controlador:inst1
+clock => isMem~reg0.CLK
+instrucao[0] => ~NO_FANOUT~
+instrucao[1] => ~NO_FANOUT~
+instrucao[2] => ~NO_FANOUT~
+instrucao[3] => ~NO_FANOUT~
+instrucao[4] => ~NO_FANOUT~
+instrucao[5] => ~NO_FANOUT~
+instrucao[6] => ~NO_FANOUT~
+instrucao[7] => ~NO_FANOUT~
+instrucao[8] => ~NO_FANOUT~
+instrucao[9] => ~NO_FANOUT~
+instrucao[10] => ~NO_FANOUT~
+instrucao[11] => ~NO_FANOUT~
+instrucao[12] => ~NO_FANOUT~
+instrucao[13] => ~NO_FANOUT~
+instrucao[14] => ~NO_FANOUT~
+instrucao[15] => ~NO_FANOUT~
+instrucao[16] => ~NO_FANOUT~
+instrucao[17] => ~NO_FANOUT~
+instrucao[18] => ~NO_FANOUT~
+instrucao[19] => ~NO_FANOUT~
+instrucao[20] => ~NO_FANOUT~
+instrucao[21] => ~NO_FANOUT~
+instrucao[22] => ~NO_FANOUT~
+instrucao[23] => ~NO_FANOUT~
+instrucao[24] => ~NO_FANOUT~
+instrucao[25] => ~NO_FANOUT~
+instrucao[26] => Equal0.IN5
+instrucao[27] => Equal0.IN4
+instrucao[28] => Equal0.IN3
+instrucao[29] => Equal0.IN1
+instrucao[30] => Equal0.IN0
+instrucao[31] => Equal0.IN2
+isMem <= isMem~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|bios:inst22

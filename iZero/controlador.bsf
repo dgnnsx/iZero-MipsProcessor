@@ -34,15 +34,15 @@ agreement for further details.
 	(port
 		(pt 0 48)
 		(input)
-		(text "isFimBios" (rect 0 0 37 12)(font "Arial" ))
-		(text "isFimBios" (rect 21 43 58 55)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 1))
+		(text "instrucao[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 21 43 80 55)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
 	)
 	(port
 		(pt 192 32)
 		(output)
-		(text "ctrl_mux_bios" (rect 0 0 56 12)(font "Arial" ))
-		(text "ctrl_mux_bios" (rect 115 27 171 39)(font "Arial" ))
+		(text "isMem" (rect 0 0 27 12)(font "Arial" ))
+		(text "isMem" (rect 144 27 171 39)(font "Arial" ))
 		(line (pt 192 32)(pt 176 32)(line_width 1))
 	)
 	(drawing

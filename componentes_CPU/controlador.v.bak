@@ -1,0 +1,17 @@
+module controlador(clock, opcode, isMem);
+	// Entrada
+	input [5:0] opcode;
+
+	// Saida
+	output reg isMem = 1'b0;
+
+	// Controle
+	input clock;						// Clock
+		
+	always @ (posedge clock or posedge pc_reset) begin
+		if(pc_reset)
+			pcAtual <= 26'b0;
+		else
+			pcAtual <= endereco;
+	end
+endmodule

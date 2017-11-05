@@ -843,7 +843,7 @@ D3_MILHAR[0]                 : Y19       : output : 2.5 V             :         
 VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
 VCCA4                        : Y21       : power  :                   : 2.5V    :           :                
 D3_DEZENA[5]                 : Y22       : output : 2.5 V             :         : 5         : Y              
-teste                        : Y23       : input  : 2.5 V             :         : 5         : Y              
+RESERVED_INPUT               : Y23       :        :                   :         : 5         :                
 RESERVED_INPUT               : Y24       :        :                   :         : 5         :                
 D3_CENTENA[4]                : Y25       : output : 2.5 V             :         : 5         : Y              
 D3_CENTENA[2]                : Y26       : output : 2.5 V             :         : 5         : Y              
