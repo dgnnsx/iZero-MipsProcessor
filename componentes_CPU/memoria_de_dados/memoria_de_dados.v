@@ -14,7 +14,7 @@ module memoria_de_dados(clock, endereco, memWrite, dado_Escrito, dado_Lido);
 	
 	always @ (posedge clock) begin
 		if(memWrite) begin
-			memoria_dados[endereco] = dado_Escrito;
+			memoria_dados[endereco] <= dado_Escrito;
 		end
 	end	
 	assign dado_Lido = memoria_dados[endereco];

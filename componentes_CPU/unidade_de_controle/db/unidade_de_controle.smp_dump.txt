@@ -1,7 +1,0 @@
-
-State Machine - |unidade_de_controle|estado
-Name estado.TRAVADO estado.INTERROMPIDO estado.EXECUTANDO estado.BUSCANDO 
-estado.BUSCANDO 0 0 0 0 
-estado.EXECUTANDO 0 0 1 1 
-estado.INTERROMPIDO 0 1 0 1 
-estado.TRAVADO 1 0 0 1 

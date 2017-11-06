@@ -1384,34 +1384,6 @@ agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 376 616 568 696)
-	(text "memoria_de_instrucoes" (rect 5 0 119 10)(font "Arial" ))
-	(text "inst20" (rect 8 64 37 74)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
-		(text "pc[25..0]" (rect 21 27 62 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 192 32)
-		(output)
-		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
-		(text "instrucao[31..0]" (rect 110 27 183 37)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32)(line_width 3))
-	)
-	(parameter
-		"MEM_SIZE"
-		"150"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 176 64))
-	)
-	(annotation_block (parameter)(rect 88 640 272 664))
-)
-(symbol
 	(rect 376 528 568 608)
 	(text "bios" (rect 5 0 26 10)(font "Arial" ))
 	(text "inst22" (rect 8 64 37 74)(font "Arial" ))
@@ -1437,7 +1409,7 @@ agreement for further details.
 	(drawing
 		(rectangle (rect 16 16 176 64))
 	)
-	(annotation_block (parameter)(rect 88 576 272 600))
+	(annotation_block (parameter)(rect 136 480 320 504))
 )
 (symbol
 	(rect 384 -320 592 -48)
@@ -1574,49 +1546,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 400 240 608 352)
-	(text "controlador_bios" (rect 5 0 85 10)(font "Arial" ))
-	(text "inst19" (rect 8 96 37 106)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 25 10)(font "Arial" ))
-		(text "clock" (rect 21 27 46 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "mem[31..0]" (rect 0 0 53 10)(font "Arial" ))
-		(text "mem[31..0]" (rect 21 43 74 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "bios[31..0]" (rect 0 0 49 10)(font "Arial" ))
-		(text "bios[31..0]" (rect 21 59 70 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(port
-		(pt 208 32)
-		(output)
-		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
-		(text "instrucao[31..0]" (rect 126 27 187 37)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "reset" (rect 0 0 24 10)(font "Arial" ))
-		(text "reset" (rect 167 43 187 53)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 96))
-	)
-)
-(symbol
 	(rect 144 240 360 352)
 	(text "contador_de_programa" (rect 5 0 117 10)(font "Arial" ))
 	(text "inst16" (rect 8 96 37 106)(font "Arial" ))
@@ -1652,11 +1581,175 @@ agreement for further details.
 		(pt 216 32)
 		(output)
 		(text "pcAtual[25..0]" (rect 0 0 64 10)(font "Arial" ))
-		(text "pcAtual[25..0]" (rect 141 27 195 37)(font "Arial" ))
+		(text "pcAtual[25..0]" (rect 141 27 205 37)(font "Arial" ))
 		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 200 96))
+	)
+)
+(symbol
+	(rect 376 616 616 728)
+	(text "memoria_de_instrucoes" (rect 5 0 119 10)(font "Arial" ))
+	(text "inst18" (rect 8 96 37 106)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 10)(font "Arial" ))
+		(text "clock" (rect 21 27 46 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "memWrite" (rect 0 0 49 10)(font "Arial" ))
+		(text "memWrite" (rect 21 43 70 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
+		(text "pc[25..0]" (rect 21 59 62 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "instr_Escrita[31..0]" (rect 0 0 88 10)(font "Arial" ))
+		(text "instr_Escrita[31..0]" (rect 21 75 109 85)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
+	)
+	(port
+		(pt 240 32)
+		(output)
+		(text "instr_Lida[31..0]" (rect 0 0 75 10)(font "Arial" ))
+		(text "instr_Lida[31..0]" (rect 156 27 231 37)(font "Arial" ))
+		(line (pt 240 32)(pt 224 32)(line_width 3))
+	)
+	(parameter
+		"MEM_SIZE"
+		"150"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 224 96))
+	)
+	(annotation_block (parameter)(rect 688 608 872 632))
+)
+(symbol
+	(rect 160 528 352 608)
+	(text "disco_rigido" (rect 130 0 187 10)(font "Arial" ))
+	(text "inst1" (rect 162 64 184 74)(font "Arial" ))
+	(port
+		(pt 192 32)
+		(input)
+		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
+		(text "pc[25..0]" (rect 130 27 171 37)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 9 27 82 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(parameter
+		"DISK_SIZE"
+		"150"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 176 64))
+	)
+	(flipy)
+	(annotation_block (parameter)(rect -72 544 112 568))
+)
+(symbol
+	(rect 120 632 328 712)
+	(text "controlador_disco" (rect 5 0 89 10)(font "Arial" ))
+	(text "inst11" (rect 8 64 36 74)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 10)(font "Arial" ))
+		(text "clock" (rect 21 27 46 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 21 43 94 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "memWrite" (rect 0 0 49 10)(font "Arial" ))
+		(text "memWrite" (rect 146 27 195 37)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "transferido" (rect 0 0 51 10)(font "Arial" ))
+		(text "transferido" (rect 144 43 195 53)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 64))
+	)
+)
+(symbol
+	(rect 408 240 616 352)
+	(text "controlador_bios" (rect 5 0 85 10)(font "Arial" ))
+	(text "inst19" (rect 8 96 37 106)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 10)(font "Arial" ))
+		(text "clock" (rect 21 27 46 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "mem[31..0]" (rect 0 0 53 10)(font "Arial" ))
+		(text "mem[31..0]" (rect 21 43 74 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "bios[31..0]" (rect 0 0 49 10)(font "Arial" ))
+		(text "bios[31..0]" (rect 21 59 70 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(port
+		(pt 0 80)
+		(input)
+		(text "transfOK" (rect 0 0 43 10)(font "Arial" ))
+		(text "transfOK" (rect 21 75 64 85)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80))
+	)
+	(port
+		(pt 208 32)
+		(output)
+		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 126 27 199 37)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "reset" (rect 0 0 24 10)(font "Arial" ))
+		(text "reset" (rect 167 43 191 53)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 96))
 	)
 )
 (connector
@@ -2110,18 +2203,6 @@ agreement for further details.
 	(pt 352 96)
 	(pt 352 144)
 	(bus)
-)
-(connector
-	(pt 96 -16)
-	(pt 96 392)
-)
-(connector
-	(pt 96 392)
-	(pt 1336 392)
-)
-(connector
-	(pt 1336 344)
-	(pt 1336 392)
 )
 (connector
 	(pt 1000 144)
@@ -2597,21 +2678,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 368 648)
-	(pt 376 648)
-	(bus)
-)
-(connector
-	(pt 368 560)
-	(pt 376 560)
-	(bus)
-)
-(connector
-	(pt 368 560)
-	(pt 368 648)
-	(bus)
-)
-(connector
 	(pt 1424 296)
 	(pt 1424 504)
 	(bus)
@@ -2622,42 +2688,12 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 368 504)
-	(pt 368 560)
-	(bus)
-)
-(connector
 	(pt 128 400)
 	(pt 128 520)
 )
 (connector
-	(pt 576 496)
-	(pt 384 496)
-	(bus)
-)
-(connector
-	(pt 576 496)
-	(pt 576 648)
-	(bus)
-)
-(connector
-	(pt 576 648)
-	(pt 568 648)
-	(bus)
-)
-(connector
 	(pt 392 488)
 	(pt 584 488)
-	(bus)
-)
-(connector
-	(pt 584 488)
-	(pt 584 560)
-	(bus)
-)
-(connector
-	(pt 584 560)
-	(pt 568 560)
 	(bus)
 )
 (connector
@@ -2766,58 +2802,6 @@ agreement for further details.
 	(pt 744 -160)
 )
 (connector
-	(text "instrucao[31..0]" (rect 610 256 683 266)(font "Arial" ))
-	(pt 680 272)
-	(pt 608 272)
-	(bus)
-)
-(connector
-	(pt 392 304)
-	(pt 400 304)
-	(bus)
-)
-(connector
-	(pt 392 488)
-	(pt 392 304)
-	(bus)
-)
-(connector
-	(pt 384 288)
-	(pt 400 288)
-	(bus)
-)
-(connector
-	(pt 384 496)
-	(pt 384 288)
-	(bus)
-)
-(connector
-	(pt 376 272)
-	(pt 400 272)
-)
-(connector
-	(pt 376 376)
-	(pt 376 272)
-)
-(connector
-	(pt 680 160)
-	(pt 680 272)
-	(bus)
-)
-(connector
-	(pt 680 272)
-	(pt 680 280)
-	(bus)
-)
-(connector
-	(pt 112 376)
-	(pt 376 376)
-)
-(connector
-	(pt 376 376)
-	(pt 1600 376)
-)
-(connector
 	(pt -136 80)
 	(pt -136 272)
 	(bus)
@@ -2851,14 +2835,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 112 -8)
-	(pt 112 288)
-)
-(connector
-	(pt 112 288)
-	(pt 112 376)
-)
-(connector
 	(pt 128 8)
 	(pt 128 304)
 )
@@ -2867,24 +2843,260 @@ agreement for further details.
 	(pt 128 400)
 )
 (connector
-	(pt 608 288)
-	(pt 616 288)
-)
-(connector
-	(pt 616 408)
-	(pt 616 288)
-)
-(connector
-	(pt 616 408)
-	(pt 88 408)
-)
-(connector
 	(pt 88 320)
 	(pt 88 408)
 )
 (connector
 	(pt 88 320)
 	(pt 144 320)
+)
+(connector
+	(pt 384 496)
+	(pt 576 496)
+	(bus)
+)
+(connector
+	(pt 576 608)
+	(pt 576 496)
+	(bus)
+)
+(connector
+	(pt 576 608)
+	(pt 624 608)
+	(bus)
+)
+(connector
+	(pt 360 456)
+	(pt 376 456)
+)
+(connector
+	(pt 112 -8)
+	(pt 112 288)
+)
+(connector
+	(pt 112 376)
+	(pt 376 376)
+)
+(connector
+	(pt 376 376)
+	(pt 1600 376)
+)
+(connector
+	(pt 624 608)
+	(pt 624 648)
+	(bus)
+)
+(connector
+	(pt 624 648)
+	(pt 616 648)
+	(bus)
+)
+(connector
+	(pt 368 680)
+	(pt 376 680)
+	(bus)
+)
+(connector
+	(pt 360 648)
+	(pt 376 648)
+)
+(connector
+	(pt 360 456)
+	(pt 360 648)
+)
+(connector
+	(pt 352 616)
+	(pt 352 696)
+	(bus)
+)
+(connector
+	(pt 352 696)
+	(pt 376 696)
+	(bus)
+)
+(connector
+	(pt 368 504)
+	(pt 368 560)
+	(bus)
+)
+(connector
+	(pt 368 560)
+	(pt 368 680)
+	(bus)
+)
+(connector
+	(pt 112 664)
+	(pt 120 664)
+)
+(connector
+	(pt 104 616)
+	(pt 104 680)
+	(bus)
+)
+(connector
+	(pt 104 680)
+	(pt 120 680)
+	(bus)
+)
+(connector
+	(pt 112 288)
+	(pt 112 376)
+)
+(connector
+	(pt 112 376)
+	(pt 112 664)
+)
+(connector
+	(pt 328 664)
+	(pt 376 664)
+)
+(connector
+	(pt 328 680)
+	(pt 344 680)
+)
+(connector
+	(pt 344 736)
+	(pt 344 680)
+)
+(connector
+	(pt 344 736)
+	(pt 632 736)
+)
+(connector
+	(pt 632 736)
+	(pt 632 600)
+)
+(connector
+	(pt 632 600)
+	(pt 592 600)
+)
+(connector
+	(pt 96 -16)
+	(pt 96 392)
+)
+(connector
+	(pt 96 392)
+	(pt 1336 392)
+)
+(connector
+	(pt 1336 344)
+	(pt 1336 392)
+)
+(connector
+	(pt 88 408)
+	(pt 624 408)
+)
+(connector
+	(pt 592 600)
+	(pt 592 480)
+)
+(connector
+	(pt 400 480)
+	(pt 592 480)
+)
+(connector
+	(pt 400 480)
+	(pt 400 320)
+)
+(connector
+	(text "instrucao[31..0]" (rect 618 256 691 266)(font "Arial" ))
+	(pt 680 272)
+	(pt 616 272)
+	(bus)
+)
+(connector
+	(pt 392 488)
+	(pt 392 304)
+	(bus)
+)
+(connector
+	(pt 384 496)
+	(pt 384 288)
+	(bus)
+)
+(connector
+	(pt 376 272)
+	(pt 408 272)
+)
+(connector
+	(pt 384 288)
+	(pt 408 288)
+	(bus)
+)
+(connector
+	(pt 392 304)
+	(pt 408 304)
+	(bus)
+)
+(connector
+	(pt 624 288)
+	(pt 616 288)
+)
+(connector
+	(pt 624 408)
+	(pt 624 288)
+)
+(connector
+	(pt 400 320)
+	(pt 408 320)
+)
+(connector
+	(pt 680 160)
+	(pt 680 272)
+	(bus)
+)
+(connector
+	(pt 680 272)
+	(pt 680 280)
+	(bus)
+)
+(connector
+	(pt 376 272)
+	(pt 376 376)
+)
+(connector
+	(pt 376 376)
+	(pt 376 456)
+)
+(connector
+	(pt 584 488)
+	(pt 584 560)
+	(bus)
+)
+(connector
+	(pt 584 560)
+	(pt 568 560)
+	(bus)
+)
+(connector
+	(pt 152 560)
+	(pt 160 560)
+	(bus)
+)
+(connector
+	(pt 152 616)
+	(pt 152 560)
+	(bus)
+)
+(connector
+	(pt 104 616)
+	(pt 152 616)
+	(bus)
+)
+(connector
+	(pt 152 616)
+	(pt 352 616)
+	(bus)
+)
+(connector
+	(pt 352 560)
+	(pt 368 560)
+	(bus)
+)
+(connector
+	(pt 368 560)
+	(pt 376 560)
+	(bus)
 )
 (junction (pt 1856 0))
 (junction (pt 632 80))
@@ -2910,7 +3122,9 @@ agreement for further details.
 (junction (pt 1976 344))
 (junction (pt 368 272))
 (junction (pt 368 504))
-(junction (pt 368 560))
 (junction (pt 112 288))
 (junction (pt 376 376))
 (junction (pt 304 -224))
+(junction (pt 368 560))
+(junction (pt 112 376))
+(junction (pt 152 616))

@@ -1,8 +1,9 @@
-module controlador_bios(clock, mem, bios, instrucao, reset);
+module controlador_bios(clock, mem, bios, transfOK, instrucao, reset);
 	// Entradas
 	input clock;
 	input [31:0] mem;													// Instrucao vinda da Memoria
 	input [31:0] bios;												// Instrucao vinda da Bios
+	input transfOK;
 	
 	// Saida
 	output [31:0] instrucao;										// Instrucao efetiva
@@ -23,5 +24,5 @@ module controlador_bios(clock, mem, bios, instrucao, reset);
 			reset <= 1'b0;
 		end
 	end
-	assign instrucao = estado == MEMORIA_INSTRUCOES ? mem : bios;
+	assign instrucao = estado == BIOS ? bios : transfOK ? mem : 32'b010000_00000_00000_0000000000000000; // LI 0 -> RZ
 endmodule

@@ -1,5 +1,5 @@
 Flow report for iZero
-Sun Nov  5 14:05:56 2017
+Mon Nov  6 00:41:46 2017
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -41,20 +41,20 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Sun Nov  5 14:05:56 2017      ;
+; Flow Status                        ; Successful - Mon Nov  6 00:41:46 2017      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE115F29C7                              ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 12,053 / 114,480 ( 11 % )                  ;
-;     Total combinational functions  ; 9,683 / 114,480 ( 8 % )                    ;
-;     Dedicated logic registers      ; 6,008 / 114,480 ( 5 % )                    ;
-; Total registers                    ; 6008                                       ;
+; Total logic elements               ; 12,157 / 114,480 ( 11 % )                  ;
+;     Total combinational functions  ; 9,780 / 114,480 ( 9 % )                    ;
+;     Dedicated logic registers      ; 6,090 / 114,480 ( 5 % )                    ;
+; Total registers                    ; 6090                                       ;
 ; Total pins                         ; 91 / 529 ( 17 % )                          ;
 ; Total virtual pins                 ; 0                                          ;
-; Total memory bits                  ; 0 / 3,981,312 ( 0 % )                      ;
+; Total memory bits                  ; 4,800 / 3,981,312 ( < 1 % )                ;
 ; Embedded Multiplier 9-bit elements ; 6 / 532 ( 1 % )                            ;
 ; Total PLLs                         ; 0 / 4 ( 0 % )                              ;
 +------------------------------------+--------------------------------------------+
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/05/2017 14:02:16 ;
+; Start date & time ; 11/06/2017 00:37:58 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; iZero               ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+-----------------------------------------------------+--------------------+-------------+----------------+
 ; Assignment Name                     ; Value                                               ; Default Value      ; Entity Name ; Section Id     ;
 +-------------------------------------+-----------------------------------------------------+--------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 185180433996133.150989773605451                     ; --                 ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 185180433996133.150993587807233                     ; --                 ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                  ; --                 ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; C:/Users/PC/Desktop/iZero_v3/iZero/simulation/qsim/ ; --                 ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                         ; --                 ; --          ; eda_simulation ;
@@ -112,12 +112,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:06     ; 1.0                     ; 1009 MB             ; 00:01:22                           ;
-; Fitter                    ; 00:01:35     ; 1.0                     ; 1207 MB             ; 00:01:35                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 1059 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:00:38     ; 1.0                     ; 1906 MB             ; 00:00:38                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1130 MB             ; 00:00:03                           ;
-; Total                     ; 00:03:28     ; --                      ; --                  ; 00:03:44                           ;
+; Analysis & Synthesis      ; 00:01:00     ; 1.0                     ; 1030 MB             ; 00:01:15                           ;
+; Fitter                    ; 00:01:36     ; 1.0                     ; 1197 MB             ; 00:01:35                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 1059 MB             ; 00:00:06                           ;
+; TimeQuest Timing Analyzer ; 00:00:53     ; 1.0                     ; 1914 MB             ; 00:00:52                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1133 MB             ; 00:00:03                           ;
+; Total                     ; 00:03:39     ; --                      ; --                  ; 00:03:51                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

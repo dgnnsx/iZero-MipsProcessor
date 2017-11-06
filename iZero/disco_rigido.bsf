@@ -27,20 +27,20 @@ agreement for further details.
 	(port
 		(pt 0 32)
 		(input)
-		(text "setor[25..0]" (rect 0 0 44 12)(font "Arial" ))
-		(text "setor[25..0]" (rect 21 27 65 39)(font "Arial" ))
+		(text "pc[25..0]" (rect 0 0 34 12)(font "Arial" ))
+		(text "pc[25..0]" (rect 21 27 55 39)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(port
 		(pt 192 32)
 		(output)
-		(text "dados[31..0]" (rect 0 0 47 12)(font "Arial" ))
-		(text "dados[31..0]" (rect 124 27 171 39)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 0 0 59 12)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 112 27 171 39)(font "Arial" ))
 		(line (pt 192 32)(pt 176 32)(line_width 3))
 	)
 	(parameter
-		"HARD_DISK_SIZE"
-		"300"
+		"DISK_SIZE"
+		"200"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
