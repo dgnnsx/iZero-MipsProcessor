@@ -1,27 +1,44 @@
-module controlador_disco(clock, instrucao, memWrite, transferido);
+module controlador_disco(clock, start, instrucao, memWrite, transferido, reset);
 	// Entradas
 	input clock;
+	input start;
 	input [31:0] instrucao;											// Instrucao vinda do disco
 	
 	// Saida
-	output reg memWrite = 1'b1;
-	output reg transferido = 1'b0;
+	output reg memWrite = 1'b0;
+	output reg transferido = 1'b0;								// Estado atual - Inicia no estado da BIOS
+	output reg reset = 1'b0;
 	
-	reg estado = 1'b0;												// Estado atual - Inicia no estado da BIOS
+	reg [1:0] estado = 2'b00;
+	reg started = 1'b0;
 	localparam HALT = 6'b011000;									// Opcode da instrucao HALT
-	localparam TRANSFERINDO = 1'b0, TRANSFERIDO = 1'b1;	// Estados
+	localparam AGUARDANDO = 2'b00, TRANSFERINDO = 2'b01, TRANSFERIDO = 2'b10;	// Estados
 	
-	wire [5:0] opcode;
-	assign opcode = instrucao[31:26];
+	always @ (posedge start) begin
+		started <= 1'b1;
+	end
 	
 	always @ (posedge clock) begin
-		if (estado == TRANSFERINDO && opcode == HALT) begin
-			estado <= TRANSFERIDO;
-			transferido <= 1'b1;
-		end else begin
-			if(estado == TRANSFERIDO) begin
-				memWrite = 1'b0;
+		case (estado)
+			AGUARDANDO: begin
+				if (started) begin
+					estado <= TRANSFERINDO;
+					memWrite <= 1'b1;
+				end
 			end
-		end
+			TRANSFERINDO: begin
+				if (instrucao[31:26] == HALT) begin
+					estado <= TRANSFERIDO;
+					transferido <= 1'b1;
+					reset <= 1'b1;
+				end
+			end
+			TRANSFERIDO: begin
+				memWrite <= 1'b0;
+				reset <= 1'b0;
+			end
+			default: begin
+			end
+		endcase
 	end
 endmodule

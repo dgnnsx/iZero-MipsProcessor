@@ -66,6 +66,20 @@ agreement for further details.
 		(text "reset" (rect 167 43 187 55)(font "Arial" ))
 		(line (pt 208 48)(pt 192 48)(line_width 1))
 	)
+	(port
+		(pt 208 64)
+		(output)
+		(text "isBios" (rect 0 0 22 12)(font "Arial" ))
+		(text "isBios" (rect 165 59 187 71)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 1))
+	)
+	(port
+		(pt 208 80)
+		(output)
+		(text "isTransf" (rect 0 0 33 12)(font "Arial" ))
+		(text "isTransf" (rect 154 75 187 87)(font "Arial" ))
+		(line (pt 208 80)(pt 192 80)(line_width 1))
+	)
 	(drawing
 		(rectangle (rect 16 16 192 96)(line_width 1))
 	)

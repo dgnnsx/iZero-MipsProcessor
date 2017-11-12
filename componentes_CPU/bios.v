@@ -27,5 +27,5 @@ module bios(pc, instrucao);
 	assign bios[16] = 32'b010010_11110_10111_0000000000000000; 	// sw
 	assign bios[17] = 32'b011000_00000000000000000000000000; 	// halt
 
-	assign instrucao = pc >= BIOS_SIZE ? bios[BIOS_SIZE-1] : bios[pc];
+	assign instrucao = pc < BIOS_SIZE ? bios[pc] : bios[BIOS_SIZE-1];
 endmodule

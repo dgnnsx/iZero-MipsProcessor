@@ -1,8 +1,7 @@
-module lcdlab3(CLOCK_50, isHalt, isInsert, DATA, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
+module lcdlab3(CLOCK_50, isHalt, isInsert, isBios, isTransf, DATA, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
 
 input CLOCK_50;	//	50 MHz clock
-input isHalt;
-input isInsert;
+input isHalt, isInsert, isBios, isTransf;
 input [31:0] DATA;
 //	LCD Module 16X2
 output LCD_ON;	// LCD Power ON/OFF
@@ -26,6 +25,8 @@ LCD_Display u1(
    .iRST_N(DLY_RST),
 	.isHalt(isHalt),
 	.isInsert(isInsert),
+	.isBios(isBios),
+	.isTransf(isTransf),
 	// LCD Side
    .DATA_BUS(LCD_DATA),
    .LCD_RW(LCD_RW),

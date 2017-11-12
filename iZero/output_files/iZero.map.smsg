@@ -1,3 +1,2 @@
 Info (10281): Verilog HDL Declaration information at controlador_bios.v(5): object "bios" differs only in case from object "BIOS" in the same scope
-Warning (10268): Verilog HDL information at controlador_disco.v(17): always construct contains both blocking and non-blocking assignments
-Info (10281): Verilog HDL Declaration information at controlador_disco.v(8): object "transferido" differs only in case from object "TRANSFERIDO" in the same scope
+Info (10281): Verilog HDL Declaration information at controlador_disco.v(9): object "transferido" differs only in case from object "TRANSFERIDO" in the same scope
