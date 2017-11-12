@@ -1,10 +1,8 @@
-module unidade_de_controle(reset, in, isFalse, op, func,
-	pcReset, regWrite, memWrite, isRegAluOp, isRTDest, isJal,
-	outWrite, interrupt, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
+module unidade_de_controle(reset, isFalse, op, func, pcReset, regWrite, memWrite, isRegAluOp,
+	isRTDest, isJal, outWrite, interrupt, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input reset;							// FLAG para sair do HALT [CHAVE]
-	input in;								// FLAG PARA INTERRUPCAO (IN) [CHAVE]
 	input isFalse;							// FLAG jump if false
 	input [5:0] op;						// Codigo da instrucao
 	input [5:0] func;						// Espicificacao da instrucao
@@ -19,7 +17,7 @@ module unidade_de_controle(reset, in, isFalse, op, func,
 	output outWrite;						// Sinal para habilitar a saída de dados
 	output interrupt;						// Sinal para pausar o PC
 	output isHalt;							// HALT (LCD)
-	output isInsert;						// INSERT (LCD)
+	output isInsert;						// INSERT (LCD e clock manual)
 	output [1:0] pcSource;				// Seleciona a origem do PC
 	output [1:0] regWrtSelect;
 	output [4:0] aluOp;					// Sinal de controle da ULA
@@ -103,7 +101,7 @@ module unidade_de_controle(reset, in, isFalse, op, func,
 									i_mov  | i_lw   | i_li   | i_la   | i_in;
 	assign isJal				= i_jal;
 	assign outWrite			= i_out;
-	assign interrupt			= i_halt & reset	| i_in & ~in;
+	assign interrupt			= i_halt & reset;
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;

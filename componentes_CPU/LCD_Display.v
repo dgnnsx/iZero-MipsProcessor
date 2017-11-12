@@ -262,12 +262,11 @@ module LCD_display_string(isHalt, isInsert, index, out);
 	always 
 		case (index)
 			// Linha 1
-			5'h00: out <= 8'h43;
-			5'h01: out <= 8'h6F;
-			5'h02: out <= 8'h75;
-			5'h03: out <= 8'h6E;
-			5'h04: out <= 8'h74;
-			5'h05: out <= 8'h3D;
+			5'h00: out <= 8'h4D;
+			5'h01: out <= 8'h4F;
+			5'h02: out <= 8'h44;
+			5'h03: out <= 8'h45;
+			5'h04: out <= 8'h3A;
 			//	5'h06: out <= {4'h0,hex1};
 			//	5'h07: out <= {4'h0,hex0};
 			

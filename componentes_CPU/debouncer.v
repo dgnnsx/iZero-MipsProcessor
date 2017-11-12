@@ -1,28 +1,83 @@
-module debouncer(
-    input clk, //this is a 50MHz clock provided on FPGA pin PIN_Y2
-    input PB,  //this is the input to be debounced
-    output reg PB_state  //this is the debounced switch
-);
-/*This module debounces the pushbutton PB.
- *It can be added to your project files and called as is:
- *DO NOT EDIT THIS MODULE
- */
+///////////////////////// Button Debouncer //////////////////////////////
+//***********************************************************************
+// FileName: debouncer.v
+// FPGA: MachXO2 7000HE
+// IDE: Diamond 2.0.1 
+//
+// HDL IS PROVIDED "AS IS." DIGI-KEY EXPRESSLY DISCLAIMS ANY
+// WARRANTY OF ANY KIND, WHETHER EXPRESS OR IMPLIED, INCLUDING BUT NOT
+// LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+// PARTICULAR PURPOSE, OR NON-INFRINGEMENT. IN NO EVENT SHALL DIGI-KEY
+// BE LIABLE FOR ANY INCIDENTAL, SPECIAL, INDIRECT OR CONSEQUENTIAL
+// DAMAGES, LOST PROFITS OR LOST DATA, HARM TO YOUR EQUIPMENT, COST OF
+// PROCUREMENT OF SUBSTITUTE GOODS, TECHNOLOGY OR SERVICES, ANY CLAIMS
+// BY THIRD PARTIES (INCLUDING BUT NOT LIMITED TO ANY DEFENSE THEREOF),
+// ANY CLAIMS FOR INDEMNITY OR CONTRIBUTION, OR OTHER SIMILAR COSTS.
+// DIGI-KEY ALSO DISCLAIMS ANY LIABILITY FOR PATENT OR COPYRIGHT
+// INFRINGEMENT.
+//
+// Version History
+// Version 1.0 04/11/2013 Tony Storey
+// Initial Public Release
+// Small Footprint Button Debouncer
 
-// Synchronize the switch input to the clock
-reg PB_sync_0;
-always @(posedge clk) PB_sync_0 <= PB; 
-reg PB_sync_1;
-always @(posedge clk) PB_sync_1 <= PB_sync_0;
+`timescale 1 ns / 100 ps
+module  debouncer 
+	(
+	input 			clk, n_reset, button_in,				// inputs
+	output reg 	DB_out													// output
+	);
+//// ---------------- internal constants --------------
+	parameter N = 11 ;		// (2^ (21-1) )/ 38 MHz = 32 ms debounce time
+////---------------- internal variables ---------------
+	reg  [N-1 : 0]	q_reg;							// timing regs
+	reg  [N-1 : 0]	q_next;
+	reg DFF1, DFF2;									// input flip-flops
+	wire q_add;											// control flags
+	wire q_reset;
+//// ------------------------------------------------------
 
-// Debounce the switch
-reg [15:0] PB_cnt;
-always @(posedge clk)
-if(PB_state==PB_sync_1)
-    PB_cnt <= 0;
-else
-begin
-    PB_cnt <= PB_cnt + 1'b1;  
-    if(PB_cnt == 16'hffff) PB_state <= ~PB_state;  
-end
+////contenious assignment for counter control
+	assign q_reset = (DFF1  ^ DFF2);		// xor input flip flops to look for level chage to reset counter
+	assign  q_add = ~(q_reg[N-1]);			// add to counter when q_reg msb is equal to 0
+	
+//// combo counter to manage q_next	
+	always @ ( q_reset, q_add, q_reg)
+		begin
+			case( {q_reset , q_add})
+				2'b00 :
+						q_next <= q_reg;
+				2'b01 :
+						q_next <= q_reg + 1;
+				default :
+						q_next <= { N {1'b0} };
+			endcase 	
+		end
+	
+//// Flip flop inputs and q_reg update
+	always @ ( posedge clk )
+		begin
+			if(n_reset ==  1'b0)
+				begin
+					DFF1 <= 1'b0;
+					DFF2 <= 1'b0;
+					q_reg <= { N {1'b0} };
+				end
+			else
+				begin
+					DFF1 <= button_in;
+					DFF2 <= DFF1;
+					q_reg <= q_next;
+				end
+		end
+	
+//// counter control
+	always @ ( posedge clk )
+		begin
+			if(q_reg[N-1] == 1'b1)
+					DB_out <= DFF2;
+			else
+					DB_out <= DB_out;
+		end
+
 endmodule
-
