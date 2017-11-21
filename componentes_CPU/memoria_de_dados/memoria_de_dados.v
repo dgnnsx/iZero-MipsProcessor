@@ -1,21 +1,24 @@
-module memoria_de_dados(clock, endereco, memWrite, dado_Escrito, dado_Lido);
-	// ----------Portas de Entrada---------- //
-	input [31:0] dado_Escrito, endereco; // Valor a ser escrito na memoria e endereco
+module memoria_de_dados (clk, we, addr, datain, dataout);
+	input clk;										// clock
+	input we;										// write enable
+	input [31:0] addr;							// ram address
+	input [31:0] datain;							// data in (to memory)
 	
-	// ----------Portas de Saida---------- //
-	output [31:0] dado_Lido; // Valor a ser lido da memoria
+	output [31:0] dataout;						// data out (from memory)
+	
+	parameter RAM_SIZE = 150;					// Tamanho da memoria
+	reg [31:0] ram [RAM_SIZE-1:0];			// ram cells
+	
+	assign dataout = ram[addr];				// use 5-bit word address
+	
+	always @ (posedge clk) begin
+		if (we) ram[addr] <= datain;			// write ram
+	end
 
-	// ----------Controle---------- //
-	input clock; // Clock
-	input memWrite; // Sinal para Escrita
-	
-	parameter MEM_SIZE = 150; // Tamanho da memoria
-	reg [31:0] memoria_dados[MEM_SIZE-1:0]; // Memoria de dados
-	
-	always @ (posedge clock) begin
-		if(memWrite) begin
-			memoria_dados[endereco] <= dado_Escrito;
-		end
-	end	
-	assign dado_Lido = memoria_dados[endereco];
+	integer i;
+	initial begin
+		// ram initialization
+		for (i = 0; i < RAM_SIZE; i = i + 1)
+			ram[i] <= 0;
+	end
 endmodule

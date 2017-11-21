@@ -40,7 +40,7 @@ agreement for further details.
 	)
 	(parameter
 		"BIOS_SIZE"
-		"18"
+		"71"
 		""
 		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing

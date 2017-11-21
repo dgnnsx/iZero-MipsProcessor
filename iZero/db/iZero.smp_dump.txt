@@ -27,9 +27,3 @@ state.RESET2 0 0 0 1 0 0 0 0 0 0 0 0 1
 state.RESET3 0 0 1 0 0 0 0 0 0 0 0 0 1 
 state.DISPLAY_OFF 0 1 0 0 0 0 0 0 0 0 0 0 1 
 state.DISPLAY_CLEAR 1 0 0 0 0 0 0 0 0 0 0 0 1 
-
-State Machine - |iZero|controlador_disco:inst11|estado
-Name estado.00 estado.TRANSFERIDO estado.TRANSFERINDO 
-estado.00 0 0 0 
-estado.TRANSFERINDO 1 0 1 
-estado.TRANSFERIDO 1 1 0 
