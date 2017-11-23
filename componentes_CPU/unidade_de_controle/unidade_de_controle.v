@@ -1,21 +1,19 @@
-module unidade_de_controle(reset, isFalse, op, func, pcReset, regWrite, memWrite, isRegAluOp,
-	isRTDest, isJal, outWrite, interrupt, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
+module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, isRegAluOp,
+	isRTDest, isJal, outWrite, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
-	input reset;							// FLAG para sair do HALT [CHAVE]
 	input isFalse;							// FLAG jump if false
+	input isInput;							// Input [Chave]
 	input [5:0] op;						// Codigo da instrucao
 	input [5:0] func;						// Espicificacao da instrucao
 	
 	// Controles
-	output pcReset;						// Sinal para reset do PC
 	output regWrite;						// Sinal para habilitar escrita no banco de registradores
 	output memWrite;						// Sinal para habilitar escrita na memória de dados
 	output isRegAluOp;					// Sinal do multiplexador de entrada de dados da ULA, 1'b1 equivale a reg e 1'b0 a imm
 	output isRTDest;						// Sinal do multiplexador de escrita no banco de registradores, 1'b1 escreve no RT e 1'b0 no RD
 	output isJal;							// Sinal para indicar que a instrucao atual eh uma JAL
 	output outWrite;						// Sinal para habilitar a saída de dados
-	output interrupt;						// Sinal para pausar o PC
 	output isHalt;							// HALT (LCD)
 	output isInsert;						// INSERT (LCD e clock manual)
 	output [1:0] pcSource;				// Seleciona a origem do PC
@@ -79,7 +77,6 @@ module unidade_de_controle(reset, isFalse, op, func, pcReset, regWrite, memWrite
 	wire i_halt					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
 	
 	// Atribui controles do datapath
-	assign pcReset				= ~reset;
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
 									i_and  | i_or   | i_xor  | i_not	|
@@ -101,9 +98,8 @@ module unidade_de_controle(reset, isFalse, op, func, pcReset, regWrite, memWrite
 									i_mov  | i_lw   | i_li   | i_la   | i_in;
 	assign isJal				= i_jal;
 	assign outWrite			= i_out;
-	assign interrupt			= i_halt & reset;
 	assign isHalt				= i_halt;
-	assign isInsert			= i_in;
+	assign isInsert			= i_in & isInput;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;
 	assign pcSource[1]		= i_j		| i_jr	| i_jal;
 	assign regWrtSelect[0] 	= i_lw | i_jal;

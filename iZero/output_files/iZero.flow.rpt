@@ -1,5 +1,5 @@
 Flow report for iZero
-Mon Nov 20 23:08:50 2017
+Thu Nov 23 00:50:18 2017
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -41,15 +41,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Flow Summary                                                                    ;
 +------------------------------------+--------------------------------------------+
-; Flow Status                        ; Successful - Mon Nov 20 23:08:50 2017      ;
+; Flow Status                        ; Successful - Thu Nov 23 00:50:18 2017      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
 ; Device                             ; EP4CE115F29C7                              ;
 ; Timing Models                      ; Final                                      ;
-; Total logic elements               ; 11,987 / 114,480 ( 10 % )                  ;
-;     Total combinational functions  ; 9,617 / 114,480 ( 8 % )                    ;
+; Total logic elements               ; 11,972 / 114,480 ( 10 % )                  ;
+;     Total combinational functions  ; 9,602 / 114,480 ( 8 % )                    ;
 ;     Dedicated logic registers      ; 5,997 / 114,480 ( 5 % )                    ;
 ; Total registers                    ; 5997                                       ;
 ; Total pins                         ; 91 / 529 ( 17 % )                          ;
@@ -65,7 +65,7 @@ agreement for further details.
 +-------------------+---------------------+
 ; Option            ; Setting             ;
 +-------------------+---------------------+
-; Start date & time ; 11/20/2017 23:04:06 ;
+; Start date & time ; 11/23/2017 00:45:08 ;
 ; Main task         ; Compilation         ;
 ; Revision Name     ; iZero               ;
 +-------------------+---------------------+
@@ -76,7 +76,7 @@ agreement for further details.
 +-------------------------------------+-----------------------------------------------------+--------------------+-------------+----------------+
 ; Assignment Name                     ; Value                                               ; Default Value      ; Entity Name ; Section Id     ;
 +-------------------------------------+-----------------------------------------------------+--------------------+-------------+----------------+
-; COMPILER_SIGNATURE_ID               ; 185180433996133.151122624632478                     ; --                 ; --          ; --             ;
+; COMPILER_SIGNATURE_ID               ; 185180433996133.151140510820659                     ; --                 ; --          ; --             ;
 ; EDA_GENERATE_FUNCTIONAL_NETLIST     ; On                                                  ; --                 ; --          ; eda_simulation ;
 ; EDA_NETLIST_WRITER_OUTPUT_DIR       ; C:/Users/PC/Desktop/iZero_v3/iZero/simulation/qsim/ ; --                 ; --          ; eda_simulation ;
 ; EDA_OUTPUT_DATA_FORMAT              ; Verilog Hdl                                         ; --                 ; --          ; eda_simulation ;
@@ -112,12 +112,12 @@ agreement for further details.
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 ; Module Name               ; Elapsed Time ; Average Processors Used ; Peak Virtual Memory ; Total CPU Time (on all processors) ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
-; Analysis & Synthesis      ; 00:01:12     ; 1.0                     ; 1008 MB             ; 00:01:28                           ;
-; Fitter                    ; 00:01:31     ; 1.0                     ; 1216 MB             ; 00:01:31                           ;
-; Assembler                 ; 00:00:06     ; 1.0                     ; 1062 MB             ; 00:00:06                           ;
-; TimeQuest Timing Analyzer ; 00:01:41     ; 1.0                     ; 2072 MB             ; 00:01:40                           ;
-; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1131 MB             ; 00:00:03                           ;
-; Total                     ; 00:04:33     ; --                      ; --                  ; 00:04:48                           ;
+; Analysis & Synthesis      ; 00:01:35     ; 1.0                     ; 1007 MB             ; 00:01:52                           ;
+; Fitter                    ; 00:01:45     ; 1.0                     ; 1217 MB             ; 00:01:45                           ;
+; Assembler                 ; 00:00:07     ; 1.0                     ; 1057 MB             ; 00:00:07                           ;
+; TimeQuest Timing Analyzer ; 00:01:28     ; 1.0                     ; 2043 MB             ; 00:01:28                           ;
+; EDA Netlist Writer        ; 00:00:03     ; 1.0                     ; 1130 MB             ; 00:00:03                           ;
+; Total                     ; 00:04:58     ; --                      ; --                  ; 00:05:15                           ;
 +---------------------------+--------------+-------------------------+---------------------+------------------------------------+
 
 

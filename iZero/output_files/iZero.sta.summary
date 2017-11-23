@@ -2,61 +2,61 @@
 TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
-Type  : Setup 'contador_de_programa:inst16|addrout[0]'
-Slack : -185.045
-TNS   : -1019438.220
+Type  : Setup 'temporizador:inst4|contador[5]'
+Slack : -174.344
+TNS   : -958784.055
 
 Type  : Setup 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
-Slack : -26.105
-TNS   : -208.647
+Slack : -12.655
+TNS   : -136.815
 
 Type  : Setup 'clock'
-Slack : -3.353
-TNS   : -148.684
-
-Type  : Hold 'contador_de_programa:inst16|addrout[0]'
-Slack : -14.727
-TNS   : -63943.089
+Slack : -3.328
+TNS   : -147.891
 
 Type  : Hold 'clock'
-Slack : -2.870
-TNS   : -2.870
+Slack : -2.872
+TNS   : -5.689
 
 Type  : Hold 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
 Slack : 0.403
 TNS   : 0.000
 
+Type  : Hold 'temporizador:inst4|contador[5]'
+Slack : 1.249
+TNS   : 0.000
+
+Type  : Recovery 'temporizador:inst4|contador[5]'
+Slack : -5.429
+TNS   : -493.555
+
 Type  : Recovery 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
-Slack : -3.171
-TNS   : -41.215
+Slack : -3.286
+TNS   : -42.711
 
 Type  : Recovery 'clock'
-Slack : -3.151
-TNS   : -66.161
-
-Type  : Recovery 'contador_de_programa:inst16|addrout[0]'
-Slack : 6.007
-TNS   : 0.000
-
-Type  : Removal 'contador_de_programa:inst16|addrout[0]'
-Slack : -10.578
-TNS   : -951.115
-
-Type  : Removal 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
-Slack : 3.482
-TNS   : 0.000
+Slack : -3.173
+TNS   : -66.623
 
 Type  : Removal 'clock'
-Slack : 3.544
+Slack : 3.556
 TNS   : 0.000
 
-Type  : Minimum Pulse Width 'contador_de_programa:inst16|addrout[0]'
-Slack : -3.543
-TNS   : -167650.001
+Type  : Removal 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
+Slack : 3.591
+TNS   : 0.000
+
+Type  : Removal 'temporizador:inst4|contador[5]'
+Slack : 5.636
+TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clock'
 Slack : -3.000
 TNS   : -100.660
+
+Type  : Minimum Pulse Width 'temporizador:inst4|contador[5]'
+Slack : -1.285
+TNS   : -7559.655
 
 Type  : Minimum Pulse Width 'lcdlab3:inst26|LCD_Display:u1|CLK_400HZ'
 Slack : -1.285
