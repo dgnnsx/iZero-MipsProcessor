@@ -17,9 +17,9 @@ module saida_de_dados(clock, endereco, dado_de_saida, reset, OUT, D1, D2, D3);
 	
 	always @ (posedge clock or posedge reset) begin	
 		if(reset) begin
-			saidas[0] <= 32'b0;
-			saidas[1] <= 32'b0;
-			saidas[2] <= 32'b0;
+			saidas[0] <= {32 {1'b0}};
+			saidas[1] <= {32 {1'b0}};
+			saidas[2] <= {32 {1'b0}};
 		end else begin
 			if(OUT)
 				saidas[endereco] <= dado_de_saida;

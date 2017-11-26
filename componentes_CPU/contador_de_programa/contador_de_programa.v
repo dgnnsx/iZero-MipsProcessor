@@ -6,6 +6,6 @@ module contador_de_programa(clk, reset, addrin, addrout);
 	output reg [25:0] addrout;					// out address
 		
 	always @ (posedge clk or posedge reset) begin
-		addrout <= reset ? 26'b0 : addrin;
+		addrout <= reset ? {26 {1'b0}} : addrin;
 	end
 endmodule

@@ -20,7 +20,7 @@ RD, dadosEscrita, leituraRS, leituraRT);
 	
 	always @ (posedge clock or posedge reset) begin
 		if(reset) begin
-			regs[STACK] <= 32'd0;
+			regs[STACK] <= {32 {1'b0}};
 		end else begin
 			regs[RD] <= regWrite ? dadosEscrita : regs[RD];
 		end

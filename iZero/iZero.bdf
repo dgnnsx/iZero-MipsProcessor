@@ -40,7 +40,7 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -328 -16 -152 0)
+	(rect -352 -56 -176 -40)
 	(text "INPUT" (rect 133 0 162 9)(font "Arial" (font_size 6)))
 	(text "clock" (rect 9 0 34 10)(font "Arial" ))
 	(pt 176 8)
@@ -53,7 +53,7 @@ agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 157 16)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -384 0 -328 16))
+	(annotation_block (location)(rect -408 -40 -352 -24))
 )
 (pin
 	(input)
@@ -396,112 +396,6 @@ agreement for further details.
 	(annotation_block (location)(rect 2608 72 2672 88))
 )
 (symbol
-	(rect -104 -200 64 -88)
-	(text "debouncer" (rect 5 0 58 10)(font "Arial" ))
-	(text "inst15" (rect 8 96 37 106)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 21 27 35 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "n_reset" (rect 0 0 36 10)(font "Arial" ))
-		(text "n_reset" (rect 21 43 57 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "button_in" (rect 0 0 44 10)(font "Arial" ))
-		(text "button_in" (rect 21 59 65 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 168 32)
-		(output)
-		(text "DB_out" (rect 0 0 36 10)(font "Arial" ))
-		(text "DB_out" (rect 117 27 153 37)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32))
-	)
-	(parameter
-		"N"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 152 96))
-	)
-	(annotation_block (parameter)(rect -328 -376 -144 -352))
-)
-(symbol
-	(rect -128 -40 32 40)
-	(text "temporizador" (rect 5 0 69 10)(font "Arial" ))
-	(text "inst4" (rect 8 64 31 74)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clock" (rect 0 0 25 10)(font "Arial" ))
-		(text "clock" (rect 21 27 46 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 160 32)
-		(output)
-		(text "reduzclock" (rect 0 0 51 10)(font "Arial" ))
-		(text "reduzclock" (rect 96 27 147 37)(font "Arial" ))
-		(line (pt 160 32)(pt 144 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 144 64))
-	)
-)
-(symbol
-	(rect -104 -320 64 -208)
-	(text "debouncer" (rect 5 0 58 10)(font "Arial" ))
-	(text "inst12" (rect 8 96 37 106)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 21 27 35 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(input)
-		(text "n_reset" (rect 0 0 36 10)(font "Arial" ))
-		(text "n_reset" (rect 21 43 57 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48))
-	)
-	(port
-		(pt 0 64)
-		(input)
-		(text "button_in" (rect 0 0 44 10)(font "Arial" ))
-		(text "button_in" (rect 21 59 65 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64))
-	)
-	(port
-		(pt 168 32)
-		(output)
-		(text "DB_out" (rect 0 0 36 10)(font "Arial" ))
-		(text "DB_out" (rect 117 27 153 37)(font "Arial" ))
-		(line (pt 168 32)(pt 152 32))
-	)
-	(parameter
-		"N"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 152 96))
-	)
-	(annotation_block (parameter)(rect -112 -376 72 -352))
-)
-(symbol
 	(rect -128 48 88 192)
 	(text "somador_pc" (rect 151 0 211 10)(font "Arial" ))
 	(text "inst10" (rect 179 128 208 138)(font "Arial" ))
@@ -624,34 +518,6 @@ agreement for further details.
 		(rectangle (rect 16 16 200 96))
 	)
 	(flipy)
-)
-(symbol
-	(rect 424 240 616 320)
-	(text "bios" (rect 5 0 26 10)(font "Arial" ))
-	(text "inst17" (rect 8 64 37 74)(font "Arial" ))
-	(port
-		(pt 0 32)
-		(input)
-		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
-		(text "pc[25..0]" (rect 21 27 62 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(port
-		(pt 192 32)
-		(output)
-		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
-		(text "instrucao[31..0]" (rect 110 27 183 37)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32)(line_width 3))
-	)
-	(parameter
-		"BIOS_SIZE"
-		"71"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
-	(drawing
-		(rectangle (rect 16 16 176 64))
-	)
-	(annotation_block (parameter)(rect 432 328 616 352))
 )
 (symbol
 	(rect 824 128 984 208)
@@ -1590,6 +1456,140 @@ agreement for further details.
 	)
 )
 (symbol
+	(rect 424 240 616 320)
+	(text "bios" (rect 5 0 26 10)(font "Arial" ))
+	(text "inst18" (rect 8 64 37 74)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
+		(text "pc[25..0]" (rect 21 27 62 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(port
+		(pt 192 32)
+		(output)
+		(text "instrucao[31..0]" (rect 0 0 73 10)(font "Arial" ))
+		(text "instrucao[31..0]" (rect 110 27 183 37)(font "Arial" ))
+		(line (pt 192 32)(pt 176 32)(line_width 3))
+	)
+	(parameter
+		"BIOS_SIZE"
+		"21"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 176 64))
+	)
+	(annotation_block (parameter)(rect 616 216 800 240))
+)
+(symbol
+	(rect -104 -320 64 -208)
+	(text "debouncer" (rect 5 0 58 10)(font "Arial" ))
+	(text "inst15" (rect 8 96 37 106)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 10)(font "Arial" ))
+		(text "clk" (rect 21 27 35 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "n_reset" (rect 0 0 36 10)(font "Arial" ))
+		(text "n_reset" (rect 21 43 57 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "button_in" (rect 0 0 44 10)(font "Arial" ))
+		(text "button_in" (rect 21 59 65 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "DB_out" (rect 0 0 36 10)(font "Arial" ))
+		(text "DB_out" (rect 117 27 153 37)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32))
+	)
+	(parameter
+		"N"
+		"11"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 152 96))
+	)
+	(annotation_block (parameter)(rect -120 -368 64 -344))
+)
+(symbol
+	(rect -104 -200 64 -88)
+	(text "debouncer" (rect 5 0 58 10)(font "Arial" ))
+	(text "inst17" (rect 8 96 37 106)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 10)(font "Arial" ))
+		(text "clk" (rect 21 27 35 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "n_reset" (rect 0 0 36 10)(font "Arial" ))
+		(text "n_reset" (rect 21 43 57 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 0 64)
+		(input)
+		(text "button_in" (rect 0 0 44 10)(font "Arial" ))
+		(text "button_in" (rect 21 59 65 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64))
+	)
+	(port
+		(pt 168 32)
+		(output)
+		(text "DB_out" (rect 0 0 36 10)(font "Arial" ))
+		(text "DB_out" (rect 117 27 153 37)(font "Arial" ))
+		(line (pt 168 32)(pt 152 32))
+	)
+	(parameter
+		"N"
+		"11"
+		""
+		(type "PARAMETER_SIGNED_DEC")	)
+	(drawing
+		(rectangle (rect 16 16 152 96))
+	)
+	(annotation_block (parameter)(rect -376 -368 -192 -344))
+)
+(symbol
+	(rect -128 -80 32 0)
+	(text "temporizador" (rect 5 0 69 10)(font "Arial" ))
+	(text "inst19" (rect 8 64 37 74)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clock" (rect 0 0 25 10)(font "Arial" ))
+		(text "clock" (rect 21 27 46 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 160 32)
+		(output)
+		(text "reduzclock" (rect 0 0 51 10)(font "Arial" ))
+		(text "reduzclock" (rect 96 27 147 37)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 64))
+	)
+)
+(symbol
 	(rect 120 -416 312 -304)
 	(text "somador_interruptor" (rect 90 0 187 10)(font "Arial" ))
 	(text "inst13" (rect 155 96 184 106)(font "Arial" ))
@@ -1688,11 +1688,6 @@ agreement for further details.
 (connector
 	(pt 632 -16)
 	(pt 304 -16)
-	(bus)
-)
-(connector
-	(pt 112 -24)
-	(pt 136 -24)
 	(bus)
 )
 (connector
@@ -1906,11 +1901,6 @@ agreement for further details.
 (connector
 	(pt 136 80)
 	(pt 88 80)
-	(bus)
-)
-(connector
-	(pt 136 -24)
-	(pt 136 80)
 	(bus)
 )
 (connector
@@ -2157,12 +2147,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(text "instrucao[31..0]" (rect 618 256 691 266)(font "Arial" ))
-	(pt 680 272)
-	(pt 616 272)
-	(bus)
-)
-(connector
 	(text "instrucao[15..0]" (rect 690 264 763 274)(font "Arial" ))
 	(pt 680 280)
 	(pt 760 280)
@@ -2176,16 +2160,6 @@ agreement for further details.
 (connector
 	(pt 1008 200)
 	(pt 1008 280)
-	(bus)
-)
-(connector
-	(pt 680 160)
-	(pt 680 272)
-	(bus)
-)
-(connector
-	(pt 680 272)
-	(pt 680 280)
 	(bus)
 )
 (connector
@@ -2250,65 +2224,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1608 336)
-	(pt 1616 336)
-	(bus)
-)
-(connector
-	(pt 1608 240)
-	(pt 1608 336)
-	(bus)
-)
-(connector
-	(pt 1536 320)
-	(pt 1616 320)
-	(bus)
-)
-(connector
-	(pt 1952 304)
-	(pt 1840 304)
-	(bus)
-)
-(connector
-	(pt 1952 -56)
-	(pt 1952 304)
-	(bus)
-)
-(connector
-	(pt 1960 320)
-	(pt 1840 320)
-	(bus)
-)
-(connector
-	(pt 1600 304)
-	(pt 1616 304)
-)
-(connector
-	(pt 1968 336)
-	(pt 1840 336)
-	(bus)
-)
-(connector
-	(pt 1608 368)
-	(pt 1616 368)
-)
-(connector
-	(pt 1592 448)
-	(pt 1592 352)
-)
-(connector
-	(pt 1592 352)
-	(pt 1616 352)
-)
-(connector
-	(pt 1600 432)
-	(pt 1600 304)
-)
-(connector
-	(pt 1608 424)
-	(pt 1608 368)
-)
-(connector
 	(pt 1456 504)
 	(pt 1984 504)
 )
@@ -2330,33 +2245,13 @@ agreement for further details.
 	(pt 1456 504)
 )
 (connector
-	(pt 1536 280)
-	(pt 1536 320)
-	(bus)
-)
-(connector
-	(pt 1536 320)
-	(pt 1536 584)
-	(bus)
-)
-(connector
 	(pt 1960 64)
 	(pt 1976 64)
 	(bus)
 )
 (connector
-	(pt 1960 320)
-	(pt 1960 64)
-	(bus)
-)
-(connector
 	(pt 1968 184)
 	(pt 1976 184)
-	(bus)
-)
-(connector
-	(pt 1968 336)
-	(pt 1968 184)
 	(bus)
 )
 (connector
@@ -2484,14 +2379,6 @@ agreement for further details.
 	(pt 128 -256)
 )
 (connector
-	(pt 112 -8)
-	(pt 992 -8)
-)
-(connector
-	(pt 32 -8)
-	(pt 112 -8)
-)
-(connector
 	(pt -104 -272)
 	(pt -344 -272)
 )
@@ -2520,24 +2407,8 @@ agreement for further details.
 	(pt -144 464)
 )
 (connector
-	(pt -152 -8)
-	(pt -144 -8)
-)
-(connector
-	(pt -144 -8)
-	(pt -128 -8)
-)
-(connector
 	(pt -144 -104)
 	(pt -352 -104)
-)
-(connector
-	(pt -144 -104)
-	(pt -144 -8)
-)
-(connector
-	(pt -144 -8)
-	(pt -144 464)
 )
 (connector
 	(pt 744 -192)
@@ -2617,10 +2488,6 @@ agreement for further details.
 )
 (connector
 	(pt 144 -272)
-	(pt 144 -168)
-)
-(connector
-	(pt 144 -272)
 	(pt 384 -272)
 )
 (connector
@@ -2646,15 +2513,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 112 -24)
-	(pt 112 -384)
-	(bus)
-)
-(connector
-	(pt 736 -368)
-	(pt 312 -368)
-)
-(connector
 	(pt 368 -384)
 	(pt 368 272)
 	(bus)
@@ -2665,24 +2523,138 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 736 -368)
-	(pt 736 -176)
+	(text "instrucao[31..0]" (rect 618 256 691 266)(font "Arial" ))
+	(pt 680 272)
+	(pt 616 272)
+	(bus)
 )
 (connector
-	(pt 736 -176)
-	(pt 736 536)
+	(pt 680 160)
+	(pt 680 272)
+	(bus)
 )
 (connector
-	(pt 744 -352)
-	(pt 744 -192)
+	(pt 680 272)
+	(pt 680 280)
+	(bus)
 )
 (connector
-	(pt 744 -192)
-	(pt 744 520)
+	(pt 112 -8)
+	(pt 992 -8)
 )
 (connector
-	(pt 744 -352)
-	(pt 312 -352)
+	(pt 112 -88)
+	(pt 136 -88)
+	(bus)
+)
+(connector
+	(pt 136 80)
+	(pt 136 -88)
+	(bus)
+)
+(connector
+	(pt 112 -384)
+	(pt 112 -88)
+	(bus)
+)
+(connector
+	(pt -144 -104)
+	(pt -144 -48)
+)
+(connector
+	(pt -144 -48)
+	(pt -144 464)
+)
+(connector
+	(pt -144 -48)
+	(pt -128 -48)
+)
+(connector
+	(pt -176 -48)
+	(pt -144 -48)
+)
+(connector
+	(pt 144 -272)
+	(pt 144 -168)
+)
+(connector
+	(pt 1608 336)
+	(pt 1616 336)
+	(bus)
+)
+(connector
+	(pt 1608 240)
+	(pt 1608 336)
+	(bus)
+)
+(connector
+	(pt 1536 320)
+	(pt 1616 320)
+	(bus)
+)
+(connector
+	(pt 1952 304)
+	(pt 1840 304)
+	(bus)
+)
+(connector
+	(pt 1952 -56)
+	(pt 1952 304)
+	(bus)
+)
+(connector
+	(pt 1960 320)
+	(pt 1840 320)
+	(bus)
+)
+(connector
+	(pt 1600 304)
+	(pt 1616 304)
+)
+(connector
+	(pt 1968 336)
+	(pt 1840 336)
+	(bus)
+)
+(connector
+	(pt 1608 368)
+	(pt 1616 368)
+)
+(connector
+	(pt 1592 448)
+	(pt 1592 352)
+)
+(connector
+	(pt 1592 352)
+	(pt 1616 352)
+)
+(connector
+	(pt 1600 432)
+	(pt 1600 304)
+)
+(connector
+	(pt 1608 424)
+	(pt 1608 368)
+)
+(connector
+	(pt 1960 64)
+	(pt 1960 320)
+	(bus)
+)
+(connector
+	(pt 1968 184)
+	(pt 1968 336)
+	(bus)
+)
+(connector
+	(pt 1536 280)
+	(pt 1536 320)
+	(bus)
+)
+(connector
+	(pt 1536 320)
+	(pt 1536 584)
+	(bus)
 )
 (connector
 	(pt -136 80)
@@ -2701,10 +2673,6 @@ agreement for further details.
 (connector
 	(pt 128 288)
 	(pt 152 288)
-)
-(connector
-	(pt 112 -8)
-	(pt 112 272)
 )
 (connector
 	(pt 112 272)
@@ -2728,6 +2696,42 @@ agreement for further details.
 	(pt 128 288)
 	(pt 128 448)
 )
+(connector
+	(pt 112 -48)
+	(pt 112 -8)
+)
+(connector
+	(pt 112 -8)
+	(pt 112 272)
+)
+(connector
+	(pt 32 -48)
+	(pt 112 -48)
+)
+(connector
+	(pt 744 -352)
+	(pt 744 -192)
+)
+(connector
+	(pt 744 -192)
+	(pt 744 520)
+)
+(connector
+	(pt 312 -352)
+	(pt 744 -352)
+)
+(connector
+	(pt 312 -368)
+	(pt 736 -368)
+)
+(connector
+	(pt 736 -368)
+	(pt 736 -176)
+)
+(connector
+	(pt 736 -176)
+	(pt 736 536)
+)
 (junction (pt 1856 0))
 (junction (pt 632 80))
 (junction (pt 680 112))
@@ -2749,8 +2753,8 @@ agreement for further details.
 (junction (pt 112 272))
 (junction (pt 128 8))
 (junction (pt -344 -208))
-(junction (pt -144 -8))
 (junction (pt 304 -240))
 (junction (pt -352 -168))
-(junction (pt 736 -176))
 (junction (pt 744 -192))
+(junction (pt -144 -48))
+(junction (pt 736 -176))
