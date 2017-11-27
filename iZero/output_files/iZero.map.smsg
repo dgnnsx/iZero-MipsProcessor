@@ -1,2 +1,2 @@
-Info (10281): Verilog HDL Declaration information at controlador_bios.v(5): object "bios" differs only in case from object "BIOS" in the same scope
+Info (10281): Verilog HDL Declaration information at controlador_bios.v(4): object "bios" differs only in case from object "BIOS" in the same scope
 Info (10281): Verilog HDL Declaration information at controlador_disco.v(9): object "transferido" differs only in case from object "TRANSFERIDO" in the same scope
