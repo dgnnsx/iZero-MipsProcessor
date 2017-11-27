@@ -14,20 +14,23 @@ module delay_button(clk, in, out);
 		out <= 1'b1;
 	end
 	
-	always @ (posedge clk) begin
-		if (!in) begin // Botao pressionado
-			if (estado == ENABLED) begin
-				estado <= WAITING;
+	always @ (posedge clk) begin		
+		if (estado == ENABLED) begin
+			if (!in) // Botao pressionado
 				out <= 1'b0;
-			end
+		end else begin
+			if (contador[4] == 1'b1)
+				out <= 1'b1;
 		end
-		
-		if (contador[4] == 1'b1) begin
-			out <= 1'b1;
-		end
-		
-		if (contador[25] == 1'b1) begin
-			estado <= ENABLED;
+	end
+	
+	always @ (posedge clk) begin
+		if (estado == ENABLED) begin
+			if (!in)
+				estado <= WAITING;
+		end else begin
+			if (contador[25] == 1'b1)
+				estado <= ENABLED;
 		end
 	end
 	

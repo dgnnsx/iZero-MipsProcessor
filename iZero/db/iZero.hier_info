@@ -6784,10 +6784,10 @@ clk => contador[22].CLK
 clk => contador[23].CLK
 clk => contador[24].CLK
 clk => contador[25].CLK
-clk => out~reg0.CLK
 clk => estado.CLK
-in => estado.OUTPUTSELECT
+clk => out~reg0.CLK
 in => out.OUTPUTSELECT
+in => estado.OUTPUTSELECT
 out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
