@@ -2,6 +2,7 @@
 D1_SINAL <= display_duplo:inst33.saida_sinal
 clock => temporizador:inst19.clock
 clock => debouncer:inst15.clk
+clock => delay_button:inst11.clk
 clock => debouncer:inst17.clk
 clock => lcdlab3:inst26.CLOCK_50
 reset => debouncer:inst15.button_in
@@ -726,8 +727,7 @@ clock => contador[1].CLK
 clock => contador[2].CLK
 clock => contador[3].CLK
 clock => contador[4].CLK
-clock => contador[5].CLK
-reduzclock <= contador[5].DB_MAX_OUTPUT_PORT_TYPE
+reduzclock <= contador[4].DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|debouncer:inst15
@@ -6201,6 +6201,40 @@ dadoExtendido[28] <= entrada[15].DB_MAX_OUTPUT_PORT_TYPE
 dadoExtendido[29] <= entrada[15].DB_MAX_OUTPUT_PORT_TYPE
 dadoExtendido[30] <= entrada[15].DB_MAX_OUTPUT_PORT_TYPE
 dadoExtendido[31] <= entrada[15].DB_MAX_OUTPUT_PORT_TYPE
+
+
+|iZero|delay_button:inst11
+clk => contador[0].CLK
+clk => contador[1].CLK
+clk => contador[2].CLK
+clk => contador[3].CLK
+clk => contador[4].CLK
+clk => contador[5].CLK
+clk => contador[6].CLK
+clk => contador[7].CLK
+clk => contador[8].CLK
+clk => contador[9].CLK
+clk => contador[10].CLK
+clk => contador[11].CLK
+clk => contador[12].CLK
+clk => contador[13].CLK
+clk => contador[14].CLK
+clk => contador[15].CLK
+clk => contador[16].CLK
+clk => contador[17].CLK
+clk => contador[18].CLK
+clk => contador[19].CLK
+clk => contador[20].CLK
+clk => contador[21].CLK
+clk => contador[22].CLK
+clk => contador[23].CLK
+clk => contador[24].CLK
+clk => contador[25].CLK
+clk => out~reg0.CLK
+clk => estado.CLK
+in => estado.OUTPUTSELECT
+in => out.OUTPUTSELECT
+out <= out~reg0.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|debouncer:inst17

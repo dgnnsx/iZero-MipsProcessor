@@ -1,0 +1,14 @@
+module delay_button(clk, in, out);
+	input clk;
+	input in;
+	
+	output out;
+	// Clock de 3,125 MHz
+	reg [5:0]contador;
+	
+	always @(posedge clk) begin
+		contador <= contador + 1'b1;
+	end
+	
+	assign reduzclock = contador[5];
+endmodule

@@ -40,7 +40,7 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect -352 -56 -176 -40)
+	(rect -344 -32 -168 -16)
 	(text "INPUT" (rect 133 0 162 9)(font "Arial" (font_size 6)))
 	(text "clock" (rect 9 0 34 10)(font "Arial" ))
 	(pt 176 8)
@@ -53,7 +53,7 @@ agreement for further details.
 		(line (pt 117 12)(pt 121 8))
 	)
 	(text "VCC" (rect 136 7 157 16)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect -408 -40 -352 -24))
+	(annotation_block (location)(rect -400 -16 -344 0))
 )
 (pin
 	(input)
@@ -1568,7 +1568,7 @@ agreement for further details.
 	(annotation_block (parameter)(rect -376 -368 -192 -344))
 )
 (symbol
-	(rect -128 -80 32 0)
+	(rect -128 -56 32 24)
 	(text "temporizador" (rect 5 0 69 10)(font "Arial" ))
 	(text "inst19" (rect 8 64 37 74)(font "Arial" ))
 	(port
@@ -1618,13 +1618,42 @@ agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "pcNext[25..0]" (rect 0 0 62 10)(font "Arial" ))
-		(text "pcNext[25..0]" (rect 21 27 73 37)(font "Arial" ))
+		(text "pcNext[25..0]" (rect 21 27 83 37)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32)(line_width 3))
 	)
 	(drawing
 		(rectangle (rect 16 16 176 96))
 	)
 	(flipy)
+)
+(symbol
+	(rect 160 -216 280 -136)
+	(text "delay_button" (rect 5 0 67 10)(font "Arial" ))
+	(text "inst11" (rect 8 64 36 74)(font "Arial" ))
+	(port
+		(pt 0 32)
+		(input)
+		(text "clk" (rect 0 0 14 10)(font "Arial" ))
+		(text "clk" (rect 21 27 35 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(input)
+		(text "in" (rect 0 0 9 10)(font "Arial" ))
+		(text "in" (rect 21 43 30 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48))
+	)
+	(port
+		(pt 120 32)
+		(output)
+		(text "out" (rect 0 0 16 10)(font "Arial" ))
+		(text "out" (rect 86 27 102 37)(font "Arial" ))
+		(line (pt 120 32)(pt 104 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 104 64))
+	)
 )
 (connector
 	(pt 1512 -8)
@@ -2483,14 +2512,6 @@ agreement for further details.
 	(pt -352 -168)
 )
 (connector
-	(pt 64 -168)
-	(pt 144 -168)
-)
-(connector
-	(pt 144 -272)
-	(pt 384 -272)
-)
-(connector
 	(pt 376 -296)
 	(pt 104 -296)
 )
@@ -2556,26 +2577,6 @@ agreement for further details.
 	(pt 112 -384)
 	(pt 112 -88)
 	(bus)
-)
-(connector
-	(pt -144 -104)
-	(pt -144 -48)
-)
-(connector
-	(pt -144 -48)
-	(pt -144 464)
-)
-(connector
-	(pt -144 -48)
-	(pt -128 -48)
-)
-(connector
-	(pt -176 -48)
-	(pt -144 -48)
-)
-(connector
-	(pt 144 -272)
-	(pt 144 -168)
 )
 (connector
 	(pt 1608 336)
@@ -2697,18 +2698,6 @@ agreement for further details.
 	(pt 128 448)
 )
 (connector
-	(pt 112 -48)
-	(pt 112 -8)
-)
-(connector
-	(pt 112 -8)
-	(pt 112 272)
-)
-(connector
-	(pt 32 -48)
-	(pt 112 -48)
-)
-(connector
 	(pt 744 -352)
 	(pt 744 -192)
 )
@@ -2731,6 +2720,66 @@ agreement for further details.
 (connector
 	(pt 736 -176)
 	(pt 736 536)
+)
+(connector
+	(pt 112 -24)
+	(pt 32 -24)
+)
+(connector
+	(pt -144 -24)
+	(pt -144 464)
+)
+(connector
+	(pt 112 -24)
+	(pt 112 -8)
+)
+(connector
+	(pt 112 -8)
+	(pt 112 272)
+)
+(connector
+	(pt 144 -80)
+	(pt -144 -80)
+)
+(connector
+	(pt -144 -104)
+	(pt -144 -80)
+)
+(connector
+	(pt -144 -80)
+	(pt -144 -24)
+)
+(connector
+	(pt -168 -24)
+	(pt -144 -24)
+)
+(connector
+	(pt -144 -24)
+	(pt -128 -24)
+)
+(connector
+	(pt 64 -168)
+	(pt 160 -168)
+)
+(connector
+	(pt 144 -184)
+	(pt 160 -184)
+)
+(connector
+	(pt 144 -80)
+	(pt 144 -184)
+)
+(connector
+	(pt 296 -184)
+	(pt 296 -272)
+)
+(connector
+	(pt 280 -184)
+	(pt 296 -184)
+)
+(connector
+	(pt 296 -272)
+	(pt 384 -272)
 )
 (junction (pt 1856 0))
 (junction (pt 632 80))
@@ -2756,5 +2805,6 @@ agreement for further details.
 (junction (pt 304 -240))
 (junction (pt -352 -168))
 (junction (pt 744 -192))
-(junction (pt -144 -48))
 (junction (pt 736 -176))
+(junction (pt -144 -24))
+(junction (pt -144 -80))
