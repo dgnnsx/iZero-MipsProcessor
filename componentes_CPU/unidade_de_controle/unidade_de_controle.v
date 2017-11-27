@@ -1,4 +1,4 @@
-module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, isRegAluOp,
+module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWrite, isRegAluOp,
 	isRTDest, isJal, outWrite, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
@@ -10,6 +10,7 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, isReg
 	// Controles
 	output regWrite;						// Sinal para habilitar escrita no banco de registradores
 	output memWrite;						// Sinal para habilitar escrita na memória de dados
+	output imWrite;						// Sinal para habilitar escrita na memoria de instrucoes
 	output isRegAluOp;					// Sinal do multiplexador de entrada de dados da ULA, 1'b1 equivale a reg e 1'b0 a imm
 	output isRTDest;						// Sinal do multiplexador de escrita no banco de registradores, 1'b1 escreve no RT e 1'b0 no RD
 	output isJal;							// Sinal para indicar que a instrucao atual eh uma JAL
@@ -87,6 +88,7 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, isReg
 									i_jal	|
 									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
 	assign memWrite			= i_sw;
+	assign imWrite				= 1'b0;
 	assign isRegAluOp 		= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_and  | i_or   | i_xor  |
 									i_sll  | i_srl  |

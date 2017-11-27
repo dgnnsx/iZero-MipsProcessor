@@ -6,7 +6,7 @@ module memoria_de_instrucoes (clk, we, addr, datain, dataout);
 	
 	output [31:0] dataout;						// data out (from memory)
 	
-	parameter RAM_SIZE = 71;					// Tamanho da memoria
+	localparam RAM_SIZE = 71;					// Tamanho da memoria
 	reg [31:0] ram [RAM_SIZE-1:0];			// ram cells
 	
 	assign dataout = ram[addr];				// use 5-bit word address

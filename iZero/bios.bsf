@@ -38,13 +38,7 @@ agreement for further details.
 		(text "instrucao[31..0]" (rect 112 27 171 39)(font "Arial" ))
 		(line (pt 192 32)(pt 176 32)(line_width 3))
 	)
-	(parameter
-		"BIOS_SIZE"
-		"21"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 176 64)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 208 -64 308 16))
 )

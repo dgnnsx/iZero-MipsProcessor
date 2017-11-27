@@ -5,7 +5,7 @@ module bios(pc, instrucao);
 	// Saida
 	output [31:0] instrucao;						// Proxima instrucao a ser executada
 	
-	parameter BIOS_SIZE = 21;						// Tamanho da bios
+	localparam BIOS_SIZE = 21;						// Tamanho da bios
 	wire [31:0] bios [BIOS_SIZE-1:0];				// Memoria da bios
 
 	assign bios[0] = 32'b010110_00000000000000000000000001;		// Jump to Main

@@ -59,13 +59,7 @@ agreement for further details.
 		(text "dataout[31..0]" (rect 128 27 179 39)(font "Arial" ))
 		(line (pt 200 32)(pt 184 32)(line_width 3))
 	)
-	(parameter
-		"RAM_SIZE"
-		"71"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 184 96)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 216 -64 316 16))
 )
