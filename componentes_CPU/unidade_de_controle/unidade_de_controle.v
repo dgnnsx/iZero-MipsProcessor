@@ -1,9 +1,11 @@
-module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWrite, diskWrite,
-	isRegAluOp,	isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, pcSource, regWrtSelect, aluOp);
+module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, memWrite, imWrite, diskWrite,
+	isRegAluOp,	isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, reset, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
 	input isInput;							// Input [Chave]
+	input rst;
+	input rstBios;
 	input [5:0] op;						// Codigo da instrucao
 	input [5:0] func;						// Espicificacao da instrucao
 	
@@ -19,6 +21,7 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 	output isHalt;							// HALT (LCD)
 	output isInsert;						// INSERT (LCD e clock manual)
 	output isDisk;
+	output reset;
 	output [1:0] pcSource;				// Seleciona a origem do PC
 	output [1:0] regWrtSelect;
 	output [4:0] aluOp;					// Sinal de controle da ULA
@@ -113,6 +116,7 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in & isInput;
 	assign isDisk				= i_ldk;
+	assign reset				= ~rst | rstBios;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;
 	assign pcSource[1]		= i_j		| i_jr	| i_jal;
 	assign regWrtSelect[0] 	= i_lw | i_jal;

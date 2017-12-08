@@ -37,8 +37,8 @@ ENTITY LCD_Display IS
 -- *see LCD Controller's Datasheet for other graphics characters available
 */
 		
-module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isTransf, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
-	input iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isTransf;
+module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
+	input iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios;
 	output LCD_RS, LCD_E, LCD_RW;
 	inout [7:0] DATA_BUS;
 
@@ -72,7 +72,6 @@ module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isTransf, LCD_R
 		.isHalt(isHalt),
 		.isInsert(isInsert),
 		.isBios(isBios),
-		.isTransf(isTransf),
 		.index(CHAR_COUNT),
 		.out(Next_Char));
 
@@ -257,8 +256,8 @@ always @(posedge CLK_400HZ or negedge iRST_N)
 	endcase
 endmodule
 
-module LCD_display_string(isHalt, isInsert, isBios, isTransf, index, out);
-	input isHalt, isInsert, isBios, isTransf;
+module LCD_display_string(isHalt, isInsert, isBios, index, out);
+	input isHalt, isInsert, isBios;
 	input [4:0] index;
 	output reg [7:0] out;
 	always 
@@ -274,25 +273,25 @@ module LCD_display_string(isHalt, isInsert, isBios, isTransf, index, out);
 			
 			// Linha 2
 			5'h10: begin
-				out <= isHalt ? 8'h48 : isInsert ? 8'h49 : isBios ? 8'h42 : isTransf ? 8'h54 : 8'h52;
+				out <= isHalt ? 8'h48 : isInsert ? 8'h49 : isBios ? 8'h42 : 8'h52;
 			end
 			5'h11: begin
-				out <= isHalt ? 8'h41 : isInsert ? 8'h4E : isBios ? 8'h49 : isTransf ? 8'h52 : 8'h55;
+				out <= isHalt ? 8'h41 : isInsert ? 8'h4E : isBios ? 8'h49 : 8'h55;
 			end
 			5'h12: begin
-				out <= isHalt ? 8'h4C : isInsert ? 8'h53 : isBios ? 8'h4F : isTransf ? 8'h41 : 8'h4E;
+				out <= isHalt ? 8'h4C : isInsert ? 8'h53 : isBios ? 8'h4F : 8'h4E;
 			end
 			5'h13: begin
-				out <= isHalt ? 8'h54 : isInsert ? 8'h45 : isBios ? 8'h53 : isTransf ? 8'h4E : 8'h4E;
+				out <= isHalt ? 8'h54 : isInsert ? 8'h45 : isBios ? 8'h53 : 8'h4E;
 			end
 			5'h14: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h52 : isBios ? 8'h20 : isTransf ? 8'h53 : 8'h49;
+				out <= isHalt ? 8'h20 : isInsert ? 8'h52 : isBios ? 8'h20 : 8'h49;
 			end
 			5'h15: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h54 : isBios ? 8'h20 : isTransf ? 8'h46 : 8'h4E;
+				out <= isHalt ? 8'h20 : isInsert ? 8'h54 : isBios ? 8'h20 : 8'h4E;
 			end
 			5'h16: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h20 : isBios ? 8'h20 : isTransf ? 8'h45 : 8'h47;
+				out <= isHalt ? 8'h20 : isInsert ? 8'h20 : isBios ? 8'h20 : 8'h47;
 			end
 			default: out <= 8'h20;
 		endcase

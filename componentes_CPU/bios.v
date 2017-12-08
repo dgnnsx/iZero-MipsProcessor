@@ -8,12 +8,12 @@ module bios(pc, instrucao);
 	localparam BIOS_SIZE = 19;						// Tamanho da bios
 	wire [31:0] bios [BIOS_SIZE-1:0];				// Memoria da bios
 	
-	assign bios[0] = 32'b010110_00000000000000000000000001;		// Jump to Main
+assign bios[0] = 32'b010110_00000000000000000000000001;		// Jump to Main
 assign bios[1] = 32'b000001_11110_11110_0000000000000001; 	// addi
 assign bios[2] = 32'b010000_00000_10100_0000000000000000; 	// li
 assign bios[3] = 32'b010010_11110_10100_0000000000000000; 	// sw
 assign bios[4] = 32'b001111_11110_01010_0000000000000000; 	// lw
-assign bios[5] = 32'b010000_00000_10110_0000000000010101; 	// li
+assign bios[5] = 32'b010000_00000_10110_0000000000101000; 	// li
 assign bios[6] = 32'b000000_01010_10110_10101_00000_001110; 	// lt
 assign bios[7] = 32'b010101_10101_00000_0000000000010000; 	// jf
 assign bios[8] = 32'b001110_01010_00110_0000000000000000; 	// mov

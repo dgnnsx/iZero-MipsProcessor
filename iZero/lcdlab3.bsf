@@ -55,16 +55,9 @@ agreement for further details.
 	(port
 		(pt 0 96)
 		(input)
-		(text "isTransf" (rect 0 0 33 12)(font "Arial" ))
-		(text "isTransf" (rect 21 91 54 103)(font "Arial" ))
-		(line (pt 0 96)(pt 16 96)(line_width 1))
-	)
-	(port
-		(pt 0 112)
-		(input)
 		(text "DATA[31..0]" (rect 0 0 53 12)(font "Arial" ))
-		(text "DATA[31..0]" (rect 21 107 74 119)(font "Arial" ))
-		(line (pt 0 112)(pt 16 112)(line_width 3))
+		(text "DATA[31..0]" (rect 21 91 74 103)(font "Arial" ))
+		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
 		(pt 232 32)
