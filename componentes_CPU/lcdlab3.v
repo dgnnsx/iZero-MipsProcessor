@@ -9,7 +9,7 @@ output LCD_BLON;	// LCD Back Light ON/OFF
 output LCD_RW;	// LCD Read/Write Select, 0 = Write, 1 = Read
 output LCD_EN;	// LCD Enable
 output LCD_RS;	// LCD Command/Data Select, 0 = Command, 1 = Data
-output [7:0] LCD_DATA;	// LCD Data bus 8 bits
+output wire [7:0] LCD_DATA;	// LCD Data bus 8 bits
 
 // reset delay gives some time for peripherals to initialize
 wire DLY_RST;

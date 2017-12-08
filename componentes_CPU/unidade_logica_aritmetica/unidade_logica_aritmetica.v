@@ -33,7 +33,7 @@ module unidade_logica_aritmetica(aluOp, A, B, resultado, isFalse);
 			5'b01101: select = A || B;				// LOGICAL OR
 
 			// Atribuicao
-			5'b01110: select = A;					// RD = RS (MOV), ?JR
+			5'b01110: select = A;					// RD = RS (MOV), LDK, ?JR
 			5'b01111: select = B;					// LI, OUT, JF
 
 			5'b10000: select = A == B ? 32'd1 : 32'd0;

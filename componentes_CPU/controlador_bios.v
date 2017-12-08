@@ -1,4 +1,4 @@
-module controlador_bios(clk, bios, mem, out, reset);
+module controlador_bios(clk, bios, mem, out, isBios, reset);
 	// Entradas
 	input clk;
 	input [31:0] bios;												// Instrucao vinda da Bios
@@ -6,6 +6,7 @@ module controlador_bios(clk, bios, mem, out, reset);
 	
 	// Saida
 	output [31:0] out;												// Instrucao efetiva
+	output isBios;
 	output reg reset;
 	
 	reg state;
@@ -25,4 +26,5 @@ module controlador_bios(clk, bios, mem, out, reset);
 	end
 	
 	assign out = state == BIOS ? bios : mem;
+	assign isBios = ~state;
 endmodule

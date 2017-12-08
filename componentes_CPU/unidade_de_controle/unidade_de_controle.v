@@ -1,5 +1,5 @@
-module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWrite, isRegAluOp,
-	isRTDest, isJal, outWrite, isHalt, isInsert, pcSource, regWrtSelect, aluOp);
+module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWrite, diskWrite,
+	isRegAluOp,	isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
@@ -11,12 +11,14 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 	output regWrite;						// Sinal para habilitar escrita no banco de registradores
 	output memWrite;						// Sinal para habilitar escrita na memória de dados
 	output imWrite;						// Sinal para habilitar escrita na memoria de instrucoes
+	output diskWrite;
 	output isRegAluOp;					// Sinal do multiplexador de entrada de dados da ULA, 1'b1 equivale a reg e 1'b0 a imm
 	output isRTDest;						// Sinal do multiplexador de escrita no banco de registradores, 1'b1 escreve no RT e 1'b0 no RD
 	output isJal;							// Sinal para indicar que a instrucao atual eh uma JAL
 	output outWrite;						// Sinal para habilitar a saída de dados
 	output isHalt;							// HALT (LCD)
 	output isInsert;						// INSERT (LCD e clock manual)
+	output isDisk;
 	output [1:0] pcSource;				// Seleciona a origem do PC
 	output [1:0] regWrtSelect;
 	output [4:0] aluOp;					// Sinal de controle da ULA
@@ -77,6 +79,11 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 	wire i_jal					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
 	wire i_halt					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
 	
+	wire i_ldk					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
+	wire i_sdk					= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
+	wire i_sim					= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
+	
+	
 	// Atribui controles do datapath
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
@@ -86,9 +93,11 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 									i_slli | i_srli |
 									i_mov  | i_lw   | i_li   | i_la   | i_in   |
 									i_jal	|
-									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
+									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get |
+									i_ldk;
 	assign memWrite			= i_sw;
-	assign imWrite				= 1'b0;
+	assign imWrite				= i_sim;
+	assign diskWrite			= i_sdk;
 	assign isRegAluOp 		= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_and  | i_or   | i_xor  |
 									i_sll  | i_srl  |
@@ -97,11 +106,13 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 	assign isRTDest			= i_addi | i_subi | i_muli | i_divi | i_modi |
 									i_andi | i_ori  | i_xori | i_not	|
 									i_slli | i_srli |
-									i_mov  | i_lw   | i_li   | i_la   | i_in;
+									i_mov  | i_lw   | i_li   | i_la   | i_in	|
+									i_ldk;
 	assign isJal				= i_jal;
 	assign outWrite			= i_out;
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in & isInput;
+	assign isDisk				= i_ldk;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;
 	assign pcSource[1]		= i_j		| i_jr	| i_jal;
 	assign regWrtSelect[0] 	= i_lw | i_jal;
@@ -112,12 +123,15 @@ module unidade_de_controle(isFalse, isInput, op, func, regWrite, memWrite, imWri
 									i_ne	| i_let	| i_get	| i_jf;
 	assign aluOp[1]			= i_mul	| i_div	| i_xor	| i_srl	| i_lt	| i_not	|
 									i_muli	| i_divi	| i_xori | i_srli	| i_let	|
-									i_mov	| i_li	| i_jr	| i_out	| i_jf;
+									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
+									i_ldk	| i_sim;
 	assign aluOp[2]			= i_mod	| i_sll	| i_srl	| i_land	| i_lor	| i_gt  	|
 									i_modi	| i_slli	| i_srli	| i_landi| i_lori | i_get 	|
-									i_mov	| i_li	| i_jr	| i_out	| i_jf;
+									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
+									i_ldk	| i_sim;
 	assign aluOp[3]			= i_and	| i_or	| i_xor	| i_land	| i_lor	| i_not	|
 									i_andi | i_ori  | i_xori | i_landi| i_lori |
-									i_mov  | i_li	| i_jr	| i_out	| i_jf;
+									i_mov  | i_li	| i_jr	| i_out	| i_jf	|
+									i_ldk	| i_sim;
 	assign aluOp[4]			= i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
 endmodule
