@@ -1641,42 +1641,42 @@ agreement for further details.
 		(pt 232 32)
 		(output)
 		(text "LCD_ON" (rect 0 0 43 10)(font "Arial" ))
-		(text "LCD_ON" (rect 175 27 211 37)(font "Arial" ))
+		(text "LCD_ON" (rect 175 27 218 37)(font "Arial" ))
 		(line (pt 232 32)(pt 216 32))
 	)
 	(port
 		(pt 232 48)
 		(output)
 		(text "LCD_BLON" (rect 0 0 56 10)(font "Arial" ))
-		(text "LCD_BLON" (rect 164 43 211 53)(font "Arial" ))
+		(text "LCD_BLON" (rect 164 43 220 53)(font "Arial" ))
 		(line (pt 232 48)(pt 216 48))
 	)
 	(port
 		(pt 232 64)
 		(output)
 		(text "LCD_RW" (rect 0 0 46 10)(font "Arial" ))
-		(text "LCD_RW" (rect 173 59 211 69)(font "Arial" ))
+		(text "LCD_RW" (rect 173 59 219 69)(font "Arial" ))
 		(line (pt 232 64)(pt 216 64))
 	)
 	(port
 		(pt 232 80)
 		(output)
 		(text "LCD_EN" (rect 0 0 42 10)(font "Arial" ))
-		(text "LCD_EN" (rect 176 75 211 85)(font "Arial" ))
+		(text "LCD_EN" (rect 176 75 218 85)(font "Arial" ))
 		(line (pt 232 80)(pt 216 80))
 	)
 	(port
 		(pt 232 96)
 		(output)
 		(text "LCD_RS" (rect 0 0 43 10)(font "Arial" ))
-		(text "LCD_RS" (rect 175 91 211 101)(font "Arial" ))
+		(text "LCD_RS" (rect 175 91 218 101)(font "Arial" ))
 		(line (pt 232 96)(pt 216 96))
 	)
 	(port
 		(pt 232 112)
 		(output)
 		(text "LCD_DATA[7..0]" (rect 0 0 79 10)(font "Arial" ))
-		(text "LCD_DATA[7..0]" (rect 145 107 211 117)(font "Arial" ))
+		(text "LCD_DATA[7..0]" (rect 145 107 224 117)(font "Arial" ))
 		(line (pt 232 112)(pt 216 112)(line_width 3))
 	)
 	(drawing
@@ -2895,46 +2895,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 112 592)
-	(pt 136 592)
-)
-(connector
-	(pt 104 608)
-	(pt 136 608)
-)
-(connector
-	(pt 104 472)
-	(pt 104 608)
-)
-(connector
-	(pt 104 624)
-	(pt 136 624)
-	(bus)
-)
-(connector
-	(pt 344 592)
-	(pt 336 592)
-	(bus)
-)
-(connector
-	(pt 104 720)
-	(pt 104 624)
-	(bus)
-)
-(connector
-	(pt 344 728)
-	(pt 344 592)
-	(bus)
-)
-(connector
-	(pt 112 272)
-	(pt 112 432)
-)
-(connector
-	(pt 112 432)
-	(pt 112 592)
-)
-(connector
 	(pt 584 592)
 	(pt 584 408)
 	(bus)
@@ -3308,6 +3268,46 @@ agreement for further details.
 (connector
 	(pt 288 -248)
 	(pt 384 -248)
+)
+(connector
+	(pt 112 592)
+	(pt 136 592)
+)
+(connector
+	(pt 104 608)
+	(pt 136 608)
+)
+(connector
+	(pt 104 472)
+	(pt 104 608)
+)
+(connector
+	(pt 104 624)
+	(pt 136 624)
+	(bus)
+)
+(connector
+	(pt 344 592)
+	(pt 336 592)
+	(bus)
+)
+(connector
+	(pt 104 720)
+	(pt 104 624)
+	(bus)
+)
+(connector
+	(pt 344 728)
+	(pt 344 592)
+	(bus)
+)
+(connector
+	(pt 112 272)
+	(pt 112 432)
+)
+(connector
+	(pt 112 432)
+	(pt 112 592)
 )
 (junction (pt 1856 0))
 (junction (pt 632 80))

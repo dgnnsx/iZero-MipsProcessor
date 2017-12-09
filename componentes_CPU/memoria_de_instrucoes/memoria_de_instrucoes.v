@@ -14,7 +14,7 @@ module memoria_de_instrucoes (clk, we, pc, addr, datain, dataout);
 		if (we) ram[addr] <= datain;			// write ram
 	end
 	
-	always @ (negedge clk) begin
+	always @ (*) begin
 		dataout <= ram[pc];
 	end
 endmodule
