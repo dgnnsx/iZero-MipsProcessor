@@ -6,7 +6,7 @@ module disco_rigido (clk, we, addr, datain, dataout);
 	
 	output reg [31:0] dataout;					// data out (from disk)
 	
-	localparam DISK_SIZE = 100;				// Tamanho do disco
+	localparam DISK_SIZE = 150;				// Tamanho do disco
 	reg [31:0] disk [DISK_SIZE-1:0];			// disk cells
 	
 	always @ (posedge clk) begin

@@ -6,7 +6,7 @@ module memoria_de_dados (clk, we, addr, datain, dataout);
 	
 	output reg [31:0] dataout;						// data out (from memory)
 	
-	parameter RAM_SIZE = 150;					// Tamanho da memoria
+	localparam RAM_SIZE = 150;					// Tamanho da memoria
 	reg [31:0] ram [RAM_SIZE-1:0];			// ram cells
 	
 	always @ (posedge clk) begin

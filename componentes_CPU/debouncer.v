@@ -28,7 +28,7 @@ module  debouncer
 	output reg 	DB_out													// output
 	);
 //// ---------------- internal constants --------------
-	parameter N = 11 ;		// (2^ (21-1) )/ 38 MHz = 32 ms debounce time
+	localparam N = 11 ;		// (2^ (21-1) )/ 38 MHz = 32 ms debounce time
 ////---------------- internal variables ---------------
 	reg  [N-1 : 0]	q_reg;							// timing regs
 	reg  [N-1 : 0]	q_next;

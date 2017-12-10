@@ -1,5 +1,5 @@
 module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, memWrite, imWrite, diskWrite,
-	isRegAluOp,	isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, reset, pcSource, regWrtSelect, aluOp);
+	isRegAluOp, isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, reset, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
@@ -86,7 +86,11 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	wire i_sdk					= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
 	wire i_sim					= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
 	
+	wire i_ckhd					= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
+	wire i_ckim					= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110
+	wire i_ckdm					= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
 	
+	wire stop = i_in | i_ckhd | i_ckim | i_ckdm;
 	// Atribui controles do datapath
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
@@ -114,7 +118,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign isJal				= i_jal;
 	assign outWrite			= i_out;
 	assign isHalt				= i_halt;
-	assign isInsert			= i_in & isInput;
+	assign isInsert			= stop & isInput;
 	assign isDisk				= i_ldk;
 	assign reset				= ~rst | rstBios;
 	assign pcSource[0]		= i_j		| i_jal	| i_jf & isFalse;

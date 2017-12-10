@@ -37,8 +37,8 @@ ENTITY LCD_Display IS
 -- *see LCD Controller's Datasheet for other graphics characters available
 */
 		
-module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
-	input iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios;
+module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
+	input iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm;
 	output LCD_RS, LCD_E, LCD_RW;
 	inout [7:0] DATA_BUS;
 
@@ -72,6 +72,9 @@ module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, LCD_RS, LCD_E, 
 		.isHalt(isHalt),
 		.isInsert(isInsert),
 		.isBios(isBios),
+		.isCkhd(isCkhd),
+		.isCkim(isCkim),
+		.isCkdm(isCkdm),
 		.index(CHAR_COUNT),
 		.out(Next_Char));
 
@@ -256,8 +259,8 @@ always @(posedge CLK_400HZ or negedge iRST_N)
 	endcase
 endmodule
 
-module LCD_display_string(isHalt, isInsert, isBios, index, out);
-	input isHalt, isInsert, isBios;
+module LCD_display_string(isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, index, out);
+	input isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm;
 	input [4:0] index;
 	output reg [7:0] out;
 	always 
@@ -268,30 +271,48 @@ module LCD_display_string(isHalt, isInsert, isBios, index, out);
 			5'h02: out <= 8'h44;
 			5'h03: out <= 8'h45;
 			5'h04: out <= 8'h3A;
+			// 5'h05 -> default
+			5'h06: out <= isBios ? 8'h42 : 8'h53;
+			5'h07: out <= isBios ? 8'h49 : 8'h4F;
+			5'h08: out <= isBios ? 8'h4F : 8'h20;
+			5'h09: out <= isBios ? 8'h53 : 8'h20;
 			//	5'h06: out <= {4'h0,hex1};
 			//	5'h07: out <= {4'h0,hex0};
 			
 			// Linha 2
 			5'h10: begin
-				out <= isHalt ? 8'h48 : isInsert ? 8'h49 : isBios ? 8'h42 : 8'h52;
+				out <= isCkhd ? 8'h48 : isCkim ? 8'h49 : isCkdm ? 8'h44 : isHalt ? 8'h48 : isInsert ? 8'h49 : 8'h52;
 			end
 			5'h11: begin
-				out <= isHalt ? 8'h41 : isInsert ? 8'h4E : isBios ? 8'h49 : 8'h55;
+				out <= isCkhd ? 8'h44 : isCkim ? 8'h4D : isCkdm ? 8'h4D : isHalt ? 8'h41 : isInsert ? 8'h4E : 8'h55;
 			end
 			5'h12: begin
-				out <= isHalt ? 8'h4C : isInsert ? 8'h53 : isBios ? 8'h4F : 8'h4E;
+				out <= isCkhd ? 8'h20 : isCkim ? 8'h20 : isCkdm ? 8'h20 : isHalt ? 8'h4C : isInsert ? 8'h53 : 8'h4E;
 			end
 			5'h13: begin
-				out <= isHalt ? 8'h54 : isInsert ? 8'h45 : isBios ? 8'h53 : 8'h4E;
+				out <= isCkhd ? 8'h53 : isCkim ? 8'h53 : isCkdm ? 8'h53 : isHalt ? 8'h54 : isInsert ? 8'h45 : 8'h4E;
 			end
 			5'h14: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h52 : isBios ? 8'h20 : 8'h49;
+				out <= isCkhd ? 8'h49 : isCkim ? 8'h49 : isCkdm ? 8'h49 : isHalt ? 8'h20 : isInsert ? 8'h52 : 8'h49;
 			end
 			5'h15: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h54 : isBios ? 8'h20 : 8'h4E;
+				out <= isCkhd ? 8'h5A : isCkim ? 8'h5A : isCkdm ? 8'h5A : isHalt ? 8'h20 : isInsert ? 8'h54 : 8'h4E;
 			end
 			5'h16: begin
-				out <= isHalt ? 8'h20 : isInsert ? 8'h20 : isBios ? 8'h20 : 8'h47;
+				out <= isCkhd ? 8'h45 : isCkim ? 8'h45 : isCkdm ? 8'h45 : isHalt ? 8'h20 : isInsert ? 8'h20 : 8'h47;
+			end
+			5'h17: begin
+				out <= isCkhd | isCkim | isCkdm ? 8'h3A : 8'h20;
+			end
+			// 5'h18 -> default
+			5'h19: begin
+				out <= isCkhd | isCkim | isCkdm ? 8'h31 : 8'h20;
+			end
+			5'h1A: begin
+				out <= isCkhd | isCkim | isCkdm ? 8'h35 : 8'h20;
+			end
+			5'h1B: begin
+				out <= isCkhd | isCkim | isCkdm ? 8'h30 : 8'h20;
 			end
 			default: out <= 8'h20;
 		endcase

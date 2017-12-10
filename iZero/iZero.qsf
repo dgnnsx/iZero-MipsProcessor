@@ -221,7 +221,6 @@ set_global_assignment -name VERILOG_FILE ../componentes_CPU/debouncer.v
 
 
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/bios.v
-set_location_assignment PIN_Y23 -to teste
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/controlador_bios.v
 
 set_global_assignment -name VERILOG_FILE ../componentes_CPU/disco_rigido.v

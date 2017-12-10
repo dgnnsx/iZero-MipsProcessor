@@ -52,13 +52,7 @@ agreement for further details.
 		(text "DB_out" (rect 117 27 147 39)(font "Arial" ))
 		(line (pt 168 32)(pt 152 32)(line_width 1))
 	)
-	(parameter
-		"N"
-		"11"
-		""
-		(type "PARAMETER_SIGNED_DEC")	)
 	(drawing
 		(rectangle (rect 16 16 152 96)(line_width 1))
 	)
-	(annotation_block (parameter)(rect 184 -64 284 16))
 )
