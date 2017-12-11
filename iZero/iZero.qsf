@@ -123,7 +123,7 @@ set_location_assignment PIN_Y2 -to clock
 set_location_assignment PIN_E25 -to D1_SINAL
 set_location_assignment PIN_E22 -to D2_SINAL
 set_location_assignment PIN_E21 -to D3_SINAL
-set_location_assignment PIN_M23 -to IN_BUTTON
+set_location_assignment PIN_R24 -to IN_BUTTON
 set_global_assignment -name ENABLE_CONFIGURATION_PINS OFF
 set_global_assignment -name ENABLE_NCE_PIN OFF
 set_global_assignment -name ENABLE_BOOT_SEL_PIN OFF

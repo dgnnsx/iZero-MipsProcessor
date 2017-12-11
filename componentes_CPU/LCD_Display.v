@@ -306,10 +306,10 @@ module LCD_display_string(isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, inde
 			end
 			// 5'h18 -> default
 			5'h19: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h31 : 8'h20;
+				out <= isCkhd | isCkim | isCkdm ? 8'h35 : 8'h20;
 			end
 			5'h1A: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h35 : 8'h20;
+				out <= isCkhd | isCkim | isCkdm ? 8'h30 : 8'h20;
 			end
 			5'h1B: begin
 				out <= isCkhd | isCkim | isCkdm ? 8'h30 : 8'h20;
