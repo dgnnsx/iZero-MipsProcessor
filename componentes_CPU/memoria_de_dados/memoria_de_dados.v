@@ -1,4 +1,5 @@
-module memoria_de_dados (clk, we, addr, datain, dataout);
+module memoria_de_dados (clk_50, clk, we, addr, datain, dataout);
+	input clk_50;
 	input clk;										// clock
 	input we;										// write enable
 	input [31:0] addr;							// ram address
@@ -13,7 +14,7 @@ module memoria_de_dados (clk, we, addr, datain, dataout);
 		if (we) ram[addr] <= datain;			// write ram
 	end
 	
-	always @ (negedge clk) begin
+	always @ (posedge clk_50) begin
 		dataout <= ram[addr];
 	end
 endmodule
