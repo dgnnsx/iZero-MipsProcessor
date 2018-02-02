@@ -31,6 +31,6 @@ module mmu(clk_50, clk, we, sel, lower, upper, addrIn, addrOut);
 	
 	assign aux = addrIn + base[selector];
 	always @ (posedge clk_50) begin
-		addrOut <= aux;// <= bound[selector] && aux >= base[selector] ? aux : {32 {1'b0}}; // TODO: Lancar excecao caso caia fora do range
+		addrOut <= aux <= bound[selector] && aux >= base[selector] ? aux : {32 {1'b0}}; // TODO: Lancar excecao caso caia fora do range
 	end
 endmodule
