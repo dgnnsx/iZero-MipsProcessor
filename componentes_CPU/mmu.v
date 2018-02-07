@@ -1,8 +1,10 @@
-module mmu(clk_50, clk, we, sel, offset, addrIn, addrOut);
+module mmu(clk_50, clk, we, userMode, kernelMode, sel, offset, addrIn, addrOut);
 	// Entradas
 	input clk_50;
 	input clk;
 	input we;
+	input userMode;
+	input kernelMode;
 	input [31:0] sel;
 	input [31:0] offset;
 	input [25:0] addrIn;									// Endereco logico
@@ -20,6 +22,15 @@ module mmu(clk_50, clk, we, sel, offset, addrIn, addrOut);
 	
 	wire [31:0] aux;									// Auxiliar para realizar a soma do offset do endereco fisico
 	
+	// Estados de execuçao do sistema operacional - Modo Kernel e Modo Usuario
+	// O modo Kernel possui permissoes a todo hardware, diferente do modo usuario que e mais restrito
+	localparam KERNEL_MODE = 1'b0, USER_MODE = 1'b1;
+	reg EXECUTION_MODE;
+	
+	initial begin
+		EXECUTION_MODE <= KERNEL_MODE;
+	end
+	
 	always @ (posedge clk) begin
 		if (we) begin
 			selector <= sel;
@@ -27,8 +38,16 @@ module mmu(clk_50, clk, we, sel, offset, addrIn, addrOut);
 		end
 	end
 	
-	assign aux = addrIn + base[selector];
+	always @ (posedge clk) begin
+		if (userMode)
+			EXECUTION_MODE <= USER_MODE;
+		if (kernelMode) begin
+			EXECUTION_MODE <= KERNEL_MODE;
+		end
+	end
+	
+	assign aux = EXECUTION_MODE == KERNEL_MODE ? addrIn : addrIn + base[selector];
 	always @ (posedge clk_50) begin
-		addrOut <= aux; //<= bound[selector] && aux >= base[selector] ? aux : {32 {1'b0}}; // TODO: Lancar excecao caso caia fora do range
+		addrOut <= aux; // <= bound[selector] && aux >= base[selector] ? aux : {32 {1'b0}}; // TODO: Lancar excecao caso caia fora do range
 	end
 endmodule
