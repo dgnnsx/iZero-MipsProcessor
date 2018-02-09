@@ -5,7 +5,7 @@ module bios(pc, instrucao);
 	// Saida
 	output [31:0] instrucao;							// Proxima instrucao a ser executada
 	
-	localparam BIOS_SIZE = 52;							// Tamanho da bios
+	localparam BIOS_SIZE = 41;							// Tamanho da bios
 	wire [31:0] bios [BIOS_SIZE-1:0];				// Memoria da bios
 	
 	assign bios[0] = 32'b010110_00000000000000000000100100;		// Jump to Main
@@ -44,20 +44,11 @@ module bios(pc, instrucao);
 	assign bios[33] = 32'b011100_00111_00110_0000000000000000; 	// sim
 	assign bios[34] = 32'b001110_01010_00001_0000000000000000; 	// mov
 	assign bios[35] = 32'b000000_11111_00000_00000_00000_010010; 	// jr
-	assign bios[36] = 32'b000001_11110_11110_0000000000000011; 	// addi
+	assign bios[36] = 32'b000001_11110_11110_0000000000000000; 	// addi
 	assign bios[37] = 32'b010111_00000000000000000000000110; 	// jal
 	assign bios[38] = 32'b001110_00001_01010_0000000000000000; 	// mov
 	assign bios[39] = 32'b000010_11110_11110_0000000000000101; 	// subi
-	assign bios[40] = 32'b010010_11110_01010_0000000000000000; 	// sw
-	assign bios[41] = 32'b010000_00000_10100_0000000000000000; 	// li
-	assign bios[42] = 32'b010010_11110_10100_1111111111111110; 	// sw
-	assign bios[43] = 32'b001111_11110_01011_0000000000000000; 	// lw
-	assign bios[44] = 32'b010010_11110_01011_1111111111111111; 	// sw
-	assign bios[45] = 32'b001111_11110_01100_1111111111111110; 	// lw
-	assign bios[46] = 32'b001110_01100_00110_0000000000000000; 	// mov
-	assign bios[47] = 32'b010000_00000_00111_0000000000000000; 	// li
-	assign bios[48] = 32'b100000_00111_00110_0000000000000000; 	// mmuLower
-	assign bios[49] = 32'b011000_00000000000000000000000000; 	// halt
+	assign bios[40] = 32'b011000_00000000000000000000000000; 	// halt
 
 	assign instrucao = bios[pc];
 endmodule
