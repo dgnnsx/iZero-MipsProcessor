@@ -1,8 +1,9 @@
-module mmu(clk_50, clk, we, userMode, kernelMode, sel, offset, addrIn, addrOut);
+module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addrIn, addrOut);
 	// Entradas
 	input clk_50;
 	input clk;
-	input we;
+	input we_addr;
+	input we_sel;
 	input userMode;
 	input kernelMode;
 	input [31:0] sel;
@@ -17,9 +18,9 @@ module mmu(clk_50, clk, we, userMode, kernelMode, sel, offset, addrIn, addrOut);
 	 * Se houver uma tentativa de acesso a um endereco que nao esteja dentro do range, deve ser lancada uma excecao.
 	 */
 	reg [31:0] lowerIM[10:0];						// Endereco de memoria que representa o limite superior da area de memoria de instrucoes do processo (lower bound)
-	//reg [31:0] upperIM[10:0];					// Endereco de memoria que representa o limite inferior da area de memoria de instrucoes do processo (upper bound)
+	reg [31:0] upperIM[10:0];						// Endereco de memoria que representa o limite inferior da area de memoria de instrucoes do processo (upper bound)
 	reg [31:0] lowerDM[10:0];						// Endereco de memoria que representa o limite superior da area de memoria de dados do processo (lower bound)
-	//reg [31:0] upperDM[10:0];					// Endereco de memoria que representa o limite inferior da area de memoria de dados do processo (upper bound)
+	reg [31:0] upperDM[10:0];						// Endereco de memoria que representa o limite inferior da area de memoria de dados do processo (upper bound)
 	reg [31:0] selector;								// Seletor de segmento - Seleciona qual programa esta rodando no contexto atual
 	
 	wire [31:0] enderecoLogico;					// Auxiliar para realizar a soma do offset do endereco fisico
@@ -34,10 +35,13 @@ module mmu(clk_50, clk, we, userMode, kernelMode, sel, offset, addrIn, addrOut);
 	end
 	
 	always @ (posedge clk) begin
-		if (we) begin
+		if (we_addr)
+			lowerIM[selector] <= offset;
+	end
+	
+	always @ (posedge clk) begin
+		if (we_sel)
 			selector <= sel;
-			lowerIM[sel] <= offset;
-		end
 	end
 	
 	always @ (posedge clk) begin
