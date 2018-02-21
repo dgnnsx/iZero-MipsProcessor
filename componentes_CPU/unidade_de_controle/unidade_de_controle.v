@@ -70,42 +70,35 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	wire i_lori					= ~op[5] & ~op[4] & op[3] & ~op[2] & op[1] & op[0];		// 001011
 	wire i_slli					= ~op[5] & ~op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 001100
 	wire i_srli					= ~op[5] & ~op[4] & op[3] & op[2] & ~op[1] & op[0];		// 001101
-	
 	wire i_mov					= ~op[5] & ~op[4] & op[3] & op[2] & op[1] & ~op[0];		// 001110
 	wire i_lw					= ~op[5] & ~op[4] & op[3] & op[2] & op[1] & op[0];			// 001111
 	wire i_li					= ~op[5] & op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 010000
 	wire i_la					= ~op[5] & op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 010001
 	wire i_sw					= ~op[5] & op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 010010
-	
 	wire i_in					= ~op[5] & op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 010011
 	wire i_out					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 010100
-	
 	wire i_jf					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 010101
 	
-	wire i_mmu_lower_im		= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
-	wire i_mmu_upper_im		= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
-	wire i_mmu_lower_dm		= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
-	wire i_mmu_upper_dm		= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
-	wire i_mmu_select			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
+	wire i_ldk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
+	wire i_sdk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
+	//wire i_lim					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
+	wire i_sim					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
 	
-	wire i_syscall				= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
-	wire i_exec					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 100110
-	wire i_lcd					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111
+	wire i_mmu_lower_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
+	wire i_mmu_upper_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 011011
+	//wire i_mmu_lower_dm		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
+	//wire i_mmu_upper_dm		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
+	wire i_mmu_select			= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110
+	
+	wire i_syscall				= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
+	wire i_exec					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
+	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
 	
 	// J Type
-	wire i_j						= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
-	wire i_jal					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
-	wire i_halt					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
+	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
+	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
+	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
 	
-	wire i_ldk					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
-	wire i_sdk					= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
-	wire i_sim					= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
-	
-	wire i_ckhd					= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
-	wire i_ckim					= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110
-	wire i_ckdm					= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
-	
-	wire stop = i_in | i_ckhd | i_ckim | i_ckdm;
 	// Atribui controles do datapath
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
@@ -135,7 +128,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign isJal				= i_jal | i_exec;
 	assign outWrite			= i_out;
 	assign isHalt				= i_halt;
-	assign isInsert			= stop & isInput;
+	assign isInsert			= i_in & isInput;
 	assign isDisk				= i_ldk;
 	assign wlcd					= i_lcd;
 	assign reset				= ~rst | rstBios;
