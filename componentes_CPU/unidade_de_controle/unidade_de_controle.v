@@ -1,5 +1,5 @@
 module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
-	isRegAluOp, isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, reset, userMode, kernelMode, pcSource, regWrtSelect, aluOp);
+	isRegAluOp, isRTDest, isJal, outWrite, isHalt, isInsert, isDisk, wlcd, reset, userMode, kernelMode, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
@@ -23,6 +23,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	output isHalt;							// HALT (LCD)
 	output isInsert;						// INSERT (LCD e clock manual)
 	output isDisk;
+	output wlcd;							// Exibe um menu no display LCD
 	output reset;
 	output userMode;						// Modo de execuçao do processador (USUARIO)
 	output kernelMode;					// Modo de execuçao do processador (KERNEL)
@@ -89,6 +90,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	
 	wire i_syscall				= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
 	wire i_exec					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 100110
+	wire i_lcd					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111
 	
 	// J Type
 	wire i_j						= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
@@ -135,6 +137,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign isHalt				= i_halt;
 	assign isInsert			= stop & isInput;
 	assign isDisk				= i_ldk;
+	assign wlcd					= i_lcd;
 	assign reset				= ~rst | rstBios;
 	assign userMode			= i_exec;
 	assign kernelMode			= i_syscall;

@@ -48,7 +48,7 @@ module  debouncer
 				2'b00 :
 						q_next <= q_reg;
 				2'b01 :
-						q_next <= q_reg + 1;
+						q_next <= q_reg + 1'b1;
 				default :
 						q_next <= { N {1'b0} };
 			endcase 	

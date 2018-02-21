@@ -21,9 +21,9 @@ agreement for further details.
 */
 (header "symbol" (version "1.1"))
 (symbol
-	(rect 16 16 200 160)
+	(rect 16 16 200 128)
 	(text "controlador_bios" (rect 5 0 69 12)(font "Arial" ))
-	(text "inst" (rect 8 128 20 140)(font "Arial" ))
+	(text "inst" (rect 8 96 20 108)(font "Arial" ))
 	(port
 		(pt 0 32)
 		(input)
@@ -62,32 +62,11 @@ agreement for further details.
 	(port
 		(pt 184 64)
 		(output)
-		(text "isCkhd" (rect 0 0 27 12)(font "Arial" ))
-		(text "isCkhd" (rect 136 59 163 71)(font "Arial" ))
+		(text "reset" (rect 0 0 20 12)(font "Arial" ))
+		(text "reset" (rect 143 59 163 71)(font "Arial" ))
 		(line (pt 184 64)(pt 168 64)(line_width 1))
 	)
-	(port
-		(pt 184 80)
-		(output)
-		(text "isCkim" (rect 0 0 27 12)(font "Arial" ))
-		(text "isCkim" (rect 136 75 163 87)(font "Arial" ))
-		(line (pt 184 80)(pt 168 80)(line_width 1))
-	)
-	(port
-		(pt 184 96)
-		(output)
-		(text "isCkdm" (rect 0 0 30 12)(font "Arial" ))
-		(text "isCkdm" (rect 133 91 163 103)(font "Arial" ))
-		(line (pt 184 96)(pt 168 96)(line_width 1))
-	)
-	(port
-		(pt 184 112)
-		(output)
-		(text "reset" (rect 0 0 20 12)(font "Arial" ))
-		(text "reset" (rect 143 107 163 119)(font "Arial" ))
-		(line (pt 184 112)(pt 168 112)(line_width 1))
-	)
 	(drawing
-		(rectangle (rect 16 16 168 128)(line_width 1))
+		(rectangle (rect 16 16 168 96)(line_width 1))
 	)
 )

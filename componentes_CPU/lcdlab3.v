@@ -1,8 +1,11 @@
-module lcdlab3(CLOCK_50, isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, DATA, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
+module lcdlab3(CLOCK_50, clk, wlcd, PC, OPCODE, STATE_LCD, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
 
 input CLOCK_50;	//	50 MHz clock
-input isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm;
-input [31:0] DATA;
+input clk;
+input wlcd;
+input [31:0] STATE_LCD;
+input [25:0] PC;
+input [5:0] OPCODE;
 //	LCD Module 16X2
 output LCD_ON;	// LCD Power ON/OFF
 output LCD_BLON;	// LCD Back Light ON/OFF
@@ -22,17 +25,15 @@ assign LCD_BLON =	1'b1;
 LCD_Display u1(
 	// Host Side
    .iCLK_50MHZ(CLOCK_50),
+	.clk(clk),
+	.wlcd(wlcd),
    .iRST_N(DLY_RST),
-	.isHalt(isHalt),
-	.isInsert(isInsert),
-	.isBios(isBios),
-	.isCkhd(isCkhd),
-	.isCkim(isCkim),
-	.isCkdm(isCkdm),
+	.PC(PC),
+	.OPCODE(OPCODE),
+	.STATE_LCD(STATE_LCD),
 	// LCD Side
-   .DATA_BUS(LCD_DATA),
-   .LCD_RW(LCD_RW),
-   .LCD_E(LCD_EN),
-   .LCD_RS(LCD_RS)
-);
+	.LCD_RS(LCD_RS),
+	.LCD_E(LCD_EN),
+	.LCD_RW(LCD_RW),
+   .DATA_BUS(LCD_DATA));
 endmodule

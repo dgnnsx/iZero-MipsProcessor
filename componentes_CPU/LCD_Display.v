@@ -37,10 +37,15 @@ ENTITY LCD_Display IS
 -- *see LCD Controller's Datasheet for other graphics characters available
 */
 		
-module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
-	input iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm;
+module LCD_Display(iCLK_50MHZ, clk, wlcd, iRST_N, PC, OPCODE, STATE_LCD, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
+	input iCLK_50MHZ, iRST_N;
+	input clk;
+	input wlcd;
 	output LCD_RS, LCD_E, LCD_RW;
 	inout [7:0] DATA_BUS;
+	input [25:0] PC;
+	input [5:0] OPCODE;
+	input [31:0] STATE_LCD;
 
 	parameter
 	HOLD = 4'h0,
@@ -69,13 +74,12 @@ module LCD_Display(iCLK_50MHZ, iRST_N, isHalt, isInsert, isBios, isCkhd, isCkim,
 	assign DATA_BUS = (LCD_RW_INT? 8'bZZZZZZZZ: DATA_BUS_VALUE);
 
 	LCD_display_string u1(
-		.isHalt(isHalt),
-		.isInsert(isInsert),
-		.isBios(isBios),
-		.isCkhd(isCkhd),
-		.isCkim(isCkim),
-		.isCkdm(isCkdm),
+		.clk(clk),
+		.wlcd(wlcd),
 		.index(CHAR_COUNT),
+		.PC(PC),
+		.OPCODE(OPCODE),
+		.STATE_LCD(STATE_LCD),
 		.out(Next_Char));
 
 	assign LCD_RW = LCD_RW_INT;
@@ -259,61 +263,358 @@ always @(posedge CLK_400HZ or negedge iRST_N)
 	endcase
 endmodule
 
-module LCD_display_string(isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm, index, out);
-	input isHalt, isInsert, isBios, isCkhd, isCkim, isCkdm;
+module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
+	input clk, wlcd;
 	input [4:0] index;
+	input [25:0] PC; // Contador de programa
+	input [5:0] OPCODE;
+	input [31:0] STATE_LCD;
+	
 	output reg [7:0] out;
-	always 
-		case (index)
-			// Linha 1 - MODE:
-			5'h00: out <= 8'h4D;
-			5'h01: out <= 8'h4F;
-			5'h02: out <= 8'h44;
-			5'h03: out <= 8'h45;
-			5'h04: out <= 8'h3A;
-			// 5'h05 -> default
-			5'h06: out <= isBios ? 8'h42 : 8'h53;
-			5'h07: out <= isBios ? 8'h49 : 8'h4F;
-			5'h08: out <= isBios ? 8'h4F : 8'h20;
-			5'h09: out <= isBios ? 8'h53 : 8'h20;
-			//	5'h06: out <= {4'h0,hex1};
-			//	5'h07: out <= {4'h0,hex0};
-			
-			// Linha 2
-			5'h10: begin
-				out <= isCkhd ? 8'h48 : isCkim ? 8'h49 : isCkdm ? 8'h44 : isHalt ? 8'h48 : isInsert ? 8'h49 : 8'h52;
+	
+	localparam DATA_WIDTH = 32;
+	localparam CHAR_WIDTH = 8;
+	localparam LCD_WIDTH = 32;
+	
+	//--------------Internal variables---------------------
+	localparam [DATA_WIDTH-1:0] KERNEL_MAIN_MENU = 32'd0;
+	localparam [DATA_WIDTH-1:0] KERNEL_MENU_HD = 32'd1;
+	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM = 32'd2;
+	localparam [DATA_WIDTH-1:0] KERNEL_MENU_EXE = 32'd3;
+	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM_LOAD = 32'd4;
+	
+	// Letras minusculas
+	localparam	CHAR_a = 8'h61, CHAR_b = 8'h62, CHAR_c = 8'h63, CHAR_d = 8'h64;
+	localparam	CHAR_e = 8'h65, CHAR_f = 8'h66, CHAR_g = 8'h67, CHAR_h = 8'h68;
+	localparam	CHAR_i = 8'h69, CHAR_j = 8'h6A, CHAR_k = 8'h6B, CHAR_l = 8'h6C;
+	localparam	CHAR_m = 8'h6D, CHAR_n = 8'h6E, CHAR_o = 8'h6F, CHAR_p = 8'h70;
+	localparam	CHAR_q = 8'h71, CHAR_r = 8'h72, CHAR_s = 8'h73, CHAR_t = 8'h74;
+	localparam	CHAR_u = 8'h75, CHAR_v = 8'h76, CHAR_w = 8'h77, CHAR_x = 8'h78;
+	localparam	CHAR_y = 8'h79, CHAR_z = 8'h7A;
+	
+	// Letras maiusculas
+	localparam	CHAR_A = 8'h41, CHAR_B = 8'h42, CHAR_C = 8'h43, CHAR_D = 8'h44;
+	localparam	CHAR_E = 8'h45, CHAR_F = 8'h46, CHAR_G = 8'h47, CHAR_H = 8'h48;
+	localparam	CHAR_I = 8'h49, CHAR_J = 8'h4A, CHAR_K = 8'h4B, CHAR_L = 8'h4C;
+	localparam	CHAR_M = 8'h4D, CHAR_N = 8'h4E, CHAR_O = 8'h4F, CHAR_P = 8'h50;
+	localparam	CHAR_Q = 8'h51, CHAR_R = 8'h52, CHAR_S = 8'h53, CHAR_T = 8'h54;
+	localparam	CHAR_U = 8'h55, CHAR_V = 8'h56, CHAR_W = 8'h57, CHAR_X = 8'h58;
+	localparam	CHAR_Y = 8'h59, CHAR_Z = 8'h5A;
+	
+	// Digitos
+	localparam	CHAR_0 = 8'h30, CHAR_1 = 8'h31, CHAR_2 = 8'h32, CHAR_3 = 8'h33;
+	localparam	CHAR_4 = 8'h34, CHAR_5 = 8'h35, CHAR_6 = 8'h36, CHAR_7 = 8'h37;
+	localparam	CHAR_8 = 8'h38, CHAR_9 = 8'h39;
+	
+	// Caracteres especiais
+	localparam	CHAR_SPACE = 8'h20, CHAR_LEFT_BRACKET = 8'h5B, CHAR_RIGHT_BRACKET = 8'h5D;
+	localparam	CHAR_HYPHEN = 8'h2D, CHAR_HASHTAG = 8'h23, CHAR_AT = 8'h40, CHAR_PLUS = 8'h2B;
+	localparam	CHAR_COLLON = 8'h3A;
+	
+	localparam	OPCODE_LCD = 6'b100111;
+
+	// Menu State Values
+	wire [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] KERNEL_MENU_HD_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] KERNEL_MENU_MEM_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] KERNEL_MENU_EXE_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] KERNEL_MENU_MEM_LOAD_STRING [0:LCD_WIDTH-1];
+	
+	reg [31:0] STATE_LCD_CHANGE;
+	
+	// Program Counter Characters
+	reg	[7:0]	PC_MILHAR;
+	reg	[7:0]	PC_CENTENA;
+	reg	[7:0]	PC_DEZENA;
+	reg	[7:0]	PC_UNIDADE;
+	
+	reg [3:0] milhar; // Digito do milhar
+	reg [3:0] centena; // Digito da centena
+	reg [3:0] dezena; // Digito da dezena
+	reg [3:0] unidade; // Digito da unidade
+
+	reg [31:0] aux; // Auxiliar no caso de negativo
+	integer i; // Contador
+	
+	// Algoritmo de conversao binario para 4BCD
+	always @ (PC) begin
+		aux = 32'b0;
+		milhar = 4'b0000;
+		centena = 4'b0000;
+		dezena = 4'b0000;
+		unidade = 4'b0000;
+		if(PC[25] == 0) begin
+			for(i = 15; i >= 0; i = i-1) begin
+				if(milhar >= 5) milhar = milhar + 4'd3;
+				if(centena >= 5) centena = centena + 4'd3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
+				milhar = milhar << 1;
+				milhar[0] = centena[3];				
+				centena = centena << 1;
+				centena[0] = dezena[3];
+				dezena = dezena << 1;
+				dezena[0] = unidade[3];
+				unidade = unidade << 1;
+				unidade[0] = PC[i];
 			end
-			5'h11: begin
-				out <= isCkhd ? 8'h44 : isCkim ? 8'h4D : isCkdm ? 8'h4D : isHalt ? 8'h41 : isInsert ? 8'h4E : 8'h55;
+		end
+		else begin
+			aux = ~(PC) + 16'b0000000000000001;
+			for(i = 15; i >= 0; i = i-1) begin
+				if(milhar >= 5) milhar = milhar + 4'd3;
+				if(centena >= 5) centena = centena + 4'd3;
+				if(dezena >= 5) dezena = dezena + 4'd3;
+				if(unidade >= 5) unidade = unidade + 4'd3;
+				milhar = milhar << 1;
+				milhar[0] = centena[3];		
+				centena = centena << 1;
+				centena[0] = dezena[3];
+				dezena = dezena << 1;
+				dezena[0] = unidade[3];
+				unidade = unidade << 1;
+				unidade[0] = aux[i];
 			end
-			5'h12: begin
-				out <= isCkhd ? 8'h20 : isCkim ? 8'h20 : isCkdm ? 8'h20 : isHalt ? 8'h4C : isInsert ? 8'h53 : 8'h4E;
-			end
-			5'h13: begin
-				out <= isCkhd ? 8'h53 : isCkim ? 8'h53 : isCkdm ? 8'h53 : isHalt ? 8'h54 : isInsert ? 8'h45 : 8'h4E;
-			end
-			5'h14: begin
-				out <= isCkhd ? 8'h49 : isCkim ? 8'h49 : isCkdm ? 8'h49 : isHalt ? 8'h20 : isInsert ? 8'h52 : 8'h49;
-			end
-			5'h15: begin
-				out <= isCkhd ? 8'h5A : isCkim ? 8'h5A : isCkdm ? 8'h5A : isHalt ? 8'h20 : isInsert ? 8'h54 : 8'h4E;
-			end
-			5'h16: begin
-				out <= isCkhd ? 8'h45 : isCkim ? 8'h45 : isCkdm ? 8'h45 : isHalt ? 8'h20 : isInsert ? 8'h20 : 8'h47;
-			end
-			5'h17: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h3A : 8'h20;
-			end
-			// 5'h18 -> default
-			5'h19: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h35 : 8'h20;
-			end
-			5'h1A: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h30 : 8'h20;
-			end
-			5'h1B: begin
-				out <= isCkhd | isCkim | isCkdm ? 8'h30 : 8'h20;
-			end
-			default: out <= 8'h20;
+		end
+		PC_MILHAR <= display(milhar);
+		PC_CENTENA <= display(centena);
+		PC_DEZENA <= display(dezena);
+		PC_UNIDADE <= display(unidade);
+	end
+	
+	function [7:0] display;
+		input [3:0] in;
+		case (in)
+			4'b0000: display = CHAR_0; //0
+			4'b0001: display = CHAR_1; //1
+			4'b0010: display = CHAR_2; //2
+			4'b0011: display = CHAR_3; //3 
+		   4'b0100: display = CHAR_4; //4 
+			4'b0101: display = CHAR_5; //5 
+			4'b0110: display = CHAR_6; //6
+			4'b0111: display = CHAR_7; //7
+			4'b1000: display = CHAR_8; //8
+			4'b1001: display = CHAR_9; //9
+			default: display = CHAR_HYPHEN; //blank
 		endcase
+	endfunction
+	
+	/*****************************************************************************************/
+	/***************************** DEFINIÇAO DOS MENUS ***************************************/
+	/*****************************************************************************************/
+	
+	// KERNEL MAIN MENU
+	// Line 1
+	assign KERNEL_MAIN_MENU_STRING[5'd0] = CHAR_M;
+	assign KERNEL_MAIN_MENU_STRING[5'd1] = CHAR_A;
+	assign KERNEL_MAIN_MENU_STRING[5'd2] = CHAR_I;
+	assign KERNEL_MAIN_MENU_STRING[5'd3] = CHAR_N;
+	assign KERNEL_MAIN_MENU_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MAIN_MENU_STRING[5'd7] = CHAR_H;
+	assign KERNEL_MAIN_MENU_STRING[5'd8] = CHAR_D;
+	assign KERNEL_MAIN_MENU_STRING[5'd9] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd10] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd12] = CHAR_3;
+	assign KERNEL_MAIN_MENU_STRING[5'd13] = CHAR_E;
+	assign KERNEL_MAIN_MENU_STRING[5'd14] = CHAR_X;
+	assign KERNEL_MAIN_MENU_STRING[5'd15] = CHAR_E;
+	// Line 2
+	assign KERNEL_MAIN_MENU_STRING[5'd16] = CHAR_M;
+	assign KERNEL_MAIN_MENU_STRING[5'd17] = CHAR_E;
+	assign KERNEL_MAIN_MENU_STRING[5'd18] = CHAR_N;
+	assign KERNEL_MAIN_MENU_STRING[5'd19] = CHAR_U;
+	assign KERNEL_MAIN_MENU_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd22] = CHAR_2;
+	assign KERNEL_MAIN_MENU_STRING[5'd23] = CHAR_M;
+	assign KERNEL_MAIN_MENU_STRING[5'd24] = CHAR_E;
+	assign KERNEL_MAIN_MENU_STRING[5'd25] = CHAR_M;
+	assign KERNEL_MAIN_MENU_STRING[5'd26] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd28] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd29] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd30] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd31] = CHAR_SPACE;
+	
+	// KERNEL MENU HD
+	// Line 1
+	assign KERNEL_MENU_HD_STRING[5'd0] = CHAR_M;
+	assign KERNEL_MENU_HD_STRING[5'd1] = CHAR_E;
+	assign KERNEL_MENU_HD_STRING[5'd2] = CHAR_N;
+	assign KERNEL_MENU_HD_STRING[5'd3] = CHAR_U;
+	assign KERNEL_MENU_HD_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_HD_STRING[5'd7] = CHAR_A;
+	assign KERNEL_MENU_HD_STRING[5'd8] = CHAR_D;
+	assign KERNEL_MENU_HD_STRING[5'd9] = CHAR_D;
+	assign KERNEL_MENU_HD_STRING[5'd10] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd12] = CHAR_3;
+	assign KERNEL_MENU_HD_STRING[5'd13] = CHAR_D;
+	assign KERNEL_MENU_HD_STRING[5'd14] = CHAR_E;
+	assign KERNEL_MENU_HD_STRING[5'd15] = CHAR_L;
+	// Line 2
+	assign KERNEL_MENU_HD_STRING[5'd16] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd17] = CHAR_H;
+	assign KERNEL_MENU_HD_STRING[5'd18] = CHAR_D;
+	assign KERNEL_MENU_HD_STRING[5'd19] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd22] = CHAR_2;
+	assign KERNEL_MENU_HD_STRING[5'd23] = CHAR_R;
+	assign KERNEL_MENU_HD_STRING[5'd24] = CHAR_E;
+	assign KERNEL_MENU_HD_STRING[5'd25] = CHAR_N;
+	assign KERNEL_MENU_HD_STRING[5'd26] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MENU_HD_STRING[5'd28] = CHAR_4;
+	assign KERNEL_MENU_HD_STRING[5'd29] = CHAR_B;
+	assign KERNEL_MENU_HD_STRING[5'd30] = CHAR_C;
+	assign KERNEL_MENU_HD_STRING[5'd31] = CHAR_K;
+	
+	// KERNEL MENU MEM
+	// Line 1
+	assign KERNEL_MENU_MEM_STRING[5'd0] = CHAR_M;
+	assign KERNEL_MENU_MEM_STRING[5'd1] = CHAR_E;
+	assign KERNEL_MENU_MEM_STRING[5'd2] = CHAR_N;
+	assign KERNEL_MENU_MEM_STRING[5'd3] = CHAR_U;
+	assign KERNEL_MENU_MEM_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_MEM_STRING[5'd7] = CHAR_L;
+	assign KERNEL_MENU_MEM_STRING[5'd8] = CHAR_O;
+	assign KERNEL_MENU_MEM_STRING[5'd9] = CHAR_A;
+	assign KERNEL_MENU_MEM_STRING[5'd10] = CHAR_D;
+	assign KERNEL_MENU_MEM_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd12] = CHAR_3;
+	assign KERNEL_MENU_MEM_STRING[5'd13] = CHAR_D;
+	assign KERNEL_MENU_MEM_STRING[5'd14] = CHAR_E;
+	assign KERNEL_MENU_MEM_STRING[5'd15] = CHAR_L;
+	// Line 2
+	assign KERNEL_MENU_MEM_STRING[5'd16] = CHAR_M;
+	assign KERNEL_MENU_MEM_STRING[5'd17] = CHAR_E;
+	assign KERNEL_MENU_MEM_STRING[5'd18] = CHAR_M;
+	assign KERNEL_MENU_MEM_STRING[5'd19] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd22] = CHAR_2;
+	assign KERNEL_MENU_MEM_STRING[5'd23] = CHAR_R;
+	assign KERNEL_MENU_MEM_STRING[5'd24] = CHAR_E;
+	assign KERNEL_MENU_MEM_STRING[5'd25] = CHAR_N;
+	assign KERNEL_MENU_MEM_STRING[5'd26] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_STRING[5'd28] = CHAR_4;
+	assign KERNEL_MENU_MEM_STRING[5'd29] = CHAR_B;
+	assign KERNEL_MENU_MEM_STRING[5'd30] = CHAR_C;
+	assign KERNEL_MENU_MEM_STRING[5'd31] = CHAR_K;
+	
+	// KERNEL MENU MEM LOAD
+	// Line 1
+	assign KERNEL_MENU_EXE_STRING[5'd0] = CHAR_M;
+	assign KERNEL_MENU_EXE_STRING[5'd1] = CHAR_E;
+	assign KERNEL_MENU_EXE_STRING[5'd2] = CHAR_N;
+	assign KERNEL_MENU_EXE_STRING[5'd3] = CHAR_U;
+	assign KERNEL_MENU_EXE_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_EXE_STRING[5'd7] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd8] = CHAR_2;
+	assign KERNEL_MENU_EXE_STRING[5'd9] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd10] = CHAR_3;
+	assign KERNEL_MENU_EXE_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd12] = CHAR_4;
+	assign KERNEL_MENU_EXE_STRING[5'd13] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd14] = CHAR_5;
+	assign KERNEL_MENU_EXE_STRING[5'd15] = CHAR_SPACE;
+	// Line 2
+	assign KERNEL_MENU_EXE_STRING[5'd16] = CHAR_E;
+	assign KERNEL_MENU_EXE_STRING[5'd17] = CHAR_X;
+	assign KERNEL_MENU_EXE_STRING[5'd18] = CHAR_E;
+	assign KERNEL_MENU_EXE_STRING[5'd19] = CHAR_C;
+	assign KERNEL_MENU_EXE_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd22] = CHAR_6;
+	assign KERNEL_MENU_EXE_STRING[5'd23] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd24] = CHAR_7;
+	assign KERNEL_MENU_EXE_STRING[5'd25] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd26] = CHAR_8;
+	assign KERNEL_MENU_EXE_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd28] = CHAR_9;
+	assign KERNEL_MENU_EXE_STRING[5'd29] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd30] = CHAR_1;
+	assign KERNEL_MENU_EXE_STRING[5'd31] = CHAR_0;
+	
+	// KERNEL MENU MEM LOAD
+	// Line 1
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd0] = CHAR_L;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd1] = CHAR_O;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd2] = CHAR_A;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd3] = CHAR_D;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd7] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd8] = CHAR_2;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd9] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd10] = CHAR_3;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd12] = CHAR_4;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd13] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd14] = CHAR_5;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd15] = CHAR_SPACE;
+	// Line 2
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd16] = CHAR_P;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd17] = CHAR_R;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd18] = CHAR_O;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd19] = CHAR_G;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd22] = CHAR_6;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd23] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd24] = CHAR_7;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd25] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd26] = CHAR_8;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd28] = CHAR_9;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd29] = CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd30] = CHAR_1;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd31] = CHAR_0;
+	
+	/*****************************************************************************************/
+	/******************************* ESTADOS DOS MENUS ***************************************/
+	/*****************************************************************************************/
+	
+	initial begin
+		STATE_LCD_CHANGE <= 32'd0;
+	end
+	
+	always @ (posedge clk) begin
+		if (wlcd) STATE_LCD_CHANGE <= STATE_LCD;
+	end
+	
+	always @ (posedge clk) begin
+		case (STATE_LCD_CHANGE)
+			KERNEL_MAIN_MENU: begin
+				out <= KERNEL_MAIN_MENU_STRING[index];
+			end
+			KERNEL_MENU_HD: begin
+				out <= KERNEL_MENU_HD_STRING[index];
+			end
+			KERNEL_MENU_MEM: begin
+				out <= KERNEL_MENU_MEM_STRING[index];
+			end
+			KERNEL_MENU_EXE: begin
+				out <= KERNEL_MENU_EXE_STRING[index];
+			end
+			KERNEL_MENU_MEM_LOAD: begin
+				out <= KERNEL_MENU_MEM_LOAD_STRING[index];
+			end
+			default: begin
+				out <= CHAR_HYPHEN;
+			end
+		endcase
+	end
 endmodule

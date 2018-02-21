@@ -55,6 +55,6 @@ module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addr
 	assign enderecoLogico = EXECUTION_MODE == KERNEL_MODE ? addrIn : addrIn + lowerIM[selector];
 	// <= upperIM[selector] && enderecoLogico >= lowerIM[selector] ? enderecoLogico : {32 {1'b0}}; // TODO: Lancar excecao caso caia fora do range
 	always @ (posedge clk_50) begin
-		addrOut <= enderecoLogico;
+		addrOut <= enderecoLogico[25:0];
 	end
 endmodule
