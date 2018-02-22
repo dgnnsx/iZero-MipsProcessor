@@ -286,6 +286,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	localparam [DATA_WIDTH-1:0] BIOS_CHECK_IMEM = 32'd6;
 	localparam [DATA_WIDTH-1:0] BIOS_CHECK_DMEM = 32'd7;
 	localparam [DATA_WIDTH-1:0] BIOS_START_OS = 32'd8;
+	localparam [DATA_WIDTH-1:0] PROG_INSERT = 32'd9;
 	
 	// Letras minusculas
 	localparam	CHAR_a = 8'h61, CHAR_b = 8'h62, CHAR_c = 8'h63, CHAR_d = 8'h64;
@@ -313,7 +314,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	// Caracteres especiais
 	localparam	CHAR_SPACE = 8'h20, CHAR_LEFT_BRACKET = 8'h5B, CHAR_RIGHT_BRACKET = 8'h5D;
 	localparam	CHAR_HYPHEN = 8'h2D, CHAR_HASHTAG = 8'h23, CHAR_AT = 8'h40, CHAR_PLUS = 8'h2B;
-	localparam	CHAR_COLLON = 8'h3A;
+	localparam	CHAR_COLLON = 8'h3A, CHAR_DOT = 8'h2E;
 	
 	localparam	OPCODE_LCD = 6'b100111;
 
@@ -327,6 +328,11 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	wire [CHAR_WIDTH-1:0] BIOS_CHECK_IMEM_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] BIOS_CHECK_DMEM_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] BIOS_START_OS_STRING [0:LCD_WIDTH-1];
+	
+	wire [CHAR_WIDTH-1:0] PROG_INSERT_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_DOT_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_DOT_DOT_STRING [0:LCD_WIDTH-1];
 	
 	reg [31:0] STATE_LCD_CHANGE;
 	
@@ -735,6 +741,150 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign BIOS_START_OS_STRING[5'd30] = CHAR_SPACE;
 	assign BIOS_START_OS_STRING[5'd31] = CHAR_SPACE;
 	
+	// PROG INSERT
+	// Line 1
+	assign PROG_INSERT_STRING[5'd0] = CHAR_P;
+	assign PROG_INSERT_STRING[5'd1] = CHAR_R;
+	assign PROG_INSERT_STRING[5'd2] = CHAR_O;
+	assign PROG_INSERT_STRING[5'd3] = CHAR_G;
+	assign PROG_INSERT_STRING[5'd4] = CHAR_COLLON;
+	assign PROG_INSERT_STRING[5'd5] = CHAR_HYPHEN;
+	assign PROG_INSERT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_STRING[5'd7] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd8] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd9] = CHAR_P;
+	assign PROG_INSERT_STRING[5'd10] = CHAR_C;
+	assign PROG_INSERT_STRING[5'd11] = CHAR_COLLON;
+	assign PROG_INSERT_STRING[5'd12] = PC_MILHAR;
+	assign PROG_INSERT_STRING[5'd13] = PC_CENTENA;
+	assign PROG_INSERT_STRING[5'd14] = PC_DEZENA;
+	assign PROG_INSERT_STRING[5'd15] = PC_UNIDADE;
+	// Line 2
+	assign PROG_INSERT_STRING[5'd16] = CHAR_I;
+	assign PROG_INSERT_STRING[5'd17] = CHAR_N;
+	assign PROG_INSERT_STRING[5'd18] = CHAR_S;
+	assign PROG_INSERT_STRING[5'd19] = CHAR_E;
+	assign PROG_INSERT_STRING[5'd20] = CHAR_R;
+	assign PROG_INSERT_STRING[5'd21] = CHAR_T;
+	assign PROG_INSERT_STRING[5'd22] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd23] = CHAR_D;
+	assign PROG_INSERT_STRING[5'd24] = CHAR_A;
+	assign PROG_INSERT_STRING[5'd25] = CHAR_T;
+	assign PROG_INSERT_STRING[5'd26] = CHAR_A;
+	assign PROG_INSERT_STRING[5'd27] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd28] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd29] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd30] = CHAR_SPACE;
+	assign PROG_INSERT_STRING[5'd31] = CHAR_SPACE;
+	
+	// PROG INSERT DOT
+	// Line 1
+	assign PROG_INSERT_DOT_STRING[5'd0] = CHAR_P;
+	assign PROG_INSERT_DOT_STRING[5'd1] = CHAR_R;
+	assign PROG_INSERT_DOT_STRING[5'd2] = CHAR_O;
+	assign PROG_INSERT_DOT_STRING[5'd3] = CHAR_G;
+	assign PROG_INSERT_DOT_STRING[5'd4] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_STRING[5'd5] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_STRING[5'd7] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd8] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd9] = CHAR_P;
+	assign PROG_INSERT_DOT_STRING[5'd10] = CHAR_C;
+	assign PROG_INSERT_DOT_STRING[5'd11] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_STRING[5'd12] = PC_MILHAR;
+	assign PROG_INSERT_DOT_STRING[5'd13] = PC_CENTENA;
+	assign PROG_INSERT_DOT_STRING[5'd14] = PC_DEZENA;
+	assign PROG_INSERT_DOT_STRING[5'd15] = PC_UNIDADE;
+	// Line 2
+	assign PROG_INSERT_DOT_STRING[5'd16] = CHAR_I;
+	assign PROG_INSERT_DOT_STRING[5'd17] = CHAR_N;
+	assign PROG_INSERT_DOT_STRING[5'd18] = CHAR_S;
+	assign PROG_INSERT_DOT_STRING[5'd19] = CHAR_E;
+	assign PROG_INSERT_DOT_STRING[5'd20] = CHAR_R;
+	assign PROG_INSERT_DOT_STRING[5'd21] = CHAR_T;
+	assign PROG_INSERT_DOT_STRING[5'd22] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd23] = CHAR_D;
+	assign PROG_INSERT_DOT_STRING[5'd24] = CHAR_A;
+	assign PROG_INSERT_DOT_STRING[5'd25] = CHAR_T;
+	assign PROG_INSERT_DOT_STRING[5'd26] = CHAR_A;
+	assign PROG_INSERT_DOT_STRING[5'd27] = CHAR_DOT;
+	assign PROG_INSERT_DOT_STRING[5'd28] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd29] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd30] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_STRING[5'd31] = CHAR_SPACE;
+	
+	// PROG INSERT DOT DOT
+	// Line 1
+	assign PROG_INSERT_DOT_DOT_STRING[5'd0] = CHAR_P;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd1] = CHAR_R;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd2] = CHAR_O;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd3] = CHAR_G;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd4] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd5] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd7] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd8] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd9] = CHAR_P;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd10] = CHAR_C;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd11] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd12] = PC_MILHAR;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd13] = PC_CENTENA;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd14] = PC_DEZENA;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd15] = PC_UNIDADE;
+	// Line 2
+	assign PROG_INSERT_DOT_DOT_STRING[5'd16] = CHAR_I;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd17] = CHAR_N;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd18] = CHAR_S;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd19] = CHAR_E;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd20] = CHAR_R;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd21] = CHAR_T;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd22] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd23] = CHAR_D;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd24] = CHAR_A;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd25] = CHAR_T;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd26] = CHAR_A;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd27] = CHAR_DOT;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd28] = CHAR_DOT;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd29] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd30] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd31] = CHAR_SPACE;
+	
+	// PROG INSERT DOT DOT DOT
+	// Line 1
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd0] = CHAR_P;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd1] = CHAR_R;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd2] = CHAR_O;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd3] = CHAR_G;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd4] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd5] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd7] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd8] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd9] = CHAR_P;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd10] = CHAR_C;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd11] = CHAR_COLLON;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd12] = PC_MILHAR;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd13] = PC_CENTENA;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd14] = PC_DEZENA;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd15] = PC_UNIDADE;
+	// Line 2
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd16] = CHAR_I;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd17] = CHAR_N;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd18] = CHAR_S;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd19] = CHAR_E;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd20] = CHAR_R;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd21] = CHAR_T;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd22] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd23] = CHAR_D;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd24] = CHAR_A;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd25] = CHAR_T;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd26] = CHAR_A;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd27] = CHAR_DOT;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd28] = CHAR_DOT;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd29] = CHAR_DOT;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd30] = CHAR_SPACE;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd31] = CHAR_SPACE;
+	
 	/*****************************************************************************************/
 	/******************************* ESTADOS DOS MENUS ***************************************/
 	/*****************************************************************************************/
@@ -747,7 +897,15 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 		if (wlcd) STATE_LCD_CHANGE <= STATE_LCD;
 	end
 	
+	reg [14:0] contador;			// Contador para temporizar a 'animacao' do insert
+	reg [1:0] i_state;			// Estado para exibir a 'animaçao' durante o insert
+	
+	always @ (posedge contador[14]) begin
+		i_state <= i_state + 1'b1;
+	end
+	
 	always @ (posedge clk) begin
+		contador <= contador + 1'b1;
 		case (STATE_LCD_CHANGE)
 			KERNEL_MAIN_MENU: begin
 				out <= KERNEL_MAIN_MENU_STRING[index];
@@ -775,6 +933,22 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 			end
 			BIOS_START_OS: begin
 				out <= BIOS_START_OS_STRING[index];
+			end
+			PROG_INSERT: begin
+				case (i_state)
+					2'b00: begin
+						out <= PROG_INSERT_STRING[index];
+					end
+					2'b01: begin
+						out <= PROG_INSERT_DOT_STRING[index];
+					end
+					2'b10: begin
+						out <= PROG_INSERT_DOT_DOT_STRING[index];
+					end
+					2'b11: begin
+						out <= PROG_INSERT_DOT_DOT_DOT_STRING[index];
+					end
+				endcase
 			end
 			default: begin
 				out <= CHAR_HYPHEN;

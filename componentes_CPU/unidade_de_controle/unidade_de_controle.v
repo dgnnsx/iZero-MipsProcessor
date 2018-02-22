@@ -95,7 +95,8 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
 	
 	// J Type
-	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
+	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
+	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
 	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
 	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
 	
@@ -134,8 +135,8 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign reset				= ~rst | rstBios;
 	assign userMode			= i_exec;
 	assign kernelMode			= i_syscall;
-	assign pcSource[0]		= i_j		| i_jal	| i_exec | i_jf & isFalse;
-	assign pcSource[1]		= i_j		| i_jr	| i_jal	| i_exec	| i_syscall;
+	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
+	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall;
 	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec;
 	assign regWrtSelect[1]	= i_in | i_jal | i_exec;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
