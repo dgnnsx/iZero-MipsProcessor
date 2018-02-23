@@ -93,6 +93,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	wire i_syscall				= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
 	wire i_exec					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
 	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
+	wire i_lcd_pgm				= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
 	
 	// J Type
 	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
@@ -131,7 +132,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in & isInput;
 	assign isDisk				= i_ldk;
-	assign wlcd					= i_lcd;
+	assign wlcd					= i_lcd	| i_lcd_pgm;
 	assign reset				= ~rst | rstBios;
 	assign userMode			= i_exec;
 	assign kernelMode			= i_syscall;

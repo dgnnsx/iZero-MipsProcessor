@@ -37,7 +37,7 @@ ENTITY LCD_Display IS
 -- *see LCD Controller's Datasheet for other graphics characters available
 */
 		
-module LCD_Display(iCLK_50MHZ, clk, wlcd, iRST_N, PC, OPCODE, STATE_LCD, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
+module LCD_Display(iCLK_50MHZ, clk, wlcd, iRST_N, PC, OPCODE, DATA, LCD_RS, LCD_E, LCD_RW, DATA_BUS);
 	input iCLK_50MHZ, iRST_N;
 	input clk;
 	input wlcd;
@@ -45,7 +45,7 @@ module LCD_Display(iCLK_50MHZ, clk, wlcd, iRST_N, PC, OPCODE, STATE_LCD, LCD_RS,
 	inout [7:0] DATA_BUS;
 	input [25:0] PC;
 	input [5:0] OPCODE;
-	input [31:0] STATE_LCD;
+	input [31:0] DATA;
 
 	parameter
 	HOLD = 4'h0,
@@ -79,7 +79,7 @@ module LCD_Display(iCLK_50MHZ, clk, wlcd, iRST_N, PC, OPCODE, STATE_LCD, LCD_RS,
 		.index(CHAR_COUNT),
 		.PC(PC),
 		.OPCODE(OPCODE),
-		.STATE_LCD(STATE_LCD),
+		.DATA(DATA),
 		.out(Next_Char));
 
 	assign LCD_RW = LCD_RW_INT;
@@ -263,12 +263,12 @@ always @(posedge CLK_400HZ or negedge iRST_N)
 	endcase
 endmodule
 
-module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
+module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	input clk, wlcd;
 	input [4:0] index;
 	input [25:0] PC; // Contador de programa
 	input [5:0] OPCODE;
-	input [31:0] STATE_LCD;
+	input [31:0] DATA;
 	
 	output reg [7:0] out;
 	
@@ -316,7 +316,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	localparam	CHAR_HYPHEN = 8'h2D, CHAR_HASHTAG = 8'h23, CHAR_AT = 8'h40, CHAR_PLUS = 8'h2B;
 	localparam	CHAR_COLLON = 8'h3A, CHAR_DOT = 8'h2E;
 	
-	localparam	OPCODE_LCD = 6'b100111;
+	localparam	OPCODE_LCD = 6'b100001;
+	localparam 	OPCODE_LCD_PGM = 6'b100010;
 
 	// Menu State Values
 	wire [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU_STRING [0:LCD_WIDTH-1];
@@ -335,6 +336,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_DOT_DOT_STRING [0:LCD_WIDTH-1];
 	
 	reg [31:0] STATE_LCD_CHANGE;
+	reg [31:0] STATE_LCD_PROGRAMAS;
 	
 	// Program Counter Characters
 	reg	[7:0]	PC_MILHAR;
@@ -525,7 +527,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign KERNEL_MENU_MEM_STRING[5'd30] = CHAR_C;
 	assign KERNEL_MENU_MEM_STRING[5'd31] = CHAR_K;
 	
-	// KERNEL MENU MEM LOAD
+	// KERNEL MENU EXE
 	// Line 1
 	assign KERNEL_MENU_EXE_STRING[5'd0] = CHAR_M;
 	assign KERNEL_MENU_EXE_STRING[5'd1] = CHAR_E;
@@ -533,15 +535,15 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign KERNEL_MENU_EXE_STRING[5'd3] = CHAR_U;
 	assign KERNEL_MENU_EXE_STRING[5'd4] = CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd5] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_EXE_STRING[5'd6] = STATE_LCD_PROGRAMAS[0] == 1'b1 ? CHAR_1 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd7] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd8] = CHAR_2;
+	assign KERNEL_MENU_EXE_STRING[5'd8] = STATE_LCD_PROGRAMAS[1] == 1'b1 ? CHAR_2 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd9] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd10] = CHAR_3;
+	assign KERNEL_MENU_EXE_STRING[5'd10] = STATE_LCD_PROGRAMAS[2] == 1'b1 ? CHAR_3 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd11] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd12] = CHAR_4;
+	assign KERNEL_MENU_EXE_STRING[5'd12] = STATE_LCD_PROGRAMAS[3] == 1'b1 ? CHAR_4 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd13] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd14] = CHAR_5;
+	assign KERNEL_MENU_EXE_STRING[5'd14] = STATE_LCD_PROGRAMAS[4] == 1'b1 ? CHAR_5 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd15] = CHAR_SPACE;
 	// Line 2
 	assign KERNEL_MENU_EXE_STRING[5'd16] = CHAR_E;
@@ -550,16 +552,16 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign KERNEL_MENU_EXE_STRING[5'd19] = CHAR_C;
 	assign KERNEL_MENU_EXE_STRING[5'd20] = CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd21] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd22] = CHAR_6;
+	assign KERNEL_MENU_EXE_STRING[5'd22] = STATE_LCD_PROGRAMAS[5] == 1'b1 ? CHAR_6 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd23] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd24] = CHAR_7;
+	assign KERNEL_MENU_EXE_STRING[5'd24] = STATE_LCD_PROGRAMAS[6] == 1'b1 ? CHAR_7 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd25] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd26] = CHAR_8;
+	assign KERNEL_MENU_EXE_STRING[5'd26] = STATE_LCD_PROGRAMAS[7] == 1'b1 ? CHAR_8 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd27] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd28] = CHAR_9;
+	assign KERNEL_MENU_EXE_STRING[5'd28] = STATE_LCD_PROGRAMAS[8] == 1'b1 ? CHAR_9 : CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd29] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd30] = CHAR_1;
-	assign KERNEL_MENU_EXE_STRING[5'd31] = CHAR_0;
+	assign KERNEL_MENU_EXE_STRING[5'd30] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_1 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd31] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_0 : CHAR_SPACE;
 	
 	// KERNEL MENU MEM LOAD
 	// Line 1
@@ -569,15 +571,15 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd3] = CHAR_D;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd4] = CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd5] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd6] = STATE_LCD_PROGRAMAS[0] == 1'b1 ? CHAR_1 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd7] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd8] = CHAR_2;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd8] = STATE_LCD_PROGRAMAS[1] == 1'b1 ? CHAR_2 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd9] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd10] = CHAR_3;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd10] = STATE_LCD_PROGRAMAS[2] == 1'b1 ? CHAR_3 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd11] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd12] = CHAR_4;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd12] = STATE_LCD_PROGRAMAS[3] == 1'b1 ? CHAR_4 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd13] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd14] = CHAR_5;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd14] = STATE_LCD_PROGRAMAS[4] == 1'b1 ? CHAR_5 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd15] = CHAR_SPACE;
 	// Line 2
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd16] = CHAR_P;
@@ -586,16 +588,16 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd19] = CHAR_G;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd20] = CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd21] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd22] = CHAR_6;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd22] = STATE_LCD_PROGRAMAS[5] == 1'b1 ? CHAR_6 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd23] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd24] = CHAR_7;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd24] = STATE_LCD_PROGRAMAS[6] == 1'b1 ? CHAR_7 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd25] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd26] = CHAR_8;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd26] = STATE_LCD_PROGRAMAS[7] == 1'b1 ? CHAR_8 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd27] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd28] = CHAR_9;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd28] = STATE_LCD_PROGRAMAS[8] == 1'b1 ? CHAR_9 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd29] = CHAR_SPACE;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd30] = CHAR_1;
-	assign KERNEL_MENU_MEM_LOAD_STRING[5'd31] = CHAR_0;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd30] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_1 : CHAR_SPACE;
+	assign KERNEL_MENU_MEM_LOAD_STRING[5'd31] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_0 : CHAR_SPACE;
 	
 	// BIOS MENU CHECK HD
 	// Line 1
@@ -891,10 +893,14 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, STATE_LCD, out);
 	
 	initial begin
 		STATE_LCD_CHANGE <= 32'd0;
+		STATE_LCD_PROGRAMAS <= 32'd0;
 	end
 	
 	always @ (posedge clk) begin
-		if (wlcd) STATE_LCD_CHANGE <= STATE_LCD;
+		if (wlcd) begin
+			STATE_LCD_CHANGE <= OPCODE == OPCODE_LCD ? DATA : STATE_LCD_CHANGE;
+			STATE_LCD_PROGRAMAS <= OPCODE == OPCODE_LCD_PGM ? DATA : STATE_LCD_PROGRAMAS;
+		end
 	end
 	
 	reg [14:0] contador;			// Contador para temporizar a 'animacao' do insert

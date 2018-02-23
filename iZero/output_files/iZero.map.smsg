@@ -1,4 +1,4 @@
-Warning (10268): Verilog HDL information at LCD_Display.v(354): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at LCD_Display.v(356): always construct contains both blocking and non-blocking assignments
 Info (10281): Verilog HDL Declaration information at LCD_Display.v(292): object "CHAR_a" differs only in case from object "CHAR_A" in the same scope
 Info (10281): Verilog HDL Declaration information at LCD_Display.v(292): object "CHAR_b" differs only in case from object "CHAR_B" in the same scope
 Info (10281): Verilog HDL Declaration information at LCD_Display.v(292): object "CHAR_c" differs only in case from object "CHAR_C" in the same scope

@@ -1,9 +1,9 @@
-module lcdlab3(CLOCK_50, clk, wlcd, PC, OPCODE, STATE_LCD, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
+module lcdlab3(CLOCK_50, clk, wlcd, PC, OPCODE, DATA, LCD_ON, LCD_BLON, LCD_RW, LCD_EN, LCD_RS, LCD_DATA);
 
 input CLOCK_50;	//	50 MHz clock
 input clk;
 input wlcd;
-input [31:0] STATE_LCD;
+input [31:0] DATA;
 input [25:0] PC;
 input [5:0] OPCODE;
 //	LCD Module 16X2
@@ -30,7 +30,7 @@ LCD_Display u1(
    .iRST_N(DLY_RST),
 	.PC(PC),
 	.OPCODE(OPCODE),
-	.STATE_LCD(STATE_LCD),
+	.DATA(DATA),
 	// LCD Side
 	.LCD_RS(LCD_RS),
 	.LCD_E(LCD_EN),
