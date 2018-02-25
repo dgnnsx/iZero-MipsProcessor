@@ -282,11 +282,12 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM = 32'd2;
 	localparam [DATA_WIDTH-1:0] KERNEL_MENU_EXE = 32'd3;
 	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM_LOAD = 32'd4;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_HD = 32'd5;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_IMEM = 32'd6;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_DMEM = 32'd7;
-	localparam [DATA_WIDTH-1:0] BIOS_START_OS = 32'd8;
-	localparam [DATA_WIDTH-1:0] PROG_INSERT = 32'd9;
+	localparam [DATA_WIDTH-1:0] KERNEL_MENU_EXE_N_PREEMPTIVO = 32'd5;
+	localparam [DATA_WIDTH-1:0] BIOS_CHECK_HD = 32'd6;
+	localparam [DATA_WIDTH-1:0] BIOS_CHECK_IMEM = 32'd7;
+	localparam [DATA_WIDTH-1:0] BIOS_CHECK_DMEM = 32'd8;
+	localparam [DATA_WIDTH-1:0] BIOS_START_OS = 32'd9;
+	localparam [DATA_WIDTH-1:0] PROG_INSERT = 32'd10;
 	
 	// Letras minusculas
 	localparam	CHAR_a = 8'h61, CHAR_b = 8'h62, CHAR_c = 8'h63, CHAR_d = 8'h64;
@@ -317,7 +318,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	localparam	CHAR_COLLON = 8'h3A, CHAR_DOT = 8'h2E;
 	
 	localparam	OPCODE_LCD = 6'b100001;
-	localparam 	OPCODE_LCD_PGM = 6'b100010;
+	localparam 	OPCODE_LCD_PGMS = 6'b100010;
+	localparam 	OPCODE_LCD_CURR = 6'b100011;
 
 	// Menu State Values
 	wire [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU_STRING [0:LCD_WIDTH-1];
@@ -325,6 +327,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	wire [CHAR_WIDTH-1:0] KERNEL_MENU_MEM_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] KERNEL_MENU_EXE_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] KERNEL_MENU_MEM_LOAD_STRING [0:LCD_WIDTH-1];
+	wire [CHAR_WIDTH-1:0] KERNEL_MENU_EXE_N_PREEMPTIVO_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] BIOS_CHECK_HD_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] BIOS_CHECK_IMEM_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] BIOS_CHECK_DMEM_STRING [0:LCD_WIDTH-1];
@@ -337,20 +340,74 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	
 	reg [31:0] STATE_LCD_CHANGE;
 	reg [31:0] STATE_LCD_PROGRAMAS;
+	reg [31:0] STATE_LCD_CURRENT;
 	
 	// Program Counter Characters
 	reg	[7:0]	PC_MILHAR;
 	reg	[7:0]	PC_CENTENA;
 	reg	[7:0]	PC_DEZENA;
 	reg	[7:0]	PC_UNIDADE;
+	// Current Program Characters
+	reg	[7:0] CURRENT_DEZENA;
+	reg	[7:0] CURRENT_UNIDADE;
 	
 	reg [3:0] milhar; // Digito do milhar
 	reg [3:0] centena; // Digito da centena
 	reg [3:0] dezena; // Digito da dezena
 	reg [3:0] unidade; // Digito da unidade
+	reg [3:0] dezena_c; // Digito da dezena
+	reg [3:0] unidade_c; // Digito da unidade
+
 
 	reg [31:0] aux; // Auxiliar no caso de negativo
 	integer i; // Contador
+	
+	function [7:0] display;
+		input [3:0] in;
+		case (in)
+			4'b0000: display = CHAR_0; //0
+			4'b0001: display = CHAR_1; //1
+			4'b0010: display = CHAR_2; //2
+			4'b0011: display = CHAR_3; //3 
+		   4'b0100: display = CHAR_4; //4 
+			4'b0101: display = CHAR_5; //5 
+			4'b0110: display = CHAR_6; //6
+			4'b0111: display = CHAR_7; //7
+			4'b1000: display = CHAR_8; //8
+			4'b1001: display = CHAR_9; //9
+			default: display = CHAR_HYPHEN; //blank
+		endcase
+	endfunction
+	
+	// Algoritmo de conversao binario para 2BCD
+	always @ (PC) begin
+		aux = 32'b0;
+		dezena_c = 4'b0000;
+		unidade_c = 4'b0000;
+		if(STATE_LCD_CURRENT[15] == 0) begin
+			for(i = 15; i >=0; i = i-1) begin
+				if(dezena_c >= 5) dezena_c = dezena_c + 4'd3;
+				if(unidade_c >= 5) unidade_c = unidade_c + 4'd3;
+				dezena_c = dezena_c << 1;
+				dezena_c[0] = unidade_c[3];
+				unidade_c = unidade_c << 1;
+				unidade_c[0] = STATE_LCD_CURRENT[i];
+			end
+		end
+		else begin
+			aux = ~(STATE_LCD_CURRENT) + 8'b00000001;
+			for(i = 15; i >=0; i = i-1) begin
+				if(dezena_c >= 5) dezena_c = dezena_c + 4'd3;
+				if(unidade_c >= 5) unidade_c = unidade_c + 4'd3;
+				dezena_c = dezena_c << 1;
+				dezena_c[0] = unidade_c[3];
+				unidade_c = unidade_c << 1;
+				unidade_c[0] = aux[i];
+			end
+		end
+		CURRENT_DEZENA <= display(dezena_c);
+		CURRENT_UNIDADE <= display(unidade_c);
+	end
 	
 	// Algoritmo de conversao binario para 4BCD
 	always @ (PC) begin
@@ -397,23 +454,6 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 		PC_DEZENA <= display(dezena);
 		PC_UNIDADE <= display(unidade);
 	end
-	
-	function [7:0] display;
-		input [3:0] in;
-		case (in)
-			4'b0000: display = CHAR_0; //0
-			4'b0001: display = CHAR_1; //1
-			4'b0010: display = CHAR_2; //2
-			4'b0011: display = CHAR_3; //3 
-		   4'b0100: display = CHAR_4; //4 
-			4'b0101: display = CHAR_5; //5 
-			4'b0110: display = CHAR_6; //6
-			4'b0111: display = CHAR_7; //7
-			4'b1000: display = CHAR_8; //8
-			4'b1001: display = CHAR_9; //9
-			default: display = CHAR_HYPHEN; //blank
-		endcase
-	endfunction
 	
 	/*****************************************************************************************/
 	/***************************** DEFINIÇAO DOS MENUS ***************************************/
@@ -535,16 +575,16 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign KERNEL_MENU_EXE_STRING[5'd3] = CHAR_U;
 	assign KERNEL_MENU_EXE_STRING[5'd4] = CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd5] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd6] = STATE_LCD_PROGRAMAS[0] == 1'b1 ? CHAR_1 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd7] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd8] = STATE_LCD_PROGRAMAS[1] == 1'b1 ? CHAR_2 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd9] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd10] = STATE_LCD_PROGRAMAS[2] == 1'b1 ? CHAR_3 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd6] = CHAR_1;
+	assign KERNEL_MENU_EXE_STRING[5'd7] = CHAR_P;
+	assign KERNEL_MENU_EXE_STRING[5'd8] = CHAR_R;
+	assign KERNEL_MENU_EXE_STRING[5'd9] = CHAR_E;
+	assign KERNEL_MENU_EXE_STRING[5'd10] = CHAR_P;
 	assign KERNEL_MENU_EXE_STRING[5'd11] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd12] = STATE_LCD_PROGRAMAS[3] == 1'b1 ? CHAR_4 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd13] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd14] = STATE_LCD_PROGRAMAS[4] == 1'b1 ? CHAR_5 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd15] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd12] = CHAR_3;
+	assign KERNEL_MENU_EXE_STRING[5'd13] = CHAR_B;
+	assign KERNEL_MENU_EXE_STRING[5'd14] = CHAR_C;
+	assign KERNEL_MENU_EXE_STRING[5'd15] = CHAR_K;
 	// Line 2
 	assign KERNEL_MENU_EXE_STRING[5'd16] = CHAR_E;
 	assign KERNEL_MENU_EXE_STRING[5'd17] = CHAR_X;
@@ -552,16 +592,16 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign KERNEL_MENU_EXE_STRING[5'd19] = CHAR_C;
 	assign KERNEL_MENU_EXE_STRING[5'd20] = CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd21] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd22] = STATE_LCD_PROGRAMAS[5] == 1'b1 ? CHAR_6 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd23] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd24] = STATE_LCD_PROGRAMAS[6] == 1'b1 ? CHAR_7 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd25] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd26] = STATE_LCD_PROGRAMAS[7] == 1'b1 ? CHAR_8 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd27] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd28] = STATE_LCD_PROGRAMAS[8] == 1'b1 ? CHAR_9 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd22] = CHAR_2;
+	assign KERNEL_MENU_EXE_STRING[5'd23] = CHAR_N;
+	assign KERNEL_MENU_EXE_STRING[5'd24] = CHAR_P;
+	assign KERNEL_MENU_EXE_STRING[5'd25] = CHAR_R;
+	assign KERNEL_MENU_EXE_STRING[5'd26] = CHAR_E;
+	assign KERNEL_MENU_EXE_STRING[5'd27] = CHAR_P;
+	assign KERNEL_MENU_EXE_STRING[5'd28] = CHAR_SPACE;
 	assign KERNEL_MENU_EXE_STRING[5'd29] = CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd30] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_1 : CHAR_SPACE;
-	assign KERNEL_MENU_EXE_STRING[5'd31] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_0 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd30] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_STRING[5'd31] = CHAR_SPACE;
 	
 	// KERNEL MENU MEM LOAD
 	// Line 1
@@ -598,6 +638,42 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd29] = CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd30] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_1 : CHAR_SPACE;
 	assign KERNEL_MENU_MEM_LOAD_STRING[5'd31] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_0 : CHAR_SPACE;
+	
+	// KERNEL MENU EXE N PREEMPTIVO
+	// Line 1
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd0] = CHAR_P;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd1] = CHAR_R;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd2] = CHAR_O;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd3] = CHAR_G;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd4] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd5] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd6] = STATE_LCD_PROGRAMAS[0] == 1'b1 ? CHAR_1 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd7] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd8] = STATE_LCD_PROGRAMAS[1] == 1'b1 ? CHAR_2 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd9] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd10] = STATE_LCD_PROGRAMAS[2] == 1'b1 ? CHAR_3 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd11] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd12] = STATE_LCD_PROGRAMAS[3] == 1'b1 ? CHAR_4 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd13] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd14] = STATE_LCD_PROGRAMAS[4] == 1'b1 ? CHAR_5 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd15] = CHAR_SPACE;
+	// Line 2
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd16] = CHAR_E;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd17] = CHAR_X;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd18] = CHAR_E;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd19] = CHAR_C;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd20] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd21] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd22] = STATE_LCD_PROGRAMAS[5] == 1'b1 ? CHAR_6 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd23] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd24] = STATE_LCD_PROGRAMAS[6] == 1'b1 ? CHAR_7 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd25] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd26] = STATE_LCD_PROGRAMAS[7] == 1'b1 ? CHAR_8 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd27] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd28] = STATE_LCD_PROGRAMAS[8] == 1'b1 ? CHAR_9 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd29] = CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd30] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_1 : CHAR_SPACE;
+	assign KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[5'd31] = STATE_LCD_PROGRAMAS[9] == 1'b1 ? CHAR_0 : CHAR_SPACE;
 	
 	// BIOS MENU CHECK HD
 	// Line 1
@@ -750,8 +826,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign PROG_INSERT_STRING[5'd2] = CHAR_O;
 	assign PROG_INSERT_STRING[5'd3] = CHAR_G;
 	assign PROG_INSERT_STRING[5'd4] = CHAR_COLLON;
-	assign PROG_INSERT_STRING[5'd5] = CHAR_HYPHEN;
-	assign PROG_INSERT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_STRING[5'd5] = CURRENT_DEZENA;
+	assign PROG_INSERT_STRING[5'd6] = CURRENT_UNIDADE;
 	assign PROG_INSERT_STRING[5'd7] = CHAR_SPACE;
 	assign PROG_INSERT_STRING[5'd8] = CHAR_SPACE;
 	assign PROG_INSERT_STRING[5'd9] = CHAR_P;
@@ -786,8 +862,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign PROG_INSERT_DOT_STRING[5'd2] = CHAR_O;
 	assign PROG_INSERT_DOT_STRING[5'd3] = CHAR_G;
 	assign PROG_INSERT_DOT_STRING[5'd4] = CHAR_COLLON;
-	assign PROG_INSERT_DOT_STRING[5'd5] = CHAR_HYPHEN;
-	assign PROG_INSERT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_STRING[5'd5] = CURRENT_DEZENA;
+	assign PROG_INSERT_DOT_STRING[5'd6] = CURRENT_UNIDADE;
 	assign PROG_INSERT_DOT_STRING[5'd7] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_STRING[5'd8] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_STRING[5'd9] = CHAR_P;
@@ -822,8 +898,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign PROG_INSERT_DOT_DOT_STRING[5'd2] = CHAR_O;
 	assign PROG_INSERT_DOT_DOT_STRING[5'd3] = CHAR_G;
 	assign PROG_INSERT_DOT_DOT_STRING[5'd4] = CHAR_COLLON;
-	assign PROG_INSERT_DOT_DOT_STRING[5'd5] = CHAR_HYPHEN;
-	assign PROG_INSERT_DOT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd5] = CURRENT_DEZENA;
+	assign PROG_INSERT_DOT_DOT_STRING[5'd6] = CURRENT_UNIDADE;
 	assign PROG_INSERT_DOT_DOT_STRING[5'd7] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_DOT_STRING[5'd8] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_DOT_STRING[5'd9] = CHAR_P;
@@ -858,8 +934,8 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd2] = CHAR_O;
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd3] = CHAR_G;
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd4] = CHAR_COLLON;
-	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd5] = CHAR_HYPHEN;
-	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd6] = CHAR_HYPHEN;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd5] = CURRENT_DEZENA;
+	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd6] = CURRENT_UNIDADE;
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd7] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd8] = CHAR_SPACE;
 	assign PROG_INSERT_DOT_DOT_DOT_STRING[5'd9] = CHAR_P;
@@ -894,12 +970,14 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	initial begin
 		STATE_LCD_CHANGE <= 32'd0;
 		STATE_LCD_PROGRAMAS <= 32'd0;
+		STATE_LCD_CURRENT <= 32'd0;
 	end
 	
 	always @ (posedge clk) begin
 		if (wlcd) begin
 			STATE_LCD_CHANGE <= OPCODE == OPCODE_LCD ? DATA : STATE_LCD_CHANGE;
-			STATE_LCD_PROGRAMAS <= OPCODE == OPCODE_LCD_PGM ? DATA : STATE_LCD_PROGRAMAS;
+			STATE_LCD_PROGRAMAS <= OPCODE == OPCODE_LCD_PGMS ? DATA : STATE_LCD_PROGRAMAS;
+			STATE_LCD_CURRENT <= OPCODE == OPCODE_LCD_CURR ? DATA : STATE_LCD_CURRENT;
 		end
 	end
 	
@@ -927,6 +1005,9 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 			end
 			KERNEL_MENU_MEM_LOAD: begin
 				out <= KERNEL_MENU_MEM_LOAD_STRING[index];
+			end
+			KERNEL_MENU_EXE_N_PREEMPTIVO: begin
+				out <= KERNEL_MENU_EXE_N_PREEMPTIVO_STRING[index];
 			end
 			BIOS_CHECK_HD: begin
 				out <= BIOS_CHECK_HD_STRING[index];

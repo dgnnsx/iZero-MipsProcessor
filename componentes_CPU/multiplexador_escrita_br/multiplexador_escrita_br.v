@@ -18,7 +18,7 @@ module multiplexador_escrita_br(entrada_dados, memoria_dados, ULA, PC, ctrl_mux_
 			2'b00: select = a0; // ULA
 			2'b01: select = a1; // MEM_DADOS
 			2'b10: select = a2; // INPUT
-			2'b11: select = a3; // JAL
+			2'b11: select = a3; // JAL / EXEC / BLOCK
 		endcase
 	endfunction
 	assign dadoEscrito = select(ULA, memoria_dados, entrada_dados, PC + 32'd1, ctrl_mux_escrita_br);

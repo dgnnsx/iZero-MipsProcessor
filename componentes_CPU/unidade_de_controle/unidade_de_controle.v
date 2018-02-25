@@ -93,7 +93,11 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	wire i_syscall				= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
 	wire i_exec					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
 	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
-	wire i_lcd_pgm				= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
+	wire i_lcd_pgms			= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
+	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
+	
+	wire i_block				= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
+	wire i_exec_again			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
 	
 	// J Type
 	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
@@ -109,7 +113,7 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 									i_sll  | i_srl  |
 									i_slli | i_srli |
 									i_mov  | i_lw   | i_li   | i_la   | i_in   |
-									i_jal	| i_exec	 |
+									i_jal	| i_exec	 |	i_block	|	i_exec_again |
 									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get |
 									i_ldk;
 	assign memWrite			= i_sw;
@@ -126,20 +130,20 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 									i_andi | i_ori  | i_xori | i_not	|
 									i_slli | i_srli |
 									i_mov  | i_lw   | i_li   | i_la   | i_in	|
-									i_ldk;
-	assign isJal				= i_jal | i_exec;
+									i_ldk	 | i_block;
+	assign isJal				= i_jal | i_exec	| i_exec_again;
 	assign outWrite			= i_out;
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in & isInput;
 	assign isDisk				= i_ldk;
-	assign wlcd					= i_lcd	| i_lcd_pgm;
+	assign wlcd					= i_lcd	| i_lcd_pgms	| i_lcd_curr;
 	assign reset				= ~rst | rstBios;
-	assign userMode			= i_exec;
-	assign kernelMode			= i_syscall;
+	assign userMode			= i_exec	| i_exec_again;
+	assign kernelMode			= i_syscall	| i_block;
 	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
-	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall;
-	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec;
-	assign regWrtSelect[1]	= i_in | i_jal | i_exec;
+	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall	| i_block | i_exec_again;
+	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_block	| i_exec_again;
+	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_block	| i_exec_again;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 									i_subi | i_divi	| i_slli	| i_ori	| i_lori	|
 									i_li	| i_out	|
@@ -147,14 +151,14 @@ module unidade_de_controle(isFalse, isInput, rst, rstBios, op, func, regWrite, m
 	assign aluOp[1]			= i_mul	| i_div	| i_xor	| i_srl	| i_lt	| i_not	|
 									i_muli	| i_divi	| i_xori | i_srli	| i_let	|
 									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall;
+									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_block	| i_exec_again;
 	assign aluOp[2]			= i_mod	| i_sll	| i_srl	| i_land	| i_lor	| i_gt  	|
 									i_modi	| i_slli	| i_srli	| i_landi| i_lori | i_get 	|
 									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall;
+									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_block	| i_exec_again;
 	assign aluOp[3]			= i_and	| i_or	| i_xor	| i_land	| i_lor	| i_not	|
 									i_andi | i_ori  | i_xori | i_landi| i_lori |
 									i_mov  | i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall;
+									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_block	| i_exec_again;
 	assign aluOp[4]			= i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
 endmodule
