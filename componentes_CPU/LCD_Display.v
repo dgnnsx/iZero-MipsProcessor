@@ -317,9 +317,9 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	localparam	CHAR_HYPHEN = 8'h2D, CHAR_HASHTAG = 8'h23, CHAR_AT = 8'h40, CHAR_PLUS = 8'h2B;
 	localparam	CHAR_COLLON = 8'h3A, CHAR_DOT = 8'h2E;
 	
-	localparam	OPCODE_LCD = 6'b100001;
-	localparam 	OPCODE_LCD_PGMS = 6'b100010;
-	localparam 	OPCODE_LCD_CURR = 6'b100011;
+	localparam	OPCODE_LCD = 6'b100010;
+	localparam 	OPCODE_LCD_PGMS = 6'b100011;
+	localparam 	OPCODE_LCD_CURR = 6'b100100;
 
 	// Menu State Values
 	wire [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU_STRING [0:LCD_WIDTH-1];
@@ -490,10 +490,10 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	assign KERNEL_MAIN_MENU_STRING[5'd25] = CHAR_M;
 	assign KERNEL_MAIN_MENU_STRING[5'd26] = CHAR_SPACE;
 	assign KERNEL_MAIN_MENU_STRING[5'd27] = CHAR_SPACE;
-	assign KERNEL_MAIN_MENU_STRING[5'd28] = CHAR_SPACE;
-	assign KERNEL_MAIN_MENU_STRING[5'd29] = CHAR_SPACE;
-	assign KERNEL_MAIN_MENU_STRING[5'd30] = CHAR_SPACE;
-	assign KERNEL_MAIN_MENU_STRING[5'd31] = CHAR_SPACE;
+	assign KERNEL_MAIN_MENU_STRING[5'd28] = CHAR_4;
+	assign KERNEL_MAIN_MENU_STRING[5'd29] = CHAR_C;
+	assign KERNEL_MAIN_MENU_STRING[5'd30] = CHAR_L;
+	assign KERNEL_MAIN_MENU_STRING[5'd31] = CHAR_R;
 	
 	// KERNEL MENU HD
 	// Line 1
