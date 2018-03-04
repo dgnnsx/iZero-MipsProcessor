@@ -41,9 +41,16 @@ agreement for further details.
 	(port
 		(pt 0 64)
 		(input)
+		(text "inta" (rect 0 0 12 12)(font "Arial" ))
+		(text "inta" (rect 21 59 33 71)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 1))
+	)
+	(port
+		(pt 0 80)
+		(input)
 		(text "addrin[25..0]" (rect 0 0 48 12)(font "Arial" ))
-		(text "addrin[25..0]" (rect 21 59 69 71)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
+		(text "addrin[25..0]" (rect 21 75 69 87)(font "Arial" ))
+		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
 		(pt 208 32)

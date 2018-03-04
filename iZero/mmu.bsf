@@ -88,18 +88,18 @@ agreement for further details.
 		(line (pt 0 160)(pt 16 160)(line_width 3))
 	)
 	(port
+		(pt 0 176)
+		(input)
+		(text "inta" (rect 0 0 12 12)(font "Arial" ))
+		(text "inta" (rect 21 171 33 183)(font "Arial" ))
+		(line (pt 0 176)(pt 16 176)(line_width 1))
+	)
+	(port
 		(pt 208 32)
 		(output)
 		(text "addrOut[25..0]" (rect 0 0 56 12)(font "Arial" ))
 		(text "addrOut[25..0]" (rect 131 27 187 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(port
-		(pt 208 48)
-		(output)
-		(text "mode" (rect 0 0 22 12)(font "Arial" ))
-		(text "mode" (rect 165 43 187 55)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48)(line_width 1))
 	)
 	(drawing
 		(rectangle (rect 16 16 192 192)(line_width 1))

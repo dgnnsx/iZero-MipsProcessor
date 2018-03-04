@@ -22,7 +22,7 @@ module unidade_logica_aritmetica(aluOp, A, B, resultado, isFalse);
 			
 			// Deslocamentos
 			5'b00101: select = A << B;				// SHIFT LEFT
-			5'b00110: select = A >> B;				// SHIFT RIGHT			
+			5'b00110: select = A >> B;				// SHIFT RIGHT
 
 			// Logicas
 			5'b01000: select = A & B;				// AND

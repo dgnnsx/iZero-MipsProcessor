@@ -1,4 +1,4 @@
-module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addrIn, addrOut, mode);
+module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addrIn, inta, addrOut);
 	// Entradas
 	input clk_50;
 	input clk;
@@ -9,10 +9,10 @@ module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addr
 	input [31:0] sel;
 	input [31:0] offset;
 	input [25:0] addrIn;									// Endereco logico (IM)
+	input inta;
 
 	// Saida
 	output reg [25:0] addrOut;							// Endereco fisico (IM)
-	output mode;
 	
 	/**
 	 * Limites inferior e superior da area de memoria de um processo.
@@ -48,7 +48,7 @@ module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addr
 	always @ (posedge clk) begin
 		if (userMode)
 			EXECUTION_MODE <= USER_MODE;
-		if (kernelMode)
+		if (kernelMode | inta)
 			EXECUTION_MODE <= KERNEL_MODE;
 	end
 	
@@ -58,5 +58,4 @@ module mmu(clk_50, clk, we_addr, we_sel, userMode, kernelMode, sel, offset, addr
 	always @ (posedge clk_50) begin
 		addrOut <= enderecoLogico[25:0];
 	end
-	assign mode = EXECUTION_MODE;
 endmodule

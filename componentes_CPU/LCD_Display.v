@@ -277,17 +277,17 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	localparam LCD_WIDTH = 32;
 	
 	//--------------Internal variables---------------------
-	localparam [DATA_WIDTH-1:0] KERNEL_MAIN_MENU = 32'd0;
-	localparam [DATA_WIDTH-1:0] KERNEL_MENU_HD = 32'd1;
-	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM = 32'd2;
-	localparam [DATA_WIDTH-1:0] KERNEL_MENU_EXE = 32'd3;
-	localparam [DATA_WIDTH-1:0] KERNEL_MENU_MEM_LOAD = 32'd4;
-	localparam [DATA_WIDTH-1:0] KERNEL_MENU_EXE_N_PREEMPTIVO = 32'd5;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_HD = 32'd6;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_IMEM = 32'd7;
-	localparam [DATA_WIDTH-1:0] BIOS_CHECK_DMEM = 32'd8;
-	localparam [DATA_WIDTH-1:0] BIOS_START_OS = 32'd9;
-	localparam [DATA_WIDTH-1:0] PROG_INSERT = 32'd10;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU = 8'd0;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MENU_HD = 8'd1;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MENU_MEM = 8'd2;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MENU_EXE = 8'd3;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MENU_MEM_LOAD = 8'd4;
+	localparam [CHAR_WIDTH-1:0] KERNEL_MENU_EXE_N_PREEMPTIVO = 8'd5;
+	localparam [CHAR_WIDTH-1:0] BIOS_CHECK_HD = 8'd6;
+	localparam [CHAR_WIDTH-1:0] BIOS_CHECK_IMEM = 8'd7;
+	localparam [CHAR_WIDTH-1:0] BIOS_CHECK_DMEM = 8'd8;
+	localparam [CHAR_WIDTH-1:0] BIOS_START_OS = 8'd9;
+	localparam [CHAR_WIDTH-1:0] PROG_INSERT = 8'd10;
 	
 	// Letras minusculas
 	localparam	CHAR_a = 8'h61, CHAR_b = 8'h62, CHAR_c = 8'h63, CHAR_d = 8'h64;
@@ -338,7 +338,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_DOT_STRING [0:LCD_WIDTH-1];
 	wire [CHAR_WIDTH-1:0] PROG_INSERT_DOT_DOT_DOT_STRING [0:LCD_WIDTH-1];
 	
-	reg [31:0] STATE_LCD_CHANGE;
+	reg [CHAR_WIDTH:0] STATE_LCD_CHANGE;
 	reg [31:0] STATE_LCD_PROGRAMAS;
 	reg [31:0] STATE_LCD_CURRENT;
 	
@@ -380,7 +380,7 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	endfunction
 	
 	// Algoritmo de conversao binario para 2BCD
-	always @ (PC) begin
+	always @ (PC or STATE_LCD_CURRENT) begin
 		aux = 32'b0;
 		dezena_c = 4'b0000;
 		unidade_c = 4'b0000;
@@ -968,14 +968,14 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	/*****************************************************************************************/
 	
 	initial begin
-		STATE_LCD_CHANGE <= 32'd0;
+		STATE_LCD_CHANGE <= 8'd0;
 		STATE_LCD_PROGRAMAS <= 32'd0;
 		STATE_LCD_CURRENT <= 32'd0;
 	end
 	
 	always @ (posedge clk) begin
 		if (wlcd) begin
-			STATE_LCD_CHANGE <= OPCODE == OPCODE_LCD ? DATA : STATE_LCD_CHANGE;
+			STATE_LCD_CHANGE <= OPCODE == OPCODE_LCD ? DATA[7:0] : STATE_LCD_CHANGE;
 			STATE_LCD_PROGRAMAS <= OPCODE == OPCODE_LCD_PGMS ? DATA : STATE_LCD_PROGRAMAS;
 			STATE_LCD_CURRENT <= OPCODE == OPCODE_LCD_CURR ? DATA : STATE_LCD_CURRENT;
 		end

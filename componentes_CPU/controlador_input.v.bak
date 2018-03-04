@@ -1,0 +1,11 @@
+module controlador_input(in, data, );
+
+	input in; // Valor de entrada
+	input [31:0] data;
+	
+	output reg [31:0] out; // Dado de entrada
+	
+	always @ (*) begin
+		out <= in[17] == 1'b0 ? in + 32'b0 : in + 32'b11111111111111000000000000000000;
+	end
+endmodule

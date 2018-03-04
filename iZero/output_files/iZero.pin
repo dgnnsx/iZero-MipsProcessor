@@ -116,9 +116,9 @@ VCCIO4                       : AA18      : power  :                   : 2.5V    
 D2_UNIDADE[5]                : AA19      : output : 2.5 V             :         : 4         : Y              
 GNDA4                        : AA20      : gnd    :                   :         :           :                
 D3_MILHAR[3]                 : AA21      : output : 2.5 V             :         : 4         : Y              
-RESERVED_INPUT               : AA22      :        :                   :         : 5         :                
-RESERVED_INPUT               : AA23      :        :                   :         : 5         :                
-RESERVED_INPUT               : AA24      :        :                   :         : 5         :                
+SW[15]                       : AA22      : input  : 2.5 V             :         : 5         : Y              
+SW[14]                       : AA23      : input  : 2.5 V             :         : 5         : Y              
+SW[13]                       : AA24      : input  : 2.5 V             :         : 5         : Y              
 D3_CENTENA[6]                : AA25      : output : 2.5 V             :         : 5         : Y              
 D3_CENTENA[5]                : AA26      : output : 2.5 V             :         : 5         : Y              
 GND                          : AA27      : gnd    :                   :         :           :                
@@ -145,12 +145,12 @@ D2_UNIDADE[6]                : AB19      : output : 2.5 V             :         
 D3_MILHAR[4]                 : AB20      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AB21      :        :                   :         : 4         :                
 RESERVED_INPUT               : AB22      :        :                   :         : 4         :                
-RESERVED_INPUT               : AB23      :        :                   :         : 5         :                
-RESERVED_INPUT               : AB24      :        :                   :         : 5         :                
-RESERVED_INPUT               : AB25      :        :                   :         : 5         :                
-SLIDE_SWITCHES[7]            : AB26      : input  : 2.5 V             :         : 5         : Y              
-SLIDE_SWITCHES[4]            : AB27      : input  : 2.5 V             :         : 5         : Y              
-SLIDE_SWITCHES[0]            : AB28      : input  : 2.5 V             :         : 5         : Y              
+SW[12]                       : AB23      : input  : 2.5 V             :         : 5         : Y              
+SW[11]                       : AB24      : input  : 2.5 V             :         : 5         : Y              
+SW[9]                        : AB25      : input  : 2.5 V             :         : 5         : Y              
+SW[7]                        : AB26      : input  : 2.5 V             :         : 5         : Y              
+SW[4]                        : AB27      : input  : 2.5 V             :         : 5         : Y              
+SW[0]                        : AB28      : input  : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT               : AC1       :        :                   :         : 2         :                
 RESERVED_INPUT               : AC2       :        :                   :         : 2         :                
 RESERVED_INPUT               : AC3       :        :                   :         : 2         :                
@@ -174,11 +174,11 @@ GND                          : AC20      : gnd    :                   :         
 RESERVED_INPUT               : AC21      :        :                   :         : 4         :                
 RESERVED_INPUT               : AC22      :        :                   :         : 4         :                
 GND                          : AC23      : gnd    :                   :         :           :                
-RESERVED_INPUT               : AC24      :        :                   :         : 5         :                
-RESERVED_INPUT               : AC25      :        :                   :         : 5         :                
-SLIDE_SWITCHES[5]            : AC26      : input  : 2.5 V             :         : 5         : Y              
-SLIDE_SWITCHES[2]            : AC27      : input  : 2.5 V             :         : 5         : Y              
-SLIDE_SWITCHES[1]            : AC28      : input  : 2.5 V             :         : 5         : Y              
+SW[10]                       : AC24      : input  : 2.5 V             :         : 5         : Y              
+SW[8]                        : AC25      : input  : 2.5 V             :         : 5         : Y              
+SW[5]                        : AC26      : input  : 2.5 V             :         : 5         : Y              
+SW[2]                        : AC27      : input  : 2.5 V             :         : 5         : Y              
+SW[1]                        : AC28      : input  : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT               : AD1       :        :                   :         : 2         :                
 RESERVED_INPUT               : AD2       :        :                   :         : 2         :                
 RESERVED_INPUT               : AD3       :        :                   :         : 2         :                
@@ -204,8 +204,8 @@ RESERVED_INPUT               : AD22      :        :                   :         
 VCCIO4                       : AD23      : power  :                   : 2.5V    : 4         :                
 D3_MILHAR[2]                 : AD24      : output : 2.5 V             :         : 4         : Y              
 RESERVED_INPUT               : AD25      :        :                   :         : 4         :                
-SLIDE_SWITCHES[6]            : AD26      : input  : 2.5 V             :         : 5         : Y              
-SLIDE_SWITCHES[3]            : AD27      : input  : 2.5 V             :         : 5         : Y              
+SW[6]                        : AD26      : input  : 2.5 V             :         : 5         : Y              
+SW[3]                        : AD27      : input  : 2.5 V             :         : 5         : Y              
 RESERVED_INPUT               : AD28      :        :                   :         : 5         :                
 RESERVED_INPUT               : AE1       :        :                   :         : 2         :                
 RESERVED_INPUT               : AE2       :        :                   :         : 2         :                
@@ -418,8 +418,8 @@ RESERVED_INPUT               : E14       :        :                   :         
 RESERVED_INPUT               : E15       :        :                   :         : 7         :                
 VCCIO7                       : E16       : power  :                   : 2.5V    : 7         :                
 D3_UNIDADE[4]                : E17       : output : 2.5 V             :         : 7         : Y              
-leds_SLIDE_SWITCHES[5]       : E18       : output : 2.5 V             :         : 7         : Y              
-leds_SLIDE_SWITCHES[2]       : E19       : output : 2.5 V             :         : 7         : Y              
+LEDR[5]                      : E18       : output : 2.5 V             :         : 7         : Y              
+LEDR[2]                      : E19       : output : 2.5 V             :         : 7         : Y              
 VCCIO7                       : E20       : power  :                   : 2.5V    : 7         :                
 D3_SINAL                     : E21       : output : 2.5 V             :         : 7         : Y              
 D2_SINAL                     : E22       : output : 2.5 V             :         : 7         : Y              
@@ -443,13 +443,13 @@ RESERVED_INPUT               : F11       :        :                   :         
 RESERVED_INPUT               : F12       :        :                   :         : 8         :                
 GND                          : F13       : gnd    :                   :         :           :                
 RESERVED_INPUT               : F14       :        :                   :         : 8         :                
-RESERVED_INPUT               : F15       :        :                   :         : 7         :                
+LEDR[14]                     : F15       : output : 2.5 V             :         : 7         : Y              
 GND                          : F16       : gnd    :                   :         :           :                
 RESERVED_INPUT               : F17       :        :                   :         : 7         :                
-leds_SLIDE_SWITCHES[4]       : F18       : output : 2.5 V             :         : 7         : Y              
-leds_SLIDE_SWITCHES[1]       : F19       : output : 2.5 V             :         : 7         : Y              
+LEDR[4]                      : F18       : output : 2.5 V             :         : 7         : Y              
+LEDR[1]                      : F19       : output : 2.5 V             :         : 7         : Y              
 GND                          : F20       : gnd    :                   :         :           :                
-leds_SLIDE_SWITCHES[3]       : F21       : output : 2.5 V             :         : 7         : Y              
+LEDR[3]                      : F21       : output : 2.5 V             :         : 7         : Y              
 D3_UNIDADE[5]                : F22       : output : 2.5 V             :         : 7         : Y              
 GND                          : F23       : gnd    :                   :         :           :                
 RESERVED_INPUT               : F24       :        :                   :         : 6         :                
@@ -471,11 +471,11 @@ RESERVED_INPUT               : G11       :        :                   :         
 RESERVED_INPUT               : G12       :        :                   :         : 8         :                
 RESERVED_INPUT               : G13       :        :                   :         : 8         :                
 RESERVED_INPUT               : G14       :        :                   :         : 8         :                
-RESERVED_INPUT               : G15       :        :                   :         : 7         :                
-RESERVED_INPUT               : G16       :        :                   :         : 7         :                
-RESERVED_INPUT               : G17       :        :                   :         : 7         :                
+LEDR[15]                     : G15       : output : 2.5 V             :         : 7         : Y              
+LEDR[16]                     : G16       : output : 2.5 V             :         : 7         : Y              
+LEDR[9]                      : G17       : output : 2.5 V             :         : 7         : Y              
 D3_UNIDADE[6]                : G18       : output : 2.5 V             :         : 7         : Y              
-leds_SLIDE_SWITCHES[0]       : G19       : output : 2.5 V             :         : 7         : Y              
+LEDR[0]                      : G19       : output : 2.5 V             :         : 7         : Y              
 RESERVED_INPUT               : G20       :        :                   :         : 7         :                
 RESERVED_INPUT               : G21       :        :                   :         : 7         :                
 RESERVED_INPUT               : G22       :        :                   :         : 7         :                
@@ -499,11 +499,11 @@ VCCIO8                       : H11       : power  :                   : 2.5V    
 RESERVED_INPUT               : H12       :        :                   :         : 8         :                
 RESERVED_INPUT               : H13       :        :                   :         : 8         :                
 RESERVED_INPUT               : H14       :        :                   :         : 8         :                
-RESERVED_INPUT               : H15       :        :                   :         : 7         :                
-RESERVED_INPUT               : H16       :        :                   :         : 7         :                
-RESERVED_INPUT               : H17       :        :                   :         : 7         :                
+LEDR[17]                     : H15       : output : 2.5 V             :         : 7         : Y              
+LEDR[11]                     : H16       : output : 2.5 V             :         : 7         : Y              
+LEDR[13]                     : H17       : output : 2.5 V             :         : 7         : Y              
 VCCIO7                       : H18       : power  :                   : 2.5V    : 7         :                
-leds_SLIDE_SWITCHES[7]       : H19       : output : 2.5 V             :         : 7         : Y              
+LEDR[7]                      : H19       : output : 2.5 V             :         : 7         : Y              
 GNDA2                        : H20       : gnd    :                   :         :           :                
 RESERVED_INPUT               : H21       :        :                   :         : 7         :                
 D3_UNIDADE[0]                : H22       : output : 2.5 V             :         : 6         : Y              
@@ -527,11 +527,11 @@ GND                          : J11       : gnd    :                   :         
 RESERVED_INPUT               : J12       :        :                   :         : 8         :                
 RESERVED_INPUT               : J13       :        :                   :         : 8         :                
 RESERVED_INPUT               : J14       :        :                   :         : 8         :                
-RESERVED_INPUT               : J15       :        :                   :         : 7         :                
-RESERVED_INPUT               : J16       :        :                   :         : 7         :                
-RESERVED_INPUT               : J17       :        :                   :         : 7         :                
+LEDR[10]                     : J15       : output : 2.5 V             :         : 7         : Y              
+LEDR[12]                     : J16       : output : 2.5 V             :         : 7         : Y              
+LEDR[8]                      : J17       : output : 2.5 V             :         : 7         : Y              
 GND                          : J18       : gnd    :                   :         :           :                
-leds_SLIDE_SWITCHES[6]       : J19       : output : 2.5 V             :         : 7         : Y              
+LEDR[6]                      : J19       : output : 2.5 V             :         : 7         : Y              
 VCCD_PLL2                    : J20       : power  :                   : 1.2V    :           :                
 VCCA2                        : J21       : power  :                   : 2.5V    :           :                
 D3_UNIDADE[1]                : J22       : output : 2.5 V             :         : 6         : Y              
@@ -574,7 +574,7 @@ LCD_DATA[2]                  : L2        : output : 2.5 V             :         
 LCD_DATA[0]                  : L3        : output : 2.5 V             :         : 1         : Y              
 LCD_EN                       : L4        : output : 2.5 V             :         : 1         : Y              
 LCD_ON                       : L5        : output : 2.5 V             :         : 1         : Y              
-LCD_BLON                     : L6        : output : 2.5 V             :         : 1         : Y              
+RESERVED_INPUT               : L6        :        :                   :         : 1         :                
 RESERVED_INPUT               : L7        :        :                   :         : 1         :                
 RESERVED_INPUT               : L8        :        :                   :         : 1         :                
 GND                          : L9        : gnd    :                   :         :           :                
@@ -843,8 +843,8 @@ D3_MILHAR[0]                 : Y19       : output : 2.5 V             :         
 VCCD_PLL4                    : Y20       : power  :                   : 1.2V    :           :                
 VCCA4                        : Y21       : power  :                   : 2.5V    :           :                
 D3_DEZENA[5]                 : Y22       : output : 2.5 V             :         : 5         : Y              
-RESERVED_INPUT               : Y23       :        :                   :         : 5         :                
-RESERVED_INPUT               : Y24       :        :                   :         : 5         :                
+SW[17]                       : Y23       : input  : 2.5 V             :         : 5         : Y              
+SW[16]                       : Y24       : input  : 2.5 V             :         : 5         : Y              
 D3_CENTENA[4]                : Y25       : output : 2.5 V             :         : 5         : Y              
 D3_CENTENA[2]                : Y26       : output : 2.5 V             :         : 5         : Y              
 GND+                         : Y27       :        :                   :         : 5         :                

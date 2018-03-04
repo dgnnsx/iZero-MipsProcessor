@@ -1,16 +1,16 @@
-module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
-	isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, diskIntMux, regDest, pcSource, regWrtSelect, aluOp, intc);
+module unidade_de_controle(isFalse, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
+	isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, clearIntr, diskIntMux, regDest, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
-	input intr; 	// Interrupt Request (for a while, just input)
+	input intr; 							// Interrupt Request (for a while, just input)
 	input rst;
 	input rstBios;
-	input mode;
 	input [5:0] op;						// Codigo da instrucao
 	input [5:0] func;						// Espicificacao da instrucao
 	
 	// Controles
+	output inta;	// Interrupt ack
 	output regWrite;						// Sinal para habilitar escrita no banco de registradores
 	output memWrite;						// Sinal para habilitar escrita na memória de dados
 	output imWrite;						// Sinal para habilitar escrita na memoria de instrucoes
@@ -25,12 +25,12 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite
 	output reset;
 	output userMode;						// Modo de execuçao do processador (USUARIO)
 	output kernelMode;					// Modo de execuçao do processador (KERNEL)
+	output clearIntr;						// Limpa o codigo de interrupçao armazenado no controlador de interrupçao
 	output [1:0] diskIntMux;
 	output [1:0] regDest;				// Sinal do multiplexador de escrita no banco de registradores
 	output [1:0] pcSource;				// Seleciona a origem do PC
 	output [1:0] regWrtSelect;
 	output [4:0] aluOp;					// Sinal de controle da ULA
-	output [31:0] intc;	// Interrupt Code
 	
 	// Declara wire
 	// R Type
@@ -93,16 +93,22 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite
 	wire i_lcd_pgms			= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
 	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
 	
+	wire i_gic					= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
+	wire i_cic					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 100110
+	wire i_gip					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111
+	
+	wire i_pre_io				= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 101000
+	
 	// J Type
 	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
 	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
 	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
 	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
 	
-	wire isInput = intr;
-	wire isInterrupt = ~intr & mode;
+	wire isInput				= intr;
 	
 	// Atribui controles do datapath
+	assign inta					= i_pre_io;
 	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
 									i_and  | i_or   | i_xor  | i_not	|
@@ -112,7 +118,7 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite
 									i_mov  | i_lw   | i_li   | i_la   | i_in   |
 									i_jal	| i_exec	|	i_exec_again |
 									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get |
-									i_ldk	| isInterrupt;
+									i_ldk	| i_gic	| i_gip;
 	assign memWrite			= i_sw;
 	assign imWrite				= i_sim;
 	assign diskWrite			= i_sdk;
@@ -130,18 +136,19 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite
 	assign reset				= ~rst | rstBios;
 	assign userMode			= i_exec	| i_exec_again;
 	assign kernelMode			= i_syscall;
-	assign diskIntMux[0]		= i_ldk;
-	assign diskIntMux[1]		= isInterrupt;
+	assign clearIntr			= i_cic;
+	assign diskIntMux[0]		= i_ldk	| i_gip;
+	assign diskIntMux[1]		= i_gic	| i_gip;
 	assign regDest[0]			= i_addi | i_subi | i_muli | i_divi | i_modi |
 										i_andi | i_ori  | i_xori | i_not	|
 										i_slli | i_srli |
 										i_mov  | i_lw   | i_li   | i_la   | i_in	|
-										i_ldk	 | isInterrupt;
-	assign regDest[1]			= i_jal | i_exec	| i_exec_again	| 	isInterrupt;
+										i_ldk	 | i_gic	 | i_gip;
+	assign regDest[1]			= i_jal | i_exec	| i_exec_again;
 	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
 	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall | i_exec_again;
 	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_exec_again;
-	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again;
+	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again	| i_gic	| i_gip;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 									i_subi | i_divi	| i_slli	| i_ori	| i_lori	|
 									i_li	| i_out	|
@@ -159,5 +166,4 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, mode, op, func, regWrite
 									i_mov  | i_li	| i_jr	| i_out	| i_jf	|
 									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_exec_again;
 	assign aluOp[4]			= i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
-	assign intc[0]				= isInterrupt;
 endmodule
