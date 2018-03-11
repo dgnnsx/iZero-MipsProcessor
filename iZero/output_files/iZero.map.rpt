@@ -1,5 +1,5 @@
 Analysis & Synthesis report for iZero
-Sun Mar  4 17:16:31 2018
+Sun Mar 11 15:14:52 2018
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -27,8 +27,8 @@ Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
  19. Source assignments for mmu:inst38|altsyncram:lowerIM_rtl_0|altsyncram_fnd1:auto_generated
  20. Source assignments for disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated
  21. Source assignments for memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated
- 22. Source assignments for memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated
- 23. Source assignments for disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated
+ 22. Source assignments for disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated
+ 23. Source assignments for memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated
  24. Source assignments for memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0|altsyncram_edh3:auto_generated
  25. Parameter Settings for User Entity Instance: lcdlab3:inst9|LCD_Display:u1
  26. Parameter Settings for Inferred Entity Instance: memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0
@@ -38,8 +38,8 @@ Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
  30. Parameter Settings for Inferred Entity Instance: unidade_logica_aritmetica:inst6|lpm_divide:Mod0
  31. Parameter Settings for Inferred Entity Instance: unidade_logica_aritmetica:inst6|lpm_divide:Div0
  32. Parameter Settings for Inferred Entity Instance: unidade_logica_aritmetica:inst6|lpm_mult:Mult0
- 33. Parameter Settings for Inferred Entity Instance: memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0
- 34. Parameter Settings for Inferred Entity Instance: disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0
+ 33. Parameter Settings for Inferred Entity Instance: disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0
+ 34. Parameter Settings for Inferred Entity Instance: memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0
  35. Parameter Settings for Inferred Entity Instance: memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0
  36. altsyncram Parameter Settings by Entity Instance
  37. lpm_mult Parameter Settings by Entity Instance
@@ -73,13 +73,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar  4 17:16:31 2018      ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 11 15:14:51 2018      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 8,654                                      ;
-;     Total combinational functions  ; 7,544                                      ;
+; Total logic elements               ; 8,627                                      ;
+;     Total combinational functions  ; 7,517                                      ;
 ;     Dedicated logic registers      ; 1,356                                      ;
 ; Total registers                    ; 1356                                       ;
 ; Total pins                         ; 110                                        ;
@@ -254,14 +254,14 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; bypassff.inc                                                             ; yes             ; Megafunction                                          ; /home/diego/altera/15.0/quartus/libraries/megafunctions/bypassff.inc                                  ;         ;
 ; altshift.inc                                                             ; yes             ; Megafunction                                          ; /home/diego/altera/15.0/quartus/libraries/megafunctions/altshift.inc                                  ;         ;
 ; db/mult_7dt.tdf                                                          ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/mult_7dt.tdf                                                 ;         ;
-; db/altsyncram_uch3.tdf                                                   ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/altsyncram_uch3.tdf                                          ;         ;
-; db/decode_jsa.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_jsa.tdf                                               ;         ;
-; db/decode_c8a.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_c8a.tdf                                               ;         ;
-; db/mux_gob.tdf                                                           ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/mux_gob.tdf                                                  ;         ;
 ; db/altsyncram_cbm3.tdf                                                   ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/altsyncram_cbm3.tdf                                          ;         ;
 ; db/decode_msa.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_msa.tdf                                               ;         ;
 ; db/decode_f8a.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_f8a.tdf                                               ;         ;
 ; db/mux_job.tdf                                                           ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/mux_job.tdf                                                  ;         ;
+; db/altsyncram_uch3.tdf                                                   ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/altsyncram_uch3.tdf                                          ;         ;
+; db/decode_jsa.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_jsa.tdf                                               ;         ;
+; db/decode_c8a.tdf                                                        ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/decode_c8a.tdf                                               ;         ;
+; db/mux_gob.tdf                                                           ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/mux_gob.tdf                                                  ;         ;
 ; db/altsyncram_edh3.tdf                                                   ; yes             ; Auto-Generated Megafunction                           ; /home/diego/iZero-MipsProcessor/iZero/db/altsyncram_edh3.tdf                                          ;         ;
 +--------------------------------------------------------------------------+-----------------+-------------------------------------------------------+-------------------------------------------------------------------------------------------------------+---------+
 
@@ -271,16 +271,16 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Estimated Total logic elements              ; 8,654                           ;
+; Estimated Total logic elements              ; 8,627                           ;
 ;                                             ;                                 ;
-; Total combinational functions               ; 7544                            ;
+; Total combinational functions               ; 7517                            ;
 ; Logic element usage by number of LUT inputs ;                                 ;
-;     -- 4 input functions                    ; 5279                            ;
-;     -- 3 input functions                    ; 1830                            ;
-;     -- <=2 input functions                  ; 435                             ;
+;     -- 4 input functions                    ; 5243                            ;
+;     -- 3 input functions                    ; 1835                            ;
+;     -- <=2 input functions                  ; 439                             ;
 ;                                             ;                                 ;
 ; Logic elements by mode                      ;                                 ;
-;     -- normal mode                          ; 6112                            ;
+;     -- normal mode                          ; 6085                            ;
 ;     -- arithmetic mode                      ; 1432                            ;
 ;                                             ;                                 ;
 ; Total registers                             ; 1356                            ;
@@ -294,7 +294,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; temporizador:inst19|contador[4] ;
 ; Maximum fan-out                             ; 1543                            ;
-; Total fan-out                               ; 37419                           ;
+; Total fan-out                               ; 37298                           ;
 ; Average fan-out                             ; 3.96                            ;
 +---------------------------------------------+---------------------------------+
 
@@ -304,40 +304,40 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                    ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |iZero                                          ; 7544 (1)          ; 1356 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
+; |iZero                                          ; 7517 (1)          ; 1356 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
 ;    |BCD_dois_digitos:inst30|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst30                                                                                                                                         ; work         ;
 ;    |BCD_dois_digitos:inst31|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst31                                                                                                                                         ; work         ;
 ;    |BCD_quatro_digitos:inst32|                  ; 300 (300)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_quatro_digitos:inst32                                                                                                                                       ; work         ;
-;    |banco_de_registradores:inst48|              ; 2193 (2193)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|banco_de_registradores:inst48                                                                                                                                   ; work         ;
+;    |banco_de_registradores:inst48|              ; 2174 (2174)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|banco_de_registradores:inst48                                                                                                                                   ; work         ;
 ;    |bios:inst18|                                ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|bios:inst18                                                                                                                                                     ; work         ;
 ;    |contador_de_programa:inst16|                ; 1 (1)             ; 26 (26)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|contador_de_programa:inst16                                                                                                                                     ; work         ;
 ;    |controlador_bios:inst25|                    ; 183 (183)         ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_bios:inst25                                                                                                                                         ; work         ;
-;    |controlador_interrupcao:inst2|              ; 1 (1)             ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_interrupcao:inst2                                                                                                                                   ; work         ;
+;    |controlador_interrupcao:inst2|              ; 2 (2)             ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_interrupcao:inst2                                                                                                                                   ; work         ;
 ;    |debouncer:inst15|                           ; 13 (13)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|debouncer:inst15                                                                                                                                                ; work         ;
 ;    |debouncer:inst22|                           ; 13 (13)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|debouncer:inst22                                                                                                                                                ; work         ;
 ;    |delay_button:inst26|                        ; 27 (27)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|delay_button:inst26                                                                                                                                             ; work         ;
-;    |disco_rigido:inst12|                        ; 69 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12                                                                                                                                             ; work         ;
-;       |altsyncram:disk_rtl_0|                   ; 69 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0                                                                                                                       ; work         ;
-;          |altsyncram_u2i1:auto_generated|       ; 69 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated                                                                                        ; work         ;
-;             |altsyncram:ram_block1a0|           ; 69 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0                                                                ; work         ;
-;                |altsyncram_cbm3:auto_generated| ; 69 (0)            ; 2 (2)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated                                 ; work         ;
-;                   |decode_f8a:rden_decode_b|    ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|decode_f8a:rden_decode_b        ; work         ;
+;    |disco_rigido:inst12|                        ; 70 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12                                                                                                                                             ; work         ;
+;       |altsyncram:disk_rtl_0|                   ; 70 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0                                                                                                                       ; work         ;
+;          |altsyncram_u2i1:auto_generated|       ; 70 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated                                                                                        ; work         ;
+;             |altsyncram:ram_block1a0|           ; 70 (0)            ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0                                                                ; work         ;
+;                |altsyncram_cbm3:auto_generated| ; 70 (0)            ; 2 (2)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated                                 ; work         ;
+;                   |decode_f8a:rden_decode_b|    ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|decode_f8a:rden_decode_b        ; work         ;
 ;                   |decode_msa:decode2|          ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|decode_msa:decode2              ; work         ;
-;                   |mux_job:mux3|                ; 60 (60)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|mux_job:mux3                    ; work         ;
+;                   |mux_job:mux3|                ; 62 (62)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|mux_job:mux3                    ; work         ;
 ;    |display_duplo:inst33|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst33                                                                                                                                            ; work         ;
 ;    |display_duplo:inst34|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst34                                                                                                                                            ; work         ;
 ;    |display_quadruplo:inst35|                   ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_quadruplo:inst35                                                                                                                                        ; work         ;
-;    |lcdlab3:inst9|                              ; 946 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
-;       |LCD_Display:u1|                          ; 919 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
-;          |LCD_display_string:u1|                ; 829 (829)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
+;    |lcdlab3:inst9|                              ; 939 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
+;       |LCD_Display:u1|                          ; 912 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
+;          |LCD_display_string:u1|                ; 822 (822)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
 ;       |Reset_Delay:r0|                          ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|Reset_Delay:r0                                                                                                                                    ; work         ;
-;    |memoria_de_dados:inst1|                     ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1                                                                                                                                          ; work         ;
-;       |altsyncram:ram_rtl_0|                    ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0                                                                                                                     ; work         ;
-;          |altsyncram_g4d1:auto_generated|       ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated                                                                                      ; work         ;
-;             |altsyncram:ram_block1a0|           ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0                                                              ; work         ;
-;                |altsyncram_uch3:auto_generated| ; 33 (0)            ; 1 (1)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated                               ; work         ;
+;    |memoria_de_dados:inst1|                     ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1                                                                                                                                          ; work         ;
+;       |altsyncram:ram_rtl_0|                    ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0                                                                                                                     ; work         ;
+;          |altsyncram_g4d1:auto_generated|       ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated                                                                                      ; work         ;
+;             |altsyncram:ram_block1a0|           ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0                                                              ; work         ;
+;                |altsyncram_uch3:auto_generated| ; 32 (0)            ; 1 (1)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated                               ; work         ;
 ;                   |decode_jsa:decode2|          ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|decode_jsa:decode2            ; work         ;
-;                   |mux_gob:mux3|                ; 31 (31)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|mux_gob:mux3                  ; work         ;
+;                   |mux_gob:mux3|                ; 30 (30)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|mux_gob:mux3                  ; work         ;
 ;    |memoria_de_instrucoes:inst4|                ; 8 (0)             ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_instrucoes:inst4                                                                                                                                     ; work         ;
 ;       |altsyncram:ram_rtl_0|                    ; 8 (0)             ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0                                                                                                                ; work         ;
 ;          |altsyncram_05d1:auto_generated|       ; 8 (0)             ; 2 (0)        ; 65536       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated                                                                                 ; work         ;
@@ -349,19 +349,19 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;       |altsyncram:lowerIM_rtl_0|                ; 0 (0)             ; 0 (0)        ; 121         ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|mmu:inst38|altsyncram:lowerIM_rtl_0                                                                                                                             ; work         ;
 ;          |altsyncram_fnd1:auto_generated|       ; 0 (0)             ; 0 (0)        ; 121         ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|mmu:inst38|altsyncram:lowerIM_rtl_0|altsyncram_fnd1:auto_generated                                                                                              ; work         ;
 ;    |multiplexador_br:inst3|                     ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_br:inst3                                                                                                                                          ; work         ;
-;    |multiplexador_disco:inst43|                 ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_disco:inst43                                                                                                                                      ; work         ;
-;    |multiplexador_escrita_br:inst8|             ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_escrita_br:inst8                                                                                                                                  ; work         ;
+;    |multiplexador_disco:inst43|                 ; 9 (9)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_disco:inst43                                                                                                                                      ; work         ;
+;    |multiplexador_escrita_br:inst8|             ; 29 (29)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_escrita_br:inst8                                                                                                                                  ; work         ;
 ;    |multiplexador_ula:inst7|                    ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_ula:inst7                                                                                                                                         ; work         ;
-;    |saida_de_dados:inst5|                       ; 33 (33)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|saida_de_dados:inst5                                                                                                                                            ; work         ;
+;    |saida_de_dados:inst5|                       ; 30 (30)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|saida_de_dados:inst5                                                                                                                                            ; work         ;
 ;    |somador_interruptor:inst37|                 ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_interruptor:inst37                                                                                                                                      ; work         ;
 ;    |somador_pc:inst10|                          ; 78 (78)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
 ;    |temporizador:inst19|                        ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|temporizador:inst19                                                                                                                                             ; work         ;
-;    |unidade_de_controle:inst|                   ; 101 (101)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst                                                                                                                                        ; work         ;
-;    |unidade_logica_aritmetica:inst6|            ; 2927 (743)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
-;       |lpm_divide:Div0|                         ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0                                                                                                                 ; work         ;
-;          |lpm_divide_hkm:auto_generated|        ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                                   ; work         ;
-;             |sign_div_unsign_9nh:divider|       ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
-;                |alt_u_div_6af:divider|          ; 1069 (1069)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                                 ; work         ;
+;    |unidade_de_controle:inst|                   ; 106 (106)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst                                                                                                                                        ; work         ;
+;    |unidade_logica_aritmetica:inst6|            ; 2919 (732)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
+;       |lpm_divide:Div0|                         ; 1072 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0                                                                                                                 ; work         ;
+;          |lpm_divide_hkm:auto_generated|        ; 1072 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                                   ; work         ;
+;             |sign_div_unsign_9nh:divider|       ; 1072 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
+;                |alt_u_div_6af:divider|          ; 1072 (1072)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                                 ; work         ;
 ;       |lpm_divide:Mod0|                         ; 1087 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0                                                                                                                 ; work         ;
 ;          |lpm_divide_kcm:auto_generated|        ; 1087 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                                   ; work         ;
 ;             |sign_div_unsign_9nh:divider|       ; 1087 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
@@ -512,8 +512,8 @@ Encoding Type:  One-Hot
 ; lcdlab3:inst9|LCD_Display:u1|state~16                                                                                                               ; Lost fanout                                         ;
 ; lcdlab3:inst9|LCD_Display:u1|state~17                                                                                                               ; Lost fanout                                         ;
 ; memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0|altsyncram_edh3:auto_generated|wren_a_store ; Lost fanout                                         ;
-; disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|wren_a_store        ; Lost fanout                                         ;
 ; memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|wren_a_store      ; Lost fanout                                         ;
+; disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|wren_a_store        ; Lost fanout                                         ;
 ; Total Number of Removed Registers = 114                                                                                                             ;                                                     ;
 +-----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------+
 
@@ -582,44 +582,44 @@ Encoding Type:  One-Hot
 +-------------------------------------+--------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 5:1                ; 26 bits   ; 78 LEs        ; 52 LEs               ; 26 LEs                 ; Yes        ; |iZero|contador_de_programa:inst16|addrout[13]                         ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[5]                  ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|Mux28        ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux1                                     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|dezena[2]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|unidade[3]                              ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|dezena[3]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|dezena[0]                               ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|centena[2]                            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[3]                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[0]                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|milhar[2]                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|milhar[3]    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[3]   ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[0]   ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|unidade[1]   ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[2]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|unidade_c[2] ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux95                             ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux38                             ;
-; 55:1               ; 26 bits   ; 936 LEs       ; 936 LEs              ; 0 LEs                  ; No         ; |iZero|controlador_bios:inst25|out[17]                                 ;
-; 38:1               ; 5 bits    ; 125 LEs       ; 120 LEs              ; 5 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 39:1               ; 16 bits   ; 416 LEs       ; 400 LEs              ; 16 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 39:1               ; 9 bits    ; 234 LEs       ; 225 LEs              ; 9 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux15                           ;
-; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux16                           ;
-; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux4                            ;
-; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux27                           ;
-; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux2                            ;
-; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux28                           ;
-; 30:1               ; 2 bits    ; 40 LEs        ; 22 LEs               ; 18 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux0                            ;
-; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |iZero|unidade_logica_aritmetica:inst6|Add0                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 5:1                ; 26 bits   ; 78 LEs        ; 52 LEs               ; 26 LEs                 ; Yes        ; |iZero|contador_de_programa:inst16|addrout[22]                        ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[5]                 ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|Mux28       ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux1                                    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|dezena[3]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|dezena[0]                              ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|dezena[3]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|unidade[2]                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|centena[2]                           ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|centena[0]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[0]                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|milhar[3]                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|milhar[3]   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[3]  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[0]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena[0]   ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[0] ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux95                            ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux38                            ;
+; 55:1               ; 26 bits   ; 936 LEs       ; 936 LEs              ; 0 LEs                  ; No         ; |iZero|controlador_bios:inst25|out[17]                                ;
+; 39:1               ; 5 bits    ; 130 LEs       ; 120 LEs              ; 10 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 39:1               ; 18 bits   ; 468 LEs       ; 432 LEs              ; 36 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 39:1               ; 7 bits    ; 182 LEs       ; 175 LEs              ; 7 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux13                          ;
+; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux22                          ;
+; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux4                           ;
+; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux27                          ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux3                           ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux29                          ;
+; 30:1               ; 2 bits    ; 40 LEs        ; 22 LEs               ; 18 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux0                           ;
+; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |iZero|unidade_logica_aritmetica:inst6|Add0                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -658,15 +658,6 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------+------+-------------------------------------------+
 
 
-+----------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Source assignments for memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated ;
-+---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
-; Assignment                      ; Value        ; From ; To                                                                                               ;
-+---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
-; OPTIMIZE_POWER_DURING_SYNTHESIS ; EXTRA_EFFORT ; -    ; -                                                                                                ;
-+---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
-
-
 +--------------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Source assignments for disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated ;
 +---------------------------------+--------------+------+------------------------------------------------------------------------------------------------+
@@ -674,6 +665,15 @@ Encoding Type:  One-Hot
 +---------------------------------+--------------+------+------------------------------------------------------------------------------------------------+
 ; OPTIMIZE_POWER_DURING_SYNTHESIS ; EXTRA_EFFORT ; -    ; -                                                                                              ;
 +---------------------------------+--------------+------+------------------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Source assignments for memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated ;
++---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
+; Assignment                      ; Value        ; From ; To                                                                                               ;
++---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
+; OPTIMIZE_POWER_DURING_SYNTHESIS ; EXTRA_EFFORT ; -    ; -                                                                                                ;
++---------------------------------+--------------+------+--------------------------------------------------------------------------------------------------+
 
 
 +---------------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -1032,67 +1032,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+
-; Parameter Settings for Inferred Entity Instance: memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0 ;
-+------------------------------------+------------------------+---------------------------------------------------------------------------------------+
-; Parameter Name                     ; Value                  ; Type                                                                                  ;
-+------------------------------------+------------------------+---------------------------------------------------------------------------------------+
-; BYTE_SIZE_BLOCK                    ; 8                      ; Untyped                                                                               ;
-; AUTO_CARRY_CHAINS                  ; ON                     ; AUTO_CARRY                                                                            ;
-; IGNORE_CARRY_BUFFERS               ; OFF                    ; IGNORE_CARRY                                                                          ;
-; AUTO_CASCADE_CHAINS                ; ON                     ; AUTO_CASCADE                                                                          ;
-; IGNORE_CASCADE_BUFFERS             ; OFF                    ; IGNORE_CASCADE                                                                        ;
-; WIDTH_BYTEENA                      ; 1                      ; Untyped                                                                               ;
-; OPERATION_MODE                     ; DUAL_PORT              ; Untyped                                                                               ;
-; WIDTH_A                            ; 32                     ; Untyped                                                                               ;
-; WIDTHAD_A                          ; 10                     ; Untyped                                                                               ;
-; NUMWORDS_A                         ; 1024                   ; Untyped                                                                               ;
-; OUTDATA_REG_A                      ; UNREGISTERED           ; Untyped                                                                               ;
-; ADDRESS_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
-; OUTDATA_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
-; WRCONTROL_ACLR_A                   ; NONE                   ; Untyped                                                                               ;
-; INDATA_ACLR_A                      ; NONE                   ; Untyped                                                                               ;
-; BYTEENA_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
-; WIDTH_B                            ; 32                     ; Untyped                                                                               ;
-; WIDTHAD_B                          ; 10                     ; Untyped                                                                               ;
-; NUMWORDS_B                         ; 1024                   ; Untyped                                                                               ;
-; INDATA_REG_B                       ; CLOCK1                 ; Untyped                                                                               ;
-; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                 ; Untyped                                                                               ;
-; RDCONTROL_REG_B                    ; CLOCK1                 ; Untyped                                                                               ;
-; ADDRESS_REG_B                      ; CLOCK1                 ; Untyped                                                                               ;
-; OUTDATA_REG_B                      ; UNREGISTERED           ; Untyped                                                                               ;
-; BYTEENA_REG_B                      ; CLOCK1                 ; Untyped                                                                               ;
-; INDATA_ACLR_B                      ; NONE                   ; Untyped                                                                               ;
-; WRCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                               ;
-; ADDRESS_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
-; OUTDATA_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
-; RDCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                               ;
-; BYTEENA_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
-; WIDTH_BYTEENA_A                    ; 1                      ; Untyped                                                                               ;
-; WIDTH_BYTEENA_B                    ; 1                      ; Untyped                                                                               ;
-; RAM_BLOCK_TYPE                     ; AUTO                   ; Untyped                                                                               ;
-; BYTE_SIZE                          ; 8                      ; Untyped                                                                               ;
-; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE              ; Untyped                                                                               ;
-; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_WITH_NBE_READ ; Untyped                                                                               ;
-; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_WITH_NBE_READ ; Untyped                                                                               ;
-; INIT_FILE                          ;                        ; Untyped                                                                               ;
-; INIT_FILE_LAYOUT                   ; PORT_B                 ; Untyped                                                                               ;
-; MAXIMUM_DEPTH                      ; 512                    ; Untyped                                                                               ;
-; CLOCK_ENABLE_INPUT_A               ; BYPASS                 ; Untyped                                                                               ;
-; CLOCK_ENABLE_INPUT_B               ; BYPASS                 ; Untyped                                                                               ;
-; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                 ; Untyped                                                                               ;
-; CLOCK_ENABLE_OUTPUT_B              ; BYPASS                 ; Untyped                                                                               ;
-; CLOCK_ENABLE_CORE_A                ; NORMAL                 ; Untyped                                                                               ;
-; CLOCK_ENABLE_CORE_B                ; BYPASS                 ; Untyped                                                                               ;
-; ENABLE_ECC                         ; FALSE                  ; Untyped                                                                               ;
-; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                  ; Untyped                                                                               ;
-; WIDTH_ECCSTATUS                    ; 3                      ; Untyped                                                                               ;
-; DEVICE_FAMILY                      ; Cyclone IV E           ; Untyped                                                                               ;
-; CBXI_PARAMETER                     ; altsyncram_uch3        ; Untyped                                                                               ;
-+------------------------------------+------------------------+---------------------------------------------------------------------------------------+
-Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
-
-
 +---------------------------------------------------------------------------------------------------------------------------------------------------+
 ; Parameter Settings for Inferred Entity Instance: disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0 ;
 +------------------------------------+---------------------------------------------+----------------------------------------------------------------+
@@ -1151,6 +1090,67 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; DEVICE_FAMILY                      ; Cyclone IV E                                ; Untyped                                                        ;
 ; CBXI_PARAMETER                     ; altsyncram_cbm3                             ; Untyped                                                        ;
 +------------------------------------+---------------------------------------------+----------------------------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0 ;
++------------------------------------+------------------------+---------------------------------------------------------------------------------------+
+; Parameter Name                     ; Value                  ; Type                                                                                  ;
++------------------------------------+------------------------+---------------------------------------------------------------------------------------+
+; BYTE_SIZE_BLOCK                    ; 8                      ; Untyped                                                                               ;
+; AUTO_CARRY_CHAINS                  ; ON                     ; AUTO_CARRY                                                                            ;
+; IGNORE_CARRY_BUFFERS               ; OFF                    ; IGNORE_CARRY                                                                          ;
+; AUTO_CASCADE_CHAINS                ; ON                     ; AUTO_CASCADE                                                                          ;
+; IGNORE_CASCADE_BUFFERS             ; OFF                    ; IGNORE_CASCADE                                                                        ;
+; WIDTH_BYTEENA                      ; 1                      ; Untyped                                                                               ;
+; OPERATION_MODE                     ; DUAL_PORT              ; Untyped                                                                               ;
+; WIDTH_A                            ; 32                     ; Untyped                                                                               ;
+; WIDTHAD_A                          ; 10                     ; Untyped                                                                               ;
+; NUMWORDS_A                         ; 1024                   ; Untyped                                                                               ;
+; OUTDATA_REG_A                      ; UNREGISTERED           ; Untyped                                                                               ;
+; ADDRESS_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
+; OUTDATA_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
+; WRCONTROL_ACLR_A                   ; NONE                   ; Untyped                                                                               ;
+; INDATA_ACLR_A                      ; NONE                   ; Untyped                                                                               ;
+; BYTEENA_ACLR_A                     ; NONE                   ; Untyped                                                                               ;
+; WIDTH_B                            ; 32                     ; Untyped                                                                               ;
+; WIDTHAD_B                          ; 10                     ; Untyped                                                                               ;
+; NUMWORDS_B                         ; 1024                   ; Untyped                                                                               ;
+; INDATA_REG_B                       ; CLOCK1                 ; Untyped                                                                               ;
+; WRCONTROL_WRADDRESS_REG_B          ; CLOCK1                 ; Untyped                                                                               ;
+; RDCONTROL_REG_B                    ; CLOCK1                 ; Untyped                                                                               ;
+; ADDRESS_REG_B                      ; CLOCK1                 ; Untyped                                                                               ;
+; OUTDATA_REG_B                      ; UNREGISTERED           ; Untyped                                                                               ;
+; BYTEENA_REG_B                      ; CLOCK1                 ; Untyped                                                                               ;
+; INDATA_ACLR_B                      ; NONE                   ; Untyped                                                                               ;
+; WRCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                               ;
+; ADDRESS_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
+; OUTDATA_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
+; RDCONTROL_ACLR_B                   ; NONE                   ; Untyped                                                                               ;
+; BYTEENA_ACLR_B                     ; NONE                   ; Untyped                                                                               ;
+; WIDTH_BYTEENA_A                    ; 1                      ; Untyped                                                                               ;
+; WIDTH_BYTEENA_B                    ; 1                      ; Untyped                                                                               ;
+; RAM_BLOCK_TYPE                     ; AUTO                   ; Untyped                                                                               ;
+; BYTE_SIZE                          ; 8                      ; Untyped                                                                               ;
+; READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE              ; Untyped                                                                               ;
+; READ_DURING_WRITE_MODE_PORT_A      ; NEW_DATA_WITH_NBE_READ ; Untyped                                                                               ;
+; READ_DURING_WRITE_MODE_PORT_B      ; NEW_DATA_WITH_NBE_READ ; Untyped                                                                               ;
+; INIT_FILE                          ;                        ; Untyped                                                                               ;
+; INIT_FILE_LAYOUT                   ; PORT_B                 ; Untyped                                                                               ;
+; MAXIMUM_DEPTH                      ; 512                    ; Untyped                                                                               ;
+; CLOCK_ENABLE_INPUT_A               ; BYPASS                 ; Untyped                                                                               ;
+; CLOCK_ENABLE_INPUT_B               ; BYPASS                 ; Untyped                                                                               ;
+; CLOCK_ENABLE_OUTPUT_A              ; BYPASS                 ; Untyped                                                                               ;
+; CLOCK_ENABLE_OUTPUT_B              ; BYPASS                 ; Untyped                                                                               ;
+; CLOCK_ENABLE_CORE_A                ; NORMAL                 ; Untyped                                                                               ;
+; CLOCK_ENABLE_CORE_B                ; BYPASS                 ; Untyped                                                                               ;
+; ENABLE_ECC                         ; FALSE                  ; Untyped                                                                               ;
+; ECC_PIPELINE_STAGE_ENABLED         ; FALSE                  ; Untyped                                                                               ;
+; WIDTH_ECCSTATUS                    ; 3                      ; Untyped                                                                               ;
+; DEVICE_FAMILY                      ; Cyclone IV E           ; Untyped                                                                               ;
+; CBXI_PARAMETER                     ; altsyncram_uch3        ; Untyped                                                                               ;
++------------------------------------+------------------------+---------------------------------------------------------------------------------------+
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
@@ -1265,17 +1265,6 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                            ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                    ;
 ;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                               ;
-; Entity Instance                           ; memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0      ;
-;     -- OPERATION_MODE                     ; DUAL_PORT                                                                                               ;
-;     -- WIDTH_A                            ; 32                                                                                                      ;
-;     -- NUMWORDS_A                         ; 1024                                                                                                    ;
-;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                            ;
-;     -- WIDTH_B                            ; 32                                                                                                      ;
-;     -- NUMWORDS_B                         ; 1024                                                                                                    ;
-;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                  ;
-;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                            ;
-;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                    ;
-;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                               ;
 ; Entity Instance                           ; disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0        ;
 ;     -- OPERATION_MODE                     ; DUAL_PORT                                                                                               ;
 ;     -- WIDTH_A                            ; 32                                                                                                      ;
@@ -1283,6 +1272,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                            ;
 ;     -- WIDTH_B                            ; 32                                                                                                      ;
 ;     -- NUMWORDS_B                         ; 2048                                                                                                    ;
+;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                  ;
+;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                            ;
+;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                    ;
+;     -- READ_DURING_WRITE_MODE_MIXED_PORTS ; DONT_CARE                                                                                               ;
+; Entity Instance                           ; memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0      ;
+;     -- OPERATION_MODE                     ; DUAL_PORT                                                                                               ;
+;     -- WIDTH_A                            ; 32                                                                                                      ;
+;     -- NUMWORDS_A                         ; 1024                                                                                                    ;
+;     -- OUTDATA_REG_A                      ; UNREGISTERED                                                                                            ;
+;     -- WIDTH_B                            ; 32                                                                                                      ;
+;     -- NUMWORDS_B                         ; 1024                                                                                                    ;
 ;     -- ADDRESS_REG_B                      ; CLOCK1                                                                                                  ;
 ;     -- OUTDATA_REG_B                      ; UNREGISTERED                                                                                            ;
 ;     -- RAM_BLOCK_TYPE                     ; AUTO                                                                                                    ;
@@ -1336,22 +1336,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 25                          ;
 ;     SCLR SLD          ; 22                          ;
 ;     plain             ; 65                          ;
-; cycloneiii_lcell_comb ; 7559                        ;
+; cycloneiii_lcell_comb ; 7532                        ;
 ;     arith             ; 1432                        ;
 ;         2 data inputs ; 224                         ;
 ;         3 data inputs ; 1208                        ;
-;     normal            ; 6127                        ;
+;     normal            ; 6100                        ;
 ;         0 data inputs ; 63                          ;
 ;         1 data inputs ; 32                          ;
-;         2 data inputs ; 131                         ;
-;         3 data inputs ; 622                         ;
-;         4 data inputs ; 5279                        ;
+;         2 data inputs ; 135                         ;
+;         3 data inputs ; 627                         ;
+;         4 data inputs ; 5243                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
 ; cycloneiii_ram_block  ; 331                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 142.50                      ;
-; Average LUT depth     ; 83.43                       ;
+; Max LUT depth         ; 141.50                      ;
+; Average LUT depth     ; 83.08                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1360,7 +1360,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:45     ;
+; Top            ; 00:00:51     ;
 +----------------+--------------+
 
 
@@ -1370,7 +1370,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
-    Info: Processing started: Sun Mar  4 17:15:27 2018
+    Info: Processing started: Sun Mar 11 15:13:40 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off iZero -c iZero
 Info (16303): Aggressive Power optimization mode selected -- dynamic power will be prioritized at the potential cost of reduced timing performance and increased compilation time
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1663,39 +1663,6 @@ Warning (14284): Synthesized away the following node(s):
         Warning (14320): Synthesized away node "unidade_logica_aritmetica:inst6|lpm_mult:Mult0|mult_7dt:auto_generated|mac_mult7"
         Warning (14320): Synthesized away node "unidade_logica_aritmetica:inst6|lpm_mult:Mult0|mult_7dt:auto_generated|mac_out8"
 Info (270021): Converted the following 3 logical RAM block slices to smaller depth
-    Info (270020): Converted the following logical RAM block "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ALTSYNCRAM" slices to smaller maximum block depth of 512
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a31"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a0"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a5"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a6"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a7"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a8"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a9"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a10"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a11"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a12"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a13"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a14"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a15"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a16"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a17"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a18"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a19"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a20"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a21"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a22"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a23"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a24"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a25"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a26"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a27"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a28"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a29"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a30"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a4"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a3"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a1"
-        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a2"
     Info (270020): Converted the following logical RAM block "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ALTSYNCRAM" slices to smaller maximum block depth of 512
         Info (270019): RAM block slice "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ram_block1a31"
         Info (270019): RAM block slice "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ram_block1a0"
@@ -1729,6 +1696,39 @@ Info (270021): Converted the following 3 logical RAM block slices to smaller dep
         Info (270019): RAM block slice "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ram_block1a3"
         Info (270019): RAM block slice "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ram_block1a1"
         Info (270019): RAM block slice "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|ram_block1a2"
+    Info (270020): Converted the following logical RAM block "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ALTSYNCRAM" slices to smaller maximum block depth of 512
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a31"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a0"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a5"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a6"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a7"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a8"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a9"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a10"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a11"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a12"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a13"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a14"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a15"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a16"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a17"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a18"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a19"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a20"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a21"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a22"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a23"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a24"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a25"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a26"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a27"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a28"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a29"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a30"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a4"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a3"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a1"
+        Info (270019): RAM block slice "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|ram_block1a2"
     Info (270020): Converted the following logical RAM block "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ALTSYNCRAM" slices to smaller maximum block depth of 512
         Info (270019): RAM block slice "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ram_block1a17"
         Info (270019): RAM block slice "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ram_block1a16"
@@ -1762,6 +1762,67 @@ Info (270021): Converted the following 3 logical RAM block slices to smaller dep
         Info (270019): RAM block slice "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ram_block1a12"
         Info (270019): RAM block slice "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ram_block1a13"
         Info (270019): RAM block slice "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|ram_block1a14"
+Info (12130): Elaborated megafunction instantiation "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0"
+Info (12133): Instantiated megafunction "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0" with the following parameter:
+    Info (12134): Parameter "LPM_TYPE" = "altsyncram"
+    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
+    Info (12134): Parameter "WIDTH_A" = "32"
+    Info (12134): Parameter "WIDTHAD_A" = "11"
+    Info (12134): Parameter "NUMWORDS_A" = "2048"
+    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
+    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
+    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
+    Info (12134): Parameter "BYTEENA_ACLR_A" = "NONE"
+    Info (12134): Parameter "CLOCK_ENABLE_INPUT_A" = "BYPASS"
+    Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_A" = "BYPASS"
+    Info (12134): Parameter "WIDTH_B" = "32"
+    Info (12134): Parameter "WIDTHAD_B" = "11"
+    Info (12134): Parameter "NUMWORDS_B" = "2048"
+    Info (12134): Parameter "INDATA_REG_B" = "UNUSED"
+    Info (12134): Parameter "WRCONTROL_WRADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK1"
+    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
+    Info (12134): Parameter "BYTEENA_REG_B" = "UNUSED"
+    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
+    Info (12134): Parameter "INDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "WRCONTROL_ACLR_B" = "NONE"
+    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
+    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
+    Info (12134): Parameter "RDCONTROL_ACLR_B" = "NONE"
+    Info (12134): Parameter "BYTEENA_ACLR_B" = "NONE"
+    Info (12134): Parameter "CLOCK_ENABLE_INPUT_B" = "BYPASS"
+    Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_B" = "BYPASS"
+    Info (12134): Parameter "WIDTH_BYTEENA_A" = "1"
+    Info (12134): Parameter "WIDTH_BYTEENA_B" = "1"
+    Info (12134): Parameter "RAM_BLOCK_TYPE" = "AUTO"
+    Info (12134): Parameter "BYTE_SIZE" = "8"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "DONT_CARE"
+    Info (12134): Parameter "INIT_FILE" = "db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif"
+    Info (12134): Parameter "INIT_FILE_LAYOUT" = "PORT_B"
+    Info (12134): Parameter "MAXIMUM_DEPTH" = "512"
+    Info (12134): Parameter "ENABLE_RUNTIME_MOD" = "NO"
+    Info (12134): Parameter "INSTANCE_NAME" = "UNUSED"
+    Info (12134): Parameter "ENABLE_ECC" = "FALSE"
+    Info (12134): Parameter "ECCSTATUS_REG" = "UNREGISTERED"
+    Info (12134): Parameter "CLOCK_ENABLE_CORE_A" = "NORMAL"
+    Info (12134): Parameter "CLOCK_ENABLE_CORE_B" = "BYPASS"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "NEW_DATA_WITH_NBE_READ"
+    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_B" = "NEW_DATA_WITH_NBE_READ"
+    Info (12134): Parameter "CLOCK_ENABLE_ECC_STATUS" = "NORMAL"
+Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cbm3.tdf
+    Info (12023): Found entity 1: altsyncram_cbm3
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_msa.tdf
+    Info (12023): Found entity 1: decode_msa
+Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
+    Info (12023): Found entity 1: decode_f8a
+Info (12021): Found 1 design units, including 1 entities, in source file db/mux_job.tdf
+    Info (12023): Found entity 1: mux_job
 Info (12130): Elaborated megafunction instantiation "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0"
 Info (12133): Instantiated megafunction "memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0" with the following parameter:
     Info (12134): Parameter "LPM_TYPE" = "altsyncram"
@@ -1819,69 +1880,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file db/deco
     Info (12023): Found entity 1: decode_c8a
 Info (12021): Found 1 design units, including 1 entities, in source file db/mux_gob.tdf
     Info (12023): Found entity 1: mux_gob
-Info (12130): Elaborated megafunction instantiation "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0"
-Info (12133): Instantiated megafunction "disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0" with the following parameter:
-    Info (12134): Parameter "LPM_TYPE" = "altsyncram"
-    Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
-    Info (12134): Parameter "WIDTH_A" = "32"
-    Info (12134): Parameter "WIDTHAD_A" = "11"
-    Info (12134): Parameter "NUMWORDS_A" = "2048"
-    Info (12134): Parameter "OUTDATA_REG_A" = "UNREGISTERED"
-    Info (12134): Parameter "ADDRESS_ACLR_A" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_A" = "NONE"
-    Info (12134): Parameter "INDATA_ACLR_A" = "NONE"
-    Info (12134): Parameter "BYTEENA_ACLR_A" = "NONE"
-    Info (12134): Parameter "CLOCK_ENABLE_INPUT_A" = "BYPASS"
-    Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_A" = "BYPASS"
-    Info (12134): Parameter "WIDTH_B" = "32"
-    Info (12134): Parameter "WIDTHAD_B" = "11"
-    Info (12134): Parameter "NUMWORDS_B" = "2048"
-    Info (12134): Parameter "INDATA_REG_B" = "UNUSED"
-    Info (12134): Parameter "WRCONTROL_WRADDRESS_REG_B" = "CLOCK1"
-    Info (12134): Parameter "RDCONTROL_REG_B" = "CLOCK1"
-    Info (12134): Parameter "ADDRESS_REG_B" = "CLOCK1"
-    Info (12134): Parameter "BYTEENA_REG_B" = "UNUSED"
-    Info (12134): Parameter "OUTDATA_REG_B" = "UNREGISTERED"
-    Info (12134): Parameter "INDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "WRCONTROL_ACLR_B" = "NONE"
-    Info (12134): Parameter "ADDRESS_ACLR_B" = "NONE"
-    Info (12134): Parameter "OUTDATA_ACLR_B" = "NONE"
-    Info (12134): Parameter "RDCONTROL_ACLR_B" = "NONE"
-    Info (12134): Parameter "BYTEENA_ACLR_B" = "NONE"
-    Info (12134): Parameter "CLOCK_ENABLE_INPUT_B" = "BYPASS"
-    Info (12134): Parameter "CLOCK_ENABLE_OUTPUT_B" = "BYPASS"
-    Info (12134): Parameter "WIDTH_BYTEENA_A" = "1"
-    Info (12134): Parameter "WIDTH_BYTEENA_B" = "1"
-    Info (12134): Parameter "RAM_BLOCK_TYPE" = "AUTO"
-    Info (12134): Parameter "BYTE_SIZE" = "8"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_MIXED_PORTS" = "DONT_CARE"
-    Info (12134): Parameter "INIT_FILE" = "db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif"
-    Info (12134): Parameter "INIT_FILE_LAYOUT" = "PORT_B"
-    Info (12134): Parameter "MAXIMUM_DEPTH" = "512"
-    Info (12134): Parameter "ENABLE_RUNTIME_MOD" = "NO"
-    Info (12134): Parameter "INSTANCE_NAME" = "UNUSED"
-    Info (12134): Parameter "ENABLE_ECC" = "FALSE"
-    Info (12134): Parameter "ECCSTATUS_REG" = "UNREGISTERED"
-    Info (12134): Parameter "CLOCK_ENABLE_CORE_A" = "NORMAL"
-    Info (12134): Parameter "CLOCK_ENABLE_CORE_B" = "BYPASS"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_A" = "NEW_DATA_WITH_NBE_READ"
-    Info (12134): Parameter "READ_DURING_WRITE_MODE_PORT_B" = "NEW_DATA_WITH_NBE_READ"
-    Info (12134): Parameter "CLOCK_ENABLE_ECC_STATUS" = "NORMAL"
-Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cbm3.tdf
-    Info (12023): Found entity 1: altsyncram_cbm3
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_msa.tdf
-    Info (12023): Found entity 1: decode_msa
-Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
-    Info (12023): Found entity 1: decode_f8a
-Info (12021): Found 1 design units, including 1 entities, in source file db/mux_job.tdf
-    Info (12023): Found entity 1: mux_job
 Info (12130): Elaborated megafunction instantiation "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0"
 Info (12133): Instantiated megafunction "memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0" with the following parameter:
     Info (12134): Parameter "LPM_TYPE" = "altsyncram"
@@ -1951,17 +1949,17 @@ Info (17049): 74 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/diego/iZero-MipsProcessor/iZero/output_files/iZero.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9161 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9134 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 89 output pins
-    Info (21061): Implemented 8714 logic cells
+    Info (21061): Implemented 8687 logic cells
     Info (21064): Implemented 331 RAM segments
     Info (21062): Implemented 6 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 29 warnings
-    Info: Peak virtual memory: 1095 megabytes
-    Info: Processing ended: Sun Mar  4 17:16:32 2018
-    Info: Elapsed time: 00:01:05
-    Info: Total CPU time (on all processors): 00:01:14
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 27 warnings
+    Info: Peak virtual memory: 1094 megabytes
+    Info: Processing ended: Sun Mar 11 15:14:52 2018
+    Info: Elapsed time: 00:01:12
+    Info: Total CPU time (on all processors): 00:01:26
 
 
 +------------------------------------------+
