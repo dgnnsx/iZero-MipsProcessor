@@ -156,14 +156,14 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, op, func, inta, regWrite
 	assign aluOp[1]			= i_mul	| i_div	| i_xor	| i_srl	| i_lt	| i_not	|
 									i_muli	| i_divi	| i_xori | i_srli	| i_let	|
 									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_exec_again;
+									i_ldk	| i_sim	|	i_sdk	| i_mmu_select	| i_syscall	| i_exec_again;
 	assign aluOp[2]			= i_mod	| i_sll	| i_srl	| i_land	| i_lor	| i_gt  	|
 									i_modi	| i_slli	| i_srli	| i_landi| i_lori | i_get 	|
 									i_mov	| i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_exec_again;
+									i_ldk	| i_sim	|	i_sdk	| i_mmu_select	| i_syscall	| i_exec_again;
 	assign aluOp[3]			= i_and	| i_or	| i_xor	| i_land	| i_lor	| i_not	|
 									i_andi | i_ori  | i_xori | i_landi| i_lori |
 									i_mov  | i_li	| i_jr	| i_out	| i_jf	|
-									i_ldk	| i_sim	| i_mmu_select	| i_syscall	| i_exec_again;
+									i_ldk	| i_sim	|	i_sdk	| i_mmu_select	| i_syscall	| i_exec_again;
 	assign aluOp[4]			= i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
 endmodule

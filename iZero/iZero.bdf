@@ -2042,7 +2042,7 @@ agreement for further details.
 		(pt 208 32)
 		(output)
 		(text "addrOut[25..0]" (rect 0 0 68 10)(font "Arial" ))
-		(text "addrOut[25..0]" (rect 130 27 187 37)(font "Arial" ))
+		(text "addrOut[25..0]" (rect 130 27 198 37)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
 	(drawing
@@ -2631,11 +2631,6 @@ agreement for further details.
 (connector
 	(pt 1328 64)
 	(pt 1352 64)
-	(bus)
-)
-(connector
-	(pt 128 776)
-	(pt 408 776)
 	(bus)
 )
 (connector
@@ -3938,6 +3933,26 @@ agreement for further details.
 	(pt 304 -16)
 	(bus)
 )
+(connector
+	(pt -120 640)
+	(pt -144 640)
+	(bus)
+)
+(connector
+	(pt -144 776)
+	(pt -144 640)
+	(bus)
+)
+(connector
+	(pt -144 776)
+	(pt 128 776)
+	(bus)
+)
+(connector
+	(pt 128 776)
+	(pt 408 776)
+	(bus)
+)
 (junction (pt 1856 0))
 (junction (pt 632 80))
 (junction (pt 680 112))
@@ -3979,3 +3994,4 @@ agreement for further details.
 (junction (pt 1576 544))
 (junction (pt 1600 512))
 (junction (pt 304 -312))
+(junction (pt 128 776))
