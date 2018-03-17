@@ -59,6 +59,13 @@ agreement for further details.
 		(text "addrout[25..0]" (rect 133 27 187 39)(font "Arial" ))
 		(line (pt 208 32)(pt 192 32)(line_width 3))
 	)
+	(port
+		(pt 208 48)
+		(output)
+		(text "addrbckp[25..0]" (rect 0 0 61 12)(font "Arial" ))
+		(text "addrbckp[25..0]" (rect 126 43 187 55)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 3))
+	)
 	(drawing
 		(rectangle (rect 16 16 192 96)(line_width 1))
 	)

@@ -1,12 +1,12 @@
-Analysis & Synthesis Status : Successful - Mon Mar 12 18:57:37 2018
+Analysis & Synthesis Status : Successful - Sat Mar 17 02:34:29 2018
 Quartus II 64-Bit Version : 15.0.2 Build 153 07/15/2015 SJ Web Edition
 Revision Name : iZero
 Top-level Entity Name : iZero
 Family : Cyclone IV E
-Total logic elements : 8,664
-    Total combinational functions : 7,554
-    Dedicated logic registers : 1,356
-Total registers : 1356
+Total logic elements : 8,712
+    Total combinational functions : 7,576
+    Dedicated logic registers : 1,390
+Total registers : 1390
 Total pins : 110
 Total virtual pins : 0
 Total memory bits : 163,961

@@ -1,9 +1,10 @@
-module unidade_de_controle(isFalse, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
+module unidade_de_controle(isFalse, btn, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
 	isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, clearIntr, diskIntMux, regDest, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
-	input intr; 							// Interrupt Request (for a while, just input)
+	input btn;
+	input intr; 							// Interrupt Request
 	input rst;
 	input rstBios;
 	input [5:0] op;						// Codigo da instrucao
@@ -105,11 +106,11 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, op, func, inta, regWrite
 	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
 	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
 	
-	wire isInput				= intr;
+	wire isInput				= btn;
 	
 	// Atribui controles do datapath
-	assign inta					= i_pre_io;
-	assign regWrite			= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
+	assign inta					= i_pre_io | intr;
+	assign regWrite			= ~intr	& i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_addi | i_subi | i_muli | i_divi | i_modi |
 									i_and  | i_or   | i_xor  | i_not	|
 									i_andi | i_ori  | i_xori |
@@ -119,36 +120,36 @@ module unidade_de_controle(isFalse, intr, rst, rstBios, op, func, inta, regWrite
 									i_jal	| i_exec	|	i_exec_again |
 									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get |
 									i_ldk	| i_gic	| i_gip;
-	assign memWrite			= i_sw;
-	assign imWrite				= i_sim;
-	assign diskWrite			= i_sdk;
-	assign mmuWrite			= i_mmu_lower_im | i_mmu_upper_im;
-	assign mmuSelect			= i_mmu_select;
-	assign isRegAluOp 		= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
+	assign memWrite			= ~intr	& i_sw;
+	assign imWrite				= ~intr	& i_sim;
+	assign diskWrite			= ~intr	& i_sdk;
+	assign mmuWrite			= ~intr	& i_mmu_lower_im | i_mmu_upper_im;
+	assign mmuSelect			= ~intr	& i_mmu_select;
+	assign isRegAluOp 		= ~intr	& i_add  | i_sub  | i_mul  | i_div  | i_mod  |
 									i_and  | i_or   | i_xor  |
 									i_sll  | i_srl  |
 									i_mov 	|
 									i_eq 	| i_ne	| i_lt	| i_let	| i_gt	| i_get;
-	assign outWrite			= i_out;
-	assign isHalt				= i_halt;
+	assign outWrite			= ~intr	& i_out;
+	assign isHalt				= ~intr	& i_halt;
 	assign isInsert			= i_in & isInput;
-	assign wlcd					= i_lcd	| i_lcd_pgms	| i_lcd_curr;
-	assign reset				= ~rst | rstBios;
-	assign userMode			= i_exec	| i_exec_again;
-	assign kernelMode			= i_syscall;
-	assign clearIntr			= i_cic;
-	assign diskIntMux[0]		= i_ldk	| i_gip;
-	assign diskIntMux[1]		= i_gic	| i_gip;
-	assign regDest[0]			= i_addi | i_subi | i_muli | i_divi | i_modi |
+	assign wlcd					= ~intr	& i_lcd	| i_lcd_pgms	| i_lcd_curr;
+	assign reset				= ~intr	& ~rst | rstBios;
+	assign userMode			= ~intr	& i_exec	| i_exec_again;
+	assign kernelMode			= ~intr	& i_syscall;
+	assign clearIntr			= ~intr	& i_cic;
+	assign diskIntMux[0]		= ~intr	& i_ldk	| i_gip;
+	assign diskIntMux[1]		= ~intr	& i_gic	| i_gip;
+	assign regDest[0]			= ~intr	& i_addi | i_subi | i_muli | i_divi | i_modi |
 										i_andi | i_ori  | i_xori | i_not	|
 										i_slli | i_srli |
 										i_mov  | i_lw   | i_li   | i_la   | i_in	|
-										i_ldk	 | i_gic	 | i_gip;
-	assign regDest[1]			= i_jal | i_exec	| i_exec_again;
-	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
-	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall | i_exec_again;
-	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_exec_again;
-	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again	| i_gic	| i_gip;
+										i_ldk	 | i_gic	 | i_gip	 | i_exec | i_exec_again;
+	assign regDest[1]			= ~intr	& i_jal | i_exec	| i_exec_again;
+	assign pcSource[0]		= ~intr	& i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
+	assign pcSource[1]		= ~intr	& i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall | i_exec_again;
+	assign regWrtSelect[0] 	= ~intr	& i_lw | i_jal | i_exec	| i_exec_again;
+	assign regWrtSelect[1]	= ~intr	& i_in | i_jal | i_exec	| i_exec_again	| i_gic	| i_gip;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 									i_subi | i_divi	| i_slli	| i_ori	| i_lori	|
 									i_li	| i_out	|
