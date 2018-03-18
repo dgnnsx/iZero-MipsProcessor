@@ -2028,7 +2028,7 @@ agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "irq" (rect 0 0 12 10)(font "Arial" ))
-		(text "irq" (rect 21 27 31 37)(font "Arial" ))
+		(text "irq" (rect 21 27 33 37)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(drawing
@@ -2037,7 +2037,44 @@ agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 144 240 352 352)
+	(rect 1376 896 1584 1008)
+	(text "lastProgramCounter" (rect 107 0 203 10)(font "Arial" ))
+	(text "inst13" (rect 171 96 200 106)(font "Arial" ))
+	(port
+		(pt 208 32)
+		(input)
+		(text "opcode[5..0]" (rect 0 0 59 10)(font "Arial" ))
+		(text "opcode[5..0]" (rect 128 27 187 37)(font "Arial" ))
+		(line (pt 208 32)(pt 192 32)(line_width 3))
+	)
+	(port
+		(pt 208 48)
+		(input)
+		(text "next_pc[25..0]" (rect 0 0 67 10)(font "Arial" ))
+		(text "next_pc[25..0]" (rect 120 43 187 53)(font "Arial" ))
+		(line (pt 208 48)(pt 192 48)(line_width 3))
+	)
+	(port
+		(pt 208 64)
+		(input)
+		(text "curr_pc[25..0]" (rect 0 0 64 10)(font "Arial" ))
+		(text "curr_pc[25..0]" (rect 123 59 187 69)(font "Arial" ))
+		(line (pt 208 64)(pt 192 64)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "pc_out[25..0]" (rect 0 0 61 10)(font "Arial" ))
+		(text "pc_out[25..0]" (rect 21 27 72 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 192 96))
+	)
+	(flipy)
+)
+(symbol
+	(rect 136 240 352 352)
 	(text "contador_de_programa" (rect 5 0 117 10)(font "Arial" ))
 	(text "inst16" (rect 8 96 37 106)(font "Arial" ))
 	(port
@@ -2069,45 +2106,22 @@ agreement for further details.
 		(line (pt 0 80)(pt 16 80)(line_width 3))
 	)
 	(port
-		(pt 208 32)
+		(pt 216 32)
 		(output)
 		(text "addrout[25..0]" (rect 0 0 66 10)(font "Arial" ))
-		(text "addrout[25..0]" (rect 132 27 187 37)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 96))
-	)
-)
-(symbol
-	(rect 1392 896 1592 976)
-	(text "lastProgramCounter" (rect 99 0 195 10)(font "Arial" ))
-	(text "inst13" (rect 163 64 192 74)(font "Arial" ))
-	(port
-		(pt 200 32)
-		(input)
-		(text "opcode[5..0]" (rect 0 0 59 10)(font "Arial" ))
-		(text "opcode[5..0]" (rect 120 27 179 37)(font "Arial" ))
-		(line (pt 200 32)(pt 184 32)(line_width 3))
+		(text "addrout[25..0]" (rect 140 27 195 37)(font "Arial" ))
+		(line (pt 216 32)(pt 200 32)(line_width 3))
 	)
 	(port
-		(pt 200 48)
-		(input)
-		(text "pc_in[25..0]" (rect 0 0 55 10)(font "Arial" ))
-		(text "pc_in[25..0]" (rect 124 43 179 53)(font "Arial" ))
-		(line (pt 200 48)(pt 184 48)(line_width 3))
-	)
-	(port
-		(pt 0 32)
+		(pt 216 48)
 		(output)
-		(text "pc_out[25..0]" (rect 0 0 61 10)(font "Arial" ))
-		(text "pc_out[25..0]" (rect 11 27 72 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
+		(text "addrBckp[25..0]" (rect 0 0 74 10)(font "Arial" ))
+		(text "addrBckp[25..0]" (rect 133 43 195 53)(font "Arial" ))
+		(line (pt 216 48)(pt 200 48)(line_width 3))
 	)
 	(drawing
-		(rectangle (rect 16 16 184 64))
+		(rectangle (rect 16 16 200 96))
 	)
-	(flipy)
 )
 (connector
 	(pt 632 -16)
@@ -2778,16 +2792,6 @@ agreement for further details.
 	(pt -184 488)
 )
 (connector
-	(pt 152 504)
-	(pt 368 504)
-	(bus)
-)
-(connector
-	(pt 368 504)
-	(pt 424 504)
-	(bus)
-)
-(connector
 	(pt 640 96)
 	(pt 360 96)
 	(bus)
@@ -3363,11 +3367,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 152 504)
-	(pt 152 720)
-	(bus)
-)
-(connector
 	(pt 152 720)
 	(pt 168 720)
 	(bus)
@@ -3409,10 +3408,6 @@ agreement for further details.
 	(pt -200 736)
 )
 (connector
-	(pt -200 64)
-	(pt -200 304)
-)
-(connector
 	(pt -352 -288)
 	(pt -352 -104)
 )
@@ -3450,52 +3445,9 @@ agreement for further details.
 	(pt 608 -392)
 )
 (connector
-	(pt 112 272)
-	(pt 144 272)
-)
-(connector
-	(pt 368 272)
-	(pt 352 272)
-	(bus)
-)
-(connector
-	(pt 128 288)
-	(pt 144 288)
-)
-(connector
 	(pt -136 80)
 	(pt -136 320)
 	(bus)
-)
-(connector
-	(pt 112 232)
-	(pt 112 272)
-)
-(connector
-	(pt 112 272)
-	(pt 112 432)
-)
-(connector
-	(pt 368 -504)
-	(pt 368 272)
-	(bus)
-)
-(connector
-	(pt 368 272)
-	(pt 368 464)
-	(bus)
-)
-(connector
-	(pt 128 8)
-	(pt 128 288)
-)
-(connector
-	(pt 128 288)
-	(pt 128 448)
-)
-(connector
-	(pt -200 304)
-	(pt 144 304)
 )
 (connector
 	(pt 1456 456)
@@ -3702,10 +3654,6 @@ agreement for further details.
 	(pt 128 776)
 	(pt 408 776)
 	(bus)
-)
-(connector
-	(pt -200 304)
-	(pt -200 736)
 )
 (connector
 	(pt -200 736)
@@ -3956,16 +3904,6 @@ agreement for further details.
 	(pt 1976 512)
 )
 (connector
-	(pt -224 320)
-	(pt -136 320)
-	(bus)
-)
-(connector
-	(pt -136 320)
-	(pt 144 320)
-	(bus)
-)
-(connector
 	(pt -224 1056)
 	(pt -224 320)
 	(bus)
@@ -4046,27 +3984,7 @@ agreement for further details.
 )
 (connector
 	(pt 1272 928)
-	(pt 1392 928)
-	(bus)
-)
-(connector
-	(pt 1608 1056)
-	(pt -224 1056)
-	(bus)
-)
-(connector
-	(pt 1608 1056)
-	(pt 1608 944)
-	(bus)
-)
-(connector
-	(pt 1608 944)
-	(pt 1592 944)
-	(bus)
-)
-(connector
-	(pt 1592 928)
-	(pt 1608 928)
+	(pt 1376 928)
 	(bus)
 )
 (connector
@@ -4083,6 +4001,137 @@ agreement for further details.
 (connector
 	(pt 1608 560)
 	(pt 1976 560)
+	(bus)
+)
+(connector
+	(pt 1584 928)
+	(pt 1608 928)
+	(bus)
+)
+(connector
+	(pt 1608 1056)
+	(pt 1608 944)
+	(bus)
+)
+(connector
+	(pt 1584 944)
+	(pt 1608 944)
+	(bus)
+)
+(connector
+	(pt 1600 1064)
+	(pt 1600 960)
+	(bus)
+)
+(connector
+	(pt 1600 960)
+	(pt 1584 960)
+	(bus)
+)
+(connector
+	(pt 152 504)
+	(pt 368 504)
+	(bus)
+)
+(connector
+	(pt 368 504)
+	(pt 424 504)
+	(bus)
+)
+(connector
+	(pt 152 504)
+	(pt 152 720)
+	(bus)
+)
+(connector
+	(pt 112 272)
+	(pt 136 272)
+)
+(connector
+	(pt 128 288)
+	(pt 136 288)
+)
+(connector
+	(pt -200 304)
+	(pt 136 304)
+)
+(connector
+	(pt 112 232)
+	(pt 112 272)
+)
+(connector
+	(pt 112 272)
+	(pt 112 432)
+)
+(connector
+	(pt 368 -504)
+	(pt 368 272)
+	(bus)
+)
+(connector
+	(pt 368 272)
+	(pt 368 464)
+	(bus)
+)
+(connector
+	(pt 128 8)
+	(pt 128 288)
+)
+(connector
+	(pt 128 288)
+	(pt 128 448)
+)
+(connector
+	(pt -200 64)
+	(pt -200 304)
+)
+(connector
+	(pt -200 304)
+	(pt -200 736)
+)
+(connector
+	(pt -224 320)
+	(pt -136 320)
+	(bus)
+)
+(connector
+	(pt -136 320)
+	(pt 136 320)
+	(bus)
+)
+(connector
+	(pt 352 272)
+	(pt 368 272)
+	(bus)
+)
+(connector
+	(pt -224 1056)
+	(pt 1608 1056)
+	(bus)
+)
+(connector
+	(pt 352 288)
+	(pt 360 288)
+	(bus)
+)
+(connector
+	(pt 360 288)
+	(pt 360 384)
+	(bus)
+)
+(connector
+	(pt 360 384)
+	(pt -232 384)
+	(bus)
+)
+(connector
+	(pt -232 384)
+	(pt -232 1064)
+	(bus)
+)
+(connector
+	(pt -232 1064)
+	(pt 1600 1064)
 	(bus)
 )
 (junction (pt 1856 0))
