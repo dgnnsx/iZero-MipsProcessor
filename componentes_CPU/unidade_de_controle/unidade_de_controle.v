@@ -1,9 +1,9 @@
-module unidade_de_controle(isFalse, btn, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
+module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
 	isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, clearIntr, diskIntMux, regDest, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
-	input btn;
+	input isInput;
 	input intr; 							// Interrupt Request
 	input rst;
 	input rstBios;
@@ -105,8 +105,6 @@ module unidade_de_controle(isFalse, btn, intr, rst, rstBios, op, func, inta, reg
 	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
 	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
 	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
-	
-	wire isInput				= btn;
 	
 	// Atribui controles do datapath
 	assign inta					= i_pre_io | intr;
