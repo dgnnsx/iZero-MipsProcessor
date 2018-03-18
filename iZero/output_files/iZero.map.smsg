@@ -27,4 +27,3 @@ Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object 
 Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_y" differs only in case from object "CHAR_Y" in the same scope
 Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_z" differs only in case from object "CHAR_Z" in the same scope
 Info (10281): Verilog HDL Declaration information at controlador_bios.v(4): object "bios" differs only in case from object "BIOS" in the same scope
-Info (10281): Verilog HDL Declaration information at controlador_disco.v(9): object "transferido" differs only in case from object "TRANSFERIDO" in the same scope

@@ -1,5 +1,5 @@
 Analysis & Synthesis report for iZero
-Sat Mar 17 02:34:30 2018
+Sun Mar 18 04:10:07 2018
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -73,15 +73,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sat Mar 17 02:34:29 2018      ;
+; Analysis & Synthesis Status        ; Successful - Sun Mar 18 04:10:06 2018      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 8,712                                      ;
-;     Total combinational functions  ; 7,576                                      ;
-;     Dedicated logic registers      ; 1,390                                      ;
-; Total registers                    ; 1390                                       ;
+; Total logic elements               ; 8,714                                      ;
+;     Total combinational functions  ; 7,578                                      ;
+;     Dedicated logic registers      ; 1,389                                      ;
+; Total registers                    ; 1389                                       ;
 ; Total pins                         ; 110                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 163,961                                    ;
@@ -272,20 +272,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Estimated Total logic elements              ; 8,712                           ;
+; Estimated Total logic elements              ; 8,714                           ;
 ;                                             ;                                 ;
-; Total combinational functions               ; 7576                            ;
+; Total combinational functions               ; 7578                            ;
 ; Logic element usage by number of LUT inputs ;                                 ;
-;     -- 4 input functions                    ; 5294                            ;
-;     -- 3 input functions                    ; 1830                            ;
-;     -- <=2 input functions                  ; 452                             ;
+;     -- 4 input functions                    ; 5277                            ;
+;     -- 3 input functions                    ; 1808                            ;
+;     -- <=2 input functions                  ; 493                             ;
 ;                                             ;                                 ;
 ; Logic elements by mode                      ;                                 ;
-;     -- normal mode                          ; 6139                            ;
+;     -- normal mode                          ; 6141                            ;
 ;     -- arithmetic mode                      ; 1437                            ;
 ;                                             ;                                 ;
-; Total registers                             ; 1390                            ;
-;     -- Dedicated logic registers            ; 1390                            ;
+; Total registers                             ; 1389                            ;
+;     -- Dedicated logic registers            ; 1389                            ;
 ;     -- I/O registers                        ; 0                               ;
 ;                                             ;                                 ;
 ; I/O pins                                    ; 110                             ;
@@ -294,8 +294,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 6                               ;
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; temporizador:inst19|contador[4] ;
-; Maximum fan-out                             ; 1577                            ;
-; Total fan-out                               ; 37642                           ;
+; Maximum fan-out                             ; 1576                            ;
+; Total fan-out                               ; 37588                           ;
 ; Average fan-out                             ; 3.95                            ;
 +---------------------------------------------+---------------------------------+
 
@@ -305,7 +305,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                    ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |iZero                                          ; 7576 (0)          ; 1390 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
+; |iZero                                          ; 7578 (0)          ; 1389 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
 ;    |BCD_dois_digitos:inst30|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst30                                                                                                                                         ; work         ;
 ;    |BCD_dois_digitos:inst31|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst31                                                                                                                                         ; work         ;
 ;    |BCD_quatro_digitos:inst32|                  ; 300 (300)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_quatro_digitos:inst32                                                                                                                                       ; work         ;
@@ -357,8 +357,8 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |somador_interruptor:inst37|                 ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_interruptor:inst37                                                                                                                                      ; work         ;
 ;    |somador_pc:inst10|                          ; 78 (78)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
 ;    |temporizador:inst19|                        ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|temporizador:inst19                                                                                                                                             ; work         ;
-;    |unidade_de_controle:inst27|                 ; 107 (107)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst27                                                                                                                                      ; work         ;
-;    |unidade_logica_aritmetica:inst6|            ; 2911 (722)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
+;    |unidade_de_controle:inst27|                 ; 108 (108)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst27                                                                                                                                      ; work         ;
+;    |unidade_logica_aritmetica:inst6|            ; 2912 (723)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
 ;       |lpm_divide:Div0|                         ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0                                                                                                                 ; work         ;
 ;          |lpm_divide_hkm:auto_generated|        ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                                   ; work         ;
 ;             |sign_div_unsign_9nh:divider|       ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
@@ -370,7 +370,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |add_sub_8pc:add_sub_1|       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1           ; work         ;
 ;       |lpm_mult:Mult0|                          ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0                                                                                                                  ; work         ;
 ;          |mult_7dt:auto_generated|              ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                          ; work         ;
-;    |watchdog:inst11|                            ; 8 (8)             ; 7 (7)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst11                                                                                                                                                 ; work         ;
+;    |watchdog:inst11|                            ; 8 (8)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst11                                                                                                                                                 ; work         ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -525,7 +525,7 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1390  ;
+; Total registers                              ; 1389  ;
 ; Number of registers using Synchronous Clear  ; 99    ;
 ; Number of registers using Synchronous Load   ; 27    ;
 ; Number of registers using Asynchronous Clear ; 135   ;
@@ -589,7 +589,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 5:1                ; 26 bits   ; 78 LEs        ; 52 LEs               ; 26 LEs                 ; Yes        ; |iZero|contador_de_programa:inst16|addrout[12]                         ;
+; 5:1                ; 26 bits   ; 78 LEs        ; 52 LEs               ; 26 LEs                 ; Yes        ; |iZero|contador_de_programa:inst16|addrout[11]                         ;
 ; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |iZero|controlador_interrupcao:inst|cause[0]                           ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[5]                  ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux4                                     ;
@@ -1330,7 +1330,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 110                         ;
-; cycloneiii_ff         ; 1390                        ;
+; cycloneiii_ff         ; 1389                        ;
 ;     CLR               ; 14                          ;
 ;     CLR SCLR          ; 46                          ;
 ;     ENA               ; 1132                        ;
@@ -1338,23 +1338,23 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     ENA SLD           ; 5                           ;
 ;     SCLR              ; 31                          ;
 ;     SCLR SLD          ; 22                          ;
-;     plain             ; 65                          ;
-; cycloneiii_lcell_comb ; 7592                        ;
+;     plain             ; 64                          ;
+; cycloneiii_lcell_comb ; 7594                        ;
 ;     arith             ; 1437                        ;
 ;         2 data inputs ; 229                         ;
 ;         3 data inputs ; 1208                        ;
-;     normal            ; 6155                        ;
+;     normal            ; 6157                        ;
 ;         0 data inputs ; 63                          ;
 ;         1 data inputs ; 33                          ;
-;         2 data inputs ; 143                         ;
-;         3 data inputs ; 622                         ;
-;         4 data inputs ; 5294                        ;
+;         2 data inputs ; 184                         ;
+;         3 data inputs ; 600                         ;
+;         4 data inputs ; 5277                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
 ; cycloneiii_ram_block  ; 331                         ;
 ;                       ;                             ;
-; Max LUT depth         ; 143.50                      ;
-; Average LUT depth     ; 83.25                       ;
+; Max LUT depth         ; 142.50                      ;
+; Average LUT depth     ; 82.88                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1363,7 +1363,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:44     ;
+; Top            ; 00:00:46     ;
 +----------------+--------------+
 
 
@@ -1373,7 +1373,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
-    Info: Processing started: Sat Mar 17 02:33:31 2018
+    Info: Processing started: Sun Mar 18 04:09:04 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off iZero -c iZero
 Info (16303): Aggressive Power optimization mode selected -- dynamic power will be prioritized at the potential cost of reduced timing performance and increased compilation time
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1432,8 +1432,6 @@ Info (12021): Found 1 design units, including 1 entities, in source file /home/d
     Info (12023): Found entity 1: controlador_bios
 Info (12021): Found 1 design units, including 1 entities, in source file /home/diego/iZero-MipsProcessor/componentes_CPU/disco_rigido.v
     Info (12023): Found entity 1: disco_rigido
-Info (12021): Found 1 design units, including 1 entities, in source file /home/diego/iZero-MipsProcessor/componentes_CPU/controlador_disco.v
-    Info (12023): Found entity 1: controlador_disco
 Info (12021): Found 1 design units, including 1 entities, in source file /home/diego/iZero-MipsProcessor/componentes_CPU/delay_button.v
     Info (12023): Found entity 1: delay_button
 Info (12021): Found 1 design units, including 1 entities, in source file /home/diego/iZero-MipsProcessor/componentes_CPU/multiplexador_disco.v
@@ -1463,7 +1461,6 @@ Info (12128): Elaborating entity "delay_button" for hierarchy "delay_button:inst
 Info (12128): Elaborating entity "debouncer" for hierarchy "debouncer:inst22"
 Info (12128): Elaborating entity "modulo_input" for hierarchy "modulo_input:inst14"
 Info (12128): Elaborating entity "watchdog" for hierarchy "watchdog:inst11"
-Warning (10230): Verilog HDL assignment warning at watchdog.v(17): truncated value with size 32 to match size of target (6)
 Info (12128): Elaborating entity "mmu" for hierarchy "mmu:inst38"
 Info (12128): Elaborating entity "contador_de_programa" for hierarchy "contador_de_programa:inst16"
 Info (12128): Elaborating entity "somador_pc" for hierarchy "somador_pc:inst10"
@@ -1950,17 +1947,17 @@ Info (17049): 74 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/diego/iZero-MipsProcessor/iZero/output_files/iZero.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9219 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9221 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 89 output pins
-    Info (21061): Implemented 8772 logic cells
+    Info (21061): Implemented 8774 logic cells
     Info (21064): Implemented 331 RAM segments
     Info (21062): Implemented 6 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 22 warnings
-    Info: Peak virtual memory: 1097 megabytes
-    Info: Processing ended: Sat Mar 17 02:34:30 2018
-    Info: Elapsed time: 00:00:59
-    Info: Total CPU time (on all processors): 00:01:15
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 21 warnings
+    Info: Peak virtual memory: 1093 megabytes
+    Info: Processing ended: Sun Mar 18 04:10:07 2018
+    Info: Elapsed time: 00:01:03
+    Info: Total CPU time (on all processors): 00:01:19
 
 
 +------------------------------------------+
