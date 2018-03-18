@@ -1,10 +1,10 @@
-module watchdog(clk, isUser, irq);
-	input clk;
-	input isUser;
+module watchdog(
+	input clk,
+	input reset,
+	input isUser,
+	output irq);
 	
-	output irq; 						// Interrupcao
-	
-	localparam COUNTER_WIDTH = 8;
+	localparam COUNTER_WIDTH = 6;
 	reg [COUNTER_WIDTH-1:0] contador;
 	
 	initial begin
@@ -12,7 +12,7 @@ module watchdog(clk, isUser, irq);
 	end
 	
 	always @ (posedge clk) begin
-		contador <= isUser ? contador + 1'b1 : 8'b0;
+		contador <= reset ? 6'b0 : isUser ? contador + 1'b1 : 6'b0;
 	end
 	
 	assign irq = contador[COUNTER_WIDTH-1];

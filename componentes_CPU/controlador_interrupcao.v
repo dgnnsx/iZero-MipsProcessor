@@ -21,7 +21,12 @@ module controlador_interrupcao(clk, irq1, pc, ack, clr, intr, cause, pcBckp);
 	end
 	
 	always @ (posedge clk) begin
-		cause <= clr ? 32'd0 : (ack & ~irq1) ? 32'd1 : (ack & irq1) ? 32'd2 : cause;
+		if (clr)
+			cause <= 0;
+		else if (ack) begin
+			cause <= irq1 ? 2 : 1;
+		end else
+			cause <= cause;
 	end
 	
 	assign intr = irq1;

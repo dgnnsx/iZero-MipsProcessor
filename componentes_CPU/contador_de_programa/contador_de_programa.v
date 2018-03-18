@@ -1,4 +1,4 @@
-module contador_de_programa(clk, reset, inta, addrin, addrout, addrbckp);
+module contador_de_programa(clk, reset, inta, addrin, addrout);
 
 	input clk;										// clock
 	input reset;									// reset
@@ -6,18 +6,8 @@ module contador_de_programa(clk, reset, inta, addrin, addrout, addrbckp);
 	input [25:0] addrin;							// in address
 	
 	output reg [25:0] addrout;					// out address
-	output reg [25:0] addrbckp;				// backup pc
 	
-	always @ (posedge clk or posedge reset) begin
-		if (reset) begin
-			addrbckp <= 26'b0;
-			addrout <= 26'b0;
-		end else if (inta) begin
-			addrbckp <= addrout;
-			addrout <= 26'b0;
-		end else begin
-			addrbckp <= addrbckp;
-			addrout <= addrin;
-		end
+	always @ (posedge clk) begin
+		addrout <= reset | inta ? 26'b0 : addrin;
 	end
 endmodule
