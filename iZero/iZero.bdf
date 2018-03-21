@@ -1970,43 +1970,6 @@ agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1736 848 1872 960)
-	(text "watchdog" (rect 84 0 131 10)(font "Arial" ))
-	(text "inst" (rect 111 96 128 106)(font "Arial" ))
-	(port
-		(pt 136 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 101 27 115 37)(font "Arial" ))
-		(line (pt 136 32)(pt 120 32))
-	)
-	(port
-		(pt 136 48)
-		(input)
-		(text "reset" (rect 0 0 24 10)(font "Arial" ))
-		(text "reset" (rect 91 43 115 53)(font "Arial" ))
-		(line (pt 136 48)(pt 120 48))
-	)
-	(port
-		(pt 136 64)
-		(input)
-		(text "isUser" (rect 0 0 31 10)(font "Arial" ))
-		(text "isUser" (rect 84 59 115 69)(font "Arial" ))
-		(line (pt 136 64)(pt 120 64))
-	)
-	(port
-		(pt 0 32)
-		(output)
-		(text "irq" (rect 0 0 12 10)(font "Arial" ))
-		(text "irq" (rect 21 27 33 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 120 96))
-	)
-	(flipy)
-)
-(symbol
 	(rect 1376 896 1584 1008)
 	(text "lastProgramCounter" (rect 107 0 203 10)(font "Arial" ))
 	(text "inst13" (rect 171 96 200 106)(font "Arial" ))
@@ -2094,9 +2057,53 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1992 864 2144 976)
+	(rect 1672 848 1832 960)
+	(text "watchdog" (rect 108 0 155 10)(font "Arial" ))
+	(text "inst" (rect 135 96 152 106)(font "Arial" ))
+	(port
+		(pt 160 32)
+		(input)
+		(text "clk" (rect 0 0 14 10)(font "Arial" ))
+		(text "clk" (rect 125 27 139 37)(font "Arial" ))
+		(line (pt 160 32)(pt 144 32))
+	)
+	(port
+		(pt 160 48)
+		(input)
+		(text "reset" (rect 0 0 24 10)(font "Arial" ))
+		(text "reset" (rect 115 43 139 53)(font "Arial" ))
+		(line (pt 160 48)(pt 144 48))
+	)
+	(port
+		(pt 160 64)
+		(input)
+		(text "isUser" (rect 0 0 31 10)(font "Arial" ))
+		(text "isUser" (rect 108 59 139 69)(font "Arial" ))
+		(line (pt 160 64)(pt 144 64))
+	)
+	(port
+		(pt 160 80)
+		(input)
+		(text "opcode[5..0]" (rect 0 0 59 10)(font "Arial" ))
+		(text "opcode[5..0]" (rect 80 75 139 85)(font "Arial" ))
+		(line (pt 160 80)(pt 144 80)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "irq" (rect 0 0 12 10)(font "Arial" ))
+		(text "irq" (rect 21 27 31 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(drawing
+		(rectangle (rect 16 16 144 96))
+	)
+	(flipy)
+)
+(symbol
+	(rect 1992 864 2144 944)
 	(text "muxWDReset" (rect 80 0 147 10)(font "Arial" ))
-	(text "inst11" (rect 115 96 144 106)(font "Arial" ))
+	(text "inst11" (rect 115 64 144 74)(font "Arial" ))
 	(port
 		(pt 152 32)
 		(input)
@@ -2112,13 +2119,6 @@ agreement for further details.
 		(line (pt 152 48)(pt 136 48))
 	)
 	(port
-		(pt 152 64)
-		(input)
-		(text "op[5..0]" (rect 0 0 35 10)(font "Arial" ))
-		(text "op[5..0]" (rect 96 59 131 69)(font "Arial" ))
-		(line (pt 152 64)(pt 136 64)(line_width 3))
-	)
-	(port
 		(pt 0 32)
 		(output)
 		(text "out" (rect 0 0 16 10)(font "Arial" ))
@@ -2126,7 +2126,7 @@ agreement for further details.
 		(line (pt 0 32)(pt 16 32))
 	)
 	(drawing
-		(rectangle (rect 16 16 136 96))
+		(rectangle (rect 16 16 136 64))
 	)
 	(flipy)
 )
@@ -3867,28 +3867,8 @@ agreement for further details.
 	(pt 104 1048)
 )
 (connector
-	(pt 1952 880)
-	(pt 1872 880)
-)
-(connector
-	(pt 1952 512)
-	(pt 1952 880)
-)
-(connector
 	(pt 1880 1016)
 	(pt 1880 912)
-)
-(connector
-	(pt 1880 912)
-	(pt 1872 912)
-)
-(connector
-	(pt 1600 512)
-	(pt 1952 512)
-)
-(connector
-	(pt 1952 512)
-	(pt 1976 512)
 )
 (connector
 	(pt -224 1056)
@@ -3930,10 +3910,6 @@ agreement for further details.
 (connector
 	(pt 1248 864)
 	(pt 1552 864)
-)
-(connector
-	(pt 1248 880)
-	(pt 1736 880)
 )
 (connector
 	(pt 696 1008)
@@ -4117,6 +4093,40 @@ agreement for further details.
 	(bus)
 )
 (connector
+	(pt 1952 512)
+	(pt 1952 880)
+)
+(connector
+	(pt 1248 880)
+	(pt 1672 880)
+)
+(connector
+	(pt 1600 512)
+	(pt 1952 512)
+)
+(connector
+	(pt 1952 512)
+	(pt 1976 512)
+)
+(connector
+	(pt 1832 880)
+	(pt 1952 880)
+)
+(connector
+	(pt 1832 912)
+	(pt 1880 912)
+)
+(connector
+	(pt 1832 928)
+	(pt 1848 928)
+	(bus)
+)
+(connector
+	(pt 1848 928)
+	(pt 1848 840)
+	(bus)
+)
+(connector
 	(pt 2176 1040)
 	(pt 2176 912)
 )
@@ -4133,21 +4143,11 @@ agreement for further details.
 	(pt 2144 896)
 )
 (connector
-	(pt 1872 896)
+	(pt 1832 896)
 	(pt 1992 896)
 )
 (connector
-	(pt 2144 928)
-	(pt 2152 928)
-	(bus)
-)
-(connector
-	(pt 2152 840)
-	(pt 2152 928)
-	(bus)
-)
-(connector
-	(pt 2152 840)
+	(pt 1848 840)
 	(pt 1608 840)
 	(bus)
 )
