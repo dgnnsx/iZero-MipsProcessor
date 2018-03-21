@@ -12,7 +12,7 @@ module watchdog(
 	end
 	
 	always @ (posedge clk) begin
-		contador <= reset ? 6'b0 : isUser ? contador + 1'b1 : 6'b0;
+		contador <= reset ? {COUNTER_WIDTH{1'b0}} : isUser ? contador + 1'b1 : {COUNTER_WIDTH{1'b0}};
 	end
 	
 	assign irq = contador[COUNTER_WIDTH-1];

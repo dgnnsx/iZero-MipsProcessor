@@ -1,5 +1,5 @@
 Analysis & Synthesis report for iZero
-Sun Mar 18 17:22:52 2018
+Wed Mar 21 02:07:50 2018
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -73,13 +73,13 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Sun Mar 18 17:22:52 2018      ;
+; Analysis & Synthesis Status        ; Successful - Wed Mar 21 02:07:50 2018      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 8,712                                      ;
-;     Total combinational functions  ; 7,576                                      ;
+; Total logic elements               ; 8,710                                      ;
+;     Total combinational functions  ; 7,600                                      ;
 ;     Dedicated logic registers      ; 1,389                                      ;
 ; Total registers                    ; 1389                                       ;
 ; Total pins                         ; 110                                        ;
@@ -273,17 +273,17 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Estimated Total logic elements              ; 8,712                           ;
+; Estimated Total logic elements              ; 8,710                           ;
 ;                                             ;                                 ;
-; Total combinational functions               ; 7576                            ;
+; Total combinational functions               ; 7600                            ;
 ; Logic element usage by number of LUT inputs ;                                 ;
-;     -- 4 input functions                    ; 5261                            ;
-;     -- 3 input functions                    ; 1813                            ;
-;     -- <=2 input functions                  ; 502                             ;
+;     -- 4 input functions                    ; 5255                            ;
+;     -- 3 input functions                    ; 1825                            ;
+;     -- <=2 input functions                  ; 520                             ;
 ;                                             ;                                 ;
 ; Logic elements by mode                      ;                                 ;
-;     -- normal mode                          ; 6139                            ;
-;     -- arithmetic mode                      ; 1437                            ;
+;     -- normal mode                          ; 6138                            ;
+;     -- arithmetic mode                      ; 1462                            ;
 ;                                             ;                                 ;
 ; Total registers                             ; 1389                            ;
 ;     -- Dedicated logic registers            ; 1389                            ;
@@ -296,7 +296,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; temporizador:inst19|contador[4] ;
 ; Maximum fan-out                             ; 1576                            ;
-; Total fan-out                               ; 37555                           ;
+; Total fan-out                               ; 37602                           ;
 ; Average fan-out                             ; 3.94                            ;
 +---------------------------------------------+---------------------------------+
 
@@ -306,13 +306,13 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                    ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |iZero                                          ; 7576 (0)          ; 1389 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
+; |iZero                                          ; 7600 (0)          ; 1389 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
 ;    |BCD_dois_digitos:inst30|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst30                                                                                                                                         ; work         ;
 ;    |BCD_dois_digitos:inst31|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst31                                                                                                                                         ; work         ;
 ;    |BCD_quatro_digitos:inst32|                  ; 300 (300)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_quatro_digitos:inst32                                                                                                                                       ; work         ;
-;    |banco_de_registradores:inst48|              ; 2180 (2180)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|banco_de_registradores:inst48                                                                                                                                   ; work         ;
+;    |banco_de_registradores:inst48|              ; 2179 (2179)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|banco_de_registradores:inst48                                                                                                                                   ; work         ;
 ;    |bios:inst18|                                ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|bios:inst18                                                                                                                                                     ; work         ;
-;    |contador_de_programa:inst16|                ; 2 (2)             ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|contador_de_programa:inst16                                                                                                                                     ; work         ;
+;    |contador_de_programa:inst16|                ; 1 (1)             ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|contador_de_programa:inst16                                                                                                                                     ; work         ;
 ;    |controlador_bios:inst25|                    ; 181 (181)         ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_bios:inst25                                                                                                                                         ; work         ;
 ;    |controlador_interrupcao:inst2|              ; 28 (28)           ; 28 (28)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_interrupcao:inst2                                                                                                                                   ; work         ;
 ;    |debouncer:inst15|                           ; 13 (13)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|debouncer:inst15                                                                                                                                                ; work         ;
@@ -329,10 +329,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |display_duplo:inst33|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst33                                                                                                                                            ; work         ;
 ;    |display_duplo:inst34|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst34                                                                                                                                            ; work         ;
 ;    |display_quadruplo:inst35|                   ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_quadruplo:inst35                                                                                                                                        ; work         ;
-;    |lastProgramCounter:inst13|                  ; 2 (2)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lastProgramCounter:inst13                                                                                                                                       ; work         ;
-;    |lcdlab3:inst9|                              ; 991 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
-;       |LCD_Display:u1|                          ; 964 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
-;          |LCD_display_string:u1|                ; 874 (874)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
+;    |lcdlab3:inst9|                              ; 985 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
+;       |LCD_Display:u1|                          ; 958 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
+;          |LCD_display_string:u1|                ; 868 (868)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
 ;       |Reset_Delay:r0|                          ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|Reset_Delay:r0                                                                                                                                    ; work         ;
 ;    |memoria_de_dados:inst1|                     ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1                                                                                                                                          ; work         ;
 ;       |altsyncram:ram_rtl_0|                    ; 32 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0                                                                                                                     ; work         ;
@@ -351,20 +350,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |mmu:inst38|                                 ; 37 (37)           ; 25 (25)      ; 121         ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|mmu:inst38                                                                                                                                                      ; work         ;
 ;       |altsyncram:lowerIM_rtl_0|                ; 0 (0)             ; 0 (0)        ; 121         ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|mmu:inst38|altsyncram:lowerIM_rtl_0                                                                                                                             ; work         ;
 ;          |altsyncram_fnd1:auto_generated|       ; 0 (0)             ; 0 (0)        ; 121         ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|mmu:inst38|altsyncram:lowerIM_rtl_0|altsyncram_fnd1:auto_generated                                                                                              ; work         ;
-;    |multiplexador_br:inst3|                     ; 6 (6)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_br:inst3                                                                                                                                          ; work         ;
+;    |multiplexador_br:inst3|                     ; 5 (5)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_br:inst3                                                                                                                                          ; work         ;
 ;    |multiplexador_disco:inst43|                 ; 7 (7)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_disco:inst43                                                                                                                                      ; work         ;
 ;    |multiplexador_escrita_br:inst8|             ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_escrita_br:inst8                                                                                                                                  ; work         ;
 ;    |multiplexador_ula:inst7|                    ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_ula:inst7                                                                                                                                         ; work         ;
 ;    |saida_de_dados:inst5|                       ; 33 (33)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|saida_de_dados:inst5                                                                                                                                            ; work         ;
 ;    |somador_interruptor:inst37|                 ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_interruptor:inst37                                                                                                                                      ; work         ;
-;    |somador_pc:inst10|                          ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
+;    |somador_pc:inst10|                          ; 79 (79)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
 ;    |temporizador:inst19|                        ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|temporizador:inst19                                                                                                                                             ; work         ;
-;    |unidade_de_controle:inst27|                 ; 104 (104)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst27                                                                                                                                      ; work         ;
-;    |unidade_logica_aritmetica:inst6|            ; 2912 (723)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
-;       |lpm_divide:Div0|                         ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0                                                                                                                 ; work         ;
-;          |lpm_divide_hkm:auto_generated|        ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                                   ; work         ;
-;             |sign_div_unsign_9nh:divider|       ; 1073 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
-;                |alt_u_div_6af:divider|          ; 1073 (1073)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                                 ; work         ;
+;    |unidade_de_controle:inst27|                 ; 101 (101)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst27                                                                                                                                      ; work         ;
+;    |unidade_logica_aritmetica:inst6|            ; 2922 (737)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
+;       |lpm_divide:Div0|                         ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0                                                                                                                 ; work         ;
+;          |lpm_divide_hkm:auto_generated|        ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated                                                                                   ; work         ;
+;             |sign_div_unsign_9nh:divider|       ; 1069 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
+;                |alt_u_div_6af:divider|          ; 1069 (1069)       ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Div0|lpm_divide_hkm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider                                 ; work         ;
 ;       |lpm_divide:Mod0|                         ; 1088 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0                                                                                                                 ; work         ;
 ;          |lpm_divide_kcm:auto_generated|        ; 1088 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated                                                                                   ; work         ;
 ;             |sign_div_unsign_9nh:divider|       ; 1088 (0)          ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider                                                       ; work         ;
@@ -372,7 +371,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |add_sub_8pc:add_sub_1|       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1           ; work         ;
 ;       |lpm_mult:Mult0|                          ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0                                                                                                                  ; work         ;
 ;          |mult_7dt:auto_generated|              ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                          ; work         ;
-;    |watchdog:inst|                              ; 8 (8)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst                                                                                                                                                   ; work         ;
+;    |watchdog:inst|                              ; 10 (10)           ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst                                                                                                                                                   ; work         ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -586,46 +585,45 @@ Encoding Type:  One-Hot
 +-------------------------------------+--------------------------+
 
 
-+--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                       ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                             ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
-; 3:1                ; 26 bits   ; 52 LEs        ; 0 LEs                ; 52 LEs                 ; Yes        ; |iZero|contador_de_programa:inst16|addrout[24]                         ;
-; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |iZero|watchdog:inst|contador[3]                                       ;
-; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[5]                  ;
-; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |iZero|somador_pc:inst10|Mux17                                         ;
-; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux4                                     ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|dezena[3]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|unidade[1]                              ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|dezena[2]                               ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|unidade[1]                              ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|centena[3]                            ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[2]                             ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[0]                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|milhar[2]                             ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|milhar[2]    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|milhar[0]    ;
-; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena[3]    ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena[0]    ;
-; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[2]  ;
-; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|unidade_c[1] ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux64                             ;
-; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux63                             ;
-; 55:1               ; 26 bits   ; 936 LEs       ; 936 LEs              ; 0 LEs                  ; No         ; |iZero|controlador_bios:inst25|out[17]                                 ;
-; 39:1               ; 5 bits    ; 130 LEs       ; 120 LEs              ; 10 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 39:1               ; 18 bits   ; 468 LEs       ; 432 LEs              ; 36 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 39:1               ; 6 bits    ; 156 LEs       ; 150 LEs              ; 6 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 39:1               ; 2 bits    ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                              ;
-; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux8                            ;
-; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux21                           ;
-; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux4                            ;
-; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux26                           ;
-; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux3                            ;
-; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux28                           ;
-; 30:1               ; 2 bits    ; 40 LEs        ; 22 LEs               ; 18 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux1                            ;
-; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |iZero|unidade_logica_aritmetica:inst6|Add0                            ;
-+--------------------+-----------+---------------+----------------------+------------------------+------------+------------------------------------------------------------------------+
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                                      ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; Yes        ; |iZero|watchdog:inst|contador[4]                                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[5]                 ;
+; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |iZero|somador_pc:inst10|Mux4                                         ;
+; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux3                                    ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|dezena[3]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst30|unidade[1]                             ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|dezena[3]                              ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_dois_digitos:inst31|unidade[1]                             ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|milhar[0]                            ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|centena[0]                           ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|dezena[0]                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|BCD_quatro_digitos:inst32|milhar[2]                            ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|milhar[3]   ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[3]  ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|centena[0]  ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|unidade[3]  ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[3] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; No         ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|dezena_c[0] ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux84                            ;
+; 32:1               ; 32 bits   ; 672 LEs       ; 672 LEs              ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|Mux32                            ;
+; 55:1               ; 26 bits   ; 936 LEs       ; 936 LEs              ; 0 LEs                  ; No         ; |iZero|controlador_bios:inst25|out[17]                                ;
+; 39:1               ; 5 bits    ; 130 LEs       ; 120 LEs              ; 10 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 39:1               ; 18 bits   ; 468 LEs       ; 432 LEs              ; 36 LEs                 ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 39:1               ; 6 bits    ; 156 LEs       ; 150 LEs              ; 6 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 39:1               ; 2 bits    ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |iZero|banco_de_registradores:inst48|regs                             ;
+; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux15                          ;
+; 27:1               ; 8 bits    ; 144 LEs       ; 88 LEs               ; 56 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux17                          ;
+; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux5                           ;
+; 28:1               ; 4 bits    ; 72 LEs        ; 48 LEs               ; 24 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux24                          ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux3                           ;
+; 29:1               ; 2 bits    ; 38 LEs        ; 22 LEs               ; 16 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux29                          ;
+; 30:1               ; 2 bits    ; 40 LEs        ; 22 LEs               ; 18 LEs                 ; No         ; |iZero|unidade_logica_aritmetica:inst6|Mux0                           ;
+; 1:1                ; 32 bits   ; 0 LEs         ; 0 LEs                ; 0 LEs                  ; No         ; |iZero|unidade_logica_aritmetica:inst6|Add0                           ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 
 
 +--------------------------------------------------------------------------------------------------------+
@@ -1342,22 +1340,22 @@ Note: In order to hide this table in the UI and the text report file, please set
 ;     SCLR              ; 57                          ;
 ;     SCLR SLD          ; 22                          ;
 ;     plain             ; 66                          ;
-; cycloneiii_lcell_comb ; 7592                        ;
-;     arith             ; 1437                        ;
-;         2 data inputs ; 229                         ;
+; cycloneiii_lcell_comb ; 7616                        ;
+;     arith             ; 1462                        ;
+;         2 data inputs ; 254                         ;
 ;         3 data inputs ; 1208                        ;
-;     normal            ; 6155                        ;
+;     normal            ; 6154                        ;
 ;         0 data inputs ; 63                          ;
-;         1 data inputs ; 33                          ;
-;         2 data inputs ; 193                         ;
-;         3 data inputs ; 605                         ;
-;         4 data inputs ; 5261                        ;
+;         1 data inputs ; 34                          ;
+;         2 data inputs ; 185                         ;
+;         3 data inputs ; 617                         ;
+;         4 data inputs ; 5255                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
 ; cycloneiii_ram_block  ; 331                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 142.50                      ;
-; Average LUT depth     ; 82.94                       ;
+; Average LUT depth     ; 82.48                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1366,7 +1364,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:46     ;
+; Top            ; 00:00:43     ;
 +----------------+--------------+
 
 
@@ -1376,7 +1374,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
-    Info: Processing started: Sun Mar 18 17:21:50 2018
+    Info: Processing started: Wed Mar 21 02:06:53 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off iZero -c iZero
 Info (16303): Aggressive Power optimization mode selected -- dynamic power will be prioritized at the potential cost of reduced timing performance and increased compilation time
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1463,14 +1461,15 @@ Info (12128): Elaborating entity "multiplexador_disco" for hierarchy "multiplexa
 Info (12128): Elaborating entity "controlador_interrupcao" for hierarchy "controlador_interrupcao:inst2"
 Info (12128): Elaborating entity "watchdog" for hierarchy "watchdog:inst"
 Info (12128): Elaborating entity "muxWDReset" for hierarchy "muxWDReset:inst11"
-Info (12128): Elaborating entity "mmu" for hierarchy "mmu:inst38"
-Info (12128): Elaborating entity "contador_de_programa" for hierarchy "contador_de_programa:inst16"
-Info (12128): Elaborating entity "somador_pc" for hierarchy "somador_pc:inst10"
 Info (12128): Elaborating entity "controlador_bios" for hierarchy "controlador_bios:inst25"
 Info (12128): Elaborating entity "bios" for hierarchy "bios:inst18"
-Info (12128): Elaborating entity "memoria_de_instrucoes" for hierarchy "memoria_de_instrucoes:inst4"
+Info (12128): Elaborating entity "contador_de_programa" for hierarchy "contador_de_programa:inst16"
+Info (12128): Elaborating entity "somador_pc" for hierarchy "somador_pc:inst10"
 Info (12128): Elaborating entity "somador_interruptor" for hierarchy "somador_interruptor:inst37"
+Info (12128): Elaborating entity "memoria_de_instrucoes" for hierarchy "memoria_de_instrucoes:inst4"
+Info (12128): Elaborating entity "mmu" for hierarchy "mmu:inst38"
 Info (12128): Elaborating entity "lastProgramCounter" for hierarchy "lastProgramCounter:inst13"
+Warning (10230): Verilog HDL assignment warning at lastProgramCounter.v(9): truncated value with size 32 to match size of target (26)
 Info (12128): Elaborating entity "disco_rigido" for hierarchy "disco_rigido:inst12"
 Info (12128): Elaborating entity "multiplexador_escrita_br" for hierarchy "multiplexador_escrita_br:inst8"
 Info (12128): Elaborating entity "modulo_input" for hierarchy "modulo_input:inst14"
@@ -1611,8 +1610,6 @@ Info (12133): Instantiated megafunction "disco_rigido:inst12|altsyncram:disk_rtl
     Info (12134): Parameter "INIT_FILE" = "db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_u2i1.tdf
     Info (12023): Found entity 1: altsyncram_u2i1
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (12130): Elaborated megafunction instantiation "memoria_de_dados:inst1|altsyncram:ram_rtl_0"
 Info (12133): Instantiated megafunction "memoria_de_dados:inst1|altsyncram:ram_rtl_0" with the following parameter:
     Info (12134): Parameter "OPERATION_MODE" = "DUAL_PORT"
@@ -1823,8 +1820,6 @@ Info (12133): Instantiated megafunction "disco_rigido:inst12|altsyncram:disk_rtl
     Info (12134): Parameter "CLOCK_ENABLE_ECC_STATUS" = "NORMAL"
 Info (12021): Found 1 design units, including 1 entities, in source file db/altsyncram_cbm3.tdf
     Info (12023): Found entity 1: altsyncram_cbm3
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
-Warning (127007): Memory Initialization File or Hexadecimal (Intel-Format) File "/home/diego/iZero-MipsProcessor/iZero/db/iZero.ram0_disco_rigido_e6a681c3.hdl.mif" contains "don't care" values -- overwriting them with 0s
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_msa.tdf
     Info (12023): Found entity 1: decode_msa
 Info (12021): Found 1 design units, including 1 entities, in source file db/decode_f8a.tdf
@@ -1957,17 +1952,17 @@ Info (17049): 74 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/diego/iZero-MipsProcessor/iZero/output_files/iZero.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9245 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9243 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 89 output pins
-    Info (21061): Implemented 8798 logic cells
+    Info (21061): Implemented 8796 logic cells
     Info (21064): Implemented 331 RAM segments
     Info (21062): Implemented 6 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 25 warnings
-    Info: Peak virtual memory: 1095 megabytes
-    Info: Processing ended: Sun Mar 18 17:22:52 2018
-    Info: Elapsed time: 00:01:02
-    Info: Total CPU time (on all processors): 00:01:18
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 1096 megabytes
+    Info: Processing ended: Wed Mar 21 02:07:50 2018
+    Info: Elapsed time: 00:00:57
+    Info: Total CPU time (on all processors): 00:01:14
 
 
 +------------------------------------------+

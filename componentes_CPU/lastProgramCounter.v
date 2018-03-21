@@ -6,5 +6,5 @@ module lastProgramCounter(
 	
 	localparam PRE_IO = 6'b101000;
 	
-	assign pc_out = opcode == PRE_IO ? next_pc : curr_pc;
+	assign pc_out = opcode == PRE_IO ? next_pc : curr_pc + 1;
 endmodule
