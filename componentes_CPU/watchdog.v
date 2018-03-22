@@ -5,8 +5,8 @@ module watchdog(
 	input [5:0] opcode,
 	output irq);
 	
-	localparam PRE_IO = 6'b101000, JR = 6'b010010, JF = 6'b010101, J = 6'b111100, JTM = 6'b111101, JAL = 6'b111110;
-	localparam COUNTER_WIDTH = 6;
+	localparam JR = 6'b010010, JF = 6'b010101, J = 6'b111100, JTM = 6'b111101, JAL = 6'b111110;
+	localparam COUNTER_WIDTH = 5;
 	reg [COUNTER_WIDTH-1:0] contador;
 	
 	// Se for uma instruçao de salto nao deixa trocar o contexto

@@ -17,7 +17,7 @@ module controlador_interrupcao(clk, irq1, pc, ack, clr, intr, cause, pcBckp);
 	end
 	
 	always @ (posedge clk) begin
-		pcBckp <= ack ? pc : pcBckp;
+		pcBckp <= ack ? pc + 1 : pcBckp;
 	end
 	
 	always @ (posedge clk) begin

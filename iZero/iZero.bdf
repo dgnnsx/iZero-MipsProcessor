@@ -1970,43 +1970,6 @@ agreement for further details.
 	(flipy)
 )
 (symbol
-	(rect 1376 896 1584 1008)
-	(text "lastProgramCounter" (rect 107 0 203 10)(font "Arial" ))
-	(text "inst13" (rect 171 96 200 106)(font "Arial" ))
-	(port
-		(pt 208 32)
-		(input)
-		(text "opcode[5..0]" (rect 0 0 59 10)(font "Arial" ))
-		(text "opcode[5..0]" (rect 128 27 187 37)(font "Arial" ))
-		(line (pt 208 32)(pt 192 32)(line_width 3))
-	)
-	(port
-		(pt 208 48)
-		(input)
-		(text "next_pc[25..0]" (rect 0 0 67 10)(font "Arial" ))
-		(text "next_pc[25..0]" (rect 120 43 187 53)(font "Arial" ))
-		(line (pt 208 48)(pt 192 48)(line_width 3))
-	)
-	(port
-		(pt 208 64)
-		(input)
-		(text "curr_pc[25..0]" (rect 0 0 64 10)(font "Arial" ))
-		(text "curr_pc[25..0]" (rect 123 59 187 69)(font "Arial" ))
-		(line (pt 208 64)(pt 192 64)(line_width 3))
-	)
-	(port
-		(pt 0 32)
-		(output)
-		(text "pc_out[25..0]" (rect 0 0 61 10)(font "Arial" ))
-		(text "pc_out[25..0]" (rect 21 27 82 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 192 96))
-	)
-	(flipy)
-)
-(symbol
 	(rect 136 240 352 352)
 	(text "contador_de_programa" (rect 5 0 117 10)(font "Arial" ))
 	(text "inst16" (rect 8 96 37 106)(font "Arial" ))
@@ -2057,7 +2020,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1672 848 1832 960)
+	(rect 1352 848 1512 960)
 	(text "watchdog" (rect 108 0 155 10)(font "Arial" ))
 	(text "inst" (rect 135 96 152 106)(font "Arial" ))
 	(port
@@ -2092,7 +2055,7 @@ agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "irq" (rect 0 0 12 10)(font "Arial" ))
-		(text "irq" (rect 21 27 31 37)(font "Arial" ))
+		(text "irq" (rect 21 27 33 37)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(drawing
@@ -2122,7 +2085,7 @@ agreement for further details.
 		(pt 0 32)
 		(output)
 		(text "out" (rect 0 0 16 10)(font "Arial" ))
-		(text "out" (rect 21 27 34 37)(font "Arial" ))
+		(text "out" (rect 21 27 37 37)(font "Arial" ))
 		(line (pt 0 32)(pt 16 32))
 	)
 	(drawing
@@ -3803,10 +3766,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1552 512)
-	(pt 1600 512)
-)
-(connector
 	(pt 1600 304)
 	(pt 1600 432)
 )
@@ -3867,124 +3826,12 @@ agreement for further details.
 	(pt 104 1048)
 )
 (connector
-	(pt 1880 1016)
-	(pt 1880 912)
-)
-(connector
-	(pt -224 1056)
-	(pt -224 320)
-	(bus)
-)
-(connector
-	(pt -208 72)
-	(pt -208 864)
-)
-(connector
-	(pt 1024 248)
-	(pt 1024 880)
-	(bus)
-)
-(connector
-	(pt 1032 264)
-	(pt 1032 896)
-	(bus)
-)
-(connector
-	(pt 1032 896)
-	(pt 1056 896)
-	(bus)
-)
-(connector
-	(pt 1024 880)
-	(pt 1056 880)
-	(bus)
-)
-(connector
-	(pt -208 864)
-	(pt 1056 864)
-)
-(connector
-	(pt 1552 512)
-	(pt 1552 864)
-)
-(connector
-	(pt 1248 864)
-	(pt 1552 864)
-)
-(connector
 	(pt 696 1008)
 	(pt 1256 1008)
 )
 (connector
-	(pt 1256 1008)
-	(pt 1256 928)
-)
-(connector
-	(pt 1248 928)
-	(pt 1256 928)
-)
-(connector
 	(pt -200 1000)
 	(pt 1264 1000)
-)
-(connector
-	(pt 1264 1000)
-	(pt 1264 912)
-)
-(connector
-	(pt 1248 912)
-	(pt 1264 912)
-)
-(connector
-	(pt 1248 896)
-	(pt 1272 896)
-	(bus)
-)
-(connector
-	(pt 1272 896)
-	(pt 1272 928)
-	(bus)
-)
-(connector
-	(pt 1272 928)
-	(pt 1376 928)
-	(bus)
-)
-(connector
-	(text "instrucao[31..26]" (rect 706 568 785 578)(font "Arial" ))
-	(pt 680 560)
-	(pt 1608 560)
-	(bus)
-)
-(connector
-	(pt 1608 560)
-	(pt 1976 560)
-	(bus)
-)
-(connector
-	(pt 1584 928)
-	(pt 1608 928)
-	(bus)
-)
-(connector
-	(pt 1608 1056)
-	(pt 1608 944)
-	(bus)
-)
-(connector
-	(pt 1584 944)
-	(pt 1608 944)
-	(bus)
-)
-(connector
-	(pt 1600 1064)
-	(pt 1600 960)
-	(bus)
-)
-(connector
-	(pt 1600 960)
-	(pt 1584 960)
-	(bus)
 )
 (connector
 	(pt 152 504)
@@ -4048,11 +3895,6 @@ agreement for further details.
 	(pt -200 736)
 )
 (connector
-	(pt -224 320)
-	(pt -136 320)
-	(bus)
-)
-(connector
 	(pt -136 320)
 	(pt 136 320)
 	(bus)
@@ -4060,11 +3902,6 @@ agreement for further details.
 (connector
 	(pt 352 272)
 	(pt 368 272)
-	(bus)
-)
-(connector
-	(pt -224 1056)
-	(pt 1608 1056)
 	(bus)
 )
 (connector
@@ -4088,45 +3925,6 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt -232 1064)
-	(pt 1600 1064)
-	(bus)
-)
-(connector
-	(pt 1952 512)
-	(pt 1952 880)
-)
-(connector
-	(pt 1248 880)
-	(pt 1672 880)
-)
-(connector
-	(pt 1600 512)
-	(pt 1952 512)
-)
-(connector
-	(pt 1952 512)
-	(pt 1976 512)
-)
-(connector
-	(pt 1832 880)
-	(pt 1952 880)
-)
-(connector
-	(pt 1832 912)
-	(pt 1880 912)
-)
-(connector
-	(pt 1832 928)
-	(pt 1848 928)
-	(bus)
-)
-(connector
-	(pt 1848 928)
-	(pt 1848 840)
-	(bus)
-)
-(connector
 	(pt 2176 1040)
 	(pt 2176 912)
 )
@@ -4143,22 +3941,127 @@ agreement for further details.
 	(pt 2144 896)
 )
 (connector
-	(pt 1832 896)
+	(pt -208 72)
+	(pt -208 864)
+)
+(connector
+	(pt 1024 248)
+	(pt 1024 880)
+	(bus)
+)
+(connector
+	(pt 1032 264)
+	(pt 1032 896)
+	(bus)
+)
+(connector
+	(pt 1032 896)
+	(pt 1056 896)
+	(bus)
+)
+(connector
+	(pt 1024 880)
+	(pt 1056 880)
+	(bus)
+)
+(connector
+	(pt -208 864)
+	(pt 1056 864)
+)
+(connector
+	(pt 1256 1008)
+	(pt 1256 928)
+)
+(connector
+	(pt 1256 928)
+	(pt 1248 928)
+)
+(connector
+	(pt 1264 1000)
+	(pt 1264 912)
+)
+(connector
+	(pt 1264 912)
+	(pt 1248 912)
+)
+(connector
+	(pt 1272 896)
+	(pt 1248 896)
+	(bus)
+)
+(connector
+	(pt 1272 1064)
+	(pt 1272 896)
+	(bus)
+)
+(connector
+	(pt -232 1064)
+	(pt 1272 1064)
+	(bus)
+)
+(connector
+	(pt 1272 512)
+	(pt 1272 864)
+)
+(connector
+	(pt 1248 864)
+	(pt 1272 864)
+)
+(connector
+	(pt 1272 512)
+	(pt 1600 512)
+)
+(connector
+	(pt 1880 1016)
+	(pt 1880 912)
+)
+(connector
+	(pt 1952 512)
+	(pt 1952 880)
+)
+(connector
+	(pt 1248 880)
+	(pt 1352 880)
+)
+(connector
+	(pt 1600 512)
+	(pt 1952 512)
+)
+(connector
+	(pt 1952 512)
+	(pt 1976 512)
+)
+(connector
+	(pt 1512 896)
 	(pt 1992 896)
 )
 (connector
-	(pt 1848 840)
-	(pt 1608 840)
+	(pt 1512 912)
+	(pt 1880 912)
+)
+(connector
+	(pt 1512 880)
+	(pt 1952 880)
+)
+(connector
+	(text "instrucao[31..26]" (rect 706 568 785 578)(font "Arial" ))
+	(pt 680 560)
+	(pt 1544 560)
 	(bus)
 )
 (connector
-	(pt 1608 560)
-	(pt 1608 840)
+	(pt 1544 560)
+	(pt 1976 560)
 	(bus)
 )
 (connector
-	(pt 1608 840)
-	(pt 1608 928)
+	(pt 1512 928)
+	(pt 1544 928)
+	(bus)
+)
+(connector
+	(pt 1544 560)
+	(pt 1544 928)
 	(bus)
 )
 (junction (pt 1856 0))
@@ -4205,6 +4108,4 @@ agreement for further details.
 (junction (pt 1952 512))
 (junction (pt 736 -232))
 (junction (pt 104 656))
-(junction (pt -136 320))
-(junction (pt 1608 560))
-(junction (pt 1608 840))
+(junction (pt 1544 560))
