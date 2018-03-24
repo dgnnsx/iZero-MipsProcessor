@@ -1,5 +1,5 @@
 Analysis & Synthesis report for iZero
-Thu Mar 22 00:02:25 2018
+Fri Mar 23 19:49:39 2018
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -73,15 +73,15 @@ agreement for further details.
 +---------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                    ;
 +------------------------------------+--------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Thu Mar 22 00:02:25 2018      ;
+; Analysis & Synthesis Status        ; Successful - Fri Mar 23 19:49:39 2018      ;
 ; Quartus II 64-Bit Version          ; 15.0.2 Build 153 07/15/2015 SJ Web Edition ;
 ; Revision Name                      ; iZero                                      ;
 ; Top-level Entity Name              ; iZero                                      ;
 ; Family                             ; Cyclone IV E                               ;
-; Total logic elements               ; 8,713                                      ;
-;     Total combinational functions  ; 7,603                                      ;
-;     Dedicated logic registers      ; 1,389                                      ;
-; Total registers                    ; 1389                                       ;
+; Total logic elements               ; 8,714                                      ;
+;     Total combinational functions  ; 7,604                                      ;
+;     Dedicated logic registers      ; 1,392                                      ;
+; Total registers                    ; 1392                                       ;
 ; Total pins                         ; 110                                        ;
 ; Total virtual pins                 ; 0                                          ;
 ; Total memory bits                  ; 163,961                                    ;
@@ -272,20 +272,20 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +---------------------------------------------+---------------------------------+
 ; Resource                                    ; Usage                           ;
 +---------------------------------------------+---------------------------------+
-; Estimated Total logic elements              ; 8,713                           ;
+; Estimated Total logic elements              ; 8,714                           ;
 ;                                             ;                                 ;
-; Total combinational functions               ; 7603                            ;
+; Total combinational functions               ; 7604                            ;
 ; Logic element usage by number of LUT inputs ;                                 ;
-;     -- 4 input functions                    ; 5250                            ;
-;     -- 3 input functions                    ; 1835                            ;
-;     -- <=2 input functions                  ; 518                             ;
+;     -- 4 input functions                    ; 5261                            ;
+;     -- 3 input functions                    ; 1819                            ;
+;     -- <=2 input functions                  ; 524                             ;
 ;                                             ;                                 ;
 ; Logic elements by mode                      ;                                 ;
-;     -- normal mode                          ; 6142                            ;
-;     -- arithmetic mode                      ; 1461                            ;
+;     -- normal mode                          ; 6139                            ;
+;     -- arithmetic mode                      ; 1465                            ;
 ;                                             ;                                 ;
-; Total registers                             ; 1389                            ;
-;     -- Dedicated logic registers            ; 1389                            ;
+; Total registers                             ; 1392                            ;
+;     -- Dedicated logic registers            ; 1392                            ;
 ;     -- I/O registers                        ; 0                               ;
 ;                                             ;                                 ;
 ; I/O pins                                    ; 110                             ;
@@ -294,9 +294,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ; Embedded Multiplier 9-bit elements          ; 6                               ;
 ;                                             ;                                 ;
 ; Maximum fan-out node                        ; temporizador:inst19|contador[4] ;
-; Maximum fan-out                             ; 1576                            ;
-; Total fan-out                               ; 37581                           ;
-; Average fan-out                             ; 3.94                            ;
+; Maximum fan-out                             ; 1579                            ;
+; Total fan-out                               ; 37572                           ;
+; Average fan-out                             ; 3.93                            ;
 +---------------------------------------------+---------------------------------+
 
 
@@ -305,15 +305,15 @@ Parallel compilation was disabled, but you have multiple processors available. E
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 ; Compilation Hierarchy Node                      ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                                                                                    ; Library Name ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
-; |iZero                                          ; 7603 (0)          ; 1389 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
+; |iZero                                          ; 7604 (0)          ; 1392 (0)     ; 163961      ; 6            ; 0       ; 3         ; 110  ; 0            ; |iZero                                                                                                                                                                 ; work         ;
 ;    |BCD_dois_digitos:inst30|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst30                                                                                                                                         ; work         ;
 ;    |BCD_dois_digitos:inst31|                    ; 193 (193)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_dois_digitos:inst31                                                                                                                                         ; work         ;
 ;    |BCD_quatro_digitos:inst32|                  ; 300 (300)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|BCD_quatro_digitos:inst32                                                                                                                                       ; work         ;
 ;    |banco_de_registradores:inst48|              ; 2181 (2181)       ; 1024 (1024)  ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|banco_de_registradores:inst48                                                                                                                                   ; work         ;
 ;    |bios:inst18|                                ; 35 (35)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|bios:inst18                                                                                                                                                     ; work         ;
-;    |contador_de_programa:inst16|                ; 27 (27)           ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|contador_de_programa:inst16                                                                                                                                     ; work         ;
+;    |contador_de_programa:inst16|                ; 1 (1)             ; 52 (52)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|contador_de_programa:inst16                                                                                                                                     ; work         ;
 ;    |controlador_bios:inst25|                    ; 183 (183)         ; 2 (2)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_bios:inst25                                                                                                                                         ; work         ;
-;    |controlador_interrupcao:inst2|              ; 29 (29)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_interrupcao:inst2                                                                                                                                   ; work         ;
+;    |controlador_interrupcao:inst13|             ; 33 (33)           ; 29 (29)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|controlador_interrupcao:inst13                                                                                                                                  ; work         ;
 ;    |debouncer:inst15|                           ; 13 (13)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|debouncer:inst15                                                                                                                                                ; work         ;
 ;    |debouncer:inst22|                           ; 13 (13)           ; 14 (14)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|debouncer:inst22                                                                                                                                                ; work         ;
 ;    |delay_button:inst26|                        ; 27 (27)           ; 27 (27)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|delay_button:inst26                                                                                                                                             ; work         ;
@@ -328,9 +328,9 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |display_duplo:inst33|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst33                                                                                                                                            ; work         ;
 ;    |display_duplo:inst34|                       ; 14 (14)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_duplo:inst34                                                                                                                                            ; work         ;
 ;    |display_quadruplo:inst35|                   ; 28 (28)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|display_quadruplo:inst35                                                                                                                                        ; work         ;
-;    |lcdlab3:inst9|                              ; 993 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
-;       |LCD_Display:u1|                          ; 966 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
-;          |LCD_display_string:u1|                ; 876 (876)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
+;    |lcdlab3:inst9|                              ; 991 (0)           ; 138 (0)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9                                                                                                                                                   ; work         ;
+;       |LCD_Display:u1|                          ; 964 (90)          ; 117 (59)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1                                                                                                                                    ; work         ;
+;          |LCD_display_string:u1|                ; 874 (874)         ; 58 (58)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1                                                                                                              ; work         ;
 ;       |Reset_Delay:r0|                          ; 27 (27)           ; 21 (21)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|lcdlab3:inst9|Reset_Delay:r0                                                                                                                                    ; work         ;
 ;    |memoria_de_dados:inst1|                     ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1                                                                                                                                          ; work         ;
 ;       |altsyncram:ram_rtl_0|                    ; 33 (0)            ; 1 (0)        ; 32768       ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|memoria_de_dados:inst1|altsyncram:ram_rtl_0                                                                                                                     ; work         ;
@@ -354,7 +354,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;    |multiplexador_ula:inst7|                    ; 32 (32)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|multiplexador_ula:inst7                                                                                                                                         ; work         ;
 ;    |saida_de_dados:inst5|                       ; 30 (30)           ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|saida_de_dados:inst5                                                                                                                                            ; work         ;
 ;    |somador_interruptor:inst37|                 ; 27 (27)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_interruptor:inst37                                                                                                                                      ; work         ;
-;    |somador_pc:inst10|                          ; 53 (53)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
+;    |somador_pc:inst10|                          ; 79 (79)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|somador_pc:inst10                                                                                                                                               ; work         ;
 ;    |temporizador:inst19|                        ; 5 (5)             ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|temporizador:inst19                                                                                                                                             ; work         ;
 ;    |unidade_de_controle:inst27|                 ; 102 (102)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_de_controle:inst27                                                                                                                                      ; work         ;
 ;    |unidade_logica_aritmetica:inst6|            ; 2919 (731)        ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6                                                                                                                                 ; work         ;
@@ -369,7 +369,7 @@ Parallel compilation was disabled, but you have multiple processors available. E
 ;                   |add_sub_8pc:add_sub_1|       ; 1 (1)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_divide:Mod0|lpm_divide_kcm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_6af:divider|add_sub_8pc:add_sub_1           ; work         ;
 ;       |lpm_mult:Mult0|                          ; 28 (0)            ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0                                                                                                                  ; work         ;
 ;          |mult_7dt:auto_generated|              ; 28 (28)           ; 0 (0)        ; 0           ; 6            ; 0       ; 3         ; 0    ; 0            ; |iZero|unidade_logica_aritmetica:inst6|lpm_mult:Mult0|mult_7dt:auto_generated                                                                                          ; work         ;
-;    |watchdog:inst|                              ; 10 (10)           ; 5 (5)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst                                                                                                                                                   ; work         ;
+;    |watchdog:inst|                              ; 9 (9)             ; 8 (8)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |iZero|watchdog:inst                                                                                                                                                   ; work         ;
 +-------------------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------------------------------------------------------------------------------------------------------------------------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -445,78 +445,78 @@ Encoding Type:  One-Hot
 +---------------------+---------------------+-------------------+--------------+--------------+------------+------------------+-------------------+-------------+--------------------+----------------+------------------+----------------+--------------+
 
 
-+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                                                                                                                                        ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------+
-; Register name                                                                                                                                       ; Reason for Removal                                  ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------+
-; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|out[7]                                                                                           ; Stuck at GND due to stuck port data_in              ;
-; controlador_interrupcao:inst2|pcBckp[27..31]                                                                                                        ; Stuck at GND due to stuck port data_in              ;
-; lcdlab3:inst9|LCD_Display:u1|LCD_RW_INT                                                                                                             ; Stuck at GND due to stuck port data_in              ;
-; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|STATE_LCD_CHANGE[8]                                                                              ; Stuck at GND due to stuck port data_in              ;
-; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|STATE_LCD_CURRENT[16..31]                                                                        ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][30]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][29]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][28]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][27]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][26]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][25]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][24]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][23]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][22]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][21]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][20]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][19]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][18]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][17]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[2][16]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][31]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][30]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][29]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][28]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][27]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][26]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][25]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][24]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][23]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][22]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][21]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][20]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][19]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][18]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][17]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[1][16]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][31]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][30]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][29]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][28]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][27]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][26]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][25]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][24]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][23]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][22]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][21]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][20]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][19]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][18]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][17]                                                                                                                  ; Lost fanout                                         ;
-; saida_de_dados:inst5|saidas[0][16]                                                                                                                  ; Lost fanout                                         ;
-; controlador_interrupcao:inst2|cause[2..9,11..31]                                                                                                    ; Merged with controlador_interrupcao:inst2|cause[10] ;
-; controlador_interrupcao:inst2|cause[10]                                                                                                             ; Stuck at GND due to stuck port data_in              ;
-; lcdlab3:inst9|LCD_Display:u1|next_command~2                                                                                                         ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|next_command~3                                                                                                         ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|next_command~4                                                                                                         ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|next_command~5                                                                                                         ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|state~14                                                                                                               ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|state~15                                                                                                               ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|state~16                                                                                                               ; Lost fanout                                         ;
-; lcdlab3:inst9|LCD_Display:u1|state~17                                                                                                               ; Lost fanout                                         ;
-; memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0|altsyncram_edh3:auto_generated|wren_a_store ; Lost fanout                                         ;
-; memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|wren_a_store      ; Lost fanout                                         ;
-; disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|wren_a_store        ; Lost fanout                                         ;
-; Total Number of Removed Registers = 112                                                                                                             ;                                                     ;
-+-----------------------------------------------------------------------------------------------------------------------------------------------------+-----------------------------------------------------+
++------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                                                                                         ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+; Register name                                                                                                                                       ; Reason for Removal                                   ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
+; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|out[7]                                                                                           ; Stuck at GND due to stuck port data_in               ;
+; controlador_interrupcao:inst13|pcBckp[27..31]                                                                                                       ; Stuck at GND due to stuck port data_in               ;
+; lcdlab3:inst9|LCD_Display:u1|LCD_RW_INT                                                                                                             ; Stuck at GND due to stuck port data_in               ;
+; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|STATE_LCD_CHANGE[8]                                                                              ; Stuck at GND due to stuck port data_in               ;
+; lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|STATE_LCD_CURRENT[16..31]                                                                        ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][30]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][29]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][28]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][27]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][26]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][25]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][24]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][23]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][22]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][21]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][20]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][19]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][18]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][17]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[2][16]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][31]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][30]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][29]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][28]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][27]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][26]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][25]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][24]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][23]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][22]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][21]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][20]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][19]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][18]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][17]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[1][16]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][31]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][30]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][29]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][28]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][27]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][26]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][25]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][24]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][23]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][22]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][21]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][20]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][19]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][18]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][17]                                                                                                                  ; Lost fanout                                          ;
+; saida_de_dados:inst5|saidas[0][16]                                                                                                                  ; Lost fanout                                          ;
+; controlador_interrupcao:inst13|cause[2..9,11..31]                                                                                                   ; Merged with controlador_interrupcao:inst13|cause[10] ;
+; controlador_interrupcao:inst13|cause[10]                                                                                                            ; Stuck at GND due to stuck port data_in               ;
+; lcdlab3:inst9|LCD_Display:u1|next_command~2                                                                                                         ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|next_command~3                                                                                                         ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|next_command~4                                                                                                         ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|next_command~5                                                                                                         ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|state~14                                                                                                               ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|state~15                                                                                                               ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|state~16                                                                                                               ; Lost fanout                                          ;
+; lcdlab3:inst9|LCD_Display:u1|state~17                                                                                                               ; Lost fanout                                          ;
+; memoria_de_instrucoes:inst4|altsyncram:ram_rtl_0|altsyncram_05d1:auto_generated|altsyncram:ram_block1a0|altsyncram_edh3:auto_generated|wren_a_store ; Lost fanout                                          ;
+; memoria_de_dados:inst1|altsyncram:ram_rtl_0|altsyncram_g4d1:auto_generated|altsyncram:ram_block1a0|altsyncram_uch3:auto_generated|wren_a_store      ; Lost fanout                                          ;
+; disco_rigido:inst12|altsyncram:disk_rtl_0|altsyncram_u2i1:auto_generated|altsyncram:ram_block1a0|altsyncram_cbm3:auto_generated|wren_a_store        ; Lost fanout                                          ;
+; Total Number of Removed Registers = 112                                                                                                             ;                                                      ;
++-----------------------------------------------------------------------------------------------------------------------------------------------------+------------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -524,12 +524,12 @@ Encoding Type:  One-Hot
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 1389  ;
-; Number of registers using Synchronous Clear  ; 98    ;
-; Number of registers using Synchronous Load   ; 53    ;
+; Total registers                              ; 1392  ;
+; Number of registers using Synchronous Clear  ; 101   ;
+; Number of registers using Synchronous Load   ; 27    ;
 ; Number of registers using Asynchronous Clear ; 83    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 1184  ;
+; Number of registers using Clock Enable       ; 1211  ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
 
@@ -588,7 +588,7 @@ Encoding Type:  One-Hot
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                            ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+-----------------------------------------------------------------------+
-; 3:1                ; 5 bits    ; 10 LEs        ; 5 LEs                ; 5 LEs                  ; Yes        ; |iZero|watchdog:inst|contador[1]                                      ;
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |iZero|watchdog:inst|contador[7]                                      ;
 ; 5:1                ; 2 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; Yes        ; |iZero|lcdlab3:inst9|LCD_Display:u1|DATA_BUS_VALUE[4]                 ;
 ; 4:1                ; 26 bits   ; 52 LEs        ; 52 LEs               ; 0 LEs                  ; No         ; |iZero|somador_pc:inst10|Mux4                                         ;
 ; 4:1                ; 5 bits    ; 10 LEs        ; 10 LEs               ; 0 LEs                  ; No         ; |iZero|multiplexador_br:inst3|Mux3                                    ;
@@ -1329,32 +1329,31 @@ Note: In order to hide this table in the UI and the text report file, please set
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
 ; boundary_port         ; 110                         ;
-; cycloneiii_ff         ; 1389                        ;
+; cycloneiii_ff         ; 1392                        ;
 ;     CLR               ; 14                          ;
 ;     CLR SCLR          ; 20                          ;
-;     ENA               ; 1130                        ;
+;     ENA               ; 1157                        ;
 ;     ENA CLR           ; 49                          ;
 ;     ENA SLD           ; 5                           ;
-;     SCLR              ; 56                          ;
+;     SCLR              ; 59                          ;
 ;     SCLR SLD          ; 22                          ;
-;     SLD               ; 26                          ;
-;     plain             ; 67                          ;
-; cycloneiii_lcell_comb ; 7619                        ;
-;     arith             ; 1461                        ;
-;         2 data inputs ; 249                         ;
-;         3 data inputs ; 1212                        ;
-;     normal            ; 6158                        ;
+;     plain             ; 66                          ;
+; cycloneiii_lcell_comb ; 7620                        ;
+;     arith             ; 1465                        ;
+;         2 data inputs ; 256                         ;
+;         3 data inputs ; 1209                        ;
+;     normal            ; 6155                        ;
 ;         0 data inputs ; 64                          ;
-;         1 data inputs ; 32                          ;
-;         2 data inputs ; 189                         ;
-;         3 data inputs ; 623                         ;
-;         4 data inputs ; 5250                        ;
+;         1 data inputs ; 33                          ;
+;         2 data inputs ; 187                         ;
+;         3 data inputs ; 610                         ;
+;         4 data inputs ; 5261                        ;
 ; cycloneiii_mac_mult   ; 3                           ;
 ; cycloneiii_mac_out    ; 3                           ;
 ; cycloneiii_ram_block  ; 331                         ;
 ;                       ;                             ;
 ; Max LUT depth         ; 142.50                      ;
-; Average LUT depth     ; 82.51                       ;
+; Average LUT depth     ; 82.44                       ;
 +-----------------------+-----------------------------+
 
 
@@ -1363,7 +1362,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 +----------------+--------------+
 ; Partition Name ; Elapsed Time ;
 +----------------+--------------+
-; Top            ; 00:00:46     ;
+; Top            ; 00:00:45     ;
 +----------------+--------------+
 
 
@@ -1373,7 +1372,7 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Analysis & Synthesis
     Info: Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
-    Info: Processing started: Thu Mar 22 00:01:22 2018
+    Info: Processing started: Fri Mar 23 19:48:36 2018
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off iZero -c iZero
 Info (16303): Aggressive Power optimization mode selected -- dynamic power will be prioritized at the potential cost of reduced timing performance and increased compilation time
 Warning (20028): Parallel compilation is not licensed and has been disabled
@@ -1455,8 +1454,9 @@ Info (12128): Elaborating entity "unidade_de_controle" for hierarchy "unidade_de
 Info (12128): Elaborating entity "unidade_logica_aritmetica" for hierarchy "unidade_logica_aritmetica:inst6"
 Info (12128): Elaborating entity "banco_de_registradores" for hierarchy "banco_de_registradores:inst48"
 Info (12128): Elaborating entity "multiplexador_disco" for hierarchy "multiplexador_disco:inst43"
-Info (12128): Elaborating entity "controlador_interrupcao" for hierarchy "controlador_interrupcao:inst2"
+Info (12128): Elaborating entity "controlador_interrupcao" for hierarchy "controlador_interrupcao:inst13"
 Info (12128): Elaborating entity "watchdog" for hierarchy "watchdog:inst"
+Warning (10036): Verilog HDL or VHDL warning at watchdog.v(13): object "salto" assigned a value but never read
 Info (12128): Elaborating entity "muxWDReset" for hierarchy "muxWDReset:inst11"
 Info (12128): Elaborating entity "mmu" for hierarchy "mmu:inst38"
 Info (12128): Elaborating entity "contador_de_programa" for hierarchy "contador_de_programa:inst16"
@@ -1947,17 +1947,17 @@ Info (17049): 74 registers lost all their fanouts during netlist optimizations.
 Info (144001): Generated suppressed messages file /home/diego/iZero-MipsProcessor/iZero/output_files/iZero.map.smsg
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 9246 device resources after synthesis - the final resource count might be different
+Info (21057): Implemented 9247 device resources after synthesis - the final resource count might be different
     Info (21058): Implemented 21 input pins
     Info (21059): Implemented 89 output pins
-    Info (21061): Implemented 8799 logic cells
+    Info (21061): Implemented 8800 logic cells
     Info (21064): Implemented 331 RAM segments
     Info (21062): Implemented 6 DSP elements
-Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 21 warnings
-    Info: Peak virtual memory: 1094 megabytes
-    Info: Processing ended: Thu Mar 22 00:02:25 2018
+Info: Quartus II 64-Bit Analysis & Synthesis was successful. 0 errors, 22 warnings
+    Info: Peak virtual memory: 1098 megabytes
+    Info: Processing ended: Fri Mar 23 19:49:39 2018
     Info: Elapsed time: 00:01:03
-    Info: Total CPU time (on all processors): 00:01:17
+    Info: Total CPU time (on all processors): 00:01:13
 
 
 +------------------------------------------+

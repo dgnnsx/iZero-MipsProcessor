@@ -1,5 +1,5 @@
 Assembler report for iZero
-Thu Mar 22 00:03:54 2018
+Fri Mar 23 19:51:17 2018
 Quartus II 64-Bit Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
 
 
@@ -38,7 +38,7 @@ agreement for further details.
 +---------------------------------------------------------------+
 ; Assembler Summary                                             ;
 +-----------------------+---------------------------------------+
-; Assembler Status      ; Successful - Thu Mar 22 00:03:54 2018 ;
+; Assembler Status      ; Successful - Fri Mar 23 19:51:17 2018 ;
 ; Revision Name         ; iZero                                 ;
 ; Top-level Entity Name ; iZero                                 ;
 ; Family                ; Cyclone IV E                          ;
@@ -93,8 +93,8 @@ agreement for further details.
 ; Option         ; Setting            ;
 +----------------+--------------------+
 ; Device         ; EP4CE115F29C7      ;
-; JTAG usercode  ; 0x00B2F989         ;
-; Checksum       ; 0x00B2F989         ;
+; JTAG usercode  ; 0x00B3C698         ;
+; Checksum       ; 0x00B3C698         ;
 +----------------+--------------------+
 
 
@@ -104,7 +104,7 @@ agreement for further details.
 Info: *******************************************************************
 Info: Running Quartus II 64-Bit Assembler
     Info: Version 15.0.2 Build 153 07/15/2015 SJ Web Edition
-    Info: Processing started: Thu Mar 22 00:03:47 2018
+    Info: Processing started: Fri Mar 23 19:51:10 2018
 Info: Command: quartus_asm --read_settings_files=off --write_settings_files=off iZero -c iZero
 Critical Warning (332012): Synopsys Design Constraints File file not found: 'iZero.sdc'. A Synopsys Design Constraints File is required by the TimeQuest Timing Analyzer to get proper timing constraints. Without it, the Compiler will not properly optimize the design.
 Info (332144): No user constrained base clocks found in the design
@@ -117,9 +117,9 @@ Info (115031): Writing out detailed assembly data for power analysis
 Info (115030): Assembler is generating device programming files
 Critical Warning (210053): Size of device data exceeds memory capacity of configuration device
 Info: Quartus II 64-Bit Assembler was successful. 0 errors, 2 warnings
-    Info: Peak virtual memory: 1034 megabytes
-    Info: Processing ended: Thu Mar 22 00:03:54 2018
+    Info: Peak virtual memory: 1035 megabytes
+    Info: Processing ended: Fri Mar 23 19:51:17 2018
     Info: Elapsed time: 00:00:07
-    Info: Total CPU time (on all processors): 00:00:07
+    Info: Total CPU time (on all processors): 00:00:06
 
 

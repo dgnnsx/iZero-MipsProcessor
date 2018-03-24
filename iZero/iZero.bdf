@@ -1905,71 +1905,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1056 832 1248 976)
-	(text "controlador_interrupcao" (rect 74 0 187 10)(font "Arial" ))
-	(text "inst2" (rect 161 128 184 138)(font "Arial" ))
-	(port
-		(pt 192 32)
-		(input)
-		(text "clk" (rect 0 0 14 10)(font "Arial" ))
-		(text "clk" (rect 157 27 171 37)(font "Arial" ))
-		(line (pt 192 32)(pt 176 32))
-	)
-	(port
-		(pt 192 48)
-		(input)
-		(text "irq1" (rect 0 0 18 10)(font "Arial" ))
-		(text "irq1" (rect 153 43 171 53)(font "Arial" ))
-		(line (pt 192 48)(pt 176 48))
-	)
-	(port
-		(pt 192 64)
-		(input)
-		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
-		(text "pc[25..0]" (rect 130 59 171 69)(font "Arial" ))
-		(line (pt 192 64)(pt 176 64)(line_width 3))
-	)
-	(port
-		(pt 192 80)
-		(input)
-		(text "ack" (rect 0 0 17 10)(font "Arial" ))
-		(text "ack" (rect 154 75 171 85)(font "Arial" ))
-		(line (pt 192 80)(pt 176 80))
-	)
-	(port
-		(pt 192 96)
-		(input)
-		(text "clr" (rect 0 0 12 10)(font "Arial" ))
-		(text "clr" (rect 159 91 171 101)(font "Arial" ))
-		(line (pt 192 96)(pt 176 96))
-	)
-	(port
-		(pt 0 32)
-		(output)
-		(text "intr" (rect 0 0 16 10)(font "Arial" ))
-		(text "intr" (rect 18 27 34 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(port
-		(pt 0 48)
-		(output)
-		(text "cause[31..0]" (rect 0 0 57 10)(font "Arial" ))
-		(text "cause[31..0]" (rect 12 43 69 53)(font "Arial" ))
-		(line (pt 0 48)(pt 16 48)(line_width 3))
-	)
-	(port
-		(pt 0 64)
-		(output)
-		(text "pcBckp[31..0]" (rect 0 0 64 10)(font "Arial" ))
-		(text "pcBckp[31..0]" (rect 11 59 75 69)(font "Arial" ))
-		(line (pt 0 64)(pt 16 64)(line_width 3))
-	)
-	(drawing
-		(rectangle (rect 16 16 176 128))
-	)
-	(flipy)
-)
-(symbol
 	(rect 136 240 352 352)
 	(text "contador_de_programa" (rect 5 0 117 10)(font "Arial" ))
 	(text "inst16" (rect 8 96 37 106)(font "Arial" ))
@@ -2090,6 +2025,78 @@ agreement for further details.
 	)
 	(drawing
 		(rectangle (rect 16 16 136 64))
+	)
+	(flipy)
+)
+(symbol
+	(rect 1048 832 1248 976)
+	(text "controlador_interrupcao" (rect 82 0 195 10)(font "Arial" ))
+	(text "inst13" (rect 163 128 192 138)(font "Arial" ))
+	(port
+		(pt 200 32)
+		(input)
+		(text "clk" (rect 0 0 14 10)(font "Arial" ))
+		(text "clk" (rect 165 27 179 37)(font "Arial" ))
+		(line (pt 200 32)(pt 184 32))
+	)
+	(port
+		(pt 200 48)
+		(input)
+		(text "irq1" (rect 0 0 18 10)(font "Arial" ))
+		(text "irq1" (rect 161 43 179 53)(font "Arial" ))
+		(line (pt 200 48)(pt 184 48))
+	)
+	(port
+		(pt 200 64)
+		(input)
+		(text "ack" (rect 0 0 17 10)(font "Arial" ))
+		(text "ack" (rect 162 59 179 69)(font "Arial" ))
+		(line (pt 200 64)(pt 184 64))
+	)
+	(port
+		(pt 200 80)
+		(input)
+		(text "clr" (rect 0 0 12 10)(font "Arial" ))
+		(text "clr" (rect 167 75 179 85)(font "Arial" ))
+		(line (pt 200 80)(pt 184 80))
+	)
+	(port
+		(pt 200 96)
+		(input)
+		(text "opcode[5..0]" (rect 0 0 59 10)(font "Arial" ))
+		(text "opcode[5..0]" (rect 120 91 179 101)(font "Arial" ))
+		(line (pt 200 96)(pt 184 96)(line_width 3))
+	)
+	(port
+		(pt 200 112)
+		(input)
+		(text "pc[25..0]" (rect 0 0 41 10)(font "Arial" ))
+		(text "pc[25..0]" (rect 138 107 179 117)(font "Arial" ))
+		(line (pt 200 112)(pt 184 112)(line_width 3))
+	)
+	(port
+		(pt 0 32)
+		(output)
+		(text "intr" (rect 0 0 16 10)(font "Arial" ))
+		(text "intr" (rect 18 27 34 37)(font "Arial" ))
+		(line (pt 0 32)(pt 16 32))
+	)
+	(port
+		(pt 0 48)
+		(output)
+		(text "cause[31..0]" (rect 0 0 57 10)(font "Arial" ))
+		(text "cause[31..0]" (rect 12 43 69 53)(font "Arial" ))
+		(line (pt 0 48)(pt 16 48)(line_width 3))
+	)
+	(port
+		(pt 0 64)
+		(output)
+		(text "pcBckp[31..0]" (rect 0 0 64 10)(font "Arial" ))
+		(text "pcBckp[31..0]" (rect 11 59 75 69)(font "Arial" ))
+		(line (pt 0 64)(pt 16 64)(line_width 3))
+	)
+	(drawing
+		(rectangle (rect 16 16 184 128))
 	)
 	(flipy)
 )
@@ -3126,16 +3133,6 @@ agreement for further details.
 	(pt 688 528)
 )
 (connector
-	(pt 680 272)
-	(pt 680 368)
-	(bus)
-)
-(connector
-	(pt 680 368)
-	(pt 680 560)
-	(bus)
-)
-(connector
 	(pt 1328 64)
 	(pt 1328 576)
 	(bus)
@@ -3826,14 +3823,6 @@ agreement for further details.
 	(pt 104 1048)
 )
 (connector
-	(pt 696 1008)
-	(pt 1256 1008)
-)
-(connector
-	(pt -200 1000)
-	(pt 1264 1000)
-)
-(connector
 	(pt 152 504)
 	(pt 368 504)
 	(bus)
@@ -3941,73 +3930,6 @@ agreement for further details.
 	(pt 2144 896)
 )
 (connector
-	(pt -208 72)
-	(pt -208 864)
-)
-(connector
-	(pt 1024 248)
-	(pt 1024 880)
-	(bus)
-)
-(connector
-	(pt 1032 264)
-	(pt 1032 896)
-	(bus)
-)
-(connector
-	(pt 1032 896)
-	(pt 1056 896)
-	(bus)
-)
-(connector
-	(pt 1024 880)
-	(pt 1056 880)
-	(bus)
-)
-(connector
-	(pt -208 864)
-	(pt 1056 864)
-)
-(connector
-	(pt 1256 1008)
-	(pt 1256 928)
-)
-(connector
-	(pt 1256 928)
-	(pt 1248 928)
-)
-(connector
-	(pt 1264 1000)
-	(pt 1264 912)
-)
-(connector
-	(pt 1264 912)
-	(pt 1248 912)
-)
-(connector
-	(pt 1272 896)
-	(pt 1248 896)
-	(bus)
-)
-(connector
-	(pt 1272 1064)
-	(pt 1272 896)
-	(bus)
-)
-(connector
-	(pt -232 1064)
-	(pt 1272 1064)
-	(bus)
-)
-(connector
-	(pt 1272 512)
-	(pt 1272 864)
-)
-(connector
-	(pt 1248 864)
-	(pt 1272 864)
-)
-(connector
 	(pt 1272 512)
 	(pt 1600 512)
 )
@@ -4018,10 +3940,6 @@ agreement for further details.
 (connector
 	(pt 1952 512)
 	(pt 1952 880)
-)
-(connector
-	(pt 1248 880)
-	(pt 1352 880)
 )
 (connector
 	(pt 1600 512)
@@ -4044,17 +3962,6 @@ agreement for further details.
 	(pt 1952 880)
 )
 (connector
-	(text "instrucao[31..26]" (rect 706 568 785 578)(font "Arial" ))
-	(pt 680 560)
-	(pt 1544 560)
-	(bus)
-)
-(connector
-	(pt 1544 560)
-	(pt 1976 560)
-	(bus)
-)
-(connector
 	(pt 1512 928)
 	(pt 1544 928)
 	(bus)
@@ -4062,6 +3969,121 @@ agreement for further details.
 (connector
 	(pt 1544 560)
 	(pt 1544 928)
+	(bus)
+)
+(connector
+	(pt -200 1000)
+	(pt 1272 1000)
+)
+(connector
+	(pt 1272 896)
+	(pt 1272 1000)
+)
+(connector
+	(pt 696 1008)
+	(pt 1264 1008)
+)
+(connector
+	(pt 1264 912)
+	(pt 1264 1008)
+)
+(connector
+	(pt -208 72)
+	(pt -208 864)
+)
+(connector
+	(pt 1024 248)
+	(pt 1024 880)
+	(bus)
+)
+(connector
+	(pt 1032 264)
+	(pt 1032 896)
+	(bus)
+)
+(connector
+	(pt 1272 512)
+	(pt 1272 864)
+)
+(connector
+	(pt -208 864)
+	(pt 1048 864)
+)
+(connector
+	(pt 1024 880)
+	(pt 1048 880)
+	(bus)
+)
+(connector
+	(pt 1032 896)
+	(pt 1048 896)
+	(bus)
+)
+(connector
+	(pt 1248 864)
+	(pt 1272 864)
+)
+(connector
+	(pt 1248 880)
+	(pt 1352 880)
+)
+(connector
+	(pt 1248 896)
+	(pt 1272 896)
+)
+(connector
+	(pt 1248 912)
+	(pt 1264 912)
+)
+(connector
+	(pt -232 1064)
+	(pt 1280 1064)
+	(bus)
+)
+(connector
+	(pt 1280 944)
+	(pt 1280 1064)
+	(bus)
+)
+(connector
+	(pt 1248 944)
+	(pt 1280 944)
+	(bus)
+)
+(connector
+	(pt 1248 928)
+	(pt 1280 928)
+	(bus)
+)
+(connector
+	(pt 1280 928)
+	(pt 1280 560)
+	(bus)
+)
+(connector
+	(pt 680 272)
+	(pt 680 368)
+	(bus)
+)
+(connector
+	(pt 680 368)
+	(pt 680 560)
+	(bus)
+)
+(connector
+	(text "instrucao[31..26]" (rect 706 568 785 578)(font "Arial" ))
+	(pt 680 560)
+	(pt 1280 560)
+	(bus)
+)
+(connector
+	(pt 1280 560)
+	(pt 1544 560)
+	(bus)
+)
+(connector
+	(pt 1544 560)
+	(pt 1976 560)
 	(bus)
 )
 (junction (pt 1856 0))
@@ -4109,3 +4131,4 @@ agreement for further details.
 (junction (pt 736 -232))
 (junction (pt 104 656))
 (junction (pt 1544 560))
+(junction (pt 1280 560))
