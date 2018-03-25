@@ -147,7 +147,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
 	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall | i_exec_again;
 	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_exec_again;
-	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again	| i_gic	| i_gip;
+	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 									i_subi | i_divi	| i_slli	| i_ori	| i_lori	|
 									i_li	| i_out	|
