@@ -1955,36 +1955,6 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1992 864 2144 944)
-	(text "muxWDReset" (rect 80 0 147 10)(font "Arial" ))
-	(text "inst11" (rect 115 64 144 74)(font "Arial" ))
-	(port
-		(pt 152 32)
-		(input)
-		(text "usrMode" (rect 0 0 42 10)(font "Arial" ))
-		(text "usrMode" (rect 89 27 131 37)(font "Arial" ))
-		(line (pt 152 32)(pt 136 32))
-	)
-	(port
-		(pt 152 48)
-		(input)
-		(text "isInsert" (rect 0 0 35 10)(font "Arial" ))
-		(text "isInsert" (rect 96 43 131 53)(font "Arial" ))
-		(line (pt 152 48)(pt 136 48))
-	)
-	(port
-		(pt 0 32)
-		(output)
-		(text "out" (rect 0 0 16 10)(font "Arial" ))
-		(text "out" (rect 21 27 37 37)(font "Arial" ))
-		(line (pt 0 32)(pt 16 32))
-	)
-	(drawing
-		(rectangle (rect 16 16 136 64))
-	)
-	(flipy)
-)
-(symbol
 	(rect 1048 832 1248 976)
 	(text "controlador_interrupcao" (rect 82 0 195 10)(font "Arial" ))
 	(text "inst13" (rect 163 128 192 138)(font "Arial" ))
@@ -2080,6 +2050,13 @@ agreement for further details.
 		(text "isUser" (rect 0 0 31 10)(font "Arial" ))
 		(text "isUser" (rect 84 59 115 69)(font "Arial" ))
 		(line (pt 136 64)(pt 120 64))
+	)
+	(port
+		(pt 136 80)
+		(input)
+		(text "isInsert" (rect 0 0 35 10)(font "Arial" ))
+		(text "isInsert" (rect 80 75 115 85)(font "Arial" ))
+		(line (pt 136 80)(pt 120 80))
 	)
 	(port
 		(pt 0 32)
@@ -3760,10 +3737,6 @@ agreement for further details.
 	(pt 1600 432)
 )
 (connector
-	(pt 1600 432)
-	(pt 1600 512)
-)
-(connector
 	(pt 1968 632)
 	(pt 1944 632)
 )
@@ -3788,10 +3761,6 @@ agreement for further details.
 	(pt 1968 632)
 )
 (connector
-	(pt 384 1016)
-	(pt 1880 1016)
-)
-(connector
 	(pt 736 -488)
 	(pt 736 -232)
 )
@@ -3800,19 +3769,11 @@ agreement for further details.
 	(pt 736 1040)
 )
 (connector
-	(pt 2176 1040)
-	(pt 736 1040)
-)
-(connector
 	(pt 104 480)
 	(pt 104 656)
 )
 (connector
 	(pt 104 656)
-	(pt 104 1048)
-)
-(connector
-	(pt 2184 1048)
 	(pt 104 1048)
 )
 (connector
@@ -3905,26 +3866,6 @@ agreement for further details.
 	(pt -232 384)
 	(pt -232 1064)
 	(bus)
-)
-(connector
-	(pt 2176 1040)
-	(pt 2176 912)
-)
-(connector
-	(pt 2176 912)
-	(pt 2144 912)
-)
-(connector
-	(pt 2184 1048)
-	(pt 2184 896)
-)
-(connector
-	(pt 2184 896)
-	(pt 2144 896)
-)
-(connector
-	(pt 1272 512)
-	(pt 1600 512)
 )
 (connector
 	(pt -200 1000)
@@ -4028,41 +3969,73 @@ agreement for further details.
 	(bus)
 )
 (connector
-	(pt 1880 1016)
-	(pt 1880 912)
-)
-(connector
-	(pt 1952 512)
-	(pt 1952 880)
+	(pt 1280 560)
+	(pt 1976 560)
+	(bus)
 )
 (connector
 	(pt 1248 880)
 	(pt 1352 880)
 )
 (connector
+	(pt 1600 432)
 	(pt 1600 512)
-	(pt 1952 512)
 )
 (connector
-	(pt 1952 512)
-	(pt 1976 512)
+	(pt 736 1040)
+	(pt 1504 1040)
 )
 (connector
-	(pt 1280 560)
-	(pt 1976 560)
-	(bus)
+	(pt 1504 1040)
+	(pt 1504 928)
 )
 (connector
-	(pt 1488 880)
-	(pt 1952 880)
+	(pt 1488 928)
+	(pt 1504 928)
 )
 (connector
-	(pt 1488 896)
-	(pt 1992 896)
+	(pt 384 1016)
+	(pt 1512 1016)
+)
+(connector
+	(pt 1512 1016)
+	(pt 1512 912)
 )
 (connector
 	(pt 1488 912)
-	(pt 1880 912)
+	(pt 1512 912)
+)
+(connector
+	(pt 104 1048)
+	(pt 1520 1048)
+)
+(connector
+	(pt 1520 1048)
+	(pt 1520 896)
+)
+(connector
+	(pt 1488 896)
+	(pt 1520 896)
+)
+(connector
+	(pt 1488 880)
+	(pt 1544 880)
+)
+(connector
+	(pt 1544 512)
+	(pt 1544 880)
+)
+(connector
+	(pt 1600 512)
+	(pt 1976 512)
+)
+(connector
+	(pt 1272 512)
+	(pt 1544 512)
+)
+(connector
+	(pt 1544 512)
+	(pt 1600 512)
 )
 (junction (pt 1856 0))
 (junction (pt 632 80))
@@ -4105,7 +4078,7 @@ agreement for further details.
 (junction (pt 2152 776))
 (junction (pt 1600 512))
 (junction (pt 1600 432))
-(junction (pt 1952 512))
 (junction (pt 736 -232))
 (junction (pt 104 656))
 (junction (pt 1280 560))
+(junction (pt 1544 512))

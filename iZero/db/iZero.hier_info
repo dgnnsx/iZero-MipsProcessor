@@ -4537,13 +4537,11 @@ isUser => contador.OUTPUTSELECT
 isUser => contador.OUTPUTSELECT
 isUser => contador.OUTPUTSELECT
 isUser => contador.OUTPUTSELECT
+isInsert => contador.OUTPUTSELECT
+isInsert => contador.OUTPUTSELECT
+isInsert => contador.OUTPUTSELECT
+isInsert => contador.OUTPUTSELECT
 irq <= contador[3].DB_MAX_OUTPUT_PORT_TYPE
-
-
-|iZero|muxWDReset:inst11
-usrMode => out.IN0
-isInsert => out.IN1
-out <= out.DB_MAX_OUTPUT_PORT_TYPE
 
 
 |iZero|mmu:inst38
