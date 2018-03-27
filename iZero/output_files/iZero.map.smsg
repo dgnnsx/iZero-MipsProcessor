@@ -1,29 +1,29 @@
-Warning (10268): Verilog HDL information at LCD_Display.v(392): always construct contains both blocking and non-blocking assignments
-Warning (10268): Verilog HDL information at LCD_Display.v(422): always construct contains both blocking and non-blocking assignments
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(298): object "CHAR_a" differs only in case from object "CHAR_A" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(298): object "CHAR_b" differs only in case from object "CHAR_B" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(298): object "CHAR_c" differs only in case from object "CHAR_C" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(298): object "CHAR_d" differs only in case from object "CHAR_D" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_e" differs only in case from object "CHAR_E" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_f" differs only in case from object "CHAR_F" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_g" differs only in case from object "CHAR_G" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_h" differs only in case from object "CHAR_H" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_i" differs only in case from object "CHAR_I" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_j" differs only in case from object "CHAR_J" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_k" differs only in case from object "CHAR_K" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_l" differs only in case from object "CHAR_L" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_m" differs only in case from object "CHAR_M" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_n" differs only in case from object "CHAR_N" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_o" differs only in case from object "CHAR_O" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_p" differs only in case from object "CHAR_P" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_q" differs only in case from object "CHAR_Q" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_r" differs only in case from object "CHAR_R" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_s" differs only in case from object "CHAR_S" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_t" differs only in case from object "CHAR_T" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_u" differs only in case from object "CHAR_U" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_v" differs only in case from object "CHAR_V" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_w" differs only in case from object "CHAR_W" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_x" differs only in case from object "CHAR_X" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_y" differs only in case from object "CHAR_Y" in the same scope
-Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_z" differs only in case from object "CHAR_Z" in the same scope
+Warning (10268): Verilog HDL information at LCD_Display.v(394): always construct contains both blocking and non-blocking assignments
+Warning (10268): Verilog HDL information at LCD_Display.v(424): always construct contains both blocking and non-blocking assignments
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_a" differs only in case from object "CHAR_A" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_b" differs only in case from object "CHAR_B" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_c" differs only in case from object "CHAR_C" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(299): object "CHAR_d" differs only in case from object "CHAR_D" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_e" differs only in case from object "CHAR_E" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_f" differs only in case from object "CHAR_F" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_g" differs only in case from object "CHAR_G" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(300): object "CHAR_h" differs only in case from object "CHAR_H" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_i" differs only in case from object "CHAR_I" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_j" differs only in case from object "CHAR_J" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_k" differs only in case from object "CHAR_K" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(301): object "CHAR_l" differs only in case from object "CHAR_L" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_m" differs only in case from object "CHAR_M" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_n" differs only in case from object "CHAR_N" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_o" differs only in case from object "CHAR_O" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(302): object "CHAR_p" differs only in case from object "CHAR_P" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_q" differs only in case from object "CHAR_Q" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_r" differs only in case from object "CHAR_R" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_s" differs only in case from object "CHAR_S" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(303): object "CHAR_t" differs only in case from object "CHAR_T" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_u" differs only in case from object "CHAR_U" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_v" differs only in case from object "CHAR_V" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_w" differs only in case from object "CHAR_W" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(304): object "CHAR_x" differs only in case from object "CHAR_X" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(305): object "CHAR_y" differs only in case from object "CHAR_Y" in the same scope
+Info (10281): Verilog HDL Declaration information at LCD_Display.v(305): object "CHAR_z" differs only in case from object "CHAR_Z" in the same scope
 Info (10281): Verilog HDL Declaration information at controlador_bios.v(4): object "bios" differs only in case from object "BIOS" in the same scope
