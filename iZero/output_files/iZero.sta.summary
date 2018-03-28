@@ -3,59 +3,59 @@ TimeQuest Timing Analyzer Summary
 ------------------------------------------------------------
 
 Type  : Setup 'temporizador:inst19|contador[4]'
-Slack : -163.793
-TNS   : -203016.490
+Slack : -167.251
+TNS   : -206738.158
 
 Type  : Setup 'clock'
-Slack : -156.340
-TNS   : -1912.091
+Slack : -161.313
+TNS   : -1941.235
 
 Type  : Setup 'lcdlab3:inst9|LCD_Display:u1|CLK_400HZ'
-Slack : -2.785
-TNS   : -54.413
+Slack : -2.962
+TNS   : -66.556
 
 Type  : Setup 'lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|contador[14]'
-Slack : 0.058
-TNS   : 0.000
+Slack : -0.280
+TNS   : -0.280
 
 Type  : Hold 'clock'
-Slack : -2.849
-TNS   : -5.451
+Slack : -2.872
+TNS   : -5.494
 
 Type  : Hold 'temporizador:inst19|contador[4]'
-Slack : -2.569
-TNS   : -2.569
+Slack : -2.535
+TNS   : -2.535
 
 Type  : Hold 'lcdlab3:inst9|LCD_Display:u1|CLK_400HZ'
-Slack : 0.328
+Slack : 0.379
 TNS   : 0.000
 
 Type  : Hold 'lcdlab3:inst9|LCD_Display:u1|LCD_display_string:u1|contador[14]'
-Slack : 0.404
+Slack : 0.403
 TNS   : 0.000
 
 Type  : Recovery 'temporizador:inst19|contador[4]'
-Slack : -6.191
-TNS   : -303.003
+Slack : -7.143
+TNS   : -349.703
 
 Type  : Recovery 'lcdlab3:inst9|LCD_Display:u1|CLK_400HZ'
-Slack : -2.962
-TNS   : -38.506
+Slack : -3.390
+TNS   : -44.062
 
 Type  : Recovery 'clock'
-Slack : -2.930
-TNS   : -61.530
-
-Type  : Removal 'lcdlab3:inst9|LCD_Display:u1|CLK_400HZ'
-Slack : 3.274
-TNS   : 0.000
+Slack : -3.276
+TNS   : -68.796
 
 Type  : Removal 'clock'
-Slack : 3.333
+Slack : 3.669
+TNS   : 0.000
+
+Type  : Removal 'lcdlab3:inst9|LCD_Display:u1|CLK_400HZ'
+Slack : 3.701
 TNS   : 0.000
 
 Type  : Removal 'temporizador:inst19|contador[4]'
-Slack : 5.807
+Slack : 5.574
 TNS   : 0.000
 
 Type  : Minimum Pulse Width 'clock'
