@@ -1,72 +1,13 @@
-# A gitignore for Altera Quartus II that tries to ignore almost all of the
-# automatically Quartus-generated files. This primarily leaves the project,
-# settings, source, and constraint files to be added. The files ignored do not
-# include the bulk of the MegaFunction Wizard generated files which enables
-# a cloned repository to be used (usually) immediately without regenerating
-# Altera IP blocks.
-
-# Need to keep all HDL files and timing constraint files
-# *.vhd
-# *.v
-# *.sdc
-# *.mif
-*_bb.v
-*_inst.v
-
 # Ignore Quartus II generated folders
-*_sim
-src/main/os/db
-src/main/os/greybox_tmp
-src/main/os/incremental_db
-src/main/os/simulation
-src/main/os/testbench
-src/main/os/timing
-src/main/os/output_files
-src/main/os/.qsys_edit
-src/main/modules/*/db
-src/main/modules/*/greybox_tmp
-src/main/modules/*/incremental_db
-src/main/modules/*/simulation
-src/main/modules/*/testbench
-src/main/modules/*/timing
-src/main/modules/*/output_files
-src/main/modules/*/.qsys_edit
+src/main/system/C:
+src/main/system/db
+src/main/system/incremental_db
+src/main/system/output_files
 
 # Ignore Quartus II generated files
-*_generation_script*
-*_inst.vhd
-*.bak
-*.cdf
-*.cmp
 *.ddb
-*.done
-*.dpf
-*.eqn
-*.hex
-*.html
-*.jdi
-*.jpg
-*.pin
-*.pof
-*.ptf.*
-*.qar
-*.qarlog
 *.qws
 *.rpt
-*.sld
-*.smsg
-*.sof
-*.sopc_builder
-*.summary
-*.tcl
-*.txt
-*~
-*example*
-*rtl_netlist
-*sopc_*
-
-# Ignore Terasic-generated markup
-*.htm
 
 # VS Code
 .vscode
