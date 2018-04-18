@@ -1,5 +1,5 @@
-module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, mmuWrite, mmuSelect,
-	isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, clearIntr, diskIntMux, regDest, pcSource, regWrtSelect, aluOp);
+module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta, regWrite, memWrite, imWrite, diskWrite, arduinoWrite, mmuWrite,
+	mmuSelect, isRegAluOp, outWrite, isHalt, isInsert, wlcd, reset, userMode, kernelMode, clearIntr, regDest, pcSource, regWrtSelect, aluOp);
 	
 	// Entradas
 	input isFalse;							// FLAG jump if false
@@ -11,11 +11,12 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	input [5:0] func;						// Espicificacao da instrucao
 	
 	// Controles
-	output inta;	// Interrupt ack
+	output inta;							// Interrupt ack
 	output regWrite;						// Sinal para habilitar escrita no banco de registradores
 	output memWrite;						// Sinal para habilitar escrita na memória de dados
 	output imWrite;						// Sinal para habilitar escrita na memoria de instrucoes
-	output diskWrite;
+	output diskWrite;						// Sinal para habilitar escrita no disco rigido
+	output arduinoWrite;					// Sinal para habilitar escrita no modulo do arduino
 	output mmuWrite;						// Sinal para habilitar escrita na unidade de gerenciamento de memoria (MMU)
 	output mmuSelect;						// Sinal para habilitar a troca do seletor na unidade de gerenciamento de memoria (MMU)
 	output isRegAluOp;					// Sinal do multiplexador de entrada de dados da ULA, 1'b1 equivale a reg e 1'b0 a imm
@@ -27,10 +28,9 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	output userMode;						// Modo de execuçao do processador (USUARIO)
 	output kernelMode;					// Modo de execuçao do processador (KERNEL)
 	output clearIntr;						// Limpa o codigo de interrupçao armazenado no controlador de interrupçao
-	output [1:0] diskIntMux;
 	output [1:0] regDest;				// Sinal do multiplexador de escrita no banco de registradores
 	output [1:0] pcSource;				// Seleciona a origem do PC
-	output [1:0] regWrtSelect;
+	output [2:0] regWrtSelect;
 	output [4:0] aluOp;					// Sinal de controle da ULA
 	
 	// Declara wire
@@ -80,12 +80,11 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_jf					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 010101
 	wire i_ldk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
 	wire i_sdk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
-	//wire i_lim					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
+	
 	wire i_sim					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
 	wire i_mmu_lower_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
 	wire i_mmu_upper_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 011011
-	//wire i_mmu_lower_dm		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
-	//wire i_mmu_upper_dm		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
+	
 	wire i_mmu_select			= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110
 	wire i_syscall				= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
 	wire i_exec					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
@@ -99,6 +98,8 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_gip					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111
 	
 	wire i_pre_io				= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 101000
+	wire i_lba					= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 101001
+	wire i_sba					= op[5] & ~op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 101010
 	
 	// J Type
 	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
@@ -121,6 +122,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign memWrite			= i_sw;
 	assign imWrite				= i_sim;
 	assign diskWrite			= i_sdk;
+	assign arduinoWrite		= i_sba;
 	assign mmuWrite			= i_mmu_lower_im | i_mmu_upper_im;
 	assign mmuSelect			= i_mmu_select;
 	assign isRegAluOp 		= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
@@ -136,8 +138,6 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign userMode			= i_exec	| i_exec_again;
 	assign kernelMode			= i_syscall;
 	assign clearIntr			= i_cic;
-	assign diskIntMux[0]		= i_ldk	| i_gip;
-	assign diskIntMux[1]		= i_gic	| i_gip;
 	assign regDest[0]			= i_addi | i_subi | i_muli | i_divi | i_modi |
 										i_andi | i_ori  | i_xori | i_not	|
 										i_slli | i_srli |
@@ -146,8 +146,9 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign regDest[1]			= i_jal | i_exec	| i_exec_again;
 	assign pcSource[0]		= i_j		|	i_jtm	| 	i_jal	| i_exec | i_jf & isFalse;
 	assign pcSource[1]		= i_j		| 	i_jtm	|	i_jr	| i_jal	| i_exec	| i_syscall | i_exec_again;
-	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_exec_again;
-	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again;
+	assign regWrtSelect[0] 	= i_lw | i_jal | i_exec	| i_exec_again	| i_gip;
+	assign regWrtSelect[1]	= i_in | i_jal | i_exec	| i_exec_again	| i_gic	| i_gip;
+	assign regWrtSelect[2]	= i_ldk	| i_gic	| i_gip;
 	assign aluOp[0]			= i_sub	| i_div	| i_sll	| i_or	| i_lor	| i_not	|
 									i_subi | i_divi	| i_slli	| i_ori	| i_lori	|
 									i_li	| i_out	|

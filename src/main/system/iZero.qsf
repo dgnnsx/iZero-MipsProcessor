@@ -209,7 +209,6 @@ set_global_assignment -name VERILOG_FILE ../modules/disco_rigido/disco_rigido.v
 
 set_global_assignment -name VERILOG_FILE ../modules/delay_button/delay_button.v
 
-set_global_assignment -name VERILOG_FILE ../modules/multiplexador_disco/multiplexador_disco.v
 set_global_assignment -name VERILOG_FILE ../modules/mmu/mmu.v
 set_global_assignment -name VERILOG_FILE ../modules/controlador_interrupcao/controlador_interrupcao.v
 set_global_assignment -name VERILOG_FILE ../modules/modulo_input/modulo_input.v
@@ -251,6 +250,7 @@ set_location_assignment PIN_AC28 -to SW[1]
 set_location_assignment PIN_AB28 -to SW[0]
 
 set_global_assignment -name VERILOG_FILE ../modules/watchdog/watchdog.v
+
 
 
 
