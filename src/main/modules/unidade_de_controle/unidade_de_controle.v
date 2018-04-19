@@ -80,32 +80,32 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_jf					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 010101
 	wire i_ldk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
 	wire i_sdk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
-	
-	wire i_sim					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
-	wire i_mmu_lower_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
-	wire i_mmu_upper_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 011011
-	
-	wire i_mmu_select			= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110
-	wire i_syscall				= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111
-	wire i_exec					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000
-	wire i_exec_again			= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
+	wire i_lam					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
+	wire i_sam					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 011001
+	wire i_sim					= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 011010
+	wire i_mmu_lower_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 011011
+	wire i_mmu_upper_im		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
+	wire i_mmu_select			= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
+	//////////////////////////////////////////////////////////////////////////////////////////
 	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
 	wire i_lcd_pgms			= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
-	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
-	
+	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100	
 	wire i_gic					= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
 	wire i_cic					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 100110
-	wire i_gip					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111
-	
+	wire i_gip					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111	
 	wire i_pre_io				= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 101000
-	wire i_lba					= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & op[0];		// 101001
-	wire i_sba					= op[5] & ~op[4] & op[3] & ~op[2] & op[1] & ~op[0];		// 101010
+	
+	/******************************** INICIO DOS OPCODES FIXOS ********************************/
+	wire i_syscall				= op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];			// 111001
+	wire i_exec					= op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];			// 111010
+	wire i_exec_again			= op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 111011
 	
 	// J Type
 	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
 	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
 	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
 	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
+	/******************************** FIM DOS OPCODES FIXOS ********************************/
 	
 	// Atribui controles do datapath
 	assign inta					= i_pre_io | intr;
@@ -122,7 +122,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign memWrite			= i_sw;
 	assign imWrite				= i_sim;
 	assign diskWrite			= i_sdk;
-	assign arduinoWrite		= i_sba;
+	assign arduinoWrite		= i_sam;
 	assign mmuWrite			= i_mmu_lower_im | i_mmu_upper_im;
 	assign mmuSelect			= i_mmu_select;
 	assign isRegAluOp 		= i_add  | i_sub  | i_mul  | i_div  | i_mod  |
