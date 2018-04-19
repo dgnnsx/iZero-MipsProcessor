@@ -54,7 +54,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_let					= rtype & ~func[5] & ~func[4] & func[3] & func[2] & func[1] & func[0];		// 001111
 	wire i_gt					= rtype & ~func[5] & func[4] & ~func[3] & ~func[2] & ~func[1] & ~func[0];	// 010000
 	wire i_get					= rtype & ~func[5] & func[4] & ~func[3] & ~func[2] & ~func[1] & func[0];	// 010001
-	wire i_jr					= rtype & ~func[5] & func[4] & ~func[3] & ~func[2] & func[1] & ~func[0];	// 010010
+	wire i_jr					= rtype & ~func[5] & func[4] & ~func[3] & ~func[2] & func[1] & ~func[0];	// 010010 - opcode atrelado a [controlador_interrupcao.v]
 	
 	// I Type
 	wire i_addi					= ~op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 000001
@@ -77,7 +77,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_sw					= ~op[5] & op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 010010
 	wire i_in					= ~op[5] & op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 010011
 	wire i_out					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 010100
-	wire i_jf					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 010101
+	wire i_jf					= ~op[5] & op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 010101 - opcode atrelado a [controlador_interrupcao.v]
 	wire i_ldk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 010110
 	wire i_sdk					= ~op[5] & op[4] & ~op[3] & op[2] & op[1] & op[0];			// 010111
 	wire i_lam					= ~op[5] & op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 011000
@@ -86,25 +86,23 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_mmu_lower_im		= ~op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 011011
 	wire i_mmu_upper_im		= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];		// 011100
 	wire i_mmu_select			= ~op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 011101
-	//////////////////////////////////////////////////////////////////////////////////////////
-	wire i_lcd					= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
-	wire i_lcd_pgms			= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
-	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100	
-	wire i_gic					= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101
-	wire i_cic					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & ~op[0];		// 100110
-	wire i_gip					= op[5] & ~op[4] & ~op[3] & op[2] & op[1] & op[0];			// 100111	
-	wire i_pre_io				= op[5] & ~op[4] & op[3] & ~op[2] & ~op[1] & ~op[0];		// 101000
+	wire i_lcd					= ~op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 011110 - opcode atrelado a [LCD_Display.v]
+	wire i_lcd_pgms			= ~op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 011111 - opcode atrelado a [LCD_Display.v]
+	wire i_lcd_curr			= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & ~op[0];		// 100000 - opcode atrelado a [LCD_Display.v]
+	wire i_gic					= op[5] & ~op[4] & ~op[3] & ~op[2] & ~op[1] & op[0];		// 100001
+	wire i_cic					= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & ~op[0];		// 100010
+	wire i_gip					= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
+	wire i_pre_io				= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
 	
 	/******************************** INICIO DOS OPCODES FIXOS ********************************/
-	wire i_syscall				= op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];			// 111001
+	wire i_syscall				= op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];			// 111001 - opcode atrelado a [controlador_interrupcao.v; kernel.c]
 	wire i_exec					= op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];			// 111010
 	wire i_exec_again			= op[5] & op[4] & op[3] & ~op[2] & op[1] & op[0];			// 111011
-	
 	// J Type
-	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100
-	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101
-	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110
-	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111
+	wire i_j						= op[5] & op[4] & op[3] & op[2] & ~op[1] & ~op[0];			// 111100 - opcode atrelado a [controlador_interrupcao.v]
+	wire i_jtm					= op[5] & op[4] & op[3] & op[2] & ~op[1] & op[0];			// 111101 - opcode atrelado a [controlador_interrupcao.v; kernel.c]
+	wire i_jal					= op[5] & op[4] & op[3] & op[2] & op[1] & ~op[0];			// 111110 - opcode atrelado a [controlador_interrupcao.v]
+	wire i_halt					= op[5] & op[4] & op[3] & op[2] & op[1] & op[0];			// 111111 - opcode atrelado a [controlador_bios.v; bios.c; kernel.c]
 	/******************************** FIM DOS OPCODES FIXOS ********************************/
 	
 	// Atribui controles do datapath

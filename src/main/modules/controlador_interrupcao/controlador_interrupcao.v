@@ -9,7 +9,7 @@ module controlador_interrupcao(
 	output reg [31:0] cause,			// Identificaçao da interrupçao
 	output reg [31:0] pcBckp);			// Backup do pc na interrupçao
 	
-	localparam JR = 6'b010010, JF = 6'b010101, J = 6'b111100, JTM = 6'b111101, JAL = 6'b111110;	
+	localparam JR = 6'b010010, JF = 6'b010101, J = 6'b111100, JTM = 6'b111101, JAL = 6'b111110;
 	// Se for uma instruçao de salto nao deixa trocar o contexto
 	wire salto = opcode == JR | opcode == JF | opcode == J | opcode == JTM | opcode == JAL;
 	

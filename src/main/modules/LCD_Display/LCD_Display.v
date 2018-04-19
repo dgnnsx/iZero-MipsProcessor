@@ -330,9 +330,9 @@ module LCD_display_string(clk, wlcd, index, PC, OPCODE, DATA, out);
 	localparam	CHAR_HYPHEN = 8'h2D, CHAR_HASHTAG = 8'h23, CHAR_AT = 8'h40, CHAR_PLUS = 8'h2B;
 	localparam	CHAR_COLLON = 8'h3A, CHAR_DOT = 8'h2E;
 	
-	localparam	OPCODE_LCD = 6'b100010;
-	localparam 	OPCODE_LCD_PGMS = 6'b100011;
-	localparam 	OPCODE_LCD_CURR = 6'b100100;
+	localparam	OPCODE_LCD = 6'b011110;
+	localparam 	OPCODE_LCD_PGMS = 6'b011111;
+	localparam 	OPCODE_LCD_CURR = 6'b100000;
 
 	// Menu State Values
 	wire [CHAR_WIDTH-1:0] KERNEL_MAIN_MENU_STRING [0:LCD_WIDTH-1];
