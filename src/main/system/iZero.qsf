@@ -208,7 +208,6 @@ set_global_assignment -name VERILOG_FILE ../modules/controlador_bios/controlador
 set_global_assignment -name VERILOG_FILE ../modules/disco_rigido/disco_rigido.v
 
 set_global_assignment -name VERILOG_FILE ../modules/delay_button/delay_button.v
-
 set_global_assignment -name VERILOG_FILE ../modules/mmu/mmu.v
 set_global_assignment -name VERILOG_FILE ../modules/controlador_interrupcao/controlador_interrupcao.v
 set_global_assignment -name VERILOG_FILE ../modules/modulo_input/modulo_input.v
@@ -248,15 +247,23 @@ set_location_assignment PIN_AD27 -to SW[3]
 set_location_assignment PIN_AC27 -to SW[2]
 set_location_assignment PIN_AC28 -to SW[1]
 set_location_assignment PIN_AB28 -to SW[0]
-
 set_global_assignment -name VERILOG_FILE ../modules/watchdog/watchdog.v
-
-
-
-
-
-
-
-
 set_global_assignment -name VERILOG_FILE ../modules/arduino_driver/arduino_driver.v
+set_location_assignment PIN_AB22 -to GPIO_IN[0]
+set_location_assignment PIN_AC15 -to GPIO_IN[1]
+set_location_assignment PIN_AB21 -to GPIO_IN[2]
+set_location_assignment PIN_Y17 -to GPIO_IN[3]
+set_location_assignment PIN_AC21 -to GPIO_IN[4]
+set_location_assignment PIN_Y16 -to GPIO_IN[5]
+set_location_assignment PIN_AD21 -to GPIO_IN[6]
+set_location_assignment PIN_AE16 -to GPIO_IN[7]
+set_location_assignment PIN_AH22 -to GPIO_OUT[0]
+set_location_assignment PIN_AF26 -to GPIO_OUT[1]
+set_location_assignment PIN_AE20 -to GPIO_OUT[2]
+set_location_assignment PIN_AG23 -to GPIO_OUT[3]
+set_location_assignment PIN_AF20 -to GPIO_OUT[4]
+set_location_assignment PIN_AH26 -to GPIO_OUT[5]
+set_location_assignment PIN_AH23 -to GPIO_OUT[6]
+set_location_assignment PIN_AG26 -to GPIO_OUT[7]
+
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top
