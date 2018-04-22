@@ -55,8 +55,8 @@ agreement for further details.
 	(port
 		(pt 0 96)
 		(input)
-		(text "module_input[7..0]" (rect 0 0 71 12)(font "Arial" ))
-		(text "module_input[7..0]" (rect 21 91 92 103)(font "Arial" ))
+		(text "module_input[31..0]" (rect 0 0 75 12)(font "Arial" ))
+		(text "module_input[31..0]" (rect 21 91 96 103)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port

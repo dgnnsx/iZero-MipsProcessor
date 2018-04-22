@@ -92,9 +92,9 @@ agreement for further details.
 )
 (pin
 	(input)
-	(rect 1808 912 1976 928)
+	(rect 1768 912 1936 928)
 	(text "INPUT" (rect 125 0 154 9)(font "Arial" (font_size 6)))
-	(text "GPIO_IN[7..0]" (rect 5 0 73 10)(font "Arial" ))
+	(text "GPIO_IN[7..0]" (rect 5 0 72 10)(font "Arial" ))
 	(pt 168 8)
 	(drawing
 		(line (pt 84 12)(pt 109 12))
@@ -105,7 +105,7 @@ agreement for further details.
 		(line (pt 109 12)(pt 113 8))
 	)
 	(text "VCC" (rect 128 7 149 16)(font "Arial" (font_size 6)))
-	(annotation_block (location)(rect 1736 928 1808 944))
+	(annotation_block (location)(rect 1696 928 1768 944))
 )
 (pin
 	(output)
@@ -1489,7 +1489,7 @@ agreement for further details.
 	)
 )
 (symbol
-	(rect 1824 600 1944 680)
+	(rect 1808 600 1928 680)
 	(text "delay_button" (rect 53 0 115 10)(font "Arial" ))
 	(text "inst26" (rect 83 64 112 74)(font "Arial" ))
 	(port
@@ -2116,8 +2116,8 @@ agreement for further details.
 	(port
 		(pt 0 96)
 		(input)
-		(text "module_input[7..0]" (rect 0 0 87 10)(font "Arial" ))
-		(text "module_input[7..0]" (rect 21 91 108 101)(font "Arial" ))
+		(text "module_input[31..0]" (rect 0 0 93 10)(font "Arial" ))
+		(text "module_input[31..0]" (rect 21 91 114 101)(font "Arial" ))
 		(line (pt 0 96)(pt 16 96)(line_width 3))
 	)
 	(port
@@ -3082,11 +3082,6 @@ agreement for further details.
 	(pt 1976 528)
 )
 (connector
-	(pt 1328 576)
-	(pt 1976 576)
-	(bus)
-)
-(connector
 	(pt 1328 64)
 	(pt 1328 576)
 	(bus)
@@ -3503,22 +3498,6 @@ agreement for further details.
 (connector
 	(pt 1600 304)
 	(pt 1600 432)
-)
-(connector
-	(pt 1968 632)
-	(pt 1944 632)
-)
-(connector
-	(pt 704 632)
-	(pt 1824 632)
-)
-(connector
-	(pt 704 872)
-	(pt 704 632)
-)
-(connector
-	(pt 1976 648)
-	(pt 1944 648)
 )
 (connector
 	(pt 1968 456)
@@ -4085,6 +4064,26 @@ agreement for further details.
 	(bus)
 )
 (connector
+	(pt 2144 664)
+	(pt 2176 664)
+)
+(connector
+	(pt 704 632)
+	(pt 1808 632)
+)
+(connector
+	(pt 704 872)
+	(pt 704 632)
+)
+(connector
+	(pt 1928 632)
+	(pt 1968 632)
+)
+(connector
+	(pt 1928 648)
+	(pt 1976 648)
+)
+(connector
 	(pt 1968 872)
 	(pt 1976 872)
 )
@@ -4115,6 +4114,21 @@ agreement for further details.
 	(bus)
 )
 (connector
+	(pt 1936 920)
+	(pt 1976 920)
+	(bus)
+)
+(connector
+	(pt 1944 936)
+	(pt 1976 936)
+	(bus)
+)
+(connector
+	(pt 1944 576)
+	(pt 1944 936)
+	(bus)
+)
+(connector
 	(pt 1600 512)
 	(pt 1960 512)
 )
@@ -4123,16 +4137,22 @@ agreement for further details.
 	(pt 1976 512)
 )
 (connector
+	(pt 1328 576)
+	(pt 1944 576)
+	(bus)
+)
+(connector
+	(pt 1944 576)
+	(pt 1976 576)
+	(bus)
+)
+(connector
 	(pt 1968 496)
 	(pt 1968 632)
 )
 (connector
 	(pt 1968 632)
 	(pt 1968 872)
-)
-(connector
-	(pt 2144 664)
-	(pt 2176 664)
 )
 (junction (pt 1856 0))
 (junction (pt 632 80))
@@ -4181,3 +4201,4 @@ agreement for further details.
 (junction (pt 736 -216))
 (junction (pt 1968 632))
 (junction (pt 1960 512))
+(junction (pt 1944 576))
