@@ -94,6 +94,8 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	wire i_gip					= op[5] & ~op[4] & ~op[3] & ~op[2] & op[1] & op[0];		// 100011
 	wire i_pre_io				= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & ~op[0];		// 100100
 	
+	wire i_lcd_data			= op[5] & ~op[4] & ~op[3] & op[2] & ~op[1] & op[0];		// 100101 - opcode atrelado a [LCD_Display.v]
+	
 	/******************************** INICIO DOS OPCODES FIXOS ********************************/
 	wire i_syscall				= op[5] & op[4] & op[3] & ~op[2] & ~op[1] & op[0];			// 111001 - opcode atrelado a [controlador_interrupcao.v; kernel.c]
 	wire i_exec					= op[5] & op[4] & op[3] & ~op[2] & op[1] & ~op[0];			// 111010
@@ -131,7 +133,7 @@ module unidade_de_controle(isFalse, isInput, intr, rst, rstBios, op, func, inta,
 	assign outWrite			= i_out;
 	assign isHalt				= i_halt;
 	assign isInsert			= i_in & isInput;
-	assign wlcd					= i_lcd	| i_lcd_pgms	| i_lcd_curr;
+	assign wlcd					= i_lcd	| i_lcd_pgms	| i_lcd_curr	| i_lcd_data;
 	assign reset				= ~rst | rstBios;
 	assign userMode			= i_exec	| i_exec_again;
 	assign kernelMode			= i_syscall;
